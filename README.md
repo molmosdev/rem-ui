@@ -1,6 +1,14 @@
-# RealmUiAngularWorkspace
+# realm-ui (Angular Workspace)
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+
+## Working with the library
+
+To work with the library, you need to clone the library repository into the `.projects/realm-ui-angular` folder inside this workspace. Use the following command:
+
+```bash
+git clone https://github.com/molmosdev/realm-ui-angular .projects/realm-ui-angular
+```
 
 ## Development server
 
