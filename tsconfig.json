@@ -14,6 +14,9 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
+    "paths": {
+      "realm-ui-angular": ["./dist/realm-ui-angular"]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022"
