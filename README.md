@@ -4,10 +4,10 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Working with the library
 
-To work with the library, you need to clone the library repository into the `.projects/realm-ui-angular` folder inside this workspace. Use the following command:
+To work with the library, you need to clone the library repository into the `.projects` folder inside this workspace. Use the following command:
 
 ```bash
-git clone https://github.com/molmosdev/realm-ui-angular .projects/realm-ui-angular
+git clone https://github.com/molmosdev/realm-ui-angular .projects
 ```
 
 ## Development server
