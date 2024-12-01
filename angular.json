@@ -30,8 +30,21 @@
             "tsConfig": "projects/realm-ui-angular/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/realm-ui-angular/**/*.ts",
+              "projects/realm-ui-angular/**/*.html"
+            ],
+            "eslintConfig": "projects/realm-ui-angular/eslint.config.js"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": ["angular-eslint"]
   }
 }
