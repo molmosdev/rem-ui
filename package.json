@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build realm-ui-angular",
     "watch": "ng build realm-ui-angular --watch --configuration development",
+    "publish": "node publish.js",
     "test": "ng test",
     "lint": "ng lint"
   },
