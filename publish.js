@@ -3,39 +3,49 @@ const { exec } = require("child_process");
 const path = require("path");
 const semver = require("semver");
 
-// Path to the package.json of the realm-ui-angular project
+// Detect project from argument
+const project = process.argv[3] || "realm-ui-angular"; // 'realm-ui-angular' by default
+
+// Path to the project's package.json
 const packageJsonPath = path.join(
   __dirname,
   "projects",
-  "realm-ui-angular",
+  project,
   "package.json"
 );
 
-// Read the package.json file
+// Read and update the version in package.json
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-
-// Increment the version based on the type of release
-const releaseType = process.argv[2] || "patch"; // default to 'patch' if no argument is provided
+const releaseType = process.argv[2] || "patch";
 packageJson.version = semver.inc(packageJson.version, releaseType);
-
-// Save the package.json file with the new version
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), "utf8");
 
-// Execute ng build realm-ui-angular
-exec("ng build realm-ui-angular", (err, stdout, stderr) => {
+// Execute ng build for the corresponding project
+exec(`ng build ${project}`, (err, stdout, stderr) => {
   if (err) {
     console.error(`Error executing ng build: ${stderr}`);
     process.exit(1);
   }
   console.log(stdout);
 
-  // Change to the dist/realm-ui-angular directory and execute npm publish
-  const distPath = path.join(__dirname, "dist", "realm-ui-angular");
-  exec(`cd ${distPath} && npm publish`, (err, stdout, stderr) => {
-    if (err) {
-      console.error(`Error executing npm publish: ${stderr}`);
-      process.exit(1);
+  // Path to the project's output directory (dist)
+  const distPath = path.join(__dirname, "dist", project);
+
+  // Check if package.json is in dist, if not, copy it manually
+  const distPackageJsonPath = path.join(distPath, "package.json");
+  if (!fs.existsSync(distPackageJsonPath)) {
+    fs.copyFileSync(packageJsonPath, distPackageJsonPath);
+  }
+
+  // Publish to npm
+  exec(
+    `cd ${distPath} && npm publish --access public`,
+    (err, stdout, stderr) => {
+      if (err) {
+        console.error(`Error executing npm publish: ${stderr}`);
+        process.exit(1);
+      }
+      console.log(stdout);
     }
-    console.log(stdout);
-  });
+  );
 });
