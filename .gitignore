@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # Libraries
-projects/realm-ui-angular/*
+projects/realm-ui-angular/
