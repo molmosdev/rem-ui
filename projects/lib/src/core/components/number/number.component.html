@@ -1,0 +1,35 @@
+<input
+  (keyup)="updateValue($event)"
+  [disabled]="disabled()"
+  [value]="displayValue()"
+  [ngClass]="{
+    'has-label': label(),
+    'has-value': displayValue(),
+    error: error(),
+  }"
+  type="text" />
+@if (label()) {
+  <label
+    [ngClass]="{
+      'has-value': displayValue(),
+      error: error(),
+    }">
+    {{ label() }}
+  </label>
+}
+@if (valueType() !== 'integer' || suffix()) {
+  <div class="suffix-or-type" [ngClass]="{ error: error() }">
+    @if (suffix()) {
+      {{ suffix() }}
+    } @else {
+      @switch (valueType()) {
+        @case ('currency') {
+          €
+        }
+        @case ('percentage') {
+          %
+        }
+      }
+    }
+  </div>
+}

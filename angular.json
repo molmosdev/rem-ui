@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "realm-ui-angular": {
+    "lib": {
       "projectType": "library",
-      "root": "projects/realm-ui-angular",
-      "sourceRoot": "projects/realm-ui-angular/src",
-      "prefix": "r",
+      "root": "projects/lib",
+      "sourceRoot": "projects/lib/src",
+      "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
-            "project": "projects/realm-ui-angular/ng-package.json"
+            "project": "projects/lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/realm-ui-angular/tsconfig.lib.prod.json"
+              "tsConfig": "projects/lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/realm-ui-angular/tsconfig.lib.json"
+              "tsConfig": "projects/lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,41 +27,39 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/realm-ui-angular/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
+            "tsConfig": "projects/lib/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/realm-ui-angular/**/*.ts",
-              "projects/realm-ui-angular/**/*.html"
+              "projects/lib/**/*.ts",
+              "projects/lib/**/*.html"
             ],
-            "eslintConfig": "projects/realm-ui-angular/eslint.config.js"
+            "eslintConfig": "projects/lib/eslint.config.js"
           }
         }
       }
     },
-    "realm-ui-web-components": {
+    "elements": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/realm-ui-web-components",
-      "sourceRoot": "projects/realm-ui-web-components/src",
+      "root": "projects/elements",
+      "sourceRoot": "projects/elements/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/realm-ui-web-components",
-            "index": "projects/realm-ui-web-components/src/index.html",
-            "browser": "projects/realm-ui-web-components/src/main.ts",
-            "polyfills": [],
-            "tsConfig": "projects/realm-ui-web-components/tsconfig.app.json",
+            "outputPath": "dist/elements",
+            "index": "projects/elements/src/index.html",
+            "browser": "projects/elements/src/main.ts",
+            "tsConfig": "projects/elements/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/realm-ui-web-components/public"
+                "input": "projects/elements/public"
               }
             ],
             "styles": [],
@@ -95,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "realm-ui-web-components:build:production"
+              "buildTarget": "elements:build:production"
             },
             "development": {
-              "buildTarget": "realm-ui-web-components:build:development"
+              "buildTarget": "elements:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,15 +107,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [],
-            "tsConfig": "projects/realm-ui-web-components/tsconfig.spec.json",
+            "tsConfig": "projects/elements/tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/realm-ui-web-components/public"
+                "input": "projects/elements/public"
               }
             ],
-            "styles": [],
+            "styles": ["projects/elements/src/styles.css"],
             "scripts": []
           }
         },
@@ -125,10 +122,10 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/realm-ui-web-components/**/*.ts",
-              "projects/realm-ui-web-components/**/*.html"
+              "projects/elements/**/*.ts",
+              "projects/elements/**/*.html"
             ],
-            "eslintConfig": "projects/realm-ui-web-components/eslint.config.js"
+            "eslintConfig": "projects/elements/eslint.config.js"
           }
         }
       }

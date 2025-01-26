@@ -1,0 +1,10 @@
+<div
+  class="row-container"
+  [ngClass]="{
+    clickable: clickable(),
+    header: header(),
+    subheader: subheader(),
+    highlighted: highlighted(),
+  }">
+  <ng-content />
+</div>

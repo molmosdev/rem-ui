@@ -7,6 +7,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "lib": ["./dist/lib"]
+    },
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -14,9 +17,6 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
-    "paths": {
-      "realm-ui-angular": ["./dist/realm-ui-angular"]
-    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022"

@@ -1,0 +1,27 @@
+@if (show()) {
+  <span
+    tabindex="0"
+    @fadeInOutTrigger
+    class="background"
+    (click)="close()"
+    [ngClass]="{ 'click-outside': clickOutside() }"></span>
+  <div
+    class="dialog"
+    [ngClass]="{
+      'mobile-bottom-active': mobileBottomActive(),
+      'dialog-open': show(),
+    }"
+    [@fadeInOutTrigger]="{
+      value: '',
+      params: {
+        translateFrom: 'translateY(15px)',
+        translateTo: 'translateY(0)',
+      },
+    }">
+    @if (lazyContent()) {
+      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!"></ng-container>
+    } @else {
+      <ng-content />
+    }
+  </div>
+}

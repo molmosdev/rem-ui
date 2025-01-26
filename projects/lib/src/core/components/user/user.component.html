@@ -1,0 +1,22 @@
+<input
+  type="text"
+  [id]="id()"
+  autocomplete="current-user"
+  #user
+  [placeholder]="placeholder()"
+  (input)="changeEmitter.emit(user.value)"
+  [ngClass]="{
+    'has-label': label(),
+    'has-value': user.value,
+    error: error(),
+  }" />
+@if (label()) {
+  <label
+    [for]="id()"
+    [ngClass]="{
+      'has-value': user.value,
+      error: error(),
+    }">
+    {{ label() }}
+  </label>
+}

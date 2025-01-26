@@ -1,0 +1,8 @@
+<span
+  tabindex="0"
+  (click)="onSelect()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  [ngClass]="{ selected: selected(), highlighted: highlighted() }">
+  <ng-content
+/></span>
