@@ -1,16 +1,15 @@
 # realm-ui (Angular Workspace)
 
+Welcome to the realm-ui Angular Workspace! This workspace is designed to house the `realm-ui` library of Angular components and the `elements` application that exports these components as custom elements (web components). The `realm-ui` library is available on npm under the organization [@realm-ui](https://www.npmjs.com/org/realm-ui).
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
 
-## Development server
+## Projects
 
-To start a local development server, run:
+This workspace contains two main projects:
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- `lib`: The Angular library of components (`@realm-ui/angular` on npm).
+- `elements`: The application that exports the components as custom elements (`@realm-ui/elements` on npm).
 
 ## Code scaffolding
 
@@ -28,10 +27,16 @@ ng generate --help
 
 ## Building
 
-To build the project run:
+To build the `lib` project, run:
 
 ```bash
-ng build
+npm run build:lib
+```
+
+To build the `elements` project, run:
+
+```bash
+npm run build:elements
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
@@ -53,6 +58,24 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Versioning
+
+To update the version of the `lib` project, run:
+
+```bash
+npm run patch:lib
+npm run minor:lib
+npm run major:lib
+```
+
+To update the version of the `elements` project, run:
+
+```bash
+npm run patch:elements
+npm run minor:elements
+npm run major:elements
+```
 
 ## Additional Resources
 
