@@ -1,6 +1,6 @@
 {
   "name": "@realm-ui/elements",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "Realm-ui components exported as Custom Elements (also known as Web Components)",
   "main": "browser/main.js",
   "author": "molmos",
