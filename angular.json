@@ -64,7 +64,7 @@
                 "input": "projects/realm-ui-web-components/public"
               }
             ],
-            "styles": ["projects/realm-ui-web-components/src/styles.css"],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
@@ -117,7 +117,7 @@
                 "input": "projects/realm-ui-web-components/public"
               }
             ],
-            "styles": ["projects/realm-ui-web-components/src/styles.css"],
+            "styles": [],
             "scripts": []
           }
         },

@@ -9,11 +9,12 @@
     "patch:lib": "node publish.js patch realm-ui-angular",
     "minor:lib": "node publish.js minor realm-ui-angular",
     "major:lib": "node publish.js major realm-ui-angular",
-    "build:app": "ng build realm-ui-web-components",
+    "build:app": "ng build realm-ui-web-components --output-hashing=none",
     "patch:app": "node publish.js patch realm-ui-web-components",
     "minor:app": "node publish.js minor realm-ui-web-components",
     "major:app": "node publish.js major realm-ui-web-components",
     "test": "ng test",
+    "format": "prettier --write .",
     "lint": "ng lint"
   },
   "private": true,
@@ -27,6 +28,7 @@
     "@angular/platform-browser": "^19.1.3",
     "@angular/platform-browser-dynamic": "^19.1.3",
     "@angular/router": "^19.1.3",
+    "@realm-ui/angular": "^1.4.0",
     "rxjs": "~7.8.0",
     "semver": "^7.6.3",
     "tslib": "^2.3.0",
@@ -47,6 +49,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.0",
     "typescript": "~5.6.2",
-    "typescript-eslint": "8.16.0"
+    "typescript-eslint": "8.16.0",
+    "prettier": "^3.4.1"
   }
 }
