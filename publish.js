@@ -25,7 +25,7 @@ fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8');
 if (project === 'lib') {
   execSync('npm run build:lib', { stdio: 'inherit' });
 } else if (project === 'elements') {
-  execSync('npm run build:app', { stdio: 'inherit' });
+  execSync('npm run build:elements', { stdio: 'inherit' });
 }
 
 // Path to the project's output directory (dist)
