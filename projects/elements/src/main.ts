@@ -28,7 +28,7 @@ import {
   VerticalNav,
   VerticalNavGroup,
   VerticalNavItem,
-} from '@realm-ui/angular';
+} from '@rem-ui/angular';
 
 createApplication(appConfig)
   .then(app => {

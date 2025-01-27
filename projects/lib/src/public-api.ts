@@ -1,5 +1,5 @@
 /*
- * Public API Surface of realm-ui-angular
+ * Public API Surface of rem-ui-angular
  */
 
 /* Animations */

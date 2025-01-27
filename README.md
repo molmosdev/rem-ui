@@ -1,6 +1,6 @@
-# realm-ui (Angular Workspace)
+# rem-ui (Angular Workspace)
 
-Welcome to the realm-ui Angular Workspace! This workspace is designed to house the `realm-ui` library of Angular components and the `elements` application that exports these components as custom elements (web components). The `realm-ui` library is available on npm under the organization [@realm-ui](https://www.npmjs.com/org/realm-ui).
+Welcome to the rem-ui Angular Workspace! This workspace is designed to house the `rem-ui` library of Angular components and the `elements` application that exports these components as custom elements (web components). The `rem-ui` library is available on npm under the organization [@rem-ui](https://www.npmjs.com/org/rem-ui).
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
 
@@ -8,8 +8,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 This workspace contains two main projects:
 
-- `lib`: The Angular library of components (`@realm-ui/angular` on npm).
-- `elements`: The application that exports the components as custom elements (`@realm-ui/elements` on npm).
+- `lib`: The Angular library of components (`@rem-ui/angular` on npm).
+- `elements`: The application that exports the components as custom elements (`@rem-ui/elements` on npm).
 
 ## Code scaffolding
 
