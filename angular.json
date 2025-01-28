@@ -240,7 +240,11 @@
             "browserTarget": "docs:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/docs"],
-            "outputDir": "dist/storybook/docs"
+            "outputDir": "dist/storybook/docs",
+            "styles": [
+              "projects/docs/src/styles.css",
+              "@rem-ui/styles/src/index.css"
+            ]
           }
         }
       }

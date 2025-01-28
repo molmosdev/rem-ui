@@ -1,365 +1,365 @@
 {
-    "pipes": [],
-    "interfaces": [],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [],
-    "directives": [],
-    "components": [
+  "pipes": [],
+  "interfaces": [],
+  "injectables": [],
+  "guards": [],
+  "interceptors": [],
+  "classes": [],
+  "directives": [],
+  "components": [
+    {
+      "name": "AppComponent",
+      "id": "component-AppComponent-05cf78efb95b92c50f93f8c7738bb364bae0bb7d0254f1b5ceca918a1f763c01dd6258b220116563bcb8989be4e9f265f1fa66c97225a506f171763b82616e8e",
+      "file": "projects/docs/src/app/app.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-root",
+      "styleUrls": [],
+      "styles": [],
+      "template": "",
+      "templateUrl": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [
         {
-            "name": "AppComponent",
-            "id": "component-AppComponent-05cf78efb95b92c50f93f8c7738bb364bae0bb7d0254f1b5ceca918a1f763c01dd6258b220116563bcb8989be4e9f265f1fa66c97225a506f171763b82616e8e",
-            "file": "projects/docs/src/app/app.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-root",
-            "styleUrls": [],
-            "styles": [],
-            "template": "",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "title",
-                    "defaultValue": "'docs'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 9
-                }
-            ],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  template: ``,\n  styles: [],\n})\nexport class AppComponent {\n  title = 'docs';\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": []
+          "name": "title",
+          "defaultValue": "'docs'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "indexKey": "",
+          "optional": false,
+          "description": "",
+          "line": 9
         }
-    ],
-    "modules": [],
-    "miscellaneous": {
-        "variables": [
-            {
-                "name": "app",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "express()"
-            },
-            {
-                "name": "appConfig",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/app/app.config.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [\n    provideExperimentalZonelessChangeDetection(),\n    provideClientHydration(withEventReplay()),\n  ],\n}"
-            },
-            {
-                "name": "bootstrap",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/main.server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => bootstrapApplication(AppComponent, config)"
-            },
-            {
-                "name": "browserDistFolder",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "resolve(serverDistFolder, '../browser')"
-            },
-            {
-                "name": "commonEngine",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "new CommonEngine()"
-            },
-            {
-                "name": "config",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/app/app.config.server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
-            },
-            {
-                "name": "indexHtml",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "join(serverDistFolder, 'index.server.html')"
-            },
-            {
-                "name": "serverConfig",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/app/app.config.server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideServerRendering()],\n}"
-            },
-            {
-                "name": "serverDistFolder",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/docs/src/server.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "dirname(fileURLToPath(import.meta.url))"
-            }
-        ],
-        "functions": [],
-        "typealiases": [],
-        "enumerations": [],
-        "groupedVariables": {
-            "projects/docs/src/server.ts": [
-                {
-                    "name": "app",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "express()"
-                },
-                {
-                    "name": "browserDistFolder",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "resolve(serverDistFolder, '../browser')"
-                },
-                {
-                    "name": "commonEngine",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "new CommonEngine()"
-                },
-                {
-                    "name": "indexHtml",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "join(serverDistFolder, 'index.server.html')"
-                },
-                {
-                    "name": "serverDistFolder",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "dirname(fileURLToPath(import.meta.url))"
-                }
-            ],
-            "projects/docs/src/app/app.config.ts": [
-                {
-                    "name": "appConfig",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/app/app.config.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [\n    provideExperimentalZonelessChangeDetection(),\n    provideClientHydration(withEventReplay()),\n  ],\n}"
-                }
-            ],
-            "projects/docs/src/main.server.ts": [
-                {
-                    "name": "bootstrap",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/main.server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => bootstrapApplication(AppComponent, config)"
-                }
-            ],
-            "projects/docs/src/app/app.config.server.ts": [
-                {
-                    "name": "config",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/app/app.config.server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
-                },
-                {
-                    "name": "serverConfig",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/docs/src/app/app.config.server.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideServerRendering()],\n}"
-                }
-            ]
-        },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {}
-    },
-    "routes": [],
-    "coverage": {
-        "count": 0,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "projects/docs/src/app/app.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AppComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/app/app.config.server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "config",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/app/app.config.server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "serverConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/app/app.config.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "appConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/main.server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "bootstrap",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "app",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "browserDistFolder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "commonEngine",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "indexHtml",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/docs/src/server.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "serverDistFolder",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            }
-        ]
+      ],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": false,
+      "imports": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  template: ``,\n  styles: [],\n})\nexport class AppComponent {\n  title = 'docs';\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": []
     }
+  ],
+  "modules": [],
+  "miscellaneous": {
+    "variables": [
+      {
+        "name": "app",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "express()"
+      },
+      {
+        "name": "appConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/app/app.config.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ApplicationConfig",
+        "defaultValue": "{\n  providers: [\n    provideExperimentalZonelessChangeDetection(),\n    provideClientHydration(withEventReplay()),\n  ],\n}"
+      },
+      {
+        "name": "bootstrap",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/main.server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "() => bootstrapApplication(AppComponent, config)"
+      },
+      {
+        "name": "browserDistFolder",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "resolve(serverDistFolder, '../browser')"
+      },
+      {
+        "name": "commonEngine",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new CommonEngine()"
+      },
+      {
+        "name": "config",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/app/app.config.server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
+      },
+      {
+        "name": "indexHtml",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "join(serverDistFolder, 'index.server.html')"
+      },
+      {
+        "name": "serverConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/app/app.config.server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ApplicationConfig",
+        "defaultValue": "{\n  providers: [provideServerRendering()],\n}"
+      },
+      {
+        "name": "serverDistFolder",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/docs/src/server.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "dirname(fileURLToPath(import.meta.url))"
+      }
+    ],
+    "functions": [],
+    "typealiases": [],
+    "enumerations": [],
+    "groupedVariables": {
+      "projects/docs/src/server.ts": [
+        {
+          "name": "app",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "express()"
+        },
+        {
+          "name": "browserDistFolder",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "resolve(serverDistFolder, '../browser')"
+        },
+        {
+          "name": "commonEngine",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new CommonEngine()"
+        },
+        {
+          "name": "indexHtml",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "join(serverDistFolder, 'index.server.html')"
+        },
+        {
+          "name": "serverDistFolder",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "dirname(fileURLToPath(import.meta.url))"
+        }
+      ],
+      "projects/docs/src/app/app.config.ts": [
+        {
+          "name": "appConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/app/app.config.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ApplicationConfig",
+          "defaultValue": "{\n  providers: [\n    provideExperimentalZonelessChangeDetection(),\n    provideClientHydration(withEventReplay()),\n  ],\n}"
+        }
+      ],
+      "projects/docs/src/main.server.ts": [
+        {
+          "name": "bootstrap",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/main.server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "() => bootstrapApplication(AppComponent, config)"
+        }
+      ],
+      "projects/docs/src/app/app.config.server.ts": [
+        {
+          "name": "config",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/app/app.config.server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
+        },
+        {
+          "name": "serverConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/docs/src/app/app.config.server.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ApplicationConfig",
+          "defaultValue": "{\n  providers: [provideServerRendering()],\n}"
+        }
+      ]
+    },
+    "groupedFunctions": {},
+    "groupedEnumerations": {},
+    "groupedTypeAliases": {}
+  },
+  "routes": [],
+  "coverage": {
+    "count": 0,
+    "status": "low",
+    "files": [
+      {
+        "filePath": "projects/docs/src/app/app.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "AppComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/2",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/app/app.config.server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "config",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/app/app.config.server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "serverConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/app/app.config.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "appConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/main.server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "bootstrap",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "app",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "browserDistFolder",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "commonEngine",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "indexHtml",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/docs/src/server.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "serverDistFolder",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      }
+    ]
+  }
 }
