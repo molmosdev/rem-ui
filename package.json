@@ -13,10 +13,7 @@
     "minor:lib": "node publish.js minor lib",
     "minor:elements": "node publish.js minor elements",
     "major:lib": "node publish.js major lib",
-    "major:elements": "node publish.js major elements",
-    "docs": "ng run docs:storybook",
-    "build:docs": "ng run docs:build-storybook",
-    "serve:ssr:docs": "node dist/docs/server/server.mjs"
+    "major:elements": "node publish.js major elements"
   },
   "private": true,
   "dependencies": {
@@ -42,17 +39,6 @@
     "@angular/build": "^19.1.4",
     "@angular/cli": "^19.0.5",
     "@angular/compiler-cli": "^19.0.0",
-    "@chromatic-com/storybook": "^3.2.4",
-    "@compodoc/compodoc": "^1.1.26",
-    "@storybook/addon-docs": "^8.5.2",
-    "@storybook/addon-essentials": "^8.5.2",
-    "@storybook/addon-interactions": "^8.5.2",
-    "@storybook/addon-onboarding": "^8.5.2",
-    "@storybook/angular": "^8.5.2",
-    "@storybook/blocks": "^8.5.2",
-    "@storybook/manager-api": "^8.5.2",
-    "@storybook/test": "^8.5.2",
-    "@storybook/theming": "^8.5.2",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
@@ -60,7 +46,6 @@
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-unused-imports": "^4.1.4",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
@@ -71,13 +56,7 @@
     "ng-packagr": "^19.1.0",
     "prettier": "^3.4.1",
     "prettier-eslint": "^16.3.0",
-    "storybook": "^8.5.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "8.18.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }
