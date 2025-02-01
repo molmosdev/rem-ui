@@ -28,6 +28,7 @@ import {
   VerticalNav,
   VerticalNavGroup,
   VerticalNavItem,
+  SidePanel,
 } from '@rem-ui/angular';
 
 createApplication(appConfig)
@@ -125,5 +126,10 @@ createApplication(appConfig)
       injector: app.injector,
     });
     customElements.define('r-vertical-nav-item', rVerticalNavItem);
+
+    const rSidePanel = createCustomElement(SidePanel, {
+      injector: app.injector,
+    });
+    customElements.define('r-side-panel', rSidePanel);
   })
   .catch(err => console.error(err));
