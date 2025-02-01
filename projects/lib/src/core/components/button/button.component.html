@@ -1,13 +1,35 @@
-<button
-  [ngClass]="type()"
-  [disabled]="disabled()"
-  tabindex="0"
-  (click)="clickEmitter.emit()">
-  @if (loading()) {
-    <r-spinner
-      [active]="loading()"
-      [size]="18"
-      color="var(--primary-foreground)" />
-  }
+@if (link()) {
+  <a
+    [ngClass]="type()"
+    [href]="link()!.href"
+    [target]="link()!.target"
+    [class.disabled]="disabled()"
+    tabindex="0"
+    (click)="!disabled() && clickEmitter.emit()">
+    @if (loading()) {
+      <r-spinner
+        [active]="loading()"
+        [size]="18"
+        color="var(--primary-foreground)" />
+    }
+    <ng-container *ngTemplateOutlet="content" />
+  </a>
+} @else {
+  <button
+    [ngClass]="type()"
+    [disabled]="disabled()"
+    tabindex="0"
+    (click)="clickEmitter.emit()">
+    @if (loading()) {
+      <r-spinner
+        [active]="loading()"
+        [size]="18"
+        color="var(--primary-foreground)" />
+    }
+    <ng-container *ngTemplateOutlet="content" />
+  </button>
+}
+
+<ng-template #content>
   <ng-content />
-</button>
+</ng-template>
