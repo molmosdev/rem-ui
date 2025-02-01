@@ -22,7 +22,7 @@ export class BottomSheet {
   /** Controls the open/closed state of the sheet. Two-way bindable property that determines if the bottom sheet is visible. */
   isOpen = model(false);
 
-  /** Sets the height of the bottom sheet. Accepts any valid CSS height value (px, %, vh, etc). */
+  /** Sets the height of the bottom sheet. Accepts any valid CSS height value (px, %, vh, etc) or 'auto'. */
   height = input('300px');
 
   /** Sets the threshold percentage for closing the sheet. When dragging, if the sheet is pulled down past this percentage of its height, it will close. */
@@ -39,6 +39,9 @@ export class BottomSheet {
 
   /** Internal signal tracking the current vertical translation */
   private currentTranslateY = signal(0);
+
+  /** Internal signal tracking the actual height of the content */
+  private contentHeight = signal(0);
 
   /** Returns CSS transform string for sheet position */
   transformStyle = computed(() => {
@@ -63,6 +66,15 @@ export class BottomSheet {
     this.isDragging.set(true);
     this.startY.set(this.getEventY(event));
     this.currentTranslateY.set(0);
+
+    // Update content height if height is 'auto'
+    if (this.height() === 'auto') {
+      const element = event.target as HTMLElement;
+      const sheet = element.closest('.bottom-sheet');
+      if (sheet) {
+        this.contentHeight.set(sheet.getBoundingClientRect().height);
+      }
+    }
   }
 
   /**
@@ -85,7 +97,9 @@ export class BottomSheet {
    * Closes the sheet with a sliding animation
    */
   private closeWithAnimation(): void {
-    const heightValue = parseInt(this.height());
+    const heightValue =
+      this.height() === 'auto' ? this.contentHeight() : parseInt(this.height());
+
     // First animate to bottom
     this.currentTranslateY.set(heightValue);
 
@@ -118,7 +132,8 @@ export class BottomSheet {
    * Handles the end of drag operation, determines whether to close or return to position
    */
   onDragEnd(): void {
-    const heightValue = parseInt(this.height());
+    const heightValue =
+      this.height() === 'auto' ? this.contentHeight() : parseInt(this.height());
     const threshold = heightValue * (this.closeThreshold() / 100);
 
     if (this.currentTranslateY() > threshold) {
