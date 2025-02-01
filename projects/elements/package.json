@@ -1,6 +1,6 @@
 {
   "name": "@rem-ui/elements",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "rem-ui components exported as Custom Elements (also known as Web Components)",
   "main": "browser/main.js",
   "author": "molmos",

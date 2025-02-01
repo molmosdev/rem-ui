@@ -29,6 +29,7 @@ import {
   VerticalNavGroup,
   VerticalNavItem,
   SideSheet,
+  BottomSheet,
 } from '@rem-ui/angular';
 
 createApplication(appConfig)
@@ -131,5 +132,10 @@ createApplication(appConfig)
       injector: app.injector,
     });
     customElements.define('r-side-sheet', rSideSheet);
+
+    const rBottomSheet = createCustomElement(BottomSheet, {
+      injector: app.injector,
+    });
+    customElements.define('r-bottom-sheet', rBottomSheet);
   })
   .catch(err => console.error(err));
