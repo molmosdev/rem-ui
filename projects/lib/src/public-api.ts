@@ -71,4 +71,4 @@ export * from './core/directives/in-viewport.directive';
 export * from './core/services/in-viewport.service';
 
 /* Side Panel */
-export * from './core/components/side-panel/side-panel.component';
+export * from './core/components/side-sheet/side-sheet.component';

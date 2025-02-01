@@ -1,9 +1,9 @@
 <div
-  class="side-panel-overlay"
+  class="side-sheet-overlay"
   [class.visible]="isOpen()"
   (click)="isOpen.set(false)"></div>
 <div
-  class="side-panel"
+  class="side-sheet"
   [class.open]="isOpen()"
   [class.left]="isLeft()"
   [class.right]="isRight()"
@@ -24,7 +24,7 @@
       <path d="m6 6 12 12" />
     </svg>
   </button>
-  <div class="side-panel-content">
+  <div class="side-sheet-content">
     <ng-content></ng-content>
   </div>
 </div>
