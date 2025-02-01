@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
     '[class.side-panel-container]': 'true',
   },
 })
-export class SidePanelComponent {
+export class SidePanel {
   /** Controls the open/closed state of the panel. Two-way bindable. */
   isOpen = model(false);
 
