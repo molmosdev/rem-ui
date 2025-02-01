@@ -70,5 +70,8 @@ export * from './core/components/vertical-nav/components/vertical-nav-item/verti
 export * from './core/directives/in-viewport.directive';
 export * from './core/services/in-viewport.service';
 
-/* Side Panel */
+/* Side Sheet */
 export * from './core/components/side-sheet/side-sheet.component';
+
+/* Bottom Sheet */
+export * from './core/components/bottom-sheet/bottom-sheet.component';

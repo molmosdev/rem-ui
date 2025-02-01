@@ -1,0 +1,22 @@
+<div
+  class="bottom-sheet-overlay"
+  [class.visible]="isOpen()"
+  (click)="onOverlayClick()"></div>
+
+<div
+  class="bottom-sheet"
+  [class.visible]="isOpen()"
+  [style.transform]="transformStyle()"
+  [style.transition]="transitionStyle()"
+  [style.height]="height()"
+  (mousedown)="onDragStart($event)"
+  (touchstart)="onDragStart($event)"
+  (mousemove)="onDragMove($event)"
+  (touchmove)="onDragMove($event)"
+  (mouseup)="onDragEnd()"
+  (mouseleave)="onDragEnd()"
+  (touchend)="onDragEnd()"
+  (touchcancel)="onDragEnd()">
+  <div class="drag-indicator"></div>
+  <ng-content></ng-content>
+</div>
