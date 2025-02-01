@@ -69,3 +69,6 @@ export * from './core/components/vertical-nav/components/vertical-nav-item/verti
 /* InViewport */
 export * from './core/directives/in-viewport.directive';
 export * from './core/services/in-viewport.service';
+
+/* Side Panel */
+export * from './core/components/side-panel/side-panel.component';
