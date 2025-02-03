@@ -35,6 +35,7 @@
     "@rem-ui/angular": "^0.3.8",
     "@rem-ui/styles": "^0.0.22",
     "express": "^4.18.2",
+    "lucide-static": "^0.473.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

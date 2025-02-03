@@ -1,14 +1,32 @@
 :host {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  height: 100dvh;
   box-sizing: border-box;
+  justify-content: space-between;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .components-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    overflow-y: scroll;
-  }
+.intro-section {
+  text-align: center;
+  padding: 0.8rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+}
+
+.components-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  overflow-y: scroll;
 }

@@ -37,4 +37,8 @@ export class AppComponent {
       );
     });
   }
+
+  toggleDarkMode() {
+    this.themeService.setDarkMode(!this.isDarkMode());
+  }
 }
