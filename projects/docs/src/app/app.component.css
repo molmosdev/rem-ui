@@ -30,3 +30,18 @@ h1 {
   padding: 0 1.5rem 1.5rem 1.5rem;
   overflow-y: scroll;
 }
+
+.npm-packages {
+  font-size: 0.9rem;
+
+  code {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+    background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 5%);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-color);
+  }
+}
