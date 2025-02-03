@@ -15,6 +15,7 @@
     "major:lib": "node publish.js major lib",
     "major:elements": "node publish.js major elements",
     "serve:docs": "ng serve docs",
+    "build:docs": "ng build docs",
     "serve:ssr:docs": "node dist/docs/server/server.mjs"
   },
   "private": true,
