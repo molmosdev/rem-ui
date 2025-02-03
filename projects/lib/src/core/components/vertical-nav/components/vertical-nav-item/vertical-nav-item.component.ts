@@ -1,9 +1,9 @@
-import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'r-vertical-nav-item',
-  imports: [NgClass],
+  standalone: true,
+  imports: [],
   templateUrl: './vertical-nav-item.component.html',
 })
 export class VerticalNavItem {

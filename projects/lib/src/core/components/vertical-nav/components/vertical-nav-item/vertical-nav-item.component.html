@@ -1,8 +1,14 @@
-<div class="item-wrapper" [ngClass]="{ active: active() }">
-  <div class="item-icon">
-    <ng-content select="[r-vertical-nav-item-icon]" />
-  </div>
-  <div class="item-text">
-    <ng-content />
+<div
+  class="item-wrapper"
+  [class.active]="active()"
+  [class.disabled]="disabled()"
+  role="button"
+  [attr.tabindex]="disabled() ? -1 : 0">
+  <div class="item-content">
+    <ng-content select="[r-item-prefix]" />
+    <div class="item-text">
+      <ng-content />
+    </div>
+    <ng-content select="[r-item-suffix]" />
   </div>
 </div>

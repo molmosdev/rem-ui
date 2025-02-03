@@ -3,6 +3,8 @@ import { VerticalNavItem } from '../vertical-nav-item/vertical-nav-item.componen
 
 @Component({
   selector: 'r-vertical-nav-group',
+  standalone: true,
+  imports: [],
   templateUrl: './vertical-nav-group.component.html',
 })
 export class VerticalNavGroup {
@@ -26,7 +28,7 @@ export class VerticalNavGroup {
    * Set the state of the sidebar recursively
    * @param {VerticalNavGroup} group - The group to set the state for
    */
-  setRecursiveGroupsState(group: VerticalNavGroup): void {
+  private setRecursiveGroupsState(group: VerticalNavGroup): void {
     group.expanded.set(false);
     group.groups().forEach(group => {
       this.setRecursiveGroupsState(group);
