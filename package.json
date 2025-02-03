@@ -13,7 +13,9 @@
     "minor:lib": "node publish.js minor lib",
     "minor:elements": "node publish.js minor elements",
     "major:lib": "node publish.js major lib",
-    "major:elements": "node publish.js major elements"
+    "major:elements": "node publish.js major elements",
+    "serve:docs": "ng serve docs",
+    "serve:ssr:docs": "node dist/docs/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@angular/ssr": "^19.1.5",
     "@rem-ui/angular": "^0.3.8",
     "@rem-ui/styles": "^0.0.1",
     "express": "^4.18.2",
