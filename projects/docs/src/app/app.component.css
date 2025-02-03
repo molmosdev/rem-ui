@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  .components-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    overflow-y: scroll;
+  }
+}
