@@ -16,7 +16,8 @@
     "major:elements": "node publish.js major elements",
     "serve:docs": "ng serve docs",
     "build:docs": "ng build docs",
-    "serve:ssr:docs": "node dist/docs/server/server.mjs"
+    "serve:ssr:docs": "node dist/docs/server/server.mjs",
+    "deploy:docs": "npm run format && npm run lint && vercel --prod"
   },
   "private": true,
   "dependencies": {
