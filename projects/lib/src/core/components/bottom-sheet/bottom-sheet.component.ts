@@ -94,11 +94,27 @@ export class BottomSheet {
   }
 
   /**
+   * Gets the numeric height value in pixels regardless of the input unit
+   * @returns The height in pixels
+   */
+  private getHeightInPixels(): number {
+    if (this.height() === 'auto') {
+      return this.contentHeight();
+    }
+
+    const element = document.createElement('div');
+    element.style.height = this.height();
+    document.body.appendChild(element);
+    const heightInPixels = element.getBoundingClientRect().height;
+    document.body.removeChild(element);
+    return heightInPixels;
+  }
+
+  /**
    * Closes the sheet with a sliding animation
    */
   private closeWithAnimation(): void {
-    const heightValue =
-      this.height() === 'auto' ? this.contentHeight() : parseInt(this.height());
+    const heightValue = this.getHeightInPixels();
 
     // First animate to bottom
     this.currentTranslateY.set(heightValue);
@@ -132,8 +148,7 @@ export class BottomSheet {
    * Handles the end of drag operation, determines whether to close or return to position
    */
   onDragEnd(): void {
-    const heightValue =
-      this.height() === 'auto' ? this.contentHeight() : parseInt(this.height());
+    const heightValue = this.getHeightInPixels();
     const threshold = heightValue * (this.closeThreshold() / 100);
 
     if (this.currentTranslateY() > threshold) {
