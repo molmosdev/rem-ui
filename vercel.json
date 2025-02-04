@@ -1,4 +1,5 @@
 {
   "buildCommand": "npm run build:docs",
-  "devCommand": "npm run serve:ssr:docs"
+  "devCommand": "npm run serve:ssr:docs",
+  "outputDirectory": "dist/docs/browser"
 }
