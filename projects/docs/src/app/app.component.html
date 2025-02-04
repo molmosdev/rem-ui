@@ -21,31 +21,94 @@
     }
   </r-button>
 </div>
+@if (isMobile()) {
+  <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="60dvh">
+    <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+  </r-bottom-sheet>
+} @else {
+  <r-side-sheet [(isOpen)]="componentsBottomSheet" side="left">
+    <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+  </r-side-sheet>
+}
 
-<r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="60dvh">
+<ng-template #componentsList>
   <div class="components-list">
+    <div class="banner">
+      Documentation for components with the construction sign is not ready yet.
+    </div>
     <r-vertical-nav extendedWidth="100%">
       <r-vertical-nav-section
         title="Components"
         (click)="componentsBottomSheet.set(false)">
-        <r-vertical-nav-item>Button</r-vertical-nav-item>
-        <r-vertical-nav-item>Dialog</r-vertical-nav-item>
-        <r-vertical-nav-item>Dropdown</r-vertical-nav-item>
-        <r-vertical-nav-item>Number</r-vertical-nav-item>
-        <r-vertical-nav-item>Password</r-vertical-nav-item>
-        <r-vertical-nav-item>Search</r-vertical-nav-item>
-        <r-vertical-nav-item>Select</r-vertical-nav-item>
-        <r-vertical-nav-item>Spinner</r-vertical-nav-item>
-        <r-vertical-nav-item>Switch</r-vertical-nav-item>
-        <r-vertical-nav-item>Table</r-vertical-nav-item>
-        <r-vertical-nav-item>Tabs</r-vertical-nav-item>
-        <r-vertical-nav-item>Text</r-vertical-nav-item>
-        <r-vertical-nav-item>Textarea</r-vertical-nav-item>
-        <r-vertical-nav-item>User</r-vertical-nav-item>
-        <r-vertical-nav-item>Vertical Nav</r-vertical-nav-item>
-        <r-vertical-nav-item>Side Sheet</r-vertical-nav-item>
-        <r-vertical-nav-item> Bottom Sheet </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Button
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Dialog
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Dropdown
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Number
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Password
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Search
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Select
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Spinner
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Switch
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Table
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Tabs
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Text
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Textarea
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          User
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Vertical Nav
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Side Sheet
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Bottom Sheet
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
       </r-vertical-nav-section>
     </r-vertical-nav>
   </div>
-</r-bottom-sheet>
+</ng-template>

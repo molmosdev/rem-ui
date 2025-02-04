@@ -12,8 +12,11 @@ import {
   VerticalNav,
   VerticalNavItem,
   VerticalNavSection,
+  ResponsiveService,
+  SideSheet,
 } from '../../../lib/src/public-api';
 import { ThemeService } from './core/services/theme.service';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +26,8 @@ import { ThemeService } from './core/services/theme.service';
     VerticalNav,
     VerticalNavItem,
     VerticalNavSection,
+    NgTemplateOutlet,
+    SideSheet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -34,6 +39,10 @@ export class AppComponent {
   renderer = inject(Renderer2);
   isFirstRender = true;
   isDarkMode = computed(() => this.themeService.isDarkMode());
+  responsiveService = inject(ResponsiveService);
+  isMobile = computed(
+    () => this.responsiveService.currentDevice() === 'mobile'
+  );
 
   constructor() {
     afterRenderEffect(() => {
