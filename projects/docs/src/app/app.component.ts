@@ -6,12 +6,24 @@ import {
   Renderer2,
   signal,
 } from '@angular/core';
-import { Button, BottomSheet } from '../../../lib/src/public-api';
+import {
+  Button,
+  BottomSheet,
+  VerticalNav,
+  VerticalNavItem,
+  VerticalNavSection,
+} from '../../../lib/src/public-api';
 import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
-  imports: [Button, BottomSheet],
+  imports: [
+    Button,
+    BottomSheet,
+    VerticalNav,
+    VerticalNavItem,
+    VerticalNavSection,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

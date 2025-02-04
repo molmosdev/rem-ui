@@ -28,7 +28,7 @@ h1 {
   flex-direction: column;
   gap: 0.5rem;
   padding: 0 1.5rem 1.5rem 1.5rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .npm-packages {
@@ -41,7 +41,20 @@ h1 {
     background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 5%);
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Geist Mono', monospace;
     color: var(--text-color);
+  }
+}
+
+.bottom-controls {
+  display: flex;
+  gap: 1rem;
+
+  r-button:first-child {
+    flex: 1;
+  }
+
+  i {
+    font-size: 1.4rem;
   }
 }

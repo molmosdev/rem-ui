@@ -9,27 +9,43 @@
     <code>npm install &#64;rem-ui/elements</code>
   </p>
 </div>
-<r-button type="secondary" (click)="componentsBottomSheet.set(true)">
-  Browse Components
-</r-button>
-<r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="400px">
+<div class="bottom-controls">
+  <r-button type="secondary" (click)="componentsBottomSheet.set(true)">
+    Browse Components
+  </r-button>
+  <r-button type="secondary" (click)="toggleDarkMode()">
+    @if (isDarkMode()) {
+      <i class="icon-sun"></i>
+    } @else {
+      <i class="icon-moon"></i>
+    }
+  </r-button>
+</div>
+
+<r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="60dvh">
   <div class="components-list">
-    <r-button type="secondary">Button</r-button>
-    <r-button type="secondary">Dialog</r-button>
-    <r-button type="secondary">Dropdown</r-button>
-    <r-button type="secondary">Number</r-button>
-    <r-button type="secondary">Password</r-button>
-    <r-button type="secondary">Search</r-button>
-    <r-button type="secondary">Select</r-button>
-    <r-button type="secondary">Spinner</r-button>
-    <r-button type="secondary">Switch</r-button>
-    <r-button type="secondary">Table</r-button>
-    <r-button type="secondary">Tabs</r-button>
-    <r-button type="secondary">Text</r-button>
-    <r-button type="secondary">Textarea</r-button>
-    <r-button type="secondary">User</r-button>
-    <r-button type="secondary">Vertical Nav</r-button>
-    <r-button type="secondary">Side Sheet</r-button>
-    <r-button type="secondary">Bottom Sheet</r-button>
+    <r-vertical-nav extendedWidth="100%">
+      <r-vertical-nav-section
+        title="Components"
+        (click)="componentsBottomSheet.set(false)">
+        <r-vertical-nav-item>Button</r-vertical-nav-item>
+        <r-vertical-nav-item>Dialog</r-vertical-nav-item>
+        <r-vertical-nav-item>Dropdown</r-vertical-nav-item>
+        <r-vertical-nav-item>Number</r-vertical-nav-item>
+        <r-vertical-nav-item>Password</r-vertical-nav-item>
+        <r-vertical-nav-item>Search</r-vertical-nav-item>
+        <r-vertical-nav-item>Select</r-vertical-nav-item>
+        <r-vertical-nav-item>Spinner</r-vertical-nav-item>
+        <r-vertical-nav-item>Switch</r-vertical-nav-item>
+        <r-vertical-nav-item>Table</r-vertical-nav-item>
+        <r-vertical-nav-item>Tabs</r-vertical-nav-item>
+        <r-vertical-nav-item>Text</r-vertical-nav-item>
+        <r-vertical-nav-item>Textarea</r-vertical-nav-item>
+        <r-vertical-nav-item>User</r-vertical-nav-item>
+        <r-vertical-nav-item>Vertical Nav</r-vertical-nav-item>
+        <r-vertical-nav-item>Side Sheet</r-vertical-nav-item>
+        <r-vertical-nav-item> Bottom Sheet </r-vertical-nav-item>
+      </r-vertical-nav-section>
+    </r-vertical-nav>
   </div>
 </r-bottom-sheet>

@@ -1,0 +1,51 @@
+/* Base colors */
+:root {
+  --black: rgb(10, 10, 10);
+  --white: #ffffff;
+}
+
+/* Light theme */
+body[data-theme='light'] {
+  /* Base theme colors */
+  --bg-color: var(--white);
+  --text-color: var(--black);
+
+  /* UI colors */
+  --background: var(--bg-color);
+  --foreground: var(--black);
+  --border-color: color-mix(in srgb, var(--bg-color), var(--black) 8%);
+
+  /* Component colors */
+  --primary: var(--black);
+  --primary-foreground: var(--white);
+  --primary-border-color: var(--black);
+
+  --secondary: transparent;
+  --secondary-foreground: var(--text-color);
+  --secondary-border-color: var(--border-color);
+}
+
+/* Dark theme */
+body[data-theme='dark'] {
+  /* Base theme colors */
+  --bg-color: var(--black);
+  --text-color: var(--white);
+
+  /* UI colors */
+  --background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
+  --foreground: var(--text-color);
+  --border-color: color-mix(in srgb, var(--bg-color), var(--white) 5%);
+
+  /* Component colors */
+  --primary: var(--white);
+  --primary-foreground: var(--black);
+  --primary-border-color: var(--white);
+
+  --secondary: transparent;
+  --secondary-foreground: var(--text-color);
+  --secondary-border-color: color-mix(
+    in srgb,
+    var(--bg-color),
+    var(--white) 5%
+  );
+}

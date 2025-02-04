@@ -1,19 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* Imports */
 @import url('../../../node_modules/@rem-ui/styles/src/index.css');
+@import url('lucide-static/font/lucide.css');
+@import url('./app/styles/fonts.css');
+@import url('./app/styles/theme.css');
 
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/inter-400.woff2') format('woff2');
-}
-
-:root {
-  --black: rgb(10, 10, 10);
-  --white: #ffffff;
-}
-
+/* Base styles */
 html,
 body {
   margin: 0;
@@ -23,55 +14,8 @@ body {
   transition:
     background-color 0.3s,
     color 0.3s;
-  * {
-    color: var(--text-color);
-  }
-}
-
-body[data-theme='light'] {
-  --bg-color: var(--white);
-  --text-color: var(--black);
-
-  /* Backgrounds and base colors */
-  --background: var(--bg-color);
-  --foreground: var(--black);
-  --border-color: color-mix(in srgb, var(--bg-color), var(--black) 8%);
-
-  /* Primary color scheme */
-  --primary: var(--black);
-  --primary-foreground: var(--white);
-  --primary-border-color: var(--black);
-
-  /* Secondary color scheme */
-  --secondary: transparent;
-  --secondary-foreground: var(--text-color);
-  --secondary-border-color: var(--border-color);
-}
-
-body[data-theme='dark'] {
-  --bg-color: var(--black);
-  --text-color: var(--white);
-
-  /* Backgrounds and base colors */
-  --background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
-  --foreground: var(--text-color);
-  --border-color: color-mix(in srgb, var(--bg-color), var(--white) 5%);
-
-  /* Primary color scheme */
-  --primary: var(--white);
-  --primary-foreground: var(--black);
-  --primary-border-color: var(--white);
-
-  /* Secondary color scheme */
-  --secondary: transparent;
-  --secondary-foreground: var(--text-color);
-  --secondary-border-color: color-mix(
-    in srgb,
-    var(--bg-color),
-    var(--white) 5%
-  );
 }
 
 * {
-  color: inherit;
+  color: var(--text-color);
 }
