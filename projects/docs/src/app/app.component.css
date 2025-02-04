@@ -32,7 +32,6 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0 1.5rem 1.5rem 1.5rem;
-  overflow-y: auto;
 }
 
 .npm-packages {
@@ -94,5 +93,17 @@
 
   i {
     font-size: 1.4rem;
+  }
+}
+
+r-vertical-nav {
+  @media (width > 577px) {
+    height: calc(100dvh - 149px);
+  }
+  @media (width <= 576px) {
+    height: calc(100dvh - 489px);
+  }
+  r-vertical-nav-item:last-child {
+    margin-bottom: 1.5rem;
   }
 }
