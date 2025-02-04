@@ -101,7 +101,7 @@ r-vertical-nav {
     height: calc(100dvh - 149px);
   }
   @media (width <= 576px) {
-    height: calc(100dvh - 489px);
+    height: calc(100dvh - 396px);
   }
   r-vertical-nav-item:last-child {
     margin-bottom: 1.5rem;
