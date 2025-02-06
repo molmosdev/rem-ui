@@ -5,6 +5,7 @@ import { NgStyle } from '@angular/common';
   selector: 'r-spinner',
   imports: [NgStyle],
   templateUrl: './spinner.component.html',
+  styleUrl: './spinner.component.css',
 })
 export class Spinner {
   active = input<boolean>(true);
