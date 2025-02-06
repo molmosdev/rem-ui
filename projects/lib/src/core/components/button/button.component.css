@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 2.8rem;
-    background-color: var(--primary, #242424);
+    background-color: var(--primary, #0a0a0a);
     padding-inline: var(--button-padding-inline, 1.9rem);
     border-radius: var(--roundness, 0.5rem);
     box-sizing: border-box;
@@ -25,35 +25,35 @@
     }
 
     &.primary {
-      background-color: var(--primary, #242424);
-      color: var(--primary-foreground, #fff);
-      border: 1px solid var(--primary-border-color, #242424);
+      background-color: var(--primary, #0a0a0a);
+      color: var(--primary-foreground, #ffffff);
+      border: 1px solid var(--primary-border-color, #0a0a0a);
 
       .icon {
-        color: var(--primary-foreground, #fff);
+        color: var(--primary-foreground, #ffffff);
       }
 
       @media (width > 768px) {
         &:hover {
           background-color: color-mix(
             in srgb,
-            var(--primary-foreground, #fff) 5%,
-            var(--primary, #242424)
+            var(--primary-foreground, #ffffff) 5%,
+            var(--primary, #0a0a0a)
           );
         }
       }
     }
 
     &.secondary {
-      background-color: var(--secondary, #fff);
+      background-color: var(--secondary, transparent);
       border: 1px solid var(--secondary-border-color, #ececec);
 
       @media (width > 768px) {
         &:hover {
           background-color: color-mix(
             in srgb,
-            var(--secondary-foreground, #242424) 5%,
-            var(--secondary, #fff)
+            var(--secondary-foreground, #0a0a0a) 5%,
+            var(--secondary, transparent)
           );
         }
       }
@@ -64,14 +64,14 @@
 
       @media (width > 768px) {
         &:hover {
-          background-color: var(--secondary, #fff);
+          background-color: var(--secondary, transparent);
         }
       }
     }
 
     &.secondary,
     &.ghost {
-      color: var(--secondary-foreground, #242424);
+      color: var(--secondary-foreground, #0a0a0a);
     }
 
     &:not(:disabled):not(.disabled) {
