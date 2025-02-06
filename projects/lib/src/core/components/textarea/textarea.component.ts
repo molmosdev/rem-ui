@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
   selector: 'r-textarea',
   imports: [NgClass],
   templateUrl: './textarea.component.html',
+  styleUrl: './textarea.component.css',
 })
 export class Textarea {
   value = model<string | null>(null);
