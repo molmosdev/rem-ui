@@ -27,9 +27,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--background);
+    background-color: var(--background, #ffffff);
     border-radius: 16px 16px 0 0;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color, transparent);
     display: flex;
     flex-direction: column;
     z-index: 1001;
@@ -50,7 +50,7 @@
       .drag-indicator {
         width: 20%;
         height: 4px;
-        background-color: #e0e0e0;
+        background-color: var(--input-background, #ececec);
         border-radius: 2px;
       }
     }
