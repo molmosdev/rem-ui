@@ -5,6 +5,7 @@ import { NgStyle } from '@angular/common';
   selector: 'r-row-item',
   imports: [NgStyle],
   templateUrl: './row-item.component.html',
+  styleUrl: './row-item.component.css',
 })
 export class RowItem {
   widthPx = input<number>();

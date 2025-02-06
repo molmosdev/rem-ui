@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
   selector: 'r-row',
   imports: [NgClass],
   templateUrl: './row.component.html',
+  styleUrl: './row.component.css',
 })
 export class Row {
   header = input<boolean>(false);
