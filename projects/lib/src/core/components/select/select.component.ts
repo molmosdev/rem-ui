@@ -19,6 +19,7 @@ import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
   imports: [NgStyle, NgClass],
   templateUrl: './select.component.html',
   animations: [fadeInFadeOutTrigger],
+  styleUrl: './select.component.css',
 })
 export class Select {
   label = input<string | undefined>(undefined);
