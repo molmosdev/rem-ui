@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
   selector: 'r-switch',
   imports: [NgClass],
   templateUrl: './switch.component.html',
+  styleUrl: './switch.component.css',
 })
 export class Switch {
   value = model(false);
