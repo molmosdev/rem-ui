@@ -21,6 +21,7 @@ import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
   imports: [NgClass, NgStyle, Text],
   templateUrl: './search.component.html',
   animations: [fadeInFadeOutTrigger],
+  styleUrl: './search.component.css',
 })
 export class Search {
   label = input<string | undefined>(undefined);
