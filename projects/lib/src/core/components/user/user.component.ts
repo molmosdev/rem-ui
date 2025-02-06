@@ -5,6 +5,7 @@ import { Component, input, output } from '@angular/core';
   selector: 'r-user',
   imports: [NgClass],
   templateUrl: './user.component.html',
+  styleUrl: './user.component.css',
 })
 export class User {
   id = input<string>('user');
