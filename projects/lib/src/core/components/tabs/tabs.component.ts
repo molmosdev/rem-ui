@@ -13,6 +13,7 @@ import { Tab } from './components/tab/tab.component';
 @Component({
   selector: 'r-tabs',
   templateUrl: './tabs.component.html',
+  styleUrl: './tabs.component.css',
 })
 export class Tabs implements OnInit {
   tabs = contentChildren(Tab);

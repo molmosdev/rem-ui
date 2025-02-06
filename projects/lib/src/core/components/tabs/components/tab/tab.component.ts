@@ -5,6 +5,7 @@ import { Component, ElementRef, input, output, signal } from '@angular/core';
   selector: 'r-tab',
   imports: [NgClass],
   templateUrl: './tab.component.html',
+  styleUrl: './tab.component.css',
 })
 export class Tab {
   value = input.required<string>();
