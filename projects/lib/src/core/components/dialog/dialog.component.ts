@@ -5,7 +5,7 @@ import {
   input,
   model,
 } from '@angular/core';
-import { fadeInOutTrigger } from '../../../shared/animations/animations';
+import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { LazyContentDirective } from '../../../shared/directives/lazy-content.directive';
 
@@ -13,7 +13,7 @@ import { LazyContentDirective } from '../../../shared/directives/lazy-content.di
   selector: 'r-dialog',
   imports: [NgTemplateOutlet, NgClass],
   templateUrl: './dialog.component.html',
-  animations: [fadeInOutTrigger],
+  animations: [fadeInFadeOutTrigger],
 })
 export class Dialog {
   show = model.required<boolean>();

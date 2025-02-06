@@ -3,7 +3,7 @@
     tabindex="0"
     #dropdown
     id="dropdown"
-    @fadeInOutTrigger
+    @fadeInFadeOutTrigger
     (click)="closeEmitter.emit()"
     [ngStyle]="{ width: width() + 'px' }">
     @if (lazyContent()) {

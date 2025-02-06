@@ -9,14 +9,14 @@ import {
   viewChild,
 } from '@angular/core';
 import { NgStyle, NgTemplateOutlet } from '@angular/common';
-import { fadeInOutTrigger } from '../../../../../shared/animations/animations';
+import { fadeInFadeOutTrigger } from '../../../../../shared/animations/animations';
 import { LazyContentDirective } from '../../../../../shared/directives/lazy-content.directive';
 
 @Component({
   selector: 'r-dropdown-content',
   imports: [NgTemplateOutlet, NgStyle],
   templateUrl: './dropdown-content.component.html',
-  animations: [fadeInOutTrigger],
+  animations: [fadeInFadeOutTrigger],
 })
 export class DropdownContent {
   positioning = input<

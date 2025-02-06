@@ -12,13 +12,13 @@ import {
 } from '@angular/core';
 import { NgClass, NgStyle } from '@angular/common';
 import { Option } from '../../../shared/components/option/option.component';
-import { fadeInOutTrigger } from '../../../shared/animations/animations';
+import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-select',
   imports: [NgStyle, NgClass],
   templateUrl: './select.component.html',
-  animations: [fadeInOutTrigger],
+  animations: [fadeInFadeOutTrigger],
 })
 export class Select {
   label = input<string | undefined>(undefined);

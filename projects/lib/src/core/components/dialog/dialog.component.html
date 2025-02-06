@@ -1,7 +1,7 @@
 @if (show()) {
   <span
     tabindex="0"
-    @fadeInOutTrigger
+    @fadeInFadeOutTrigger
     class="background"
     (click)="close()"
     [ngClass]="{ 'click-outside': clickOutside() }"></span>
@@ -11,7 +11,7 @@
       'mobile-bottom-active': mobileBottomActive(),
       'dialog-open': show(),
     }"
-    [@fadeInOutTrigger]="{
+    [@fadeInFadeOutTrigger]="{
       value: '',
       params: {
         translateFrom: 'translateY(15px)',

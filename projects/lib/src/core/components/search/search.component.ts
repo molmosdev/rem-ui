@@ -14,13 +14,13 @@ import { Option } from '../../../shared/components/option/option.component';
 import { NgClass, NgStyle } from '@angular/common';
 import { Text } from '../text/text.component';
 import { UtilsService } from '../../../shared/services/utils.service';
-import { fadeInOutTrigger } from '../../../shared/animations/animations';
+import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-search',
   imports: [NgClass, NgStyle, Text],
   templateUrl: './search.component.html',
-  animations: [fadeInOutTrigger],
+  animations: [fadeInFadeOutTrigger],
 })
 export class Search {
   label = input<string | undefined>(undefined);
