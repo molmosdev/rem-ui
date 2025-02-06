@@ -5,6 +5,7 @@ import { NgClass } from '@angular/common';
   selector: 'r-dropdown-item',
   imports: [NgClass],
   templateUrl: './dropdown-item.component.html',
+  styleUrl: './dropdown-item.component.css',
 })
 export class DropdownItem {
   disabled = input<boolean>(false);

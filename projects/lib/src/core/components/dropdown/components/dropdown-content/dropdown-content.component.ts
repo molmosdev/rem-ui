@@ -17,6 +17,7 @@ import { LazyContentDirective } from '../../../../../shared/directives/lazy-cont
   imports: [NgTemplateOutlet, NgStyle],
   templateUrl: './dropdown-content.component.html',
   animations: [fadeInFadeOutTrigger],
+  styleUrl: './dropdown-content.component.css',
 })
 export class DropdownContent {
   positioning = input<

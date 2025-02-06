@@ -12,6 +12,7 @@ import { DropdownContent } from './components/dropdown-content/dropdown-content.
   selector: 'r-dropdown',
   standalone: true,
   templateUrl: './dropdown.component.html',
+  styleUrl: './dropdown.component.css',
 })
 export class Dropdown {
   toggle = signal<boolean>(false);

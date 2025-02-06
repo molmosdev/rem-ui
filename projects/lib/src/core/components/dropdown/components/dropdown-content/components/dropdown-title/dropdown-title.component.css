@@ -1,0 +1,9 @@
+:host {
+  padding: 3px 8px;
+  zoom: 0.95;
+  color: color-mix(
+    in srgb,
+    var(--foreground, #798194) 50%,
+    var(--background, #ffffff)
+  );
+}
