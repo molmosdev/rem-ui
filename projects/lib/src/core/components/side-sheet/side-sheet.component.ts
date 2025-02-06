@@ -1,6 +1,11 @@
 import { Component, input, output, computed, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {
+  horizontalSlideTrigger,
+  overlayTrigger,
+} from './side-sheet.animations';
+
 /**
  * A sliding sheet component that can be positioned on either side of the screen.
  * The sheet slides in from the left or right edge and includes an overlay backdrop.
@@ -12,10 +17,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './side-sheet.component.html',
-  host: {
-    '[class.side-sheet-container]': 'true',
-  },
   styleUrl: './side-sheet.component.css',
+  animations: [overlayTrigger, horizontalSlideTrigger],
 })
 export class SideSheet {
   /** Controls the open/closed state of the sheet. Two-way bindable. */

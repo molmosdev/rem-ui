@@ -1,12 +1,18 @@
 <div
   class="side-sheet-overlay"
-  [class.visible]="isOpen()"
+  [@overlayTrigger]="isOpen() ? 'visible' : 'hidden'"
   (click)="isOpen.set(false)"></div>
 <div
   class="side-sheet"
-  [class.open]="isOpen()"
-  [class.left]="isLeft()"
-  [class.right]="isRight()"
+  [@horizontalSlideTrigger]="
+    isOpen()
+      ? isLeft()
+        ? 'openLeft'
+        : 'openRight'
+      : isLeft()
+        ? 'closedLeft'
+        : 'closedRight'
+  "
   [style.width]="width()">
   <button class="close-button" (click)="isOpen.set(false)">
     <svg
