@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  position: absolute;
+
+  .bottom-sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1000;
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+  }
+
+  .bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background);
+    border-radius: 16px 16px 0 0;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    will-change: transform;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    touch-action: none;
+    user-select: none;
+
+    .drag-section {
+      width: 100%;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      touch-action: none;
+
+      .drag-indicator {
+        width: 20%;
+        height: 4px;
+        background-color: #e0e0e0;
+        border-radius: 2px;
+      }
+    }
+  }
+}

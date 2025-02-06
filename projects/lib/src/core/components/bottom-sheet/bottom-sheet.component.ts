@@ -7,101 +7,97 @@ import {
   computed,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { verticalSlideTrigger } from './bottom-sheet.animations';
 
-/**
- * A sliding bottom sheet component that can be dragged to dismiss.
- * Includes a drag handle and supports both touch and mouse interactions.
- */
 @Component({
   selector: 'r-bottom-sheet',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './bottom-sheet.component.html',
+  styleUrl: './bottom-sheet.component.css',
+  animations: [verticalSlideTrigger],
 })
 export class BottomSheet {
-  /** Controls the open/closed state of the sheet. Two-way bindable property that determines if the bottom sheet is visible. */
+  /** Indicates whether the bottom sheet is open. */
   isOpen = model(false);
 
-  /** Sets the height of the bottom sheet. Accepts any valid CSS height value (px, %, vh, etc) or 'auto'. */
-  height = input('300px');
+  /** The height of the bottom sheet. */
+  height = input('30dvh');
 
-  /** Sets the threshold percentage for closing the sheet. When dragging, if the sheet is pulled down past this percentage of its height, it will close. */
+  /** The threshold for closing the bottom sheet. */
   closeThreshold = input(30);
 
-  /** Event emitted when the sheet should be closed. Triggered by dragging past threshold or clicking overlay. */
+  /** Event emitted when the bottom sheet is closed. */
   closeSheet = output<void>();
 
-  /** Internal signal tracking if the sheet is being dragged */
+  /** Indicates whether a drag event is in progress. */
   private isDragging = signal(false);
 
-  /** Internal signal storing the initial Y position when drag starts */
+  /** The starting Y-coordinate of the drag event. */
   private startY = signal(0);
 
-  /** Internal signal tracking the current vertical translation */
-  private currentTranslateY = signal(0);
+  /** The current translation in the Y-axis during a drag event. */
+  currentTranslateY = signal(0);
 
-  /** Internal signal tracking the actual height of the content */
+  /** The height of the content inside the bottom sheet. */
   private contentHeight = signal(0);
 
-  /** Returns CSS transform string for sheet position */
-  transformStyle = computed(() => {
-    if (!this.isOpen()) {
-      return 'translateY(100%)';
-    }
-    // Apply drag offset if it exists
-    return `translateY(${this.currentTranslateY()}px)`;
+  /** The current animation state of the bottom sheet. */
+  animationState = computed(() => {
+    return this.isDragging()
+      ? 'intermediate'
+      : this.isOpen()
+        ? 'open'
+        : 'closed';
   });
 
-  /** Returns CSS transition string for smooth animations */
-  transitionStyle = computed(() =>
-    this.isDragging() ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-  );
-
   /**
-   * Handles the start of a drag operation
-   * @param event The Mouse or Touch event that initiated the drag
+   * Handles the start of a drag event.
+   * @param event The mouse or touch event.
    */
   onDragStart(event: MouseEvent | TouchEvent): void {
     event.preventDefault();
     this.isDragging.set(true);
     this.startY.set(this.getEventY(event));
     this.currentTranslateY.set(0);
+  }
 
-    // Update content height if height is 'auto'
-    if (this.height() === 'auto') {
-      const element = event.target as HTMLElement;
-      const sheet = element.closest('.bottom-sheet');
-      if (sheet) {
-        this.contentHeight.set(sheet.getBoundingClientRect().height);
-      }
+  /**
+   * Handles the movement during a drag event.
+   * @param event The mouse or touch event.
+   */
+  onDragMove(event: MouseEvent | TouchEvent): void {
+    if (!this.isDragging()) return;
+    event.preventDefault();
+    const currentY = this.getEventY(event);
+    const deltaY = currentY - this.startY();
+    this.currentTranslateY.set(Math.max(0, deltaY));
+  }
+
+  /**
+   * Handles the end of a drag event.
+   */
+  onDragEnd(): void {
+    const heightValue = this.getHeightInPixels();
+    const threshold = heightValue * (this.closeThreshold() / 100);
+    this.isDragging.set(false);
+
+    if (this.currentTranslateY() > threshold) {
+      this.isOpen.set(false);
+      this.closeSheet.emit();
+    } else {
+      this.isOpen.set(true);
     }
   }
 
   /**
-   * Handles continuous drag movement
-   * @param event The Mouse or Touch event during drag
-   */
-  onDragMove(event: MouseEvent | TouchEvent): void {
-    if (!this.isDragging()) return;
-
-    event.preventDefault();
-    const currentY = this.getEventY(event);
-    const deltaY = currentY - this.startY();
-
-    // Only allow downward sliding (positive values)
-    const newTranslateY = Math.max(0, deltaY);
-    this.currentTranslateY.set(newTranslateY);
-  }
-
-  /**
-   * Gets the numeric height value in pixels regardless of the input unit
-   * @returns The height in pixels
+   * Converts the height value to pixels.
+   * @returns The height in pixels.
    */
   private getHeightInPixels(): number {
     if (this.height() === 'auto') {
       return this.contentHeight();
     }
-
     const element = document.createElement('div');
     element.style.height = this.height();
     document.body.appendChild(element);
@@ -111,65 +107,9 @@ export class BottomSheet {
   }
 
   /**
-   * Closes the sheet with a sliding animation
-   */
-  private closeWithAnimation(): void {
-    const heightValue = this.getHeightInPixels();
-
-    // First animate to bottom
-    this.currentTranslateY.set(heightValue);
-
-    // Wait for the sheet to reach bottom before closing
-    setTimeout(() => {
-      this.closeSheet.emit();
-      this.isOpen.set(false);
-      // Reset position after it's hidden
-      setTimeout(() => {
-        this.currentTranslateY.set(0);
-      }, 100);
-    }, 300);
-  }
-
-  /**
-   * Returns the sheet to its original open position
-   */
-  private returnToOpenPosition(): void {
-    // First enable transition
-    this.isDragging.set(false);
-
-    // Wait for next frame to apply transition
-    requestAnimationFrame(() => {
-      // Now move to initial position
-      this.currentTranslateY.set(0);
-    });
-  }
-
-  /**
-   * Handles the end of drag operation, determines whether to close or return to position
-   */
-  onDragEnd(): void {
-    const heightValue = this.getHeightInPixels();
-    const threshold = heightValue * (this.closeThreshold() / 100);
-
-    if (this.currentTranslateY() > threshold) {
-      this.isDragging.set(false);
-      this.closeWithAnimation();
-    } else {
-      this.returnToOpenPosition();
-    }
-  }
-
-  /**
-   * Handles click events on the overlay background
-   */
-  onOverlayClick(): void {
-    this.closeWithAnimation();
-  }
-
-  /**
-   * Extracts the Y coordinate from either mouse or touch events
-   * @param event The Mouse or Touch event to get coordinates from
-   * @returns The clientY coordinate of the event
+   * Gets the Y-coordinate from the event.
+   * @param event The mouse or touch event.
+   * @returns The Y-coordinate.
    */
   private getEventY(event: MouseEvent | TouchEvent): number {
     return event instanceof MouseEvent

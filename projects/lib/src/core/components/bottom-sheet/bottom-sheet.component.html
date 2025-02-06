@@ -1,13 +1,14 @@
 <div
   class="bottom-sheet-overlay"
   [class.visible]="isOpen()"
-  (click)="onOverlayClick()"></div>
+  (click)="isOpen.set(false)"></div>
 
 <div
   class="bottom-sheet"
-  [class.visible]="isOpen()"
-  [style.transform]="transformStyle()"
-  [style.transition]="transitionStyle()"
+  [@verticalSlideTrigger]="{
+    value: animationState(),
+    params: { currentTranslateY: currentTranslateY() },
+  }"
   [style.height]="height()">
   <div
     class="drag-section"
