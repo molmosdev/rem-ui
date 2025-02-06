@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
   host: {
     '[class.side-sheet-container]': 'true',
   },
+  styleUrl: './side-sheet.component.css',
 })
 export class SideSheet {
   /** Controls the open/closed state of the sheet. Two-way bindable. */
