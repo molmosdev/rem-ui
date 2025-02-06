@@ -6,6 +6,7 @@ import { Spinner } from '../spinner/spinner.component';
   selector: 'r-text',
   imports: [NgClass, Spinner],
   templateUrl: './text.component.html',
+  styleUrl: './text.component.css',
 })
 export class Text {
   value = model<string | null>(null);
