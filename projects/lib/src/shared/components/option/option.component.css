@@ -1,0 +1,49 @@
+:host {
+  padding-top: 0.313rem;
+  --dynamic-border-radius: calc(var(--roundness, 0.5rem) - (0.313rem / 2));
+  --standard-border-radius: calc(0.5rem - (0.313rem / 2));
+
+  li {
+    cursor: pointer;
+    padding: 0.688rem 0.938rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--standard-border-radius);
+    transition: 0.1s;
+    color: var(--foreground, #798194);
+    margin: 0;
+
+    &.highlighted {
+      background-color: color-mix(
+        in srgb,
+        var(--foreground, #798194) 5%,
+        var(--background, #ffffff)
+      );
+    }
+
+    &.selected {
+      background-color: var(--primary, #0a0a0a);
+      color: var(--primary-foreground, #ffffff);
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  &:first-child {
+    li {
+      border-radius: var(--dynamic-border-radius) var(--dynamic-border-radius)
+        var(--standard-border-radius) var(--standard-border-radius);
+    }
+  }
+
+  &:last-child {
+    li {
+      border-radius: var(--standard-border-radius) var(--standard-border-radius)
+        var(--dynamic-border-radius) var (--dynamic-border-radius);
+      margin-bottom: 0.4px;
+    }
+  }
+}

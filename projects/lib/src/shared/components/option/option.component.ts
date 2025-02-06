@@ -5,6 +5,7 @@ import { Component, ElementRef, output, input, signal } from '@angular/core';
   selector: 'r-option',
   templateUrl: './option.component.html',
   imports: [NgClass],
+  styleUrl: './option.component.css',
 })
 export class Option {
   value = input.required<string>();
