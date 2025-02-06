@@ -14,6 +14,7 @@ import { LazyContentDirective } from '../../../shared/directives/lazy-content.di
   imports: [NgTemplateOutlet, NgClass],
   templateUrl: './dialog.component.html',
   animations: [fadeInFadeOutTrigger],
+  styleUrl: './dialog.component.css',
 })
 export class Dialog {
   show = model.required<boolean>();

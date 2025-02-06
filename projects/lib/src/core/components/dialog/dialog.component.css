@@ -1,0 +1,50 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100vw;
+    backdrop-filter: blur(6px);
+    background-color: rgba(17, 17, 17, 0.4);
+    pointer-events: all;
+    z-index: 1001;
+
+    &.click-outside {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .dialog {
+    background: var(--background, #ffffff);
+    border-radius: calc(var(--roundness, 0.5rem) + 2px);
+    pointer-events: all;
+    z-index: 1002;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+      &.mobile-bottom-active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 100vw;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+      }
+    }
+  }
+}
