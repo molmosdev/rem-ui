@@ -5,6 +5,7 @@ import { Component, input, output } from '@angular/core';
   selector: 'r-password',
   imports: [NgClass],
   templateUrl: './password.component.html',
+  styleUrl: './password.component.css',
 })
 export class Password {
   id = input<string>('password');
