@@ -1,0 +1,98 @@
+:host {
+  button,
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.8rem;
+    background-color: var(--primary, #242424);
+    padding-inline: var(--button-padding-inline, 1.9rem);
+    border-radius: var(--roundness, 0.5rem);
+    box-sizing: border-box;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s;
+    width: 100%;
+    font-size: 100%;
+    border: none;
+    text-decoration: none;
+
+    &:not(:has(span)) {
+      &:has(.icon) {
+        width: 2.8rem;
+      }
+    }
+
+    &.primary {
+      background-color: var(--primary, #242424);
+      color: var(--primary-foreground, #fff);
+      border: 1px solid var(--primary-border-color, #242424);
+
+      .icon {
+        color: var(--primary-foreground, #fff);
+      }
+
+      @media (width > 768px) {
+        &:hover {
+          background-color: color-mix(
+            in srgb,
+            var(--primary-foreground, #fff) 5%,
+            var(--primary, #242424)
+          );
+        }
+      }
+    }
+
+    &.secondary {
+      background-color: var(--secondary, #fff);
+      border: 1px solid var(--secondary-border-color, #ececec);
+
+      @media (width > 768px) {
+        &:hover {
+          background-color: color-mix(
+            in srgb,
+            var(--secondary-foreground, #242424) 5%,
+            var(--secondary, #fff)
+          );
+        }
+      }
+    }
+
+    &.ghost {
+      background-color: transparent;
+
+      @media (width > 768px) {
+        &:hover {
+          background-color: var(--secondary, #fff);
+        }
+      }
+    }
+
+    &.secondary,
+    &.ghost {
+      color: var(--secondary-foreground, #242424);
+    }
+
+    &:not(:disabled):not(.disabled) {
+      &:active {
+        transform: scale(0.97);
+        transition: 0.1s;
+      }
+
+      @media (width > 768px) {
+        &:hover {
+          cursor: pointer;
+          transition: 0.2s;
+        }
+      }
+    }
+
+    &:disabled,
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
