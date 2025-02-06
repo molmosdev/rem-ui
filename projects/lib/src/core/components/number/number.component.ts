@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   imports: [NgClass, FormsModule],
   templateUrl: './number.component.html',
   providers: [CurrencyPipe, { provide: LOCALE_ID, useValue: 'es-ES' }],
+  styleUrl: './number.component.css',
 })
 export class Number {
   value = model<number | null>(null);
