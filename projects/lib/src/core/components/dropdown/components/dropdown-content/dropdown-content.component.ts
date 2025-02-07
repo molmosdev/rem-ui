@@ -59,7 +59,7 @@ export class DropdownContent {
   setDropdownPositioning(): void {
     const dropdownNativeElement = this.dropdown()?.nativeElement;
     if (this.triggerRect && dropdownNativeElement) {
-      if (window.innerWidth <= 600 || this.forcePopover()) {
+      if (window.innerWidth <= 576 || this.forcePopover()) {
         dropdownNativeElement.style.top = '50%';
         dropdownNativeElement.style.left = '50%';
         dropdownNativeElement.style.transform = 'translate(-50%, -50%)';

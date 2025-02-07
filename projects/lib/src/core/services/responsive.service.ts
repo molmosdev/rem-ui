@@ -1,6 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID, inject } from '@angular/core';
+import { Injectable, signal, computed, afterRenderEffect } from '@angular/core';
 
 /**
  * Interface that defines the breakpoints for different device types
@@ -25,8 +23,6 @@ export type DeviceType = 'mobile' | 'tablet' | 'desktop';
   providedIn: 'root',
 })
 export class ResponsiveService {
-  private readonly platformId = inject(PLATFORM_ID);
-
   /** Signal that holds the breakpoint configuration */
   private breakpoints = signal<DeviceBreakpoints>({
     mobile: 576,
@@ -51,11 +47,10 @@ export class ResponsiveService {
   });
 
   constructor() {
-    if (isPlatformBrowser(this.platformId)) {
-      // Initialization only in the client
+    afterRenderEffect(() => {
       this.initializeWindowWidth();
       this.setupResizeListener();
-    }
+    });
   }
 
   /**
