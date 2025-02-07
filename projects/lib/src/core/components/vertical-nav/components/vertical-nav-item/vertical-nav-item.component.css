@@ -1,0 +1,29 @@
+:host {
+  .item-wrapper {
+    display: flex;
+    height: 2.8rem;
+    padding-inline: 1rem;
+    border-radius: var(--roundness, 0.5rem);
+    opacity: 1;
+    align-items: center;
+    gap: 0.7rem;
+    flex: 1;
+
+    &:hover {
+      cursor: pointer;
+      background-color: color-mix(
+        in srgb,
+        var(--foreground, #798194) 5%,
+        var(--background, #ffffff)
+      );
+    }
+
+    &.active {
+      background-color: color-mix(
+        in srgb,
+        var(--foreground, #798194) 5%,
+        var(--background, #ffffff)
+      );
+    }
+  }
+}

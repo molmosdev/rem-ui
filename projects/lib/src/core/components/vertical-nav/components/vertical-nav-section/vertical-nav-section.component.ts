@@ -6,6 +6,7 @@ import { VerticalNavItem } from '../vertical-nav-item/vertical-nav-item.componen
   standalone: true,
   imports: [],
   templateUrl: './vertical-nav-section.component.html',
+  styleUrl: './vertical-nav-section.component.css',
 })
 export class VerticalNavSection {
   title = input<string>();

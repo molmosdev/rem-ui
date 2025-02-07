@@ -14,7 +14,9 @@
         <ng-content select="[r-group-suffix]" />
       </div>
     </div>
-    <div class="group-arrow">
+    <div
+      class="group-arrow"
+      [@rotateArrowTrigger]="expanded() ? 'expanded' : 'collapsed'">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -29,9 +31,9 @@
       </svg>
     </div>
   </div>
-  @if (expanded()) {
-    <div class="nested-wrapper">
-      <ng-content />
-    </div>
-  }
+  <div
+    class="nested-wrapper"
+    [@expandCollapseTrigger]="expanded() ? 'expanded' : 'collapsed'">
+    <ng-content />
+  </div>
 </div>

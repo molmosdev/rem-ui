@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding-inline: 1rem;
+    height: 2rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--foreground-secondary, #798194);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+    .title {
+      flex: 1;
+    }
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

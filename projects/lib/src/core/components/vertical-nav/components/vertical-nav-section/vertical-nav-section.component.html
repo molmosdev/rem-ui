@@ -1,12 +1,10 @@
-<div class="section-wrapper">
-  @if (title()) {
-    <div class="section-title">
-      <ng-content select="[r-section-prefix]" />
-      <span class="title">{{ title() }}</span>
-      <ng-content select="[r-section-suffix]" />
-    </div>
-  }
-  <div class="section-content">
-    <ng-content />
-  </div>
+<div class="section-title">
+  <ng-content select="[r-section-prefix]" />
+  <span class="title">
+    <ng-content select="[r-section-title]" />
+  </span>
+  <ng-content select="[r-section-suffix]" />
+</div>
+<div class="section-content">
+  <ng-content />
 </div>

@@ -4,11 +4,9 @@
   [class.disabled]="disabled()"
   role="button"
   [attr.tabindex]="disabled() ? -1 : 0">
-  <div class="item-content">
-    <ng-content select="[r-item-prefix]" />
-    <div class="item-text">
-      <ng-content />
-    </div>
-    <ng-content select="[r-item-suffix]" />
+  <ng-content select="[r-item-prefix]" />
+  <div class="item-text">
+    <ng-content />
   </div>
+  <ng-content select="[r-item-suffix]" />
 </div>

@@ -5,6 +5,7 @@ import { Component, input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './vertical-nav-item.component.html',
+  styleUrl: './vertical-nav-item.component.css',
 })
 export class VerticalNavItem {
   active = input<boolean>(false);

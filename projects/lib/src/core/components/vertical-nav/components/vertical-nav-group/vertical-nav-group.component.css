@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .group-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.8rem;
+    padding-inline: 1rem 0.8rem;
+    border-radius: var(--roundness, 0.5rem);
+
+    &:hover {
+      cursor: pointer;
+      background-color: color-mix(
+        in srgb,
+        var(--foreground, #798194) 5%,
+        var(--background, #ffffff)
+      );
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .group-content {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .group-arrow {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .nested-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-left: 1rem;
+  }
+}
