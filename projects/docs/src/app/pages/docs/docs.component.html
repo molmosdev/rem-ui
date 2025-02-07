@@ -1,0 +1,112 @@
+<div class="intro-section">
+  <h1>rem-ui</h1>
+  <p class="description">
+    A modern UI component library built with Angular 19, available as Angular
+    components and framework-agnostic Web Components.
+  </p>
+  <p class="npm-packages">
+    <code>npm install &#64;rem-ui/angular</code><br />
+    <code>npm install &#64;rem-ui/elements</code>
+  </p>
+</div>
+<div class="bottom-controls">
+  <r-button
+    class="browse-components-button"
+    type="secondary"
+    (click)="componentsBottomSheet.set(true)">
+    Browse Components
+  </r-button>
+  <r-button class="theme-button" type="secondary" (click)="toggleDarkMode()">
+    <i [ngClass]="isDarkMode() ? 'icon-sun' : 'icon-moon'"></i>
+  </r-button>
+</div>
+@if (isMobile()) {
+  <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="60dvh">
+    <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+  </r-bottom-sheet>
+} @else {
+  <r-side-sheet [(isOpen)]="componentsBottomSheet" side="left">
+    <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+  </r-side-sheet>
+}
+
+<ng-template #componentsList>
+  <div class="components-list">
+    <div class="banner">
+      Documentation for components with the construction sign is not ready yet.
+    </div>
+    <r-vertical-nav>
+      <r-vertical-nav-section (click)="componentsBottomSheet.set(false)">
+        <span r-section-title>Components</span>
+        <r-vertical-nav-item>
+          Button
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Dialog
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Dropdown
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Number
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Password
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Search
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Select
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Spinner
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Switch
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Table
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Tabs
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Text
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Textarea
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          User
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Vertical Nav
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Side Sheet
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+        <r-vertical-nav-item>
+          Bottom Sheet
+          <i class="icon-construction" r-item-suffix></i>
+        </r-vertical-nav-item>
+      </r-vertical-nav-section>
+    </r-vertical-nav>
+  </div>
+</ng-template>
