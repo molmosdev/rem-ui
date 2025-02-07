@@ -16,6 +16,7 @@
     "major:elements": "node publish.js major elements",
     "serve:docs": "ng serve docs",
     "build:docs": "ng build docs",
+    "watch:docs": "ng build docs --watch",
     "serve:ssr:docs": "node dist/docs/server/server.mjs",
     "deploy:docs": "npm run format && npm run lint && vercel --prod"
   },
@@ -33,7 +34,6 @@
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.1.5",
     "@rem-ui/angular": "^0.3.8",
-    "@rem-ui/styles": "^0.0.33",
     "express": "^4.18.2",
     "lucide-static": "^0.473.0",
     "rxjs": "~7.8.0",
