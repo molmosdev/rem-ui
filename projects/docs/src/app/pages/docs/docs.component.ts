@@ -10,7 +10,7 @@ import {
   VerticalNavSection,
 } from '../../../../../lib/src/public-api';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
-import { ThemeService } from '../../../../../lib/src/shared/services/theme.service';
+import { ThemeService } from '../../../../../lib/src/core/services/theme.service';
 
 @Component({
   selector: 'app-docs',
