@@ -1,8 +1,7 @@
 <div
   class="bottom-sheet-overlay"
-  [class.visible]="isOpen()"
+  [@overlayTrigger]="isOpen() ? 'visible' : 'hidden'"
   (click)="isOpen.set(false)"></div>
-
 <div
   class="bottom-sheet"
   [@verticalSlideTrigger]="{

@@ -6,24 +6,6 @@ import {
   animate,
 } from '@angular/animations';
 
-export const overlayTrigger = trigger('overlayTrigger', [
-  state(
-    'hidden',
-    style({
-      opacity: 0,
-      visibility: 'hidden',
-    })
-  ),
-  state(
-    'visible',
-    style({
-      opacity: 1,
-      visibility: 'visible',
-    })
-  ),
-  transition('hidden <=> visible', [animate('0.3s ease-out')]),
-]);
-
 export const horizontalSlideTrigger = trigger('horizontalSlideTrigger', [
   state(
     'closedRight',

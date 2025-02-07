@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { verticalSlideTrigger } from './bottom-sheet.animations';
+import { overlayTrigger } from '../../../public-api';
 
 @Component({
   selector: 'r-bottom-sheet',
@@ -15,7 +16,7 @@ import { verticalSlideTrigger } from './bottom-sheet.animations';
   imports: [CommonModule],
   templateUrl: './bottom-sheet.component.html',
   styleUrl: './bottom-sheet.component.css',
-  animations: [verticalSlideTrigger],
+  animations: [overlayTrigger, verticalSlideTrigger],
 })
 export class BottomSheet {
   /** Indicates whether the bottom sheet is open. */

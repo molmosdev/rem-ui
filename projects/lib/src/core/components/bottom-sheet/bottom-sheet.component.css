@@ -9,17 +9,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
     z-index: 1000;
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-      cursor: pointer;
-      pointer-events: auto;
-    }
   }
 
   .bottom-sheet {

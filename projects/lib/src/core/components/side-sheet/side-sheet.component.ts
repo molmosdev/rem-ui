@@ -1,10 +1,7 @@
 import { Component, input, output, computed, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {
-  horizontalSlideTrigger,
-  overlayTrigger,
-} from './side-sheet.animations';
+import { horizontalSlideTrigger } from './side-sheet.animations';
+import { overlayTrigger } from '../../../shared/animations/animations';
 
 /**
  * A sliding sheet component that can be positioned on either side of the screen.

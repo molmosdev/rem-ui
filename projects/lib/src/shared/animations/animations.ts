@@ -1,4 +1,10 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
   transition(
@@ -48,4 +54,24 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
       },
     }
   ),
+]);
+
+export const overlayTrigger = trigger('overlayTrigger', [
+  state(
+    'hidden',
+    style({
+      opacity: 0,
+      visibility: 'hidden',
+      pointerEvents: 'none',
+    })
+  ),
+  state(
+    'visible',
+    style({
+      opacity: 1,
+      visibility: 'visible',
+      pointerEvents: 'auto',
+    })
+  ),
+  transition('hidden <=> visible', [animate('0.3s ease-out')]),
 ]);
