@@ -46,7 +46,7 @@
     &.has-label {
       &.has-value,
       &:focus-visible {
-        padding: 1.2rem 0.938rem 0.313rem;
+        padding: 1.2rem var(--padding-left) 0.313rem;
       }
     }
 

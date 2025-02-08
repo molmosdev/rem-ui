@@ -1,6 +1,7 @@
 :host {
   position: relative;
   display: flex;
+  --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
   label {
     position: absolute;
@@ -44,7 +45,8 @@
   input {
     height: 2.8rem;
     width: 100%;
-    padding: 0.688rem 0.938rem;
+    font-size: 1rem;
+    padding: 0.688rem var(--padding-left);
     box-sizing: border-box;
     border-radius: var(--roundness, 0.5rem);
     color: var(--input-foreground, #798194);
@@ -61,7 +63,7 @@
     &.has-label {
       &.has-value,
       &:focus-visible {
-        padding: 1.2rem 0.938rem 0.313rem;
+        padding: 1.2rem var(--padding-left) 0.313rem;
       }
     }
 

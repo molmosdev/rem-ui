@@ -40,7 +40,7 @@
       .drag-indicator {
         width: 20%;
         height: 4px;
-        background-color: var(--input-background, #ececec);
+        background-color: var(--input-border-color, #e0e0e0);
         border-radius: 2px;
       }
     }
