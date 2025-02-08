@@ -4,9 +4,14 @@
 
   .content {
     display: flex;
+    height: calc(100dvh - 3.8rem - 1px);
+    overflow: hidden;
 
-    @media (width <= 576px) {
-      flex-direction: column-reverse;
+    .pages {
+      width: 100%;
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
     }
   }
 }

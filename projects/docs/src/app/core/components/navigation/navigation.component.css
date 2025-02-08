@@ -38,10 +38,12 @@
   }
 
   @media (width > 576px) {
+    height: 100%;
+
     .components-list {
       width: 350px;
       border-right: 1px solid var(--border-color);
-      height: 100dvh;
+      height: 100%;
     }
   }
 
