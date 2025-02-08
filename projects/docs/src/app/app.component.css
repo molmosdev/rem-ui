@@ -7,6 +7,11 @@
     height: calc(100dvh - 3.8rem - 1px);
     overflow: hidden;
 
+    @media (width < 576px) {
+      flex-direction: column-reverse;
+      justify-content: start;
+    }
+
     .pages {
       width: 100%;
       overflow: auto;
