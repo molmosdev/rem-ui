@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  effect,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
 import { VerticalNav } from '../../../../../../lib/src/core/components/vertical-nav/vertical-nav.component';
 import { VerticalNavSection } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
@@ -42,16 +35,9 @@ export class NavigationComponent implements OnInit {
   componentsBottomSheet = signal(false);
   actualRouteData = signal(undefined);
 
-  constructor() {
-    effect(() => {
-      console.log(this.routes());
-    });
-  }
-
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log(event.urlAfterRedirects);
         this.findRouteData(this.routes(), event.urlAfterRedirects);
       }
     });

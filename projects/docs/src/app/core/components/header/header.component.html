@@ -1,0 +1,7 @@
+<div class="logo-wrapper" [routerLink]="['/']">
+  <div class="logo"></div>
+</div>
+<i
+  [class.icon-sun]="isDarkTheme()"
+  (click)="toggleTheme()"
+  [class.icon-moon]="!isDarkTheme()"></i>

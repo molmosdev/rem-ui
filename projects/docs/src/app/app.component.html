@@ -1,4 +1,7 @@
-<app-navigation />
-@defer (on idle) {
-  <router-outlet></router-outlet>
-}
+<app-header />
+<div class="content">
+  <app-navigation />
+  @defer (on idle) {
+    <router-outlet></router-outlet>
+  }
+</div>

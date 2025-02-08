@@ -1,7 +1,12 @@
 :host {
   display: flex;
+  flex-direction: column;
 
-  @media (width <= 576px) {
-    flex-direction: column-reverse;
+  .content {
+    display: flex;
+
+    @media (width <= 576px) {
+      flex-direction: column-reverse;
+    }
   }
 }
