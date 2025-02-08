@@ -19,12 +19,8 @@
       padding: 1px;
       background-color: color-mix(
         in srgb,
-        white 30%,
-        color-mix(
-          in srgb,
-          var(--foreground, #798194) 10%,
-          var(--background, #ffffff)
-        )
+        var(--foreground, #798194) 5%,
+        var(--background, #ffffff)
       );
       border-radius: 25px;
       position: relative;
