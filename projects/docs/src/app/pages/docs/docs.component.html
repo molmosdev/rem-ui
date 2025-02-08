@@ -36,11 +36,10 @@
       Documentation for components with the construction sign is not ready yet.
     </div>
     <r-vertical-nav>
-      <r-vertical-nav-section (click)="componentsBottomSheet.set(false)">
+      <r-vertical-nav-section>
         <span r-section-title>Components</span>
-        <r-vertical-nav-item>
+        <r-vertical-nav-item [routerLink]="['/docs/component/button']">
           Button
-          <i class="icon-construction" r-item-suffix></i>
         </r-vertical-nav-item>
         <r-vertical-nav-item>
           Dialog

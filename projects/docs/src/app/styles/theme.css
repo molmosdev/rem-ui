@@ -23,6 +23,9 @@ body[data-theme='light'] {
   --secondary: transparent;
   --secondary-foreground: var(--text-color);
   --secondary-border-color: var(--border-color);
+
+  --input-background: color-mix(in srgb, var(--bg-color), var(--black) 1%);
+  --input-foreground: var(--text-color);
 }
 
 /* Dark theme */
@@ -48,4 +51,7 @@ body[data-theme='dark'] {
     var(--bg-color),
     var(--white) 5%
   );
+
+  --input-background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
+  --input-foreground: var(--text-color);
 }

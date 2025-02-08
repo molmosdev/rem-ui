@@ -8,10 +8,8 @@ export const componentRoutes: Routes = [
   },
   {
     path: 'button',
-    loadComponent: () => import('./component.component'),
-    data: {
-      title: 'Button',
-    },
+    loadComponent: () =>
+      import('./pages/button-details/button-details.component'),
   },
   {
     path: '**',

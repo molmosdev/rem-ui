@@ -11,6 +11,7 @@ import {
 } from '../../../../../lib/src/public-api';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { ThemeService } from '../../../../../lib/src/core/services/theme.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -23,6 +24,7 @@ import { ThemeService } from '../../../../../lib/src/core/services/theme.service
     NgTemplateOutlet,
     SideSheet,
     NgClass,
+    RouterLink,
   ],
   templateUrl: './docs.component.html',
   styleUrl: './docs.component.css',
