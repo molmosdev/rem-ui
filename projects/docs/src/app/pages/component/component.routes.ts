@@ -10,6 +10,9 @@ export const componentRoutes: Routes = [
     path: 'button',
     loadComponent: () =>
       import('./pages/button-details/button-details.component'),
+    data: {
+      title: 'Button',
+    },
   },
   {
     path: '**',

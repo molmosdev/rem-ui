@@ -1,15 +1,26 @@
 import { Routes } from '@angular/router';
-import { docsRoutes } from './pages/docs/docs.routes';
+import { componentRoutes } from './pages/component/component.routes';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'docs',
+    redirectTo: 'introduction',
     pathMatch: 'full',
   },
   {
-    path: 'docs',
-    children: docsRoutes,
+    path: 'introduction',
+    loadComponent: () => import('./pages/introduction/introduction.component'),
+    data: {
+      title: 'Introduction',
+    },
+  },
+  {
+    path: 'component',
+    children: componentRoutes,
+    data: {
+      title: 'Components',
+      type: 'section',
+    },
   },
   {
     path: '**',

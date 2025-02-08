@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../../../../../../../../../lib/src/core/components/button/button.component';
-import { Text } from '../../../../../../../../../lib/src/core/components/text/text.component';
-import { Select } from '../../../../../../../../../lib/src/core/components/select/select.component';
-import { Option } from '../../../../../../../../../lib/src/shared/components/option/option.component';
-import { Switch } from '../../../../../../../../../lib/src/core/components/switch/switch.component';
+import {
+  Button,
+  Text,
+  Select,
+  Option,
+  Switch,
+} from '../../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-button-details',

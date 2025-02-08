@@ -1,0 +1,79 @@
+@defer (on idle) {
+  @if (isMobile()) {
+    <r-button
+      class="browse-components-button"
+      type="secondary"
+      (click)="componentsBottomSheet.set(true)">
+      {{ actualRouteData()?.['title'] }}
+    </r-button>
+    <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="auto">
+      <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+    </r-bottom-sheet>
+  } @else {
+    <ng-container *ngTemplateOutlet="componentsList"></ng-container>
+  }
+}
+<ng-template #componentsList>
+  <div class="components-list">
+    <div class="banner">
+      Only documented components are listed here. Other components will be added
+      over time.
+    </div>
+    <r-vertical-nav>
+      @for (route of routes(); track route) {
+        @if (route.path !== '**' && route.path !== '') {
+          <ng-container
+            *ngTemplateOutlet="
+              renderRoute;
+              context: { $implicit: route, accumulatedPath: '' }
+            "></ng-container>
+        }
+      }
+    </r-vertical-nav>
+  </div>
+</ng-template>
+
+<ng-template #renderRoute let-route let-accumulatedPath="accumulatedPath">
+  @if (route.path !== '**' && route.path !== '') {
+    @if (isSection(route)) {
+      <r-vertical-nav-section>
+        <span r-section-title>{{ route.data?.['title'] }}</span>
+        @for (child of route.children; track child) {
+          @if (child.path !== '**' && child.path !== '') {
+            <ng-container
+              *ngTemplateOutlet="
+                renderRoute;
+                context: {
+                  $implicit: child,
+                  accumulatedPath: getRoutePath(route, accumulatedPath),
+                }
+              "></ng-container>
+          }
+        }
+      </r-vertical-nav-section>
+    }
+    @if (isGroup(route)) {
+      <r-vertical-nav-group>
+        <span r-group-title>{{ route.data?.['title'] }}</span>
+        @for (child of route.children; track child) {
+          @if (child.path !== '**' && child.path !== '') {
+            <ng-container
+              *ngTemplateOutlet="
+                renderRoute;
+                context: {
+                  $implicit: child,
+                  accumulatedPath: getRoutePath(route, accumulatedPath),
+                }
+              "></ng-container>
+          }
+        }
+      </r-vertical-nav-group>
+    }
+    @if (!isSection(route) && !isGroup(route)) {
+      <r-vertical-nav-item
+        (click)="navigate(getRoutePath(route, accumulatedPath))">
+        {{ route.data?.['title'] }}
+      </r-vertical-nav-item>
+    }
+  }
+</ng-template>
