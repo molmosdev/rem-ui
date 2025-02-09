@@ -13,7 +13,7 @@ body {
     background-color 0.3s,
     color 0.3s;
   color: var(--text-color);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: 'Geist', sans-serif;
 
   @media (width < 576px) {
     font-size: 16px;

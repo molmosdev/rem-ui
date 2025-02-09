@@ -1,14 +1,15 @@
 :host {
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: 2rem;
-  max-width: 400px;
-  margin-inline: auto;
 
   h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .description {
+    max-width: 500px;
+    margin-top: 0;
   }
 
   .npm-packages {
