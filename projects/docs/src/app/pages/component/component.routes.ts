@@ -15,6 +15,14 @@ export const componentRoutes: Routes = [
     },
   },
   {
+    path: 'switch',
+    loadComponent: () =>
+      import('./pages/switch-details/switch-details.component'),
+    data: {
+      title: 'Switch',
+    },
+  },
+  {
     path: '**',
     redirectTo: '../docs',
   },
