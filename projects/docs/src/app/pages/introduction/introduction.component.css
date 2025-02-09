@@ -9,7 +9,10 @@
 
   .description {
     max-width: 500px;
-    margin-top: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   .npm-packages {
