@@ -6,7 +6,7 @@
     align-items: center;
     height: 2.8rem;
     background-color: var(--primary, #0a0a0a);
-    padding-inline: var(--button-padding-inline, 1.9rem);
+    padding-inline: var(--button-padding-inline, 1rem);
     border-radius: var(--roundness, 0.5rem);
     box-sizing: border-box;
     gap: 0.5rem;
