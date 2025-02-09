@@ -23,6 +23,14 @@ export const componentRoutes: Routes = [
     },
   },
   {
+    path: 'spinner',
+    loadComponent: () =>
+      import('./pages/spinner-details/spinner-details.component'),
+    data: {
+      title: 'Spinner',
+    },
+  },
+  {
     path: '**',
     redirectTo: '../docs',
   },
