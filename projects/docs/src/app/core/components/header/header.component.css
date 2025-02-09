@@ -4,17 +4,27 @@
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
 
-  .logo-wrapper {
-    overflow: hidden;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    cursor: pointer;
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 
-    .logo {
-      width: 1.8rem;
-      height: 1.8rem;
-      background: var(--text-color);
-      clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    span {
+      font-weight: 600;
+    }
+
+    .logo-wrapper {
+      overflow: hidden;
+      border-radius: 0.5rem;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      .logo {
+        width: 1.8rem;
+        height: 1.8rem;
+        background: var(--text-color);
+        clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+      }
     }
   }
 
