@@ -16,10 +16,10 @@
 
     .playground {
       display: flex;
-      flex-direction: column;
       border: 1px solid var(--border-color);
       padding: 4rem 2rem;
       border-radius: 0.5rem;
+      justify-content: center;
     }
   }
 
