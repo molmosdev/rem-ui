@@ -41,7 +41,7 @@
     height: 100%;
 
     .components-list {
-      width: 350px;
+      width: 240px;
       border-right: 1px solid var(--border-color);
       height: 100%;
     }
