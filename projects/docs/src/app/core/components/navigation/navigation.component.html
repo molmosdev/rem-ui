@@ -74,7 +74,8 @@
     }
     @if (!isSection(route) && !isGroup(route)) {
       <r-vertical-nav-item
-        (click)="navigate(getRoutePath(route, accumulatedPath))">
+        (click)="navigate(getRoutePath(route, accumulatedPath))"
+        [active]="activeRoute() === getRoutePath(route, accumulatedPath)">
         {{ route.data?.['title'] }}
       </r-vertical-nav-item>
     }

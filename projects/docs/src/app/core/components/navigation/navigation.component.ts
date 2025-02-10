@@ -34,11 +34,13 @@ export class NavigationComponent implements OnInit {
   routes = signal(this.router.config);
   componentsBottomSheet = signal(false);
   actualRouteData = signal(undefined);
+  activeRoute = signal('');
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.findRouteData(this.routes(), event.urlAfterRedirects);
+        this.activeRoute.set(event.urlAfterRedirects);
       }
     });
   }
@@ -63,6 +65,7 @@ export class NavigationComponent implements OnInit {
   navigate(route: string): void {
     this.componentsBottomSheet.set(false);
     this.router.navigate([route]);
+    this.activeRoute.set(route);
   }
 
   isSection(route: any): boolean {
