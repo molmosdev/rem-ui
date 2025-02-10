@@ -5,15 +5,13 @@ import { signal, WritableSignal } from '@angular/core';
 export interface IComponentData {
   title: string;
   component: any;
-  inputs: Record<
-    string,
-    {
-      name: string;
-      type: string;
-      value: WritableSignal<any>;
-      options?: { label: string; value: string }[];
-    }
-  >;
+  inputs: {
+    key: string;
+    name: string;
+    type: string;
+    value: WritableSignal<any>;
+    options?: { label: string; value: string }[];
+  }[];
   ngContent: WritableSignal<string>;
 }
 
@@ -29,8 +27,9 @@ export const componentRoutes: Routes = [
     data: {
       title: 'Button',
       component: Button,
-      inputs: {
-        type: {
+      inputs: [
+        {
+          key: 'type',
           name: 'Type',
           type: 'select',
           value: signal('primary'),
@@ -40,17 +39,19 @@ export const componentRoutes: Routes = [
             { label: 'Tertiary', value: 'tertiary' },
           ],
         },
-        disabled: {
+        {
+          key: 'disabled',
           name: 'Disabled',
           type: 'switch',
           value: signal(false),
         },
-        loading: {
+        {
+          key: 'loading',
           name: 'Loading',
           type: 'switch',
           value: signal(false),
         },
-      },
+      ],
       ngContent: signal('This is a button'),
     },
   },
@@ -60,18 +61,20 @@ export const componentRoutes: Routes = [
     data: {
       title: 'Switch',
       component: Switch,
-      inputs: {
-        label: {
+      inputs: [
+        {
+          key: 'label',
           name: 'Label',
           type: 'text',
           value: signal('This is a switch'),
         },
-        value: {
+        {
+          key: 'value',
           name: 'Value',
           type: 'switch',
           value: signal(false),
         },
-      },
+      ],
       ngContent: signal(''),
     },
   },
@@ -81,18 +84,20 @@ export const componentRoutes: Routes = [
     data: {
       title: 'Spinner',
       component: Spinner,
-      inputs: {
-        active: {
+      inputs: [
+        {
+          key: 'active',
           name: 'Active',
           type: 'switch',
           value: signal(true),
         },
-        size: {
+        {
+          key: 'size',
           name: 'Size',
           type: 'number',
           value: signal(30),
         },
-      },
+      ],
       ngContent: signal(''),
     },
   },

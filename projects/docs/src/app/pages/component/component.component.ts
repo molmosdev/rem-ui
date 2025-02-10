@@ -47,9 +47,9 @@ export default class ComponentComponent {
   inputs = computed(() => this.componentData().inputs);
 
   resolvedInputs = computed(() => {
-    const inputs = this.inputs();
+    const inputsArray = this.inputs();
     return Object.fromEntries(
-      Object.entries(inputs).map(([key, value]) => [key, value.value()])
+      inputsArray.map(input => [input.key, input.value()])
     );
   });
 
