@@ -19,7 +19,7 @@ export interface IComponentData {
     options?: { label: string; value: string }[];
     hidden?: boolean;
   }[];
-  ngContent: WritableSignal<string>;
+  ngContent?: WritableSignal<string>;
 }
 
 export const componentRoutes: Routes = [
