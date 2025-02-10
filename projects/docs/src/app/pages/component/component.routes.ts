@@ -43,7 +43,7 @@ export const componentRoutes: Routes = [
           options: [
             { label: 'Primary', value: 'primary' },
             { label: 'Secondary', value: 'secondary' },
-            { label: 'Tertiary', value: 'tertiary' },
+            { label: 'Ghost', value: 'ghost' },
           ],
         },
         {
@@ -60,52 +60,6 @@ export const componentRoutes: Routes = [
         },
       ],
       ngContent: signal('This is a button'),
-    },
-  },
-  {
-    path: 'switch',
-    loadComponent: () => import('./component.component'),
-    data: {
-      title: 'Switch',
-      component: Switch,
-      inputs: [
-        {
-          key: 'label',
-          name: 'Label',
-          type: 'text',
-          value: signal('This is a switch'),
-        },
-        {
-          key: 'value',
-          name: 'Value',
-          type: 'switch',
-          value: signal(false),
-        },
-      ],
-      ngContent: signal(''),
-    },
-  },
-  {
-    path: 'spinner',
-    loadComponent: () => import('./component.component'),
-    data: {
-      title: 'Spinner',
-      component: Spinner,
-      inputs: [
-        {
-          key: 'active',
-          name: 'Active',
-          type: 'switch',
-          value: signal(true),
-        },
-        {
-          key: 'size',
-          name: 'Size',
-          type: 'number',
-          value: signal(30),
-        },
-      ],
-      ngContent: signal(''),
     },
   },
   {
@@ -210,6 +164,53 @@ export const componentRoutes: Routes = [
       ngContent: signal(''),
     },
   },
+  {
+    path: 'switch',
+    loadComponent: () => import('./component.component'),
+    data: {
+      title: 'Switch',
+      component: Switch,
+      inputs: [
+        {
+          key: 'label',
+          name: 'Label',
+          type: 'text',
+          value: signal('This is a switch'),
+        },
+        {
+          key: 'value',
+          name: 'Value',
+          type: 'switch',
+          value: signal(false),
+        },
+      ],
+      ngContent: signal(''),
+    },
+  },
+  {
+    path: 'spinner',
+    loadComponent: () => import('./component.component'),
+    data: {
+      title: 'Spinner',
+      component: Spinner,
+      inputs: [
+        {
+          key: 'active',
+          name: 'Active',
+          type: 'switch',
+          value: signal(true),
+        },
+        {
+          key: 'size',
+          name: 'Size',
+          type: 'number',
+          value: signal(30),
+        },
+      ],
+      ngContent: signal(''),
+    },
+  },
+
   {
     path: '**',
     redirectTo: '../docs',
