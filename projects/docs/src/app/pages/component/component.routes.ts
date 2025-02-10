@@ -4,6 +4,7 @@ import {
   Switch,
   Spinner,
   Number,
+  Text,
 } from '../../../../../lib/src/public-api';
 import { signal, WritableSignal } from '@angular/core';
 
@@ -102,6 +103,54 @@ export const componentRoutes: Routes = [
           name: 'Size',
           type: 'number',
           value: signal(30),
+        },
+      ],
+      ngContent: signal(''),
+    },
+  },
+  {
+    path: 'text',
+    loadComponent: () => import('./component.component'),
+    data: {
+      title: 'Text',
+      component: Text,
+      inputs: [
+        {
+          key: 'label',
+          name: 'Label',
+          type: 'text',
+          value: signal('This is a text input'),
+        },
+        {
+          key: 'value',
+          name: 'Value',
+          type: 'text',
+          value: signal('Lorem ipsum'),
+          hidden: true,
+        },
+        {
+          key: 'error',
+          name: 'Error',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'clearable',
+          name: 'Clearable',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'disabled',
+          name: 'Disabled',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'searching',
+          name: 'Searching',
+          type: 'switch',
+          value: signal(false),
         },
       ],
       ngContent: signal(''),
