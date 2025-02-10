@@ -83,7 +83,14 @@
 
     .components-list {
       padding-top: 0;
+      padding-bottom: 0;
       height: calc(100dvh - 17rem);
+
+      r-vertical-nav {
+        r-vertical-nav-item:last-child {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 }
