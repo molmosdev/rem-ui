@@ -14,24 +14,26 @@
   </div>
   <div class="controls">
     @for (input of inputs(); track input.name) {
-      @switch (input.type) {
-        @case ('text') {
-          <r-text [label]="input.name" [(value)]="input.value"></r-text>
-        }
-        @case ('select') {
-          <r-select [label]="input.name" [(selectedValue)]="input.value">
-            @if (input.options) {
-              @for (option of input.options; track option.label) {
-                <r-option [value]="option.value">{{ option.label }}</r-option>
+      @if (!input.hidden) {
+        @switch (input.type) {
+          @case ('text') {
+            <r-text [label]="input.name" [(value)]="input.value"></r-text>
+          }
+          @case ('select') {
+            <r-select [label]="input.name" [(selectedValue)]="input.value">
+              @if (input.options) {
+                @for (option of input.options; track option.label) {
+                  <r-option [value]="option.value">{{ option.label }}</r-option>
+                }
               }
-            }
-          </r-select>
-        }
-        @case ('switch') {
-          <r-switch [label]="input.name" [(value)]="input.value"></r-switch>
-        }
-        @case ('number') {
-          <r-number [label]="input.name" [(value)]="input.value"></r-number>
+            </r-select>
+          }
+          @case ('switch') {
+            <r-switch [label]="input.name" [(value)]="input.value"></r-switch>
+          }
+          @case ('number') {
+            <r-number [label]="input.name" [(value)]="input.value"></r-number>
+          }
         }
       }
     }

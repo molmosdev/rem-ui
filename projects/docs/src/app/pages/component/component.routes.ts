@@ -1,5 +1,10 @@
 import { Routes } from '@angular/router';
-import { Button, Switch, Spinner } from '../../../../../lib/src/public-api';
+import {
+  Button,
+  Switch,
+  Spinner,
+  Number,
+} from '../../../../../lib/src/public-api';
 import { signal, WritableSignal } from '@angular/core';
 
 export interface IComponentData {
@@ -11,6 +16,7 @@ export interface IComponentData {
     type: string;
     value: WritableSignal<any>;
     options?: { label: string; value: string }[];
+    hidden?: boolean;
   }[];
   ngContent: WritableSignal<string>;
 }
@@ -96,6 +102,60 @@ export const componentRoutes: Routes = [
           name: 'Size',
           type: 'number',
           value: signal(30),
+        },
+      ],
+      ngContent: signal(''),
+    },
+  },
+  {
+    path: 'number',
+    loadComponent: () => import('./component.component'),
+    data: {
+      title: 'Number',
+      component: Number,
+      inputs: [
+        {
+          key: 'label',
+          name: 'Label',
+          type: 'text',
+          value: signal('This is a number input'),
+        },
+        {
+          key: 'value',
+          name: 'Value',
+          type: 'number',
+          value: signal(100),
+          hidden: true,
+        },
+        {
+          key: 'valueType',
+          name: 'Value Type',
+          type: 'select',
+          value: signal('integer'),
+          options: [
+            { label: 'Integer', value: 'integer' },
+            { label: 'Decimal', value: 'decimal' },
+            { label: 'Currency', value: 'currency' },
+            { label: 'Percentage', value: 'percentage' },
+          ],
+        },
+        {
+          key: 'suffix',
+          name: 'Suffix',
+          type: 'text',
+          value: signal('cm'),
+        },
+        {
+          key: 'error',
+          name: 'Error',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'disabled',
+          name: 'Disabled',
+          type: 'switch',
+          value: signal(false),
         },
       ],
       ngContent: signal(''),
