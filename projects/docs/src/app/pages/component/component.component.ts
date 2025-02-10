@@ -23,7 +23,6 @@ import {
   standalone: true,
   imports: [NgComponentOutlet, Text, Number, Select, Option, Switch],
   templateUrl: './component.component.html',
-  styleUrls: ['./component.component.css'],
 })
 export default class ComponentComponent {
   route = inject(ActivatedRoute);

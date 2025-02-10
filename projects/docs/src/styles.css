@@ -25,3 +25,32 @@ body {
     margin-inline: auto;
   }
 }
+
+.playground {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .component {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    padding: 4rem 1.5rem;
+    justify-content: center;
+  }
+
+  .controls {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    @media (width >= 576px) {
+      & > *:not(r-switch) {
+        width: 240px;
+      }
+    }
+
+    @media (width < 576px) {
+      flex-direction: column;
+    }
+  }
+}

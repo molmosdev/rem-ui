@@ -4,9 +4,9 @@
 
   .content {
     display: flex;
-    height: calc(100dvh - 3.8rem - 1px);
     overflow: hidden;
     position: relative;
+    height: calc(100dvh - 3.8rem - 1px);
 
     @media (width < 576px) {
       flex-direction: column-reverse;
@@ -18,6 +18,11 @@
       overflow: auto;
       scrollbar-width: thin;
       scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
+      overflow-y: auto;
+
+      @media (width < 576px) {
+        height: calc(100dvh - 3.8rem - 3.8rem - 2px);
+      }
     }
   }
 }

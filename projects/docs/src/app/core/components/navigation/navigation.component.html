@@ -1,16 +1,14 @@
 @defer (on idle) {
   @if (isMobile()) {
-    <div class="dock">
-      <r-button type="secondary" (click)="componentsBottomSheet.set(true)">
-        <div class="button-content-wrapper">
-          <span>{{ actualRouteData()?.['title'] }}</span>
-          <div class="chevron-wrapper">
-            <i class="icon-chevron-up"></i>
-            <i class="icon-chevron-down"></i>
-          </div>
+    <r-button type="secondary" (click)="componentsBottomSheet.set(true)">
+      <div class="button-content-wrapper">
+        <span>{{ actualRouteData()?.['title'] }}</span>
+        <div class="chevron-wrapper">
+          <i class="icon-chevron-up"></i>
+          <i class="icon-chevron-down"></i>
         </div>
-      </r-button>
-    </div>
+      </div>
+    </r-button>
     <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="auto">
       <ng-container *ngTemplateOutlet="componentsList"></ng-container>
     </r-bottom-sheet>
