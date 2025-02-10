@@ -1,4 +1,11 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  model,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
 import { VerticalNav } from '../../../../../../lib/src/core/components/vertical-nav/vertical-nav.component';
 import { VerticalNavSection } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
@@ -8,7 +15,10 @@ import { NgTemplateOutlet } from '@angular/common';
 import { VerticalNavGroup } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
-import { fadeInFadeOutTrigger } from '../../../../../../lib/src/public-api';
+import {
+  fadeInFadeOutTrigger,
+  SideSheet,
+} from '../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-navigation',
@@ -19,6 +29,7 @@ import { fadeInFadeOutTrigger } from '../../../../../../lib/src/public-api';
     VerticalNavItem,
     VerticalNavGroup,
     BottomSheet,
+    SideSheet,
     Button,
   ],
   templateUrl: './navigation.component.html',
@@ -27,12 +38,10 @@ import { fadeInFadeOutTrigger } from '../../../../../../lib/src/public-api';
 })
 export class NavigationComponent implements OnInit {
   responsiveService = inject(ResponsiveService);
-  isMobile = computed(
-    () => this.responsiveService.currentDevice() === 'mobile'
-  );
+  currentDevice = computed(() => this.responsiveService.currentDevice());
   router = inject(Router);
   routes = signal(this.router.config);
-  componentsBottomSheet = signal(false);
+  isMenuVisible = model(false);
   actualRouteData = signal(undefined);
   activeRoute = signal('');
 
@@ -63,7 +72,7 @@ export class NavigationComponent implements OnInit {
   }
 
   navigate(route: string): void {
-    this.componentsBottomSheet.set(false);
+    this.isMenuVisible.set(false);
     this.router.navigate([route]);
     this.activeRoute.set(route);
   }

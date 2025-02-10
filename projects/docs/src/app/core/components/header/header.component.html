@@ -1,8 +1,13 @@
-<div class="left" [routerLink]="['/']">
-  <div class="logo-wrapper">
-    <div class="logo"></div>
+<div class="left">
+  @if (isTablet()) {
+    <i class="icon-menu" (click)="sideSheet.set(!sideSheet())"></i>
+  }
+  <div class="home-nav-link" [routerLink]="['/']">
+    <div class="logo-wrapper">
+      <div class="logo"></div>
+    </div>
+    <span>rem-ui</span>
   </div>
-  <span>rem-ui</span>
 </div>
 <i
   [class.icon-sun]="isDarkTheme()"

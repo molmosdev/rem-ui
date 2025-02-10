@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThemeService } from '../../../lib/src/core/services/theme.service';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
@@ -13,4 +13,5 @@ import { HeaderComponent } from './core/components/header/header.component';
 export class AppComponent {
   title = 'rem-ui';
   themeService = inject(ThemeService);
+  isMenuVisible = signal(false);
 }
