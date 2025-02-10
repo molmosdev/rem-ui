@@ -107,7 +107,6 @@ export const componentRoutes: Routes = [
           value: signal(false),
         },
       ],
-      ngContent: signal(''),
     },
   },
   {
@@ -161,7 +160,6 @@ export const componentRoutes: Routes = [
           value: signal(false),
         },
       ],
-      ngContent: signal(''),
     },
   },
   {
@@ -184,7 +182,6 @@ export const componentRoutes: Routes = [
           value: signal(false),
         },
       ],
-      ngContent: signal(''),
     },
   },
   {
@@ -207,7 +204,6 @@ export const componentRoutes: Routes = [
           value: signal(30),
         },
       ],
-      ngContent: signal(''),
     },
   },
 
