@@ -6,6 +6,7 @@
     display: flex;
     height: calc(100dvh - 3.8rem - 1px);
     overflow: hidden;
+    position: relative;
 
     @media (width < 576px) {
       flex-direction: column-reverse;
