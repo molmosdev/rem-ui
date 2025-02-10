@@ -44,6 +44,8 @@ body {
     padding: 1.5rem;
 
     @media (width >= 576px) {
+      flex-wrap: wrap;
+
       & > *:not(r-switch) {
         width: 240px;
       }
