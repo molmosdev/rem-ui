@@ -11,7 +11,7 @@
         </div>
       </r-button>
     </div>
-    <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="50dvh">
+    <r-bottom-sheet [(isOpen)]="componentsBottomSheet" height="auto">
       <ng-container *ngTemplateOutlet="componentsList"></ng-container>
     </r-bottom-sheet>
   } @else {
