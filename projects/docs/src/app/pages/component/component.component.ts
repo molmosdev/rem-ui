@@ -1,4 +1,4 @@
-import { KeyValuePipe, NgComponentOutlet } from '@angular/common';
+import { NgComponentOutlet } from '@angular/common';
 import {
   Component,
   computed,
@@ -21,15 +21,7 @@ import {
 @Component({
   selector: 'app-component',
   standalone: true,
-  imports: [
-    NgComponentOutlet,
-    KeyValuePipe,
-    Text,
-    Number,
-    Select,
-    Option,
-    Switch,
-  ],
+  imports: [NgComponentOutlet, Text, Number, Select, Option, Switch],
   templateUrl: './component.component.html',
   styleUrls: ['./component.component.css'],
 })
