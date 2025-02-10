@@ -84,6 +84,14 @@
       }
     }
 
+    r-vertical-nav {
+      height: calc(100dvh - 31.4rem);
+
+      r-vertical-nav-item:last-child {
+        margin-bottom: 1rem;
+      }
+    }
+
     .components-list {
       padding-top: 0;
     }
