@@ -7,12 +7,18 @@
   [@disabledStateTrigger]="disabled()"
   type="text" />
 @if (label()) {
-  <label [@errorStateTrigger]="error()" [@labelStateTrigger]="labelState()">
+  <label
+    [@errorStateTrigger]="error()"
+    [@labelStateTrigger]="labelState()"
+    [@disabledStateTrigger]="disabled()">
     {{ label() }}
   </label>
 }
 @if (valueType() !== 'integer' || suffix()) {
-  <div class="suffix-or-type" [@errorStateTrigger]="error()">
+  <div
+    class="suffix-or-type"
+    [@errorStateTrigger]="error()"
+    [@disabledStateTrigger]="disabled()">
     @if (suffix()) {
       {{ suffix() }}
     } @else {

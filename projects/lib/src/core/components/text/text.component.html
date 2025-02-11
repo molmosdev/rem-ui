@@ -9,16 +9,19 @@
   [@disabledStateTrigger]="disabled()"
   type="text" />
 @if (label()) {
-  <div
-    class="label"
+  <label
     [class.has-value]="displayValue()"
     [@errorStateTrigger]="error()"
     [@labelStateTrigger]="labelState()">
     {{ label() }}
-  </div>
+  </label>
 }
 @if ((clearable() && displayValue()) || searching()) {
-  <div class="right-button" [@errorRightButtonStateTrigger]="error()">
+  <div
+    class="right-button"
+    [@errorRightButtonStateTrigger]="error()"
+    [@labelStateTrigger]="labelState()">
+    >
     @if (searching()) {
       <r-spinner
         [active]="true"

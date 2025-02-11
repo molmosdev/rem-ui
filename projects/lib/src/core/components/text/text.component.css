@@ -3,7 +3,7 @@
   display: flex;
   --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
-  .label {
+  label {
     position: absolute;
     left: 0.938rem;
     z-index: 1;
