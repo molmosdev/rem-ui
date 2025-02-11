@@ -83,6 +83,12 @@ export const componentRoutes: Routes = [
           hidden: true,
         },
         {
+          key: 'placeholder',
+          name: 'Placeholder',
+          type: 'text',
+          value: signal('Placeholder'),
+        },
+        {
           key: 'error',
           name: 'Error',
           type: 'switch',

@@ -40,6 +40,7 @@ export class Text {
   disabled = model<boolean>(false);
   searching = input<boolean>(false);
   focused = signal<boolean>(false);
+  placeholder = input<string | undefined>(undefined);
 
   inputTriggerState = computed(() =>
     this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel'
