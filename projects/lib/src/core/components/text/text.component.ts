@@ -51,7 +51,10 @@ export class Text {
   );
 
   inputPaddingState = computed(() =>
-    this.label() && (this.displayValue() || this.focused()) ? 'small' : 'normal'
+    this.label() &&
+    (this.displayValue() || this.focused() || this.placeholder())
+      ? 'small'
+      : 'normal'
   );
 
   /**

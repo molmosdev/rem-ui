@@ -51,7 +51,10 @@ export class Number {
     this.displayValue() || this.focused() ? 'small' : 'normal'
   );
   inputPaddingState = linkedSignal(() =>
-    this.label() && (this.displayValue() || this.focused()) ? 'small' : 'normal'
+    this.label() &&
+    (this.displayValue() || this.focused() || this.placeholder())
+      ? 'small'
+      : 'normal'
   );
   placeholder = input<string | undefined>(undefined);
 
