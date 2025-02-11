@@ -176,6 +176,16 @@ export const componentRoutes: Routes = [
           value: signal('This is a switch'),
         },
         {
+          key: 'size',
+          name: 'Size',
+          type: 'select',
+          value: signal('medium'),
+          options: [
+            { label: 'Default', value: 'default' },
+            { label: 'Large', value: 'large' },
+          ],
+        },
+        {
           key: 'value',
           name: 'Value',
           type: 'switch',
