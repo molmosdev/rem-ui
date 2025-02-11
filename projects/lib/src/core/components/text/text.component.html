@@ -2,18 +2,12 @@
   (keyup)="updateValue($event)"
   [disabled]="disabled()"
   [value]="displayValue()"
-  [ngClass]="{
-    'has-label': label(),
-    'has-value': displayValue(),
-  }"
-  [@errorState]="error()"
+  [class.has-label]="label()"
+  [class.has-value]="displayValue()"
+  [@errorStateTrigger]="error()"
   type="text" />
 @if (label()) {
-  <label
-    [ngClass]="{
-      'has-value': displayValue(),
-    }"
-    [@errorState]="error()">
+  <label [class.has-value]="displayValue()" [@errorStateTrigger]="error()">
     {{ label() }}
   </label>
 }

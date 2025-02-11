@@ -4,15 +4,15 @@
   [value]="displayValue()"
   [class.has-label]="label()"
   [class.has-value]="displayValue()"
-  [@errorState]="error()"
+  [@errorStateTrigger]="error()"
   type="text" />
 @if (label()) {
-  <label [class.has-value]="displayValue()" [@errorState]="error()">
+  <label [class.has-value]="displayValue()" [@errorStateTrigger]="error()">
     {{ label() }}
   </label>
 }
 @if (valueType() !== 'integer' || suffix()) {
-  <div class="suffix-or-type" [@errorState]="error()">
+  <div class="suffix-or-type" [@errorStateTrigger]="error()">
     @if (suffix()) {
       {{ suffix() }}
     } @else {
