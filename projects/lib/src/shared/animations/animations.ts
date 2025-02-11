@@ -121,3 +121,21 @@ export const overlayTrigger = trigger('overlayTrigger', [
   ),
   transition('hidden <=> visible', [animate('0.3s ease-out')]),
 ]);
+
+export const labelStateTrigger = trigger('labelStateTrigger', [
+  state(
+    'normal',
+    style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' })
+  ),
+  state(
+    'small',
+    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
+  ),
+  transition('normal <=> small', animate('0.2s')),
+]);
+
+export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
+  state('normal', style({ padding: '0.688rem var(--padding-left)' })),
+  state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
+  transition('normal <=> small', animate('0.2s')),
+]);

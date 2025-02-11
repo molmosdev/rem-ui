@@ -3,7 +3,7 @@
   display: flex;
   --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
-  label {
+  .label {
     position: absolute;
     left: 0.938rem;
     z-index: 1;
@@ -11,16 +11,6 @@
     pointer-events: none;
     color: var(--input-foreground, #798194);
     top: 50%;
-    transform: translateY(-50%);
-    transition: 0.2s;
-  }
-
-  input:focus-visible + label,
-  label.has-value {
-    top: 0.344rem;
-    font-size: 70%;
-    transform: translateY(0);
-    transition: 0.2s;
   }
 
   &:has(input:disabled) {
@@ -46,25 +36,18 @@
     position: relative;
     border: 1px solid var(--border-color, transparent);
 
-    &.has-label {
-      &.has-value,
-      &:focus-visible {
-        padding: 1.2rem var(--padding-left) 0.313rem;
-      }
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
-  }
 
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  input[type='text'] {
-    appearance: textfield;
-    -moz-appearance: textfield;
+    /* Firefox */
+    &[type='text'] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
   }
 
   .right-button {

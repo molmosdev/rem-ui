@@ -5,11 +5,16 @@
   [class.has-label]="label()"
   [class.has-value]="displayValue()"
   [@errorStateTrigger]="error()"
+  [@inputPaddingStateTrigger]="inputPaddingState()"
   type="text" />
 @if (label()) {
-  <label [class.has-value]="displayValue()" [@errorStateTrigger]="error()">
+  <div
+    class="label"
+    [class.has-value]="displayValue()"
+    [@errorStateTrigger]="error()"
+    [@labelStateTrigger]="labelState()">
     {{ label() }}
-  </label>
+  </div>
 }
 @if ((clearable() && displayValue()) || searching()) {
   <div class="right-button" [@errorRightButtonStateTrigger]="error()">

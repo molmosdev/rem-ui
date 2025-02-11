@@ -1,8 +1,18 @@
-import { Component, computed, input, model, output } from '@angular/core';
+import {
+  Component,
+  computed,
+  input,
+  model,
+  output,
+  signal,
+} from '@angular/core';
+import { HostListener } from '@angular/core';
 import { Spinner } from '../spinner/spinner.component';
 import {
   errorRightButtonStateTrigger,
   errorStateTrigger,
+  labelStateTrigger,
+  inputPaddingStateTrigger,
 } from '../../../shared/animations/animations';
 
 @Component({
@@ -10,7 +20,12 @@ import {
   imports: [Spinner],
   templateUrl: './text.component.html',
   styleUrl: './text.component.css',
-  animations: [errorStateTrigger, errorRightButtonStateTrigger],
+  animations: [
+    errorStateTrigger,
+    errorRightButtonStateTrigger,
+    labelStateTrigger,
+    inputPaddingStateTrigger,
+  ],
 })
 export class Text {
   value = model<string | null>(null);
@@ -22,18 +37,39 @@ export class Text {
   clearable = input<boolean>(false);
   disabled = model<boolean>(false);
   searching = input<boolean>(false);
+  focused = signal<boolean>(false);
+
+  inputTriggerState = computed(() =>
+    this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel'
+  );
+
+  labelState = computed(() =>
+    this.displayValue() || this.focused() ? 'small' : 'normal'
+  );
+
+  inputPaddingState = computed(() =>
+    this.label() && (this.displayValue() || this.focused()) ? 'small' : 'normal'
+  );
 
   /**
-   * Get the input trigger state
-   * @returns {string} - The input trigger state
+   * Handle focus in event
    */
-  get inputTriggerState(): string {
-    return this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel';
+  @HostListener('focusin')
+  onFocusIn() {
+    this.focused.set(true);
+  }
+
+  /**
+   * Handle focus out event
+   */
+  @HostListener('focusout')
+  onFocusOut() {
+    this.focused.set(false);
   }
 
   /**
    * Update the value
-   * @param {KeyboardEvent} event - The keyboard event
+   * @param event - The keyboard event
    */
   updateValue(event: KeyboardEvent): void {
     const newValue = (event.target as HTMLInputElement).value;
