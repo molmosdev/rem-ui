@@ -6,7 +6,7 @@
     display: flex;
     overflow: hidden;
     position: relative;
-    height: calc(100dvh - 3.8rem - 1px);
+    height: calc(100dvh - 4.1rem - 1px);
 
     @media (width < 576px) {
       flex-direction: column-reverse;
@@ -21,7 +21,7 @@
       overflow-y: auto;
 
       @media (width < 576px) {
-        height: calc(100dvh - 3.8rem - 3.8rem - 2px);
+        height: calc(100dvh - 4.1rem - 3.8rem - 2px);
       }
     }
   }
