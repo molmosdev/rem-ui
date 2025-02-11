@@ -2,23 +2,17 @@
   (keyup)="updateValue($event)"
   [disabled]="disabled()"
   [value]="displayValue()"
-  [ngClass]="{
-    'has-label': label(),
-    'has-value': displayValue(),
-    error: error(),
-  }"
+  [class.has-label]="label()"
+  [class.has-value]="displayValue()"
+  [@errorState]="error()"
   type="text" />
 @if (label()) {
-  <label
-    [ngClass]="{
-      'has-value': displayValue(),
-      error: error(),
-    }">
+  <label [class.has-value]="displayValue()" [@errorState]="error()">
     {{ label() }}
   </label>
 }
 @if (valueType() !== 'integer' || suffix()) {
-  <div class="suffix-or-type" [ngClass]="{ error: error() }">
+  <div class="suffix-or-type" [@errorState]="error()">
     @if (suffix()) {
       {{ suffix() }}
     } @else {

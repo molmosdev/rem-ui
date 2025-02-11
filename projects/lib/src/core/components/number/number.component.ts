@@ -6,17 +6,46 @@ import {
   model,
   output,
 } from '@angular/core';
-import { NgClass, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import { CurrencyPipe } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'r-number',
-  imports: [NgClass, FormsModule],
+  imports: [FormsModule],
   templateUrl: './number.component.html',
   providers: [CurrencyPipe, { provide: LOCALE_ID, useValue: 'es-ES' }],
   styleUrl: './number.component.css',
+  animations: [
+    trigger('errorState', [
+      state(
+        'true',
+        style({
+          color: 'var(--error-foreground, #c40000ab)',
+          backgroundColor: 'var(--error, #fff0f0)',
+          borderColor: 'var(--error-foreground, #c40000ab)',
+        })
+      ),
+      state(
+        'false',
+        style({
+          color: 'var(--input-foreground, #798194)',
+          backgroundColor:
+            'color-mix(in srgb, var(--foreground, #798194) 5%, var(--background, #ffffff))',
+          borderColor: 'var(--border-color, transparent)',
+        })
+      ),
+      transition('false <=> true', animate('0.2s')),
+    ]),
+  ],
 })
 export class Number {
   value = model<number | null>(null);
