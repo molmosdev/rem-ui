@@ -34,8 +34,16 @@
     }
   }
 
-  i {
-    font-size: 0.8rem;
-    color: var(--bg-color);
+  .left {
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  r-switch {
+    i {
+      font-size: 0.8rem;
+      color: var(--bg-color);
+    }
   }
 }
