@@ -139,3 +139,21 @@ export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
   state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
   transition('normal <=> small', animate('0.2s')),
 ]);
+
+export const disabledStateTrigger = trigger('disabledStateTrigger', [
+  state(
+    'true',
+    style({
+      opacity: 0.5,
+      pointerEvents: 'none',
+    })
+  ),
+  state(
+    'false',
+    style({
+      opacity: 1,
+      pointerEvents: 'auto',
+    })
+  ),
+  transition('false <=> true', animate('0.2s')),
+]);
