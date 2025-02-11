@@ -48,7 +48,9 @@ export class Number {
   debounceTimer: any;
   focused = signal<boolean>(false);
   labelState = linkedSignal(() =>
-    this.displayValue() || this.focused() ? 'small' : 'normal'
+    this.displayValue() || this.focused() || this.placeholder()
+      ? 'small'
+      : 'normal'
   );
   inputPaddingState = linkedSignal(() =>
     this.label() &&

@@ -41,15 +41,14 @@ export class Text {
   searching = input<boolean>(false);
   focused = signal<boolean>(false);
   placeholder = input<string | undefined>(undefined);
-
   inputTriggerState = computed(() =>
     this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel'
   );
-
   labelState = computed(() =>
-    this.displayValue() || this.focused() ? 'small' : 'normal'
+    this.displayValue() || this.focused() || this.placeholder()
+      ? 'small'
+      : 'normal'
   );
-
   inputPaddingState = computed(() =>
     this.label() &&
     (this.displayValue() || this.focused() || this.placeholder())
