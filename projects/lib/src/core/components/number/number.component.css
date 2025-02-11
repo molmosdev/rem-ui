@@ -23,6 +23,11 @@
     transition: 0.2s;
   }
 
+  &:has(input:disabled) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   .suffix-or-type {
     position: absolute;
     transform: translateY(-50%);
