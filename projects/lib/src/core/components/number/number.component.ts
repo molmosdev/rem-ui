@@ -59,6 +59,7 @@ export class Number {
       : 'normal'
   );
   placeholder = input<string>('');
+  displayPlaceholder = linkedSignal(() => this.placeholder() || '');
 
   constructor(private currencyPipe: CurrencyPipe) {
     registerLocaleData(localeEs, 'es-ES');

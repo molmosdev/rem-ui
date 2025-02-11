@@ -41,6 +41,7 @@ export class Text {
   searching = input<boolean>(false);
   focused = signal<boolean>(false);
   placeholder = input<string>('');
+  displayPlaceholder = computed(() => this.placeholder() || '');
   inputTriggerState = computed(() =>
     this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel'
   );
