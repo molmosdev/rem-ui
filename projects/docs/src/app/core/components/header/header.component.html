@@ -9,7 +9,6 @@
     <span>rem-ui</span>
   </div>
 </div>
-<i
-  [class.icon-sun]="isDarkTheme()"
-  (click)="toggleTheme()"
-  [class.icon-moon]="!isDarkTheme()"></i>
+<r-switch [value]="!isDarkTheme()" (click)="toggleTheme()" size="large">
+  <i [class.icon-sun]="!isDarkTheme()" [class.icon-moon]="isDarkTheme()"></i>
+</r-switch>

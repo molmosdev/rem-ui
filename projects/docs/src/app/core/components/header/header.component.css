@@ -35,7 +35,7 @@
   }
 
   i {
-    font-size: 1.6rem;
-    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--bg-color);
   }
 }
