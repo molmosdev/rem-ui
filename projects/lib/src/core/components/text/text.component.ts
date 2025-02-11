@@ -13,6 +13,7 @@ import {
   errorStateTrigger,
   labelStateTrigger,
   inputPaddingStateTrigger,
+  disabledStateTrigger,
 } from '../../../shared/animations/animations';
 
 @Component({
@@ -25,6 +26,7 @@ import {
     errorRightButtonStateTrigger,
     labelStateTrigger,
     inputPaddingStateTrigger,
+    disabledStateTrigger,
   ],
 })
 export class Text {
