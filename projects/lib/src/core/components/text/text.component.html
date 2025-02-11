@@ -2,17 +2,15 @@
   (keyup)="updateValue($event)"
   [disabled]="disabled()"
   [value]="displayValue()"
-  [class.has-label]="label()"
-  [class.has-value]="displayValue()"
   [@errorStateTrigger]="error()"
   [@inputPaddingStateTrigger]="inputPaddingState()"
   [@disabledStateTrigger]="disabled()"
   type="text" />
 @if (label()) {
   <label
-    [class.has-value]="displayValue()"
     [@errorStateTrigger]="error()"
-    [@labelStateTrigger]="labelState()">
+    [@labelStateTrigger]="labelState()"
+    [@disabledStateTrigger]="disabled()">
     {{ label() }}
   </label>
 }
@@ -20,8 +18,8 @@
   <div
     class="right-button"
     [@errorRightButtonStateTrigger]="error()"
-    [@labelStateTrigger]="labelState()">
-    >
+    [@labelStateTrigger]="labelState()"
+    [@disabledStateTrigger]="disabled()">
     @if (searching()) {
       <r-spinner
         [active]="true"
