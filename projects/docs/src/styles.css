@@ -21,8 +21,6 @@ body {
 
   @media (width >= 576px) {
     font-size: 14px;
-    max-width: 1800px;
-    margin-inline: auto;
   }
 }
 
