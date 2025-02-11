@@ -58,7 +58,7 @@ export class Number {
       ? 'small'
       : 'normal'
   );
-  placeholder = input<string | undefined>(undefined);
+  placeholder = input<string>('');
 
   constructor(private currencyPipe: CurrencyPipe) {
     registerLocaleData(localeEs, 'es-ES');

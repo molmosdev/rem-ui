@@ -76,17 +76,10 @@ export const componentRoutes: Routes = [
           value: signal('This is a text input'),
         },
         {
-          key: 'value',
-          name: 'Value',
-          type: 'text',
-          value: signal('Lorem ipsum'),
-          hidden: true,
-        },
-        {
           key: 'placeholder',
           name: 'Placeholder',
           type: 'text',
-          value: signal('Placeholder'),
+          value: signal('Enter text'),
         },
         {
           key: 'error',
@@ -129,17 +122,10 @@ export const componentRoutes: Routes = [
           value: signal('This is a number input'),
         },
         {
-          key: 'value',
-          name: 'Value',
-          type: 'number',
-          value: signal(100),
-          hidden: true,
-        },
-        {
           key: 'placeholder',
           name: 'Placeholder',
           type: 'text',
-          value: signal('Placeholder'),
+          value: signal('Enter number'),
         },
         {
           key: 'valueType',
