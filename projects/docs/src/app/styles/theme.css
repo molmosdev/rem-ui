@@ -4,6 +4,9 @@
   --white: #ffffff;
 }
 
+/*       color: 'var(--error-foreground, #c40000ab)',
+      backgroundColor: 'var(--error, #fff0f0)', */
+
 /* Light theme */
 body[data-theme='light'] {
   /* Base theme colors */
@@ -26,6 +29,10 @@ body[data-theme='light'] {
 
   --input-background: color-mix(in srgb, var(--bg-color), var(--black) 1%);
   --input-foreground: var(--text-color);
+
+  /* Error colors */
+  --error-foreground: #c40000ab;
+  --error: #fff0f0;
 }
 
 /* Dark theme */
@@ -54,4 +61,8 @@ body[data-theme='dark'] {
 
   --input-background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
   --input-foreground: var(--text-color);
+
+  /* Error colors */
+  --error-foreground: #ff6b6b;
+  --error: #382d2d;
 }
