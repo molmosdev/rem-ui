@@ -53,6 +53,7 @@ export class Number {
   inputPaddingState = linkedSignal(() =>
     this.label() && (this.displayValue() || this.focused()) ? 'small' : 'normal'
   );
+  placeholder = input<string | undefined>(undefined);
 
   constructor(private currencyPipe: CurrencyPipe) {
     registerLocaleData(localeEs, 'es-ES');

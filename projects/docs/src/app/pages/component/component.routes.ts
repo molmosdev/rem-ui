@@ -136,6 +136,12 @@ export const componentRoutes: Routes = [
           hidden: true,
         },
         {
+          key: 'placeholder',
+          name: 'Placeholder',
+          type: 'text',
+          value: signal('Placeholder'),
+        },
+        {
           key: 'valueType',
           name: 'Value Type',
           type: 'select',
