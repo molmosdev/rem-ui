@@ -16,6 +16,7 @@ import {
   errorStateTrigger,
   labelStateTrigger,
   inputPaddingStateTrigger,
+  disabledStateTrigger,
 } from '../../../shared/animations/animations';
 
 @Component({
@@ -24,7 +25,12 @@ import {
   templateUrl: './number.component.html',
   providers: [CurrencyPipe, { provide: LOCALE_ID, useValue: 'es-ES' }],
   styleUrl: './number.component.css',
-  animations: [errorStateTrigger, labelStateTrigger, inputPaddingStateTrigger],
+  animations: [
+    errorStateTrigger,
+    labelStateTrigger,
+    inputPaddingStateTrigger,
+    disabledStateTrigger,
+  ],
 })
 export class Number {
   value = model<number | null>(null);
@@ -172,5 +178,13 @@ export class Number {
   @HostListener('focusout')
   onFocusOut() {
     this.focused.set(false);
+  }
+
+  /**
+   * Handle disabled state change
+   */
+  @HostListener('disabledChange')
+  onDisabledChange() {
+    this.disabled.set(!this.disabled());
   }
 }

@@ -4,6 +4,7 @@
   [value]="displayValue()"
   [@errorStateTrigger]="error()"
   [@inputPaddingStateTrigger]="inputPaddingState()"
+  [@disabledStateTrigger]="disabled()"
   type="text" />
 @if (label()) {
   <label [@errorStateTrigger]="error()" [@labelStateTrigger]="labelState()">
