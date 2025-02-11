@@ -5,15 +5,15 @@
   [ngClass]="{
     'has-label': label(),
     'has-value': displayValue(),
-    error: error(),
   }"
+  [@errorState]="error()"
   type="text" />
 @if (label()) {
   <label
     [ngClass]="{
       'has-value': displayValue(),
-      error: error(),
-    }">
+    }"
+    [@errorState]="error()">
     {{ label() }}
   </label>
 }
