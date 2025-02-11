@@ -5,7 +5,7 @@
 
   label {
     position: absolute;
-    left: calc(var(--padding-left) + 1px);
+    left: var(--padding-left);
     z-index: 1;
     background: transparent;
     pointer-events: none;
