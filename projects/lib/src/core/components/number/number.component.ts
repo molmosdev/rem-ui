@@ -1,16 +1,22 @@
 import {
   Component,
+  HostListener,
   input,
   linkedSignal,
   LOCALE_ID,
   model,
   output,
+  signal,
 } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { CurrencyPipe } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
-import { errorStateTrigger } from '../../../shared/animations/animations';
+import {
+  errorStateTrigger,
+  labelStateTrigger,
+  inputPaddingStateTrigger,
+} from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-number',
@@ -18,7 +24,7 @@ import { errorStateTrigger } from '../../../shared/animations/animations';
   templateUrl: './number.component.html',
   providers: [CurrencyPipe, { provide: LOCALE_ID, useValue: 'es-ES' }],
   styleUrl: './number.component.css',
-  animations: [errorStateTrigger],
+  animations: [errorStateTrigger, labelStateTrigger, inputPaddingStateTrigger],
 })
 export class Number {
   value = model<number | null>(null);
@@ -34,6 +40,13 @@ export class Number {
   suffix = input<string | undefined>(undefined);
   disabled = model<boolean>(false);
   debounceTimer: any;
+  focused = signal<boolean>(false);
+  labelState = linkedSignal(() =>
+    this.displayValue() || this.focused() ? 'small' : 'normal'
+  );
+  inputPaddingState = linkedSignal(() =>
+    this.label() && (this.displayValue() || this.focused()) ? 'small' : 'normal'
+  );
 
   constructor(private currencyPipe: CurrencyPipe) {
     registerLocaleData(localeEs, 'es-ES');
@@ -143,5 +156,21 @@ export class Number {
     }
 
     return numericValue;
+  }
+
+  /**
+   * Handle focus in event
+   */
+  @HostListener('focusin')
+  onFocusIn() {
+    this.focused.set(true);
+  }
+
+  /**
+   * Handle focus out event
+   */
+  @HostListener('focusout')
+  onFocusOut() {
+    this.focused.set(false);
   }
 }

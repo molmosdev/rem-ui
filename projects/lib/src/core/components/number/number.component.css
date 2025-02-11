@@ -10,17 +10,6 @@
     background: transparent;
     pointer-events: none;
     color: var(--input-foreground, #798194);
-    top: 50%;
-    transform: translateY(-50%);
-    transition: 0.2s;
-  }
-
-  input:focus-visible + label,
-  label.has-value {
-    top: 0.344rem;
-    font-size: 70%;
-    transform: translateY(0);
-    transition: 0.2s;
   }
 
   &:has(input:disabled) {
@@ -46,35 +35,23 @@
     padding: 0.688rem var(--padding-left);
     box-sizing: border-box;
     border-radius: var(--roundness, 0.5rem);
-    color: var(--input-foreground, #798194);
     cursor: pointer;
     user-select: none;
-    background-color: color-mix(
-      in srgb,
-      var(--foreground, #798194) 5%,
-      var(--background, #ffffff)
-    );
     position: relative;
-    border: 1px solid var(--border-color, transparent);
+    border-width: 1px;
+    border-style: solid;
 
-    &.has-label {
-      &.has-value,
-      &:focus-visible {
-        padding: 1.2rem var(--padding-left) 0.313rem;
-      }
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
-  }
 
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  input[type='number'] {
-    appearance: textfield;
-    -moz-appearance: textfield;
+    /* Firefox */
+    &[type='number'] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
   }
 }

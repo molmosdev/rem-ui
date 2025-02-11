@@ -2,12 +2,11 @@
   (keyup)="updateValue($event)"
   [disabled]="disabled()"
   [value]="displayValue()"
-  [class.has-label]="label()"
-  [class.has-value]="displayValue()"
   [@errorStateTrigger]="error()"
+  [@inputPaddingStateTrigger]="inputPaddingState()"
   type="text" />
 @if (label()) {
-  <label [class.has-value]="displayValue()" [@errorStateTrigger]="error()">
+  <label [@errorStateTrigger]="error()" [@labelStateTrigger]="labelState()">
     {{ label() }}
   </label>
 }
