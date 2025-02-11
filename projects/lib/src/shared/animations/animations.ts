@@ -27,6 +27,31 @@ export const errorStateTrigger = trigger('errorStateTrigger', [
   transition('false <=> true', animate('0.2s')),
 ]);
 
+export const errorRightButtonStateTrigger = trigger(
+  'errorRightButtonStateTrigger',
+  [
+    state(
+      'true',
+      style({
+        color: 'var(--error-foreground, #c40000ab)',
+        background:
+          'linear-gradient(to right, transparent, var(--error, #fff0f0) 50%)',
+        borderColor: 'var(--error-foreground, #c40000ab)',
+      })
+    ),
+    state(
+      'false',
+      style({
+        color: 'var(--input-foreground, #798194)',
+        background:
+          'linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--foreground, #798194) 5%, var(--background, #ffffff)) 50%)',
+        borderColor: 'var(--border-color, transparent)',
+      })
+    ),
+    transition('false <=> true', animate('0.2s')),
+  ]
+);
+
 export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
   transition(
     ':enter',

@@ -1,13 +1,16 @@
 import { Component, computed, input, model, output } from '@angular/core';
 import { Spinner } from '../spinner/spinner.component';
-import { errorStateTrigger } from '../../../shared/animations/animations';
+import {
+  errorRightButtonStateTrigger,
+  errorStateTrigger,
+} from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-text',
   imports: [Spinner],
   templateUrl: './text.component.html',
   styleUrl: './text.component.css',
-  animations: [errorStateTrigger],
+  animations: [errorStateTrigger, errorRightButtonStateTrigger],
 })
 export class Text {
   value = model<string | null>(null);

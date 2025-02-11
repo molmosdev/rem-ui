@@ -23,6 +23,11 @@
     transition: 0.2s;
   }
 
+  &:has(input:disabled) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   input {
     height: 2.8rem;
     width: 100%;
@@ -71,17 +76,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--foreground, #798194);
-    background: linear-gradient(
-      0deg,
-      transparent 0%,
-      color-mix(
-          in srgb,
-          var(--foreground, #798194) 5%,
-          var(--background, #ffffff)
-        )
-        50%
-    );
     border-radius: 0 var(--roundness, 0.5rem) var(--roundness, 0.5rem) 0;
 
     &:hover {

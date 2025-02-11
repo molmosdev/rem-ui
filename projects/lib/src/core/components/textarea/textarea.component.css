@@ -3,6 +3,11 @@
   display: flex;
   --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
+  &:has(textarea:disabled) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   label {
     position: absolute;
     left: 0.938rem;

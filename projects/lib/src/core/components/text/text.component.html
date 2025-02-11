@@ -12,11 +12,19 @@
   </label>
 }
 @if ((clearable() && displayValue()) || searching()) {
-  <div class="right-button" (click)="clear()">
+  <div class="right-button" [@errorRightButtonStateTrigger]="error()">
     @if (searching()) {
-      <r-spinner [active]="true" [size]="15" color="var(--foreground)" />
+      <r-spinner
+        [active]="true"
+        [size]="15"
+        [color]="
+          !error()
+            ? 'var(--input-foreground, #798194)'
+            : 'var(--error-foreground, #c40000ab)'
+        " />
     } @else if (clearable() && displayValue()) {
       <svg
+        (click)="clear()"
         xmlns="http://www.w3.org/2000/svg"
         width="19"
         height="19"

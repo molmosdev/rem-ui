@@ -1,9 +1,7 @@
 import { Component, computed, input, model, output } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'r-textarea',
-  imports: [NgClass],
   templateUrl: './textarea.component.html',
   styleUrl: './textarea.component.css',
 })
@@ -14,6 +12,7 @@ export class Textarea {
   error = input<boolean>(false);
   hasValueForced = input<boolean>(false);
   changeEmitter = output<string | null>();
+  disabled = model<boolean>(false);
 
   /**
    * Get the input trigger state

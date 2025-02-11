@@ -1,15 +1,15 @@
 <textarea
   (keyup)="updateValue($event)"
   [value]="displayValue()"
-  [ngClass]="{
-    'has-label': label(),
-    'has-value': displayValue(),
-    error: error(),
-  }"
+  [class.disabled]="disabled()"
+  [class.has-label]="label()"
+  [class.has-value]="displayValue()"
+  [@errorStateTrigger]="error()"
   id="textarea"></textarea>
 @if (label()) {
   <label
-    [ngClass]="{ 'has-value': displayValue(), error: error() }"
+    [class.has-value]="displayValue()"
+    [@errorStateTrigger]="error()"
     for="textarea">
     {{ label() }}
   </label>
