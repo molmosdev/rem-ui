@@ -1,5 +1,4 @@
-import { Component, contentChildren, input } from '@angular/core';
-import { VerticalNavItem } from '../vertical-nav-item/vertical-nav-item.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'r-vertical-nav-section',
@@ -8,7 +7,4 @@ import { VerticalNavItem } from '../vertical-nav-item/vertical-nav-item.componen
   templateUrl: './vertical-nav-section.component.html',
   styleUrl: './vertical-nav-section.component.css',
 })
-export class VerticalNavSection {
-  title = input<string>();
-  items = contentChildren(VerticalNavItem);
-}
+export class VerticalNavSection {}

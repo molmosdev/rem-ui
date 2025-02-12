@@ -1,6 +1,4 @@
 import { Component, contentChildren, model } from '@angular/core';
-
-import { VerticalNavItem } from '../vertical-nav-item/vertical-nav-item.component';
 import {
   expandCollapseTrigger,
   rotateArrowTrigger,
@@ -15,7 +13,6 @@ import {
   animations: [expandCollapseTrigger, rotateArrowTrigger],
 })
 export class VerticalNavGroup {
-  items = contentChildren(VerticalNavItem);
   groups = contentChildren(VerticalNavGroup);
   expanded = model<boolean>(false);
 
