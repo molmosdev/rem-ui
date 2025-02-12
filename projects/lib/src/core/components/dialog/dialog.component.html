@@ -18,10 +18,14 @@
         translateTo: 'translateY(0)',
       },
     }">
-    @if (lazyContent()) {
-      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!"></ng-container>
+    @if (lazy()) {
+      <ng-container [ngTemplateOutlet]="lazyContent"></ng-container>
     } @else {
       <ng-content />
     }
   </div>
 }
+
+<ng-template #lazyContent>
+  <ng-content />
+</ng-template>

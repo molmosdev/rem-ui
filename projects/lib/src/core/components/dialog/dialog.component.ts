@@ -1,13 +1,6 @@
-import {
-  Component,
-  contentChild,
-  HostListener,
-  input,
-  model,
-} from '@angular/core';
+import { Component, HostListener, input, model } from '@angular/core';
 import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
-import { LazyContentDirective } from '../../../shared/directives/lazy-content.directive';
 
 @Component({
   selector: 'r-dialog',
@@ -17,13 +10,21 @@ import { LazyContentDirective } from '../../../shared/directives/lazy-content.di
   styleUrl: './dialog.component.css',
 })
 export class Dialog {
+  /** Indicates whether the dialog is shown */
   show = model.required<boolean>();
-  lazyContent = contentChild(LazyContentDirective);
+
+  /** Indicates whether clicking outside the dialog should close it */
   clickOutside = model<boolean>(true);
+
+  /** Indicates whether the mobile bottom style is active */
   mobileBottomActive = input<boolean>(false);
+
+  /** Indicates whether the dialog content should be loaded lazily */
+  lazy = input<boolean>(false);
 
   /**
    * Listen for keyboard escape events
+   * @param event The keyboard event
    */
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(
     event: KeyboardEvent
