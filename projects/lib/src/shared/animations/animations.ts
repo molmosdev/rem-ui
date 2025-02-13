@@ -1,9 +1,12 @@
 import {
   animate,
+  query,
   state,
   style,
   transition,
   trigger,
+  sequence,
+  animateChild,
 } from '@angular/animations';
 
 export const errorStateTrigger = trigger('errorStateTrigger', [
@@ -169,6 +172,27 @@ export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
   state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
   transition('normal <=> small', animate('0.2s')),
 ]);
+
+export const selectInputPaddingStateTrigger = trigger(
+  'selectInputPaddingStateTrigger',
+  [
+    state('normal', style({ padding: '0.688rem var(--padding-left)' })),
+    state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
+    transition('normal => small', [
+      sequence([
+        animate('0.2s'),
+        query('@fadeInFadeOutTrigger', [animateChild()]),
+      ]),
+    ]),
+    transition('small => normal', [
+      sequence([
+        query('@fadeInFadeOutTrigger', [animateChild()]),
+
+        animate('0.2s'),
+      ]),
+    ]),
+  ]
+);
 
 export const disabledStateTrigger = trigger('disabledStateTrigger', [
   state(
