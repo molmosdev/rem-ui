@@ -10,6 +10,7 @@
     background: transparent;
     pointer-events: none;
     color: var(--input-foreground, #798194);
+    user-select: none;
   }
 
   &:has(input:disabled) {

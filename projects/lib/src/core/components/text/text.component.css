@@ -9,6 +9,7 @@
     z-index: 1;
     background: transparent;
     pointer-events: none;
+    user-select: none;
   }
 
   &:has(input:disabled) {

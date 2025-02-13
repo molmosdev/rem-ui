@@ -10,6 +10,7 @@
     background: transparent;
     pointer-events: none;
     width: calc(100% - (var(--padding-left) * 2));
+    user-select: none;
   }
 
   &:has(textarea:disabled) {

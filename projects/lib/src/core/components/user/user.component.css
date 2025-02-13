@@ -12,6 +12,7 @@
     top: 50%;
     transform: translateY(-50%);
     transition: 0.2s;
+    user-select: none;
 
     &.error {
       color: var(--error-foreground, #c40000ab);
