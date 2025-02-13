@@ -6,6 +6,7 @@ import {
   Number,
   Text,
   Textarea,
+  PasswordComponent,
 } from '../../../../../lib/src/public-api';
 import { signal, WritableSignal } from '@angular/core';
 
@@ -74,7 +75,7 @@ export const componentRoutes: Routes = [
           key: 'label',
           name: 'Label',
           type: 'text',
-          value: signal('This is a text input'),
+          value: signal('Name'),
         },
         {
           key: 'placeholder',
@@ -127,7 +128,7 @@ export const componentRoutes: Routes = [
           key: 'label',
           name: 'Label',
           type: 'text',
-          value: signal('This is a number input'),
+          value: signal('Size'),
         },
         {
           key: 'placeholder',
@@ -186,7 +187,7 @@ export const componentRoutes: Routes = [
           key: 'label',
           name: 'Label',
           type: 'text',
-          value: signal('This is a switch'),
+          value: signal('Notifications'),
         },
         {
           key: 'size',
@@ -240,7 +241,7 @@ export const componentRoutes: Routes = [
           key: 'label',
           name: 'Label',
           type: 'text',
-          value: signal('This is a textarea'),
+          value: signal('Observations'),
         },
         {
           key: 'placeholder',
@@ -266,6 +267,65 @@ export const componentRoutes: Routes = [
           name: 'Disabled',
           type: 'switch',
           value: signal(false),
+        },
+      ],
+    },
+  },
+  {
+    path: 'password',
+    loadComponent: () => import('./component.component'),
+    data: {
+      title: 'Password',
+      component: PasswordComponent,
+      inputs: [
+        {
+          key: 'label',
+          name: 'Label',
+          type: 'text',
+          value: signal('Password'),
+        },
+        {
+          key: 'placeholder',
+          name: 'Placeholder',
+          type: 'text',
+          value: signal(''),
+        },
+        {
+          key: 'value',
+          name: 'Value',
+          type: 'text',
+          value: signal(''),
+          hidden: true,
+        },
+        {
+          key: 'error',
+          name: 'Error',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'clearable',
+          name: 'Clearable',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'disabled',
+          name: 'Disabled',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'searching',
+          name: 'Searching',
+          type: 'switch',
+          value: signal(false),
+        },
+        {
+          key: 'showPasswordToggle',
+          name: 'Show password toggle',
+          type: 'switch',
+          value: signal(true),
         },
       ],
     },

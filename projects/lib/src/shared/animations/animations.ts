@@ -27,6 +27,22 @@ export const errorStateTrigger = trigger('errorStateTrigger', [
   transition('false <=> true', animate('0.2s')),
 ]);
 
+export const labelErrorStateTrigger = trigger('labelErrorStateTrigger', [
+  state(
+    'true',
+    style({
+      color: 'var(--error-foreground, #c40000ab)',
+    })
+  ),
+  state(
+    'false',
+    style({
+      color: 'var(--input-foreground, #798194)',
+    })
+  ),
+  transition('false <=> true', animate('0.2s')),
+]);
+
 export const errorRightButtonStateTrigger = trigger(
   'errorRightButtonStateTrigger',
   [
