@@ -32,7 +32,7 @@ import {
     disabledStateTrigger,
   ],
 })
-export class PasswordComponent {
+export class Password {
   @HostBinding('@disabledStateTrigger')
   get animationState() {
     return this.disabled();
