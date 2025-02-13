@@ -134,6 +134,18 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
   transition('normal <=> small', animate('0.2s')),
 ]);
 
+export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
+  state(
+    'normal',
+    style({ top: '0.688rem', fontSize: '100%', transform: 'translateY(0)' })
+  ),
+  state(
+    'small',
+    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
+  ),
+  transition('normal <=> small', animate('0.2s')),
+]);
+
 export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
   state('normal', style({ padding: '0.688rem var(--padding-left)' })),
   state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
