@@ -5,4 +5,3 @@ export * from './switch.route';
 export * from './spinner.route';
 export * from './textarea.route';
 export * from './password.route';
-export * from './list.route';

@@ -8,7 +8,6 @@ import {
   spinnerRoute,
   textareaRoute,
   passwordRoute,
-  listRoute,
 } from './routes';
 
 export interface IComponentData {
@@ -38,7 +37,6 @@ export const componentRoutes: Routes = [
   spinnerRoute,
   textareaRoute,
   passwordRoute,
-  listRoute,
   {
     path: '**',
     redirectTo: '../docs',
