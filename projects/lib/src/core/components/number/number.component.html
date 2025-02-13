@@ -4,22 +4,17 @@
   [value]="displayValue()"
   [@errorStateTrigger]="error()"
   [@inputPaddingStateTrigger]="inputPaddingState()"
-  [@disabledStateTrigger]="disabled()"
   [placeholder]="displayPlaceholder()"
   type="text" />
 @if (label()) {
   <label
-    [@errorStateTrigger]="error()"
-    [@labelStateTrigger]="labelState()"
-    [@disabledStateTrigger]="disabled()">
+    [@labelErrorStateTrigger]="error()"
+    [@labelStateTrigger]="labelState()">
     {{ label() }}
   </label>
 }
 @if (valueType() !== 'integer' || suffix()) {
-  <div
-    class="suffix-or-type"
-    [@errorStateTrigger]="error()"
-    [@disabledStateTrigger]="disabled()">
+  <div class="suffix-or-type" [@errorStateTrigger]="error()">
     @if (suffix()) {
       {{ suffix() }}
     } @else {

@@ -5,21 +5,16 @@
   [placeholder]="displayPlaceholder()"
   [@errorStateTrigger]="error()"
   [@inputPaddingStateTrigger]="inputPaddingState()"
-  [@disabledStateTrigger]="disabled()"
   type="text" />
 @if (label()) {
   <label
-    [@errorStateTrigger]="error()"
-    [@labelStateTrigger]="labelState()"
-    [@disabledStateTrigger]="disabled()">
+    [@labelErrorStateTrigger]="error()"
+    [@labelStateTrigger]="labelState()">
     {{ label() }}
   </label>
 }
 @if ((clearable() && displayValue()) || searching()) {
-  <div
-    class="right-button"
-    [@errorRightButtonStateTrigger]="error()"
-    [@disabledStateTrigger]="disabled()">
+  <div class="right-button" [@errorRightButtonStateTrigger]="error()">
     @if (searching()) {
       <r-spinner
         [active]="true"

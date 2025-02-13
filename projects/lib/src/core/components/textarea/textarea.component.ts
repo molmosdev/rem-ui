@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  HostBinding,
   HostListener,
   input,
   model,
@@ -11,6 +12,7 @@ import {
   disabledStateTrigger,
   errorStateTrigger,
   inputPaddingStateTrigger,
+  labelErrorStateTrigger,
   textareaLabelStateTrigger,
 } from '../../../shared/animations/animations';
 
@@ -20,12 +22,17 @@ import {
   styleUrl: './textarea.component.css',
   animations: [
     errorStateTrigger,
+    labelErrorStateTrigger,
     textareaLabelStateTrigger,
     inputPaddingStateTrigger,
     disabledStateTrigger,
   ],
 })
 export class Textarea {
+  @HostBinding('@disabledStateTrigger')
+  get animationState() {
+    return this.disabled();
+  }
   value = model<string | null>(null);
   displayValue = computed(() => this.value() || '');
   label = input<string | undefined>(undefined);

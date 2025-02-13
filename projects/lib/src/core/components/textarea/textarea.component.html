@@ -5,13 +5,11 @@
   [placeholder]="displayPlaceholder()"
   [@errorStateTrigger]="error()"
   [@inputPaddingStateTrigger]="inputPaddingState()"
-  [@disabledStateTrigger]="disabled()"
   id="textarea"></textarea>
 @if (label()) {
   <label
-    [@errorStateTrigger]="error()"
+    [@labelErrorStateTrigger]="error()"
     [@textareaLabelStateTrigger]="labelState()"
-    [@disabledStateTrigger]="disabled()"
     for="textarea">
     {{ label() }}
   </label>

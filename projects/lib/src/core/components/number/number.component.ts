@@ -1,5 +1,6 @@
 import {
   Component,
+  HostBinding,
   HostListener,
   input,
   linkedSignal,
@@ -17,6 +18,7 @@ import {
   labelStateTrigger,
   inputPaddingStateTrigger,
   disabledStateTrigger,
+  labelErrorStateTrigger,
 } from '../../../shared/animations/animations';
 
 @Component({
@@ -27,12 +29,17 @@ import {
   styleUrl: './number.component.css',
   animations: [
     errorStateTrigger,
+    labelErrorStateTrigger,
     labelStateTrigger,
     inputPaddingStateTrigger,
     disabledStateTrigger,
   ],
 })
 export class Number {
+  @HostBinding('@disabledStateTrigger')
+  get animationState() {
+    return this.disabled();
+  }
   value = model<number | null>(null);
   displayValue = linkedSignal<string | null>(() =>
     this.formatValue(this.value())

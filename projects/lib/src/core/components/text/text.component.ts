@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  HostBinding,
   input,
   model,
   output,
@@ -14,6 +15,7 @@ import {
   labelStateTrigger,
   inputPaddingStateTrigger,
   disabledStateTrigger,
+  labelErrorStateTrigger,
 } from '../../../shared/animations/animations';
 
 @Component({
@@ -23,6 +25,7 @@ import {
   styleUrl: './text.component.css',
   animations: [
     errorStateTrigger,
+    labelErrorStateTrigger,
     errorRightButtonStateTrigger,
     labelStateTrigger,
     inputPaddingStateTrigger,
@@ -30,6 +33,10 @@ import {
   ],
 })
 export class Text {
+  @HostBinding('@disabledStateTrigger')
+  get animationState() {
+    return this.disabled();
+  }
   value = model<string | null>(null);
   displayValue = computed(() => this.value() || '');
   label = input<string | undefined>(undefined);
