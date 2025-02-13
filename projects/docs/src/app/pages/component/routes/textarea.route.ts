@@ -4,7 +4,8 @@ import { Textarea } from '../../../../../../lib/src/public-api';
 
 export const textareaRoute: Route = {
   path: 'textarea',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Textarea',
     component: Textarea,

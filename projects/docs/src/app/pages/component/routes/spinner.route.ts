@@ -4,7 +4,8 @@ import { Spinner } from '../../../../../../lib/src/public-api';
 
 export const spinnerRoute: Route = {
   path: 'spinner',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Spinner',
     component: Spinner,

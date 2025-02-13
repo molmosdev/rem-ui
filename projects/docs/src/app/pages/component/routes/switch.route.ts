@@ -4,7 +4,8 @@ import { Switch } from '../../../../../../lib/src/public-api';
 
 export const switchRoute: Route = {
   path: 'switch',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Switch',
     component: Switch,

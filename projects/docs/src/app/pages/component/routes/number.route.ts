@@ -4,7 +4,8 @@ import { Number } from '../../../../../../lib/src/public-api';
 
 export const numberRoute: Route = {
   path: 'number',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Number',
     component: Number,

@@ -4,7 +4,8 @@ import { Text } from '../../../../../../lib/src/public-api';
 
 export const textRoute: Route = {
   path: 'text',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Text',
     component: Text,

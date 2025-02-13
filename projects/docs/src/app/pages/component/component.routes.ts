@@ -38,6 +38,14 @@ export const componentRoutes: Routes = [
   textareaRoute,
   passwordRoute,
   {
+    path: 'select',
+    loadComponent: () =>
+      import('./pages/select-playground/select-playground.component'),
+    data: {
+      title: 'Select',
+    },
+  },
+  {
     path: '**',
     redirectTo: '../docs',
   },

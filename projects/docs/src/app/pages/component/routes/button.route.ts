@@ -4,7 +4,8 @@ import { Button } from '../../../../../../lib/src/public-api';
 
 export const buttonRoute: Route = {
   path: 'button',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Button',
     component: Button,

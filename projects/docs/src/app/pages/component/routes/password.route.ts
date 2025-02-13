@@ -4,7 +4,8 @@ import { Password } from '../../../../../../lib/src/public-api';
 
 export const passwordRoute: Route = {
   path: 'password',
-  loadComponent: () => import('../component.component'),
+  loadComponent: () =>
+    import('../pages/dynamic-playground/dynamic-playground.component'),
   data: {
     title: 'Password',
     component: Password,

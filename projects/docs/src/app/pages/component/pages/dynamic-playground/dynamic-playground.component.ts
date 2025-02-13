@@ -4,30 +4,26 @@ import {
   computed,
   inject,
   signal,
-  ViewContainerRef,
   TemplateRef,
   viewChild,
+  ViewContainerRef,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IComponentData } from './component.routes';
 import {
-  Option,
   Select,
   Text,
-  Switch,
   Number,
-} from '../../../../../lib/src/public-api';
+  Switch,
+  Option,
+} from '../../../../../../../lib/src/public-api';
+import { ActivatedRoute } from '@angular/router';
+import { IComponentData } from '../../component.routes';
 
-/**
- * Component for displaying dynamic content based on route data.
- */
 @Component({
-  selector: 'app-component',
-  standalone: true,
+  selector: 'app-dynamic-playground',
   imports: [NgComponentOutlet, Text, Number, Select, Option, Switch],
-  templateUrl: './component.component.html',
+  templateUrl: './dynamic-playground.component.html',
 })
-export default class ComponentComponent {
+export default class DynamicPlaygroundComponent {
   /** Injected ActivatedRoute to access route data. */
   route = inject(ActivatedRoute);
 
