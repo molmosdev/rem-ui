@@ -6,7 +6,7 @@ import {
   Number,
   Text,
   Textarea,
-  PasswordComponent,
+  Password,
 } from '../../../../../lib/src/public-api';
 import { signal, WritableSignal } from '@angular/core';
 
@@ -276,7 +276,7 @@ export const componentRoutes: Routes = [
     loadComponent: () => import('./component.component'),
     data: {
       title: 'Password',
-      component: PasswordComponent,
+      component: Password,
       inputs: [
         {
           key: 'label',
