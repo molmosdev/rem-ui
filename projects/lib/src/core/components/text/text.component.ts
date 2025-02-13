@@ -43,7 +43,7 @@ export class Text {
   placeholder = input<string>('');
   displayPlaceholder = computed(() => this.placeholder() || '');
   inputTriggerState = computed(() =>
-    this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel'
+    this.label() ? (this.displayValue() ? 'hasValue' : 'null') : 'withoutLabel'
   );
   labelState = computed(() =>
     this.displayValue() || this.focused() || this.placeholder()
