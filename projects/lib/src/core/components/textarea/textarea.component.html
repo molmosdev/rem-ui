@@ -1,15 +1,17 @@
 <textarea
   (keyup)="updateValue($event)"
+  [disabled]="disabled()"
   [value]="displayValue()"
-  [class.disabled]="disabled()"
-  [class.has-label]="label()"
-  [class.has-value]="displayValue()"
+  [placeholder]="displayPlaceholder()"
   [@errorStateTrigger]="error()"
+  [@inputPaddingStateTrigger]="inputPaddingState()"
+  [@disabledStateTrigger]="disabled()"
   id="textarea"></textarea>
 @if (label()) {
   <label
-    [class.has-value]="displayValue()"
     [@errorStateTrigger]="error()"
+    [@textareaLabelStateTrigger]="labelState()"
+    [@disabledStateTrigger]="disabled()"
     for="textarea">
     {{ label() }}
   </label>

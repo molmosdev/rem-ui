@@ -3,74 +3,31 @@
   display: flex;
   --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
-  &:has(textarea:disabled) {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
   label {
     position: absolute;
-    left: 0.938rem;
-    top: 0.688rem;
-    width: calc(100% - (0.938rem * 2));
+    left: var(--padding-left);
     z-index: 1;
+    background: transparent;
     pointer-events: none;
-    color: var(--input-foreground, #798194);
-    background: linear-gradient(
-      0deg,
-      transparent 0%,
-      color-mix(
-          in srgb,
-          var(--foreground, #798194) 5%,
-          var(--background, #ffffff)
-        )
-        50%
-    );
-    pointer-events: none;
-    transition: 0.2s;
-
-    &.error {
-      color: var(--error-foreground, #c40000ab);
-    }
+    width: calc(100% - (var(--padding-left) * 2));
   }
 
-  textarea:focus-visible + label,
-  label.has-value {
-    top: 1px;
-    font-size: 70%;
-    padding: 0.344rem 0 0.5rem 0;
-    transition: 0.2s;
+  &:has(textarea:disabled) {
+    pointer-events: none;
   }
 
   textarea {
     min-height: 2.8rem;
     width: 100%;
     font-size: 1rem;
-    padding: 0.688rem var(--padding-left);
     box-sizing: border-box;
     border-radius: var(--roundness, 0.5rem);
     color: var(--input-foreground, #798194);
     cursor: pointer;
     user-select: none;
     font-size: 1rem;
-    background-color: color-mix(
-      in srgb,
-      var(--foreground, #798194) 5%,
-      var(--background, #ffffff)
-    );
     position: relative;
-    border: 1px solid var(--border-color, transparent);
-
-    &.has-label {
-      &:focus-visible,
-      &.has-value {
-        padding: 1.2rem var(--padding-left) 0.313rem;
-      }
-    }
-
-    &.error {
-      background-color: var(--error, #fff0f0);
-      color: var(--error-foreground, #c40000ab);
-    }
+    border-width: 1px;
+    border-style: solid;
   }
 }
