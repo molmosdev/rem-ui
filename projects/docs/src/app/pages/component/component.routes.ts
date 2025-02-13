@@ -253,7 +253,7 @@ export const componentRoutes: Routes = [
           key: 'value',
           name: 'Value',
           type: 'text',
-          value: signal(''),
+          value: signal('Lorem ipsum...'),
           hidden: true,
         },
         {
