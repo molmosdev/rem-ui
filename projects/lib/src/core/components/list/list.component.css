@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid var(--border-color, transparent);
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radius: calc(var(--roundness, 0.5rem) + 0.25rem);
+  }
+}

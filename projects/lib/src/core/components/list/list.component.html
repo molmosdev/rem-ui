@@ -1,0 +1,22 @@
+@for (item of data(); track item) {
+  <div class="list-item">
+    @for (record of item | keyvalue; track record) {
+      @if (record.value.type === 'string') {
+        <r-text
+          [label]="record.key"
+          [value]="returnString(record.value)"
+          (changeEmitter)="updateData(record.key, $event, $index)" />
+      }
+      @if (record.value.type === 'number') {
+        <r-number
+          [label]="record.key"
+          [value]="returnNumber(record.value)"
+          (changeEmitter)="updateData(record.key, $event, $index)" />
+      }
+    }
+    <r-button type="secondary" (clickEmitter)="removeItem($index)"
+      >Remove Item</r-button
+    >
+  </div>
+}
+<r-button type="primary" (clickEmitter)="addItem()">Add Item</r-button>
