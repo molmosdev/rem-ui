@@ -78,7 +78,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
         transform: '{{ translateFrom }}',
       }),
       animate(
-        '{{ duration }}',
+        '{{ enterDelay }} {{ duration }}',
         style({
           opacity: 1,
           scale: '{{ scaleTo }}',
@@ -93,6 +93,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
         translateFrom: '',
         translateTo: '',
         duration: '0.1s',
+        enterDelay: '0s',
       },
     }
   ),
@@ -100,7 +101,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
     ':leave',
     [
       animate(
-        '{{ duration }}',
+        '{{ leaveDelay }} {{ duration }}',
         style({
           opacity: 0,
           scale: '{{ scaleFrom }}',
@@ -113,6 +114,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
         scaleFrom: 1,
         translateFrom: '',
         duration: '0.1s',
+        leaveDelay: '0s',
       },
     }
   ),
