@@ -6,7 +6,7 @@ import {
   signal,
   ViewContainerRef,
   TemplateRef,
-  viewChildren,
+  viewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IComponentData } from './component.routes';
@@ -18,6 +18,9 @@ import {
   Number,
 } from '../../../../../lib/src/public-api';
 
+/**
+ * Component for displaying dynamic content based on route data.
+ */
 @Component({
   selector: 'app-component',
   standalone: true,
@@ -25,18 +28,24 @@ import {
   templateUrl: './component.component.html',
 })
 export default class ComponentComponent {
+  /** Injected ActivatedRoute to access route data. */
   route = inject(ActivatedRoute);
+
+  /** Injected ViewContainerRef to manage view containers. */
   vcr = inject(ViewContainerRef);
 
-  // Initialize the signal with the route snapshot data
+  /** Signal to hold the component data from the route snapshot. */
   componentData = signal<IComponentData>(
     this.route.snapshot.data as IComponentData
   );
 
-  // Computed properties to derive values from componentData
+  /** Computed property to derive the component from componentData. */
   component = computed(() => this.componentData().component);
+
+  /** Computed property to derive the inputs from componentData. */
   inputs = computed(() => this.componentData().inputs);
 
+  /** Computed property to resolve inputs into a key-value pair object. */
   resolvedInputs = computed(() => {
     const inputsArray = this.inputs();
     return Object.fromEntries(
@@ -44,17 +53,13 @@ export default class ComponentComponent {
     );
   });
 
-  // ViewChildren to get references to the templates
-  ngContentTemplates = viewChildren<TemplateRef<any>>('ngContentTemplate');
+  /** ViewChild to get reference to the ng-content template. */
+  ngContentTemplate = viewChild<TemplateRef<any>>('ngContentTemplate');
 
-  // Computed property to create embedded views from the templates
+  /** Computed property to create embedded views from the templates.*/
   myContent = computed(() => {
-    const templates = this.ngContentTemplates();
-    if (templates) {
-      return templates.map(
-        template => this.vcr.createEmbeddedView(template).rootNodes
-      );
-    }
-    return [];
+    return this.ngContentTemplate()
+      ? [this.vcr.createEmbeddedView(this.ngContentTemplate()!).rootNodes]
+      : [];
   });
 }
