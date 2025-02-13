@@ -1,0 +1,19 @@
+@for (item of content(); track item) {
+  @if (item.type === 'string') {
+    <r-text
+      [label]="item.label"
+      [value]="returnString($index)()"
+      (changeEmitter)="updateContent($index, $event)" />
+  }
+  @if (item.type === 'number') {
+    <r-number
+      [label]="item.label"
+      [value]="returnNumber($index)()"
+      (changeEmitter)="updateContent($index, $event)" />
+  }
+}
+@if (removable()) {
+  <r-button type="secondary" (clickEmitter)="removeEmitter.emit(id())">
+    <ng-content select="[list-remove-text]" />
+  </r-button>
+}
