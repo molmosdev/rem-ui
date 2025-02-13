@@ -1,11 +1,11 @@
 import { Component, computed, input, model, output } from '@angular/core';
 import { Button, Text, Number } from '../../../../../public-api';
 
-export type ListItemContent = {
+export interface ListItemContent {
   label: string | undefined;
   value: number | string | null;
   type: 'string' | 'number';
-}[];
+}
 
 @Component({
   selector: 'r-list-item',
@@ -18,7 +18,7 @@ export class ListItem {
   id = input.required<string>();
 
   /** The content of the list item. */
-  content = model.required<ListItemContent>();
+  content = model.required<ListItemContent[]>();
 
   /** Indicates whether the list item is removable. */
   removable = input<boolean>(true);
@@ -69,6 +69,6 @@ export class ListItem {
   updateContent = (index: number, event: string | number | null) => {
     const newContent = [...this.content()];
     newContent[index].value = event;
-    this.changeEmitter.emit({ id: this.id(), content: newContent });
+    this.changeEmitter.emit({ id: this.id(), content: newContent[index] });
   };
 }
