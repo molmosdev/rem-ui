@@ -9,16 +9,35 @@ import {
   ElementRef,
   input,
   output,
+  computed,
 } from '@angular/core';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Option } from '../../../shared/components/option/option.component';
-import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
+import {
+  disabledStateTrigger,
+  errorRightButtonStateTrigger,
+  errorStateTrigger,
+  fadeInFadeOutTrigger,
+  inputPaddingStateTrigger,
+  labelErrorStateTrigger,
+  labelStateTrigger,
+  selectInputPaddingStateTrigger,
+} from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-select',
-  imports: [NgStyle, NgClass],
+  imports: [NgClass],
   templateUrl: './select.component.html',
-  animations: [fadeInFadeOutTrigger],
+  animations: [
+    fadeInFadeOutTrigger,
+    errorStateTrigger,
+    labelErrorStateTrigger,
+    errorRightButtonStateTrigger,
+    labelStateTrigger,
+    inputPaddingStateTrigger,
+    disabledStateTrigger,
+    selectInputPaddingStateTrigger,
+  ],
   styleUrl: './select.component.css',
 })
 export class Select {
@@ -37,6 +56,11 @@ export class Select {
   changesEmitter = output<string | null>();
   positioning = input<'up' | 'down'>('down');
   noResultsMessage = input<string>('No results found');
+  labelState = computed(() => (this.selectedContent() ? 'small' : 'normal'));
+  inputPaddingState = computed(() =>
+    this.label() && this.selectedContent() ? 'small' : 'normal'
+  );
+  displayedSelectedContent = computed(() => this.selectedContent() || '');
 
   constructor(private elementRef: ElementRef) {
     effect(() => {

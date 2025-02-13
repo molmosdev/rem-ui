@@ -2,91 +2,44 @@
   position: relative;
   --padding-left: calc(0.938rem + var(--roundness, 0.5rem) / 8);
 
-  .select-box {
-    z-index: 2;
-    box-sizing: border-box;
-    min-height: 2.8rem;
-    cursor: pointer;
-    user-select: none;
+  .label-and-selected-box {
     position: relative;
-    padding: 0.688rem var(--padding-left);
-    border-radius: var(--roundness, 0.5rem);
-    color: var(--input-foreground, #798194);
-    background-color: var(--background, #ffffff);
-    border: 1px solid var(--border-color, transparent);
-    display: flex;
-    align-items: center;
-
-    .right-button {
-      position: absolute;
-      top: 0.125rem;
-      height: calc(100% - 0.25rem);
-      width: 2.6rem;
-      right: 0.125rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(
-        0deg,
-        transparent 0%,
-        var(--background, #ffffff) 50%
-      );
-      border-radius: 0 var(--roundness, 0.5rem) var(--roundness, 0.5rem) 0;
-
-      &:not(.clearable) {
-        pointer-events: none;
-      }
-
-      &.error {
-        background: linear-gradient(
-          to right,
-          transparent,
-          var(--error, #fff0f0) 50%
-        );
-
-        svg {
-          stroke: var(--error-foreground, #c40000ab);
-        }
-      }
-    }
-
-    &.has-label {
-      &.has-value {
-        padding: 1.2rem var(--padding-left) 0.313rem;
-      }
-    }
 
     label {
       position: absolute;
-      background: transparent;
-      transition: 0.2s;
-      top: 50%;
-      transform: translateY(-50%);
       user-select: none;
-
-      &.has-value,
-      &.options-open {
-        transition: 0.2s;
-        top: 0.344rem;
-        font-size: 70%;
-        transform: translateY(0);
-      }
-
-      &.error {
-        color: var(--error-foreground, #c40000ab);
-      }
+      left: var(--padding-left);
+      z-index: 200;
+      pointer-events: none;
     }
 
-    &.error {
-      background-color: var(--error, #fff0f0);
-      color: var(--error-foreground, #c40000ab);
+    .select-box {
+      z-index: 2;
+      box-sizing: border-box;
+      min-height: 2.8rem;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: var(--roundness, 0.5rem);
+      display: flex;
+      align-items: center;
 
-      .arrows {
-        background: linear-gradient(
-          to right,
-          transparent,
-          var(--error, #fff0f0) 50%
-        );
+      .right-button {
+        position: absolute;
+        top: 0.125rem;
+        height: calc(100% - 0.25rem);
+        width: 2.6rem;
+        right: 0.125rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 var(--roundness, 0.5rem) var(--roundness, 0.5rem) 0;
+
+        &:not(.clearable) {
+          pointer-events: none;
+        }
       }
     }
   }
