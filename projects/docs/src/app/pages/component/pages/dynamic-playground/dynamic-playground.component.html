@@ -1,17 +1,19 @@
 @if (componentData()) {
   <div class="playground">
-    <div class="component">
-      <ng-container
-        *ngComponentOutlet="
-          component();
-          inputs: resolvedInputs();
-          content: myContent()
-        "></ng-container>
-      @if (componentData().ngContent) {
-        <ng-template #ngContentTemplate>
-          <span>{{ componentData().ngContent!() }}</span>
-        </ng-template>
-      }
+    <div class="top">
+      <div class="component">
+        <ng-container
+          *ngComponentOutlet="
+            component();
+            inputs: resolvedInputs();
+            content: myContent()
+          "></ng-container>
+        @if (componentData().ngContent) {
+          <ng-template #ngContentTemplate>
+            <span>{{ componentData().ngContent!() }}</span>
+          </ng-template>
+        }
+      </div>
     </div>
     <div class="controls">
       @for (input of inputs(); track input.name) {
