@@ -79,3 +79,6 @@ export * from './core/components/bottom-sheet/bottom-sheet.component';
 
 /* Responsive */
 export * from './core/services/responsive.service';
+
+/* List */
+export * from './core/components/list/list.component';
