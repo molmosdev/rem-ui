@@ -9,7 +9,7 @@
       position: absolute;
       user-select: none;
       left: var(--padding-left);
-      z-index: 200;
+      z-index: 3;
       pointer-events: none;
     }
 
