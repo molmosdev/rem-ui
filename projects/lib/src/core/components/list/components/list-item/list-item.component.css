@@ -6,4 +6,12 @@
   box-sizing: border-box;
   padding: 0.5rem;
   border-radius: calc(var(--roundness, 0.5rem) + 0.25rem);
+
+  &:not(.bottom-delete) {
+    flex-direction: row;
+
+    svg {
+      height: 1.4rem;
+    }
+  }
 }

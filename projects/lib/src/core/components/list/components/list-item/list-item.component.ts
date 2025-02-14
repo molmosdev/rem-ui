@@ -1,4 +1,11 @@
-import { Component, computed, input, model, output } from '@angular/core';
+import {
+  Component,
+  computed,
+  HostBinding,
+  input,
+  model,
+  output,
+} from '@angular/core';
 import { Button, Text, Number } from '../../../../../public-api';
 
 export interface ListItemContent {
@@ -28,6 +35,14 @@ export class ListItem {
 
   /** Event emitted when the content of the list item changes. */
   changeEmitter = output<{ id: string; content: ListItemContent }>();
+
+  /** The position of the delete button. */
+  deleteButtonPosition = input<'bottom' | 'right'>('right');
+
+  @HostBinding('class.bottom-delete')
+  get isBottomDelete() {
+    return this.deleteButtonPosition() === 'bottom';
+  }
 
   /**
    * Checks if the content at the specified index is a string.
