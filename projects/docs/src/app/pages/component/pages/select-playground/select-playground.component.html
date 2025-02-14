@@ -1,24 +1,22 @@
 <div class="playground">
-  <div class="top">
-    @if ((isMobile() && selectedTab() === 'component') || !isMobile()) {
-      <div class="component">
-        <r-select
-          [label]="label()"
-          [(selectedValue)]="selectedValue"
-          [clearable]="clearable()"
-          [error]="error()"
-          [positioning]="positioning()"
-          [noResultsMessage]="noResultsMessage()"
-          style="width: 240px">
-          @for (option of options(); track option) {
-            <r-option [value]="returnString(option.listContent[0].value)()">
-              {{ option.listContent[0].value }}
-            </r-option>
-          }
-        </r-select>
-      </div>
-    }
-    @if ((isMobile() && selectedTab() === 'list') || !isMobile()) {
+  <div class="top" [class.mobile]="isMobile()">
+    <div class="component">
+      <r-select
+        [label]="label()"
+        [(selectedValue)]="selectedValue"
+        [clearable]="clearable()"
+        [error]="error()"
+        [positioning]="positioning()"
+        [noResultsMessage]="noResultsMessage()"
+        style="width: 240px">
+        @for (option of options(); track option) {
+          <r-option [value]="returnString(option.listContent[0].value)()">
+            {{ option.listContent[0].value }}
+          </r-option>
+        }
+      </r-select>
+    </div>
+    @if (!isMobile()) {
       <div class="list" [class.mobile]="isMobile()">
         <r-list (addEmitter)="addOption()" [class.mobile]="isMobile()">
           @for (option of options(); track option) {
@@ -35,22 +33,40 @@
       </div>
     }
   </div>
+  @if (isMobile() && selectedTab() === 'list') {
+    <div class="list" [class.mobile]="isMobile()">
+      <r-list (addEmitter)="addOption()" [class.mobile]="isMobile()">
+        @for (option of options(); track option) {
+          <r-list-item
+            [id]="option.id"
+            [content]="option.listContent"
+            (removeEmitter)="removeOption($event)">
+            {{ option.listContent[0].value }}
+            <span list-remove-text>Delete option</span></r-list-item
+          >
+        }
+        <span list-add-text>Add option</span>
+      </r-list>
+    </div>
+  }
+  @if ((isMobile() && selectedTab() === 'controls') || !isMobile()) {
+    <div class="controls" [class.mobile]="isMobile()">
+      <r-text label="Label" [(value)]="label" />
+      <r-switch label="Clearable" [(value)]="clearable" />
+      <r-switch label="Error" [(value)]="error" />
+      <r-select label="Positioning" [(selectedValue)]="positioning">
+        <r-option value="up">Up</r-option>
+        <r-option value="down">Down</r-option>
+      </r-select>
+      <r-text label="No results message" [(value)]="noResultsMessage" />
+    </div>
+  }
   @if (isMobile()) {
     <div class="tabs-section">
       <r-tabs [(selectedValue)]="selectedTab">
-        <r-tab value="component">Component</r-tab>
+        <r-tab value="controls">Controls</r-tab>
         <r-tab value="list">Options</r-tab>
       </r-tabs>
     </div>
   }
-  <div class="controls">
-    <r-text label="Label" [(value)]="label" />
-    <r-switch label="Clearable" [(value)]="clearable" />
-    <r-switch label="Error" [(value)]="error" />
-    <r-select label="Positioning" [(selectedValue)]="positioning">
-      <r-option value="up">Up</r-option>
-      <r-option value="down">Down</r-option>
-    </r-select>
-    <r-text label="No results message" [(value)]="noResultsMessage" />
-  </div>
 </div>

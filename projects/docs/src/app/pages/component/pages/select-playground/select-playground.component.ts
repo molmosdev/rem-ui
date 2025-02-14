@@ -36,7 +36,7 @@ export default class SelectPlaygroundComponent {
       listContent: [{ label: 'Option 3', value: 'Wednesday', type: 'string' }],
     },
   ]);
-  selectedTab = signal<'component' | 'list'>('component');
+  selectedTab = signal<'controls' | 'list'>('controls');
   responsiveService = inject(ResponsiveService);
   isMobile = computed(
     () => this.responsiveService.currentDevice() === 'mobile'
