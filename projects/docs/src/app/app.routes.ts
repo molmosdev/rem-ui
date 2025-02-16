@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { componentRoutes } from './pages/component/component.routes';
+import { playgroundRoutes } from './pages/playground/playground.routes';
 
 export const routes: Routes = [
   {
@@ -15,10 +15,10 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'component',
-    children: componentRoutes,
+    path: 'playground',
+    children: playgroundRoutes,
     data: {
-      title: 'Components',
+      title: 'Playground',
       type: 'section',
     },
   },

@@ -1,0 +1,24 @@
+@for (arg of args(); track arg.label) {
+  @if (!arg.hidden) {
+    @switch (arg.type) {
+      @case ('text') {
+        <r-text [label]="arg.label" [(value)]="arg.value"></r-text>
+      }
+      @case ('select') {
+        <r-select [label]="arg.label" [(selectedValue)]="arg.value">
+          @if (arg.options) {
+            @for (option of arg.options; track option.label) {
+              <r-option [value]="option.value">{{ option.label }}</r-option>
+            }
+          }
+        </r-select>
+      }
+      @case ('switch') {
+        <r-switch [label]="arg.label" [(value)]="arg.value"></r-switch>
+      }
+      @case ('number') {
+        <r-number [label]="arg.label" [(value)]="arg.value"></r-number>
+      }
+    }
+  }
+}
