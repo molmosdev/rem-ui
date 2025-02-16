@@ -79,6 +79,14 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'tabs',
+    loadComponent: () =>
+      import('./pages/tabs-playground/tabs-playground.component'),
+    data: {
+      title: 'Tabs',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
