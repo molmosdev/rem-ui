@@ -60,7 +60,7 @@ body {
   r-number,
   r-password,
   r-search,
-  r-vertical-nav-group {
+  r-vertical-nav {
     min-width: 240px;
   }
 }
