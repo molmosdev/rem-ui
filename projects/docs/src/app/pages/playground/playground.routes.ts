@@ -71,6 +71,14 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'search',
+    loadComponent: () =>
+      import('./pages/search-playground/search-playground.component'),
+    data: {
+      title: 'Search',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

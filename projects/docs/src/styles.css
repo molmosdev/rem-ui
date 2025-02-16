@@ -58,7 +58,8 @@ body {
   r-text,
   r-select,
   r-number,
-  r-password {
+  r-password,
+  r-search {
     min-width: 240px;
   }
 }
