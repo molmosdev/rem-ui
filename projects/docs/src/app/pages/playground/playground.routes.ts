@@ -63,6 +63,14 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'select',
+    loadComponent: () =>
+      import('./pages/select-playground/select-playground.component'),
+    data: {
+      title: 'Select',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

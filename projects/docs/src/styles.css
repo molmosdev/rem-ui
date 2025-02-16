@@ -54,4 +54,11 @@ body {
   app-args {
     height: calc(var(--mobile-height-posible) * 0.6);
   }
+
+  r-text,
+  r-select,
+  r-number,
+  r-password {
+    min-width: 240px;
+  }
 }
