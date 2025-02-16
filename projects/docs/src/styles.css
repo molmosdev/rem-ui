@@ -59,7 +59,8 @@ body {
   r-select,
   r-number,
   r-password,
-  r-search {
+  r-search,
+  r-vertical-nav-group {
     min-width: 240px;
   }
 }

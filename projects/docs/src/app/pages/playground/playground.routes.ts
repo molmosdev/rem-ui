@@ -87,6 +87,16 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'vertical-nav',
+    loadComponent: () =>
+      import(
+        './pages/vertical-nav-playground/vertical-nav-playground.component'
+      ),
+    data: {
+      title: 'Vertical Nav',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
