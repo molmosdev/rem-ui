@@ -4,7 +4,6 @@ import {
   effect,
   HostListener,
   model,
-  OnInit,
   output,
   signal,
 } from '@angular/core';
@@ -15,7 +14,7 @@ import { Tab } from './components/tab/tab.component';
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css',
 })
-export class Tabs implements OnInit {
+export class Tabs {
   tabs = contentChildren(Tab);
   selectedIndex = signal<number>(-1);
   selectedValue = model<string | null>(null);
@@ -97,13 +96,6 @@ export class Tabs implements OnInit {
     if (this.selectedIndex() !== -1) {
       this.scrollToTab(this.selectedIndex(), 'smooth');
     }
-  }
-
-  /**
-   * Angular lifecycle hook that is called after data-bound properties are initialized.
-   */
-  ngOnInit() {
-    this.tabs()[0].selected.set(true);
   }
 
   /**
