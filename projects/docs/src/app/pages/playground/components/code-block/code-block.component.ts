@@ -35,7 +35,7 @@ import { Button } from '../../../../../../../lib/src/public-api';
         box-sizing: border-box;
         width: 100%;
         margin: 0;
-        padding-right: 4rem;
+        padding-right: 5rem;
       }
 
       r-button {
