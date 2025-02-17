@@ -48,22 +48,31 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-  }
-
-  &:has(app-args) {
-    .component {
-      height: calc(var(--mobile-height-posible) * 0.4);
-    }
-  }
-
-  &:not(:has(app-args)) {
-    .component {
-      height: calc(var(--mobile-height-posible) * 1);
-    }
+    height: calc(var(--mobile-height-posible) * 0.4);
   }
 
   app-args {
     height: calc(var(--mobile-height-posible) * 0.6);
+  }
+
+  &.inverted {
+    .component {
+      height: calc(var(--mobile-height-posible) * 0.6);
+    }
+
+    app-args {
+      height: calc(var(--mobile-height-posible) * 0.4);
+    }
+  }
+
+  &.no-args {
+    .component {
+      height: var(--mobile-height-posible);
+    }
+
+    app-args {
+      display: none;
+    }
   }
 
   r-text,
