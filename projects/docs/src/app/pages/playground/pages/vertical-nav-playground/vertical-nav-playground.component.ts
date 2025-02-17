@@ -19,30 +19,26 @@ import { IArg } from '../../interfaces/arg.interface';
     ArgsComponent,
   ],
   template: `
-    <div class="playground">
-      <div class="component inverted">
+    <div class="playground inverted">
+      <div class="component">
         <r-vertical-nav>
           <r-vertical-nav-section>
-            <span r-section-title>Routes</span>
+            <span r-section-title>{{ args()[0].value() }}</span>
             <r-vertical-nav-item>
-              <i r-item-prefix [class]="args()[0].value()"></i>
-              <span r-item-title>{{ args()[1].value() }}</span>
-            </r-vertical-nav-item>
-            <r-vertical-nav-item>
-              <i r-item-prefix [class]="args()[2].value()"></i>
-              <span r-item-title>{{ args()[3].value() }}</span>
+              <i r-item-prefix [class]="args()[1].value()"></i>
+              <span r-item-title>{{ args()[2].value() }}</span>
             </r-vertical-nav-item>
             <r-vertical-nav-group>
-              <i r-group-prefix [class]="args()[4].value()"></i>
-              <div r-group-title>{{ args()[5].value() }}</div>
+              <i r-group-prefix [class]="args()[3].value()"></i>
+              <div r-group-title>{{ args()[4].value() }}</div>
               <r-vertical-nav-item>
-                <i r-item-prefix [class]="args()[6].value()"></i>
-                <div r-item-title>{{ args()[7].value() }}</div>
+                <i r-item-prefix [class]="args()[5].value()"></i>
+                <div r-item-title>{{ args()[6].value() }}</div>
               </r-vertical-nav-item>
             </r-vertical-nav-group>
           </r-vertical-nav-section>
           <r-vertical-nav-section>
-            <span r-section-title>Extra</span>
+            <span r-section-title>{{ args()[7].value() }}</span>
             <r-vertical-nav-item>
               <i r-item-prefix [class]="args()[8].value()"></i>
               <span r-item-title>{{ args()[9].value() }}</span>
@@ -57,7 +53,12 @@ import { IArg } from '../../interfaces/arg.interface';
 export default class VerticalNavPlaygroundComponent {
   args = signal<IArg[]>([
     {
-      label: 'Home Icon',
+      label: 'Section 1 Title',
+      type: 'text',
+      value: signal('Routes'),
+    },
+    {
+      label: 'Item 1 Icon',
       type: 'select',
       value: signal('icon-house'),
       options: [
@@ -66,26 +67,12 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Home Title',
+      label: 'Item 1 Title',
       type: 'text',
       value: signal('Home'),
     },
     {
-      label: 'Profile Icon',
-      type: 'select',
-      value: signal('icon-contact'),
-      options: [
-        { label: 'Contact', value: 'icon-contact' },
-        { label: 'User round sarch', value: 'icon-user-round-search' },
-      ],
-    },
-    {
-      label: 'Profile Title',
-      type: 'text',
-      value: signal('Profile'),
-    },
-    {
-      label: 'Settings Icon',
+      label: 'Group 1 Icon',
       type: 'select',
       value: signal('icon-settings'),
       options: [
@@ -94,12 +81,12 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Settings Title',
+      label: 'Group 1 Title',
       type: 'text',
       value: signal('Settings'),
     },
     {
-      label: 'Notifications Icon',
+      label: 'Item 2 Icon',
       type: 'select',
       value: signal('icon-bell-dot'),
       options: [
@@ -108,12 +95,17 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Notifications Title',
+      label: 'Item 2 Title',
       type: 'text',
       value: signal('Notifications'),
     },
     {
-      label: 'Help Icon',
+      label: 'Section 2 Title',
+      type: 'text',
+      value: signal('Extra'),
+    },
+    {
+      label: 'Item 3 Icon',
       type: 'select',
       value: signal('icon-circle-help'),
       options: [
@@ -125,7 +117,7 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Help Title',
+      label: 'Item 3 Title',
       type: 'text',
       value: signal('Help'),
     },
