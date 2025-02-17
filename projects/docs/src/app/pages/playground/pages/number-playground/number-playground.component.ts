@@ -2,22 +2,37 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Number } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-number-playground',
-  imports: [Number, ArgsComponent],
+  imports: [Number, ArgsComponent, CodeBlockComponent],
   template: `
     <div class="playground">
-      <div class="component">
-        <r-number
-          [label]="args()[0].value()"
-          [placeholder]="args()[1].value()"
-          [value]="args()[2].value()"
-          [valueType]="args()[3].value()"
-          [suffix]="args()[4].value()"
-          [error]="args()[5].value()"
-          [disabled]="args()[6].value()">
-        </r-number>
+      <div class="top">
+        <div class="component">
+          <r-number
+            [label]="args()[0].value()"
+            [placeholder]="args()[1].value()"
+            [value]="args()[2].value()"
+            [valueType]="args()[3].value()"
+            [suffix]="args()[4].value()"
+            [error]="args()[5].value()"
+            [disabled]="args()[6].value()">
+          </r-number>
+        </div>
+        <app-code-block
+          code="
+          <r-number
+            [label]='{{ args()[0].value() }}'
+            [placeholder]='{{ args()[1].value() }}'
+            [value]='{{ args()[2].value() }}'
+            [valueType]='{{ args()[3].value() }}'
+            [suffix]='{{ args()[4].value() }}'
+            [error]='{{ args()[5].value() }}'
+            [disabled]='{{ args()[6].value() }}'>
+          </r-number>
+          " />
       </div>
       <app-args [args]="args()" />
     </div>

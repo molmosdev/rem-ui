@@ -1,21 +1,25 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Tabs, Tab } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-tabs-playground',
-  imports: [Tabs, Tab, ArgsComponent],
+  imports: [Tabs, Tab, ArgsComponent, CodeBlockComponent],
   template: `
     <div class="playground">
-      <div class="component">
-        <r-tabs [(selectedValue)]="args()[0].value">
-          @for (tab of tabs; track tab) {
-            <r-tab [value]="tab.value" [disabled]="tab.disabled">
-              {{ tab.label() }}
-            </r-tab>
-          }
-        </r-tabs>
+      <div class="top">
+        <div class="component">
+          <r-tabs [(selectedValue)]="args()[0].value">
+            @for (tab of tabs; track tab) {
+              <r-tab [value]="tab.value" [disabled]="tab.disabled">
+                {{ tab.label() }}
+              </r-tab>
+            }
+          </r-tabs>
+        </div>
+        <app-code-block [code]="code()" />
       </div>
       <app-args [args]="args()" />
     </div>
@@ -55,4 +59,22 @@ export default class TabsPlaygroundComponent {
       value: this.tabs[2].label,
     },
   ]);
+
+  code = computed(() => {
+    const tabsString = this.tabs
+      .map(
+        tab => `
+      <r-tab [value]='${tab.value}' [disabled]='${tab.disabled}'>
+        ${tab.label()}
+      </r-tab>
+    `
+      )
+      .join('');
+
+    return `
+      <r-tabs [(selectedValue)]='${this.args()[0].value()}'>
+        ${tabsString}
+      </r-tabs>
+    `;
+  });
 }

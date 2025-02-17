@@ -1,26 +1,30 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Search, Option } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-search-playground',
-  imports: [Search, Option, ArgsComponent],
+  imports: [Search, Option, ArgsComponent, CodeBlockComponent],
   template: `
     <div class="playground">
-      <div class="component">
-        <r-search
-          [label]="args()[0].value()"
-          [error]="args()[1].value()"
-          [positioning]="args()[2].value()"
-          [noResultsMessage]="args()[3].value()"
-          [debounceDelay]="args()[4].value()">
-          @for (option of options; track option) {
-            <r-option [value]="option.value" [disabled]="option.disabled">
-              {{ option.label }}
-            </r-option>
-          }
-        </r-search>
+      <div class="top">
+        <div class="component">
+          <r-search
+            [label]="args()[0].value()"
+            [error]="args()[1].value()"
+            [positioning]="args()[2].value()"
+            [noResultsMessage]="args()[3].value()"
+            [debounceDelay]="args()[4].value()">
+            @for (option of options; track option) {
+              <r-option [value]="option.value" [disabled]="option.disabled">
+                {{ option.label }}
+              </r-option>
+            }
+          </r-search>
+        </div>
+        <app-code-block [code]="code()" />
       </div>
       <app-args [args]="args()" />
     </div>
@@ -64,4 +68,26 @@ export default class SearchPlaygroundComponent {
     { label: 'Option 2', value: 'option2', disabled: false },
     { label: 'Option 3', value: 'option3', disabled: true },
   ];
+
+  code = computed(() => {
+    const optionsString = this.options
+      .map(
+        option => `
+    <r-option [value]='${option.value}' [disabled]='${option.disabled}'>
+      ${option.label}
+    </r-option>
+  `
+      )
+      .join('');
+    return `
+      <r-search
+        [label]='"${this.args()[0].value()}"'
+        [error]="${this.args()[1].value()}"
+        [positioning]='"${this.args()[2].value()}"'
+        [noResultsMessage]='"${this.args()[3].value()}"'
+        [debounceDelay]="${this.args()[4].value()}">
+        ${optionsString}
+      </r-search>
+    `;
+  });
 }

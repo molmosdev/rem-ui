@@ -2,15 +2,25 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Spinner } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-spinner-playground',
-  imports: [Spinner, ArgsComponent],
+  imports: [Spinner, ArgsComponent, CodeBlockComponent],
   template: `
     <div class="playground">
-      <div class="component">
-        <r-spinner [active]="args()[0].value()" [size]="args()[1].value()">
-        </r-spinner>
+      <div class="top">
+        <div class="component">
+          <r-spinner [active]="args()[0].value()" [size]="args()[1].value()">
+          </r-spinner>
+        </div>
+        <app-code-block
+          code="
+          <r-spinner
+            [active]='{{ args()[0].value() }}'
+            [size]='{{ args()[1].value() }}'>
+          </r-spinner>
+          " />
       </div>
       <app-args [args]="args()" />
     </div>

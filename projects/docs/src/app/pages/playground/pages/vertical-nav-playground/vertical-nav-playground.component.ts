@@ -7,6 +7,7 @@ import {
 import { VerticalNavSection } from '../../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-vertical-nav-playground',
@@ -17,34 +18,72 @@ import { IArg } from '../../interfaces/arg.interface';
     VerticalNavGroup,
     VerticalNavSection,
     ArgsComponent,
+    CodeBlockComponent,
   ],
   template: `
-    <div class="playground inverted">
-      <div class="component">
-        <r-vertical-nav>
-          <r-vertical-nav-section>
-            <span r-section-title>{{ args()[0].value() }}</span>
-            <r-vertical-nav-item>
-              <i r-item-prefix [class]="args()[1].value()"></i>
-              <span r-item-title>{{ args()[2].value() }}</span>
-            </r-vertical-nav-item>
-            <r-vertical-nav-group>
-              <i r-group-prefix [class]="args()[3].value()"></i>
-              <div r-group-title>{{ args()[4].value() }}</div>
+    <div class="playground">
+      <div class="top">
+        <div class="component inverted">
+          <r-vertical-nav>
+            <r-vertical-nav-section>
+              <span r-section-title>Routes</span>
               <r-vertical-nav-item>
-                <i r-item-prefix [class]="args()[5].value()"></i>
-                <div r-item-title>{{ args()[6].value() }}</div>
+                <i r-item-prefix [class]="args()[0].value()"></i>
+                <span r-item-title>{{ args()[1].value() }}</span>
               </r-vertical-nav-item>
-            </r-vertical-nav-group>
-          </r-vertical-nav-section>
-          <r-vertical-nav-section>
-            <span r-section-title>{{ args()[7].value() }}</span>
-            <r-vertical-nav-item>
-              <i r-item-prefix [class]="args()[8].value()"></i>
-              <span r-item-title>{{ args()[9].value() }}</span>
-            </r-vertical-nav-item>
-          </r-vertical-nav-section>
-        </r-vertical-nav>
+              <r-vertical-nav-item>
+                <i r-item-prefix [class]="args()[2].value()"></i>
+                <span r-item-title>{{ args()[3].value() }}</span>
+              </r-vertical-nav-item>
+              <r-vertical-nav-group>
+                <i r-group-prefix [class]="args()[4].value()"></i>
+                <div r-group-title>{{ args()[5].value() }}</div>
+                <r-vertical-nav-item>
+                  <i r-item-prefix [class]="args()[6].value()"></i>
+                  <div r-item-title>{{ args()[7].value() }}</div>
+                </r-vertical-nav-item>
+              </r-vertical-nav-group>
+            </r-vertical-nav-section>
+            <r-vertical-nav-section>
+              <span r-section-title>Extra</span>
+              <r-vertical-nav-item>
+                <i r-item-prefix [class]="args()[8].value()"></i>
+                <span r-item-title>{{ args()[9].value() }}</span>
+              </r-vertical-nav-item>
+            </r-vertical-nav-section>
+          </r-vertical-nav>
+        </div>
+        <app-code-block
+          code="
+          <r-vertical-nav>
+            <r-vertical-nav-section>
+              <span r-section-title>Routes</span>
+              <r-vertical-nav-item>
+                <i r-item-prefix class='{{ args()[0].value() }}'></i>
+                <span r-item-title>{{ args()[1].value() }}</span>
+              </r-vertical-nav-item>
+              <r-vertical-nav-item>
+                <i r-item-prefix class='{{ args()[2].value() }}'></i>
+                <span r-item-title>{{ args()[3].value() }}</span>
+              </r-vertical-nav-item>
+              <r-vertical-nav-group>
+                <i r-group-prefix class='{{ args()[4].value() }}'></i>
+                <div r-group-title>{{ args()[5].value() }}</div>
+                <r-vertical-nav-item>
+                  <i r-item-prefix class='{{ args()[6].value() }}'></i>
+                  <div r-item-title>{{ args()[7].value() }}</div>
+                </r-vertical-nav-item>
+              </r-vertical-nav-group>
+            </r-vertical-nav-section>
+            <r-vertical-nav-section>
+              <span r-section-title>Extra</span>
+              <r-vertical-nav-item>
+                <i r-item-prefix class='{{ args()[8].value() }}'></i>
+                <span r-item-title>{{ args()[9].value() }}</span>
+              </r-vertical-nav-item>
+            </r-vertical-nav-section>
+          </r-vertical-nav>
+          " />
       </div>
       <app-args [args]="args()" />
     </div>
@@ -53,12 +92,7 @@ import { IArg } from '../../interfaces/arg.interface';
 export default class VerticalNavPlaygroundComponent {
   args = signal<IArg[]>([
     {
-      label: 'Section 1 Title',
-      type: 'text',
-      value: signal('Routes'),
-    },
-    {
-      label: 'Item 1 Icon',
+      label: 'Home Icon',
       type: 'select',
       value: signal('icon-house'),
       options: [
@@ -67,12 +101,26 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Item 1 Title',
+      label: 'Home Title',
       type: 'text',
       value: signal('Home'),
     },
     {
-      label: 'Group 1 Icon',
+      label: 'Profile Icon',
+      type: 'select',
+      value: signal('icon-contact'),
+      options: [
+        { label: 'Contact', value: 'icon-contact' },
+        { label: 'User round sarch', value: 'icon-user-round-search' },
+      ],
+    },
+    {
+      label: 'Profile Title',
+      type: 'text',
+      value: signal('Profile'),
+    },
+    {
+      label: 'Settings Icon',
       type: 'select',
       value: signal('icon-settings'),
       options: [
@@ -81,12 +129,12 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Group 1 Title',
+      label: 'Settings Title',
       type: 'text',
       value: signal('Settings'),
     },
     {
-      label: 'Item 2 Icon',
+      label: 'Notifications Icon',
       type: 'select',
       value: signal('icon-bell-dot'),
       options: [
@@ -95,17 +143,12 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Item 2 Title',
+      label: 'Notifications Title',
       type: 'text',
       value: signal('Notifications'),
     },
     {
-      label: 'Section 2 Title',
-      type: 'text',
-      value: signal('Extra'),
-    },
-    {
-      label: 'Item 3 Icon',
+      label: 'Help Icon',
       type: 'select',
       value: signal('icon-circle-help'),
       options: [
@@ -117,7 +160,7 @@ export default class VerticalNavPlaygroundComponent {
       ],
     },
     {
-      label: 'Item 3 Title',
+      label: 'Help Title',
       type: 'text',
       value: signal('Help'),
     },
