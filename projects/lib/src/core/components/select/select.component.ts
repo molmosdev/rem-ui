@@ -15,8 +15,8 @@ import { NgClass } from '@angular/common';
 import { Option } from '../../../shared/components/option/option.component';
 import {
   disabledStateTrigger,
-  errorRightButtonStateTrigger,
-  errorStateTrigger,
+  selectErrorRightButtonStateTrigger,
+  selectErrorStateTrigger,
   fadeInFadeOutTrigger,
   inputPaddingStateTrigger,
   labelErrorStateTrigger,
@@ -31,9 +31,9 @@ import {
   templateUrl: './select.component.html',
   animations: [
     fadeInFadeOutTrigger,
-    errorStateTrigger,
+    selectErrorStateTrigger,
     labelErrorStateTrigger,
-    errorRightButtonStateTrigger,
+    selectErrorRightButtonStateTrigger,
     labelStateTrigger,
     inputPaddingStateTrigger,
     disabledStateTrigger,

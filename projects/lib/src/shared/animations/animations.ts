@@ -30,6 +30,24 @@ export const errorStateTrigger = trigger('errorStateTrigger', [
   transition('false <=> true', animate('0.2s')),
 ]);
 
+export const selectErrorStateTrigger = trigger('selectErrorStateTrigger', [
+  state(
+    'true',
+    style({
+      color: 'var(--error-foreground, #c40000ab)',
+      borderColor: 'var(--error-foreground, #c40000ab)',
+    })
+  ),
+  state(
+    'false',
+    style({
+      color: 'var(--input-foreground, #798194)',
+      borderColor: 'var(--border-color, transparent)',
+    })
+  ),
+  transition('false <=> true', animate('0.2s')),
+]);
+
 export const labelErrorStateTrigger = trigger('labelErrorStateTrigger', [
   state(
     'true',
@@ -64,6 +82,31 @@ export const errorRightButtonStateTrigger = trigger(
         color: 'var(--input-foreground, #798194)',
         background:
           'linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--foreground, #798194) 5%, var(--background, #ffffff)) 50%)',
+        borderColor: 'var(--border-color, transparent)',
+      })
+    ),
+    transition('false <=> true', animate('0.2s')),
+  ]
+);
+
+export const selectErrorRightButtonStateTrigger = trigger(
+  'selectErrorRightButtonStateTrigger',
+  [
+    state(
+      'true',
+      style({
+        color: 'var(--error-foreground, #c40000ab)',
+        background:
+          'linear-gradient(to right, transparent, var(--error, #fff0f0) 50%)',
+        borderColor: 'var(--error-foreground, #c40000ab)',
+      })
+    ),
+    state(
+      'false',
+      style({
+        color: 'var(--input-foreground, #798194)',
+        background:
+          'linear-gradient(90deg, transparent 0%, var(--bg-color, #ffffff) 50%)',
         borderColor: 'var(--border-color, transparent)',
       })
     ),

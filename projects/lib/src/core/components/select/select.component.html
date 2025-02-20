@@ -7,7 +7,7 @@
     </label>
   }
   <div
-    [@errorStateTrigger]="error()"
+    [@selectErrorStateTrigger]="error()"
     [@selectInputPaddingStateTrigger]="inputPaddingState()"
     class="select-box"
     (click)="isOpen.set(!isOpen())"
@@ -19,7 +19,7 @@
     <div
       class="right-button"
       [class.clearable]="clearable() && selectedContent()"
-      [@errorRightButtonStateTrigger]="error()"
+      [@selectErrorRightButtonStateTrigger]="error()"
       (click)="clearable() && selectedContent() && clearSelection($event)">
       @if (clearable() && selectedContent()) {
         <svg
