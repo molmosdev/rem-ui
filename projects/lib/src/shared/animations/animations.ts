@@ -153,13 +153,21 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
   transition('normal => small', [
-    animate('0.1s', style({ opacity: 0 })),
-    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
-    animate('0.1s', style({ opacity: 1 })),
+    sequence([
+      animate('0.1s', style({ opacity: 0 })),
+      animate(
+        '0s 1s',
+        style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
+      ),
+      animate('0.1s', style({ opacity: 1 })),
+    ]),
   ]),
   transition('small => normal', [
     animate('0.1s', style({ opacity: 0 })),
-    style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' }),
+    animate(
+      '0s 1s',
+      style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' })
+    ),
     animate('0.1s', style({ opacity: 1 })),
   ]),
 ]);
