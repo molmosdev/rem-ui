@@ -1,6 +1,13 @@
-import { Component, HostListener, input, model } from '@angular/core';
+import {
+  Component,
+  contentChild,
+  HostListener,
+  input,
+  model,
+} from '@angular/core';
 import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { LazyContentDirective } from '../../../shared/directives/lazy-content.directive';
 
 @Component({
   selector: 'r-dialog',
@@ -19,8 +26,8 @@ export class Dialog {
   /** Indicates whether the mobile bottom style is active */
   mobileBottomActive = input<boolean>(false);
 
-  /** Indicates whether the dialog content should be loaded lazily */
-  lazy = input<boolean>(false);
+  /** Lazy content directive */
+  lazyContent = contentChild(LazyContentDirective);
 
   /**
    * Listen for keyboard escape events
