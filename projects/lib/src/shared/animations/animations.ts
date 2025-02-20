@@ -152,20 +152,7 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
     'small',
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
-  transition('normal => small', [
-    sequence([
-      animate('0.1s', style({ opacity: 0 })),
-      style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
-      animate('0.1s', style({ opacity: 1 })),
-    ]),
-  ]),
-  transition('small => normal', [
-    sequence([
-      animate('0.1s', style({ opacity: 0 })),
-      style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' }),
-      animate('0.1s', style({ opacity: 1 })),
-    ]),
-  ]),
+  transition('normal <=> small', [animate('0.2s')]),
 ]);
 
 export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
@@ -185,16 +172,7 @@ export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
       transform: 'translateY(0)',
     })
   ),
-  transition('normal => small', [
-    animate('0.1s', style({ opacity: 0 })),
-    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
-    animate('0.1s', style({ opacity: 1 })),
-  ]),
-  transition('small => normal', [
-    animate('0.1s', style({ opacity: 0 })),
-    style({ top: '0.688rem', fontSize: '100%', transform: 'translateY(0)' }),
-    animate('0.1s', style({ opacity: 1 })),
-  ]),
+  transition('normal <=> small', [animate('0.2s')]),
 ]);
 
 export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
