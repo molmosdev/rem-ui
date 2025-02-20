@@ -155,11 +155,9 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
   transition(
     'normal => small',
     [
-      sequence([
-        animate('{{ duration }}', style({ opacity: 0 })),
-        style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
-        animate('{{ duration }}', style({ opacity: 1 })),
-      ]),
+      animate('{{ duration }}', style({ opacity: 0 })),
+      style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
+      animate('{{ duration }}', style({ opacity: 1 })),
     ],
     {
       params: {
@@ -170,11 +168,9 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
   transition(
     'small => normal',
     [
-      sequence([
-        animate('{{ duration }}', style({ opacity: 0 })),
-        style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' }),
-        animate('{{ duration }}', style({ opacity: 1 })),
-      ]),
+      animate('{{ duration }}', style({ opacity: 0 })),
+      style({ top: '50%', fontSize: '100%', transform: 'translateY(-50%)' }),
+      animate('{{ duration }}', style({ opacity: 1 })),
     ],
     {
       params: {
