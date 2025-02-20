@@ -150,14 +150,14 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
   ),
   state(
     'small',
-    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
+    style({ top: '0%', fontSize: '70%', transform: 'translateY(0)' })
   ),
   transition(
     'normal => small',
     [
       sequence([
         animate('{{ duration }}', style({ opacity: 0 })),
-        style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' }),
+        style({ top: '0%', fontSize: '70%', transform: 'translateY(0)' }),
         animate('{{ duration }}', style({ opacity: 1 })),
       ]),
     ],
