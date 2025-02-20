@@ -81,7 +81,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
         transform: '{{ translateFrom }}',
       }),
       animate(
-        '{{ enterDelay }} {{ duration }}',
+        '{{ duration }} {{ enterDelay }}',
         style({
           opacity: 1,
           scale: '{{ scaleTo }}',
@@ -104,7 +104,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
     ':leave',
     [
       animate(
-        '{{ leaveDelay }} {{ duration }}',
+        '{{ duration }} {{ leaveDelay }}',
         style({
           opacity: 0,
           scale: '{{ scaleFrom }}',
@@ -153,6 +153,12 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
   transition('normal <=> small', [animate('0.2s')]),
+]);
+
+export const rotateArrowTrigger = trigger('rotateArrowTrigger', [
+  state('expanded', style({ transform: 'rotate(180deg)' })),
+  state('collapsed', style({ transform: 'rotate(0deg)' })),
+  transition('expanded <=> collapsed', animate('200ms ease-in-out')),
 ]);
 
 export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [

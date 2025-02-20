@@ -21,6 +21,7 @@ import {
   inputPaddingStateTrigger,
   labelErrorStateTrigger,
   labelStateTrigger,
+  rotateArrowTrigger,
   selectInputPaddingStateTrigger,
 } from '../../../shared/animations/animations';
 
@@ -37,6 +38,7 @@ import {
     inputPaddingStateTrigger,
     disabledStateTrigger,
     selectInputPaddingStateTrigger,
+    rotateArrowTrigger,
   ],
   styleUrl: './select.component.css',
 })

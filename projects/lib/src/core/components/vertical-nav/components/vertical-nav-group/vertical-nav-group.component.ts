@@ -1,8 +1,6 @@
 import { Component, contentChildren, model } from '@angular/core';
-import {
-  expandCollapseTrigger,
-  rotateArrowTrigger,
-} from './vertical-nav-group.animations';
+import { expandCollapseTrigger } from './vertical-nav-group.animations';
+import { rotateArrowTrigger } from '../../../../../shared/animations/animations';
 
 @Component({
   selector: 'r-vertical-nav-group',
