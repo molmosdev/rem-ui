@@ -5,7 +5,10 @@
         <r-text [label]="arg.label" [(value)]="arg.value"></r-text>
       }
       @case ('select') {
-        <r-select [label]="arg.label" [(selectedValue)]="arg.value">
+        <r-select
+          [label]="arg.label"
+          [(selectedValue)]="arg.value"
+          positioning="up">
           @if (arg.options) {
             @for (option of arg.options; track option.label) {
               <r-option [value]="option.value">{{ option.label }}</r-option>

@@ -152,7 +152,7 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
     'small',
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
-  transition('normal <=> small', animate('0.2s')),
+  transition('normal <=> small', animate('0.1s')),
 ]);
 
 export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
@@ -164,23 +164,23 @@ export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
     'small',
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
-  transition('normal <=> small', animate('0.2s')),
+  transition('normal <=> small', animate('0.1s')),
 ]);
 
 export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
   state('normal', style({ padding: '0.688rem var(--padding-left)' })),
-  state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
-  transition('normal <=> small', animate('0.2s')),
+  state('small', style({ padding: '1.1rem var(--padding-left) 0.22rem' })),
+  transition('normal <=> small', animate('0.1s')),
 ]);
 
 export const selectInputPaddingStateTrigger = trigger(
   'selectInputPaddingStateTrigger',
   [
     state('normal', style({ padding: '0.688rem var(--padding-left)' })),
-    state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
+    state('small', style({ padding: '1.1rem var(--padding-left) 0.22rem' })),
     transition('normal => small', [
       sequence([
-        animate('0.2s'),
+        animate('0.1s'),
         query('@fadeInFadeOutTrigger', [animateChild()]),
       ]),
     ]),
@@ -188,7 +188,7 @@ export const selectInputPaddingStateTrigger = trigger(
       sequence([
         query('@fadeInFadeOutTrigger', [animateChild()]),
 
-        animate('0.2s'),
+        animate('0.1s'),
       ]),
     ]),
   ]
