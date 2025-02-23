@@ -182,7 +182,10 @@ export class Select {
    * Handle the external selected value.
    */
   handleExternalSelectedValue(): void {
-    if (this.lastSelectedValue !== this.selectedValue()) {
+    if (
+      this.lastSelectedValue !== this.selectedValue() &&
+      this.options().length > 0
+    ) {
       if (this.selectedValue()) {
         const selectedOptionIndex = this.options().findIndex(
           option => option.value() === this.selectedValue()
