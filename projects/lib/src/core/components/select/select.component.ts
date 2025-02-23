@@ -99,8 +99,6 @@ export class Select {
   /** The displayed content of the selected option. */
   displayedSelectedContent = computed(() => this.selectedContent() || '');
 
-  firstLoad = true;
-
   constructor(private elementRef: ElementRef) {
     effect(() => {
       if (this.optionsWrapper()) {
@@ -108,7 +106,6 @@ export class Select {
         this.handleOptionSelection();
       }
       this.handleExternalSelectedValue();
-      console.log(this.firstLoad);
     });
   }
 
@@ -210,7 +207,6 @@ export class Select {
         this.highlightOption(-1);
         this.handleOptionsStates();
       }
-      this.firstLoad = false;
     }
   }
 
