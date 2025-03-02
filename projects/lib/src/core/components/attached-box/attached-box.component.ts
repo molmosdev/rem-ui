@@ -94,40 +94,25 @@ export class AttachedBox {
       this.position().startsWith('bottom') &&
       triggerRect.bottom + contentRect.height > window.innerHeight
     ) {
-      return this.position().replace('bottom', 'top') as
-        | 'top-left'
-        | 'top-right';
+      return this.position() === 'bottom-left' ? 'top-left' : 'top-right';
     } else if (
       this.position().startsWith('top') &&
       triggerRect.top - contentRect.height < 0
     ) {
-      return this.position().replace('top', 'bottom') as
-        | 'bottom-left'
-        | 'bottom-right';
+      return this.position() === 'top-left' ? 'bottom-left' : 'bottom-right';
     } else if (
       this.position().startsWith('right') &&
       triggerRect.right + contentRect.width > window.innerWidth
     ) {
-      return this.position().replace('right', 'left') as
-        | 'left-top'
-        | 'left-bottom';
+      return this.position() === 'right-top' ? 'left-top' : 'left-bottom';
     } else if (
       this.position().startsWith('left') &&
       triggerRect.left - contentRect.width < 0
     ) {
-      return this.position().replace('left', 'right') as
-        | 'right-top'
-        | 'right-bottom';
+      return this.position() === 'left-top' ? 'right-top' : 'right-bottom';
     }
-    return this.position() as
-      | 'top-left'
-      | 'top-right'
-      | 'bottom-left'
-      | 'bottom-right'
-      | 'left-top'
-      | 'left-bottom'
-      | 'right-top'
-      | 'right-bottom';
+
+    return this.position();
   }
 
   /**
