@@ -9,16 +9,20 @@ import {
 
 type Position =
   | 'top-left'
+  | 'top-center'
   | 'top-right'
   | 'bottom-left'
+  | 'bottom-center'
   | 'bottom-right'
   | 'left-top'
+  | 'left-center'
   | 'left-bottom'
   | 'right-top'
+  | 'right-center'
   | 'right-bottom';
 
 type Direction = 'top' | 'bottom' | 'left' | 'right';
-type Alignment = 'top' | 'bottom' | 'left' | 'right';
+type Alignment = 'left' | 'center' | 'right' | 'top' | 'bottom';
 
 @Component({
   selector: 'r-attached-box',
@@ -37,10 +41,16 @@ export class AttachedBox {
   content = viewChild<ElementRef>('content');
 
   /**
-   * The position of the content relative to the trigger.
-   * принимаемые значения 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom'
+   * The primary direction of the content relative to the trigger.
+   * Valores aceptados: 'top' | 'bottom' | 'left' | 'right'
    */
-  position = model<Position>('bottom-left');
+  direction = model<Direction>('bottom');
+
+  /**
+   * The secondary alignment of the content relative to the trigger.
+   * Valores aceptados: 'left' | 'center' | 'right'
+   */
+  alignment = model<Alignment>('left');
 
   /**
    * Signal indicating whether the content is visible or not.
@@ -101,7 +111,7 @@ export class AttachedBox {
    */
   private calculateAdjustedPosition(): Position {
     if (!this.trigger()?.nativeElement || !this.content()?.nativeElement) {
-      return this.position();
+      return `${this.direction()}-${this.alignment()}` as Position;
     }
 
     const triggerElement = this.trigger()!.nativeElement;
@@ -113,10 +123,8 @@ export class AttachedBox {
       getComputedStyle(document.documentElement).fontSize
     );
     const extraMargin = fontSize * 2;
-    const [primary, secondary] = this.position().split('-') as [
-      Direction,
-      Alignment,
-    ];
+    const primary = this.direction(); // Read direction signal directly
+    const secondary = this.alignment(); // Read alignment signal directly
 
     const adjustedPrimary = this.adjustPrimaryDirection(
       primary,
@@ -193,7 +201,7 @@ export class AttachedBox {
   }
 
   /**
-   * Adjusts the secondary alignment (left, right for top/bottom primary, top, bottom for left/right primary)
+   * Adjusts the secondary alignment (left, right, center for top/bottom primary, top, bottom, center for left/right primary)
    * of the content's position to prevent horizontal or vertical overflow. This method ensures that
    * the content is fully visible within the viewport in the secondary dimension.
    * @param secondary The initially desired secondary alignment.
@@ -219,6 +227,16 @@ export class AttachedBox {
         if (contentLeftPos < 0) {
           return 'left';
         }
+      } else if (secondary === 'center') {
+        const triggerCenter = triggerRect.left + triggerRect.width / 2;
+        const contentLeftPos = triggerCenter - contentRect.width / 2;
+        const contentRightPos = contentLeftPos + contentRect.width;
+
+        if (contentLeftPos < 0) {
+          return 'left';
+        } else if (contentRightPos > window.innerWidth) {
+          return 'right';
+        }
       }
     } else if (['left', 'right'].includes(primary)) {
       if (secondary === 'top') {
@@ -230,6 +248,16 @@ export class AttachedBox {
         const contentTopPos = triggerRect.bottom - contentRect.height;
         if (contentTopPos < 0) {
           return 'top';
+        }
+      } else if (secondary === 'center') {
+        const triggerCenter = triggerRect.top + triggerRect.height / 2;
+        const contentTopPos = triggerCenter - contentRect.height / 2;
+        const contentBottomPos = contentTopPos + contentRect.height;
+
+        if (contentTopPos < 0) {
+          return 'top';
+        } else if (contentBottomPos > window.innerHeight) {
+          return 'bottom';
         }
       }
     }

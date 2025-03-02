@@ -15,6 +15,12 @@
       left: 0;
     }
 
+    &.top-center {
+      bottom: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     &.top-right {
       bottom: calc(100% + 1rem);
       right: 0;
@@ -23,6 +29,12 @@
     &.bottom-left {
       top: calc(100% + 1rem);
       left: 0;
+    }
+
+    &.bottom-center {
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &.bottom-right {
@@ -35,6 +47,12 @@
       top: 0;
     }
 
+    &.left-center {
+      right: calc(100% + 1rem);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     &.left-bottom {
       right: calc(100% + 1rem);
       bottom: 0;
@@ -43,6 +61,12 @@
     &.right-top {
       left: calc(100% + 1rem);
       top: 0;
+    }
+
+    &.right-center {
+      left: calc(100% + 1rem);
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &.right-bottom {
