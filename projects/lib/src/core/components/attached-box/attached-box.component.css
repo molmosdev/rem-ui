@@ -1,24 +1,62 @@
-.r-attached-box-trigger {
-  cursor: pointer;
-}
+:host {
+  position: relative;
 
-.r-attached-box-content {
-  position: absolute;
-  z-index: 1000;
-}
+  .r-attached-box-trigger {
+    cursor: pointer;
+  }
 
-.r-attached-box-content.top {
-  bottom: 100%;
-}
+  .r-attached-box-content {
+    position: absolute;
+    z-index: 1000;
+    background: var(--background, #ffffff);
+    box-shadow: 0 0 0.25rem 0.125rem rgba(1, 1, 1, 0.01);
+    border-radius: var(--roundness, 0.5rem);
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--foreground, #798194) 10%,
+        var(--background, #ffffff)
+      );
+    padding: 1rem;
 
-.r-attached-box-content.bottom {
-  top: 100%;
-}
+    &.top-left {
+      bottom: calc(100% + 1rem);
+      left: 0;
+    }
 
-.r-attached-box-content.left {
-  right: 100%;
-}
+    &.top-right {
+      bottom: calc(100% + 1rem);
+      right: 0;
+    }
 
-.r-attached-box-content.right {
-  left: 100%;
+    &.bottom-left {
+      top: calc(100% + 1rem);
+      left: 0;
+    }
+
+    &.bottom-right {
+      top: calc(100% + 1rem);
+      right: 0;
+    }
+
+    &.left-top {
+      right: calc(100% + 1rem);
+      top: 0;
+    }
+
+    &.left-bottom {
+      right: calc(100% + 1rem);
+      bottom: 0;
+    }
+
+    &.right-top {
+      left: calc(100% + 1rem);
+      top: 0;
+    }
+
+    &.right-bottom {
+      left: calc(100% + 1rem);
+      bottom: 0;
+    }
+  }
 }
