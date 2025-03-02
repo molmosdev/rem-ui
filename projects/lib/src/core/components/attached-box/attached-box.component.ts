@@ -70,15 +70,12 @@ export class AttachedBox {
    */
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
-    if (
-      !this.triggerElement?.nativeElement ||
-      !this.contentElement?.nativeElement
-    ) {
+    if (!this.trigger()?.nativeElement || !this.content()?.nativeElement) {
       return;
     }
 
-    const triggerElement = this.triggerElement.nativeElement;
-    const contentElement = this.contentElement.nativeElement;
+    const triggerElement = this.trigger()!.nativeElement;
+    const contentElement = this.content()!.nativeElement;
 
     if (
       !triggerElement.contains(event.target as Node) &&
@@ -103,15 +100,12 @@ export class AttachedBox {
    * @returns The adjusted position as a Position type string (e.g., 'bottom-left').
    */
   private calculateAdjustedPosition(): Position {
-    if (
-      !this.triggerElement?.nativeElement ||
-      !this.contentElement?.nativeElement
-    ) {
+    if (!this.trigger()?.nativeElement || !this.content()?.nativeElement) {
       return this.position();
     }
 
-    const triggerElement = this.triggerElement.nativeElement;
-    const contentElement = this.contentElement.nativeElement;
+    const triggerElement = this.trigger()!.nativeElement;
+    const contentElement = this.content()!.nativeElement;
 
     const triggerRect = triggerElement.getBoundingClientRect();
     const contentRect = contentElement.getBoundingClientRect();
@@ -240,15 +234,5 @@ export class AttachedBox {
       }
     }
     return secondary;
-  }
-
-  /** Helper to access the nativeElement of trigger easier */
-  get triggerElement(): ElementRef<any> | undefined {
-    return this.trigger();
-  }
-
-  /** Helper to access the nativeElement of content easier */
-  get contentElement(): ElementRef<any> | undefined {
-    return this.content();
   }
 }
