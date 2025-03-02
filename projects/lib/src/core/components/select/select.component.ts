@@ -15,12 +15,13 @@ import { NgClass } from '@angular/common';
 import { Option } from '../../../shared/components/option/option.component';
 import {
   disabledStateTrigger,
-  errorRightButtonStateTrigger,
-  errorStateTrigger,
+  selectErrorRightButtonStateTrigger,
+  selectErrorStateTrigger,
   fadeInFadeOutTrigger,
   inputPaddingStateTrigger,
   labelErrorStateTrigger,
   labelStateTrigger,
+  rotateArrowTrigger,
   selectInputPaddingStateTrigger,
 } from '../../../shared/animations/animations';
 
@@ -30,13 +31,14 @@ import {
   templateUrl: './select.component.html',
   animations: [
     fadeInFadeOutTrigger,
-    errorStateTrigger,
+    selectErrorStateTrigger,
     labelErrorStateTrigger,
-    errorRightButtonStateTrigger,
+    selectErrorRightButtonStateTrigger,
     labelStateTrigger,
     inputPaddingStateTrigger,
     disabledStateTrigger,
     selectInputPaddingStateTrigger,
+    rotateArrowTrigger,
   ],
   styleUrl: './select.component.css',
 })
@@ -180,7 +182,10 @@ export class Select {
    * Handle the external selected value.
    */
   handleExternalSelectedValue(): void {
-    if (this.lastSelectedValue !== this.selectedValue()) {
+    if (
+      this.lastSelectedValue !== this.selectedValue() &&
+      this.options().length > 0
+    ) {
       if (this.selectedValue()) {
         const selectedOptionIndex = this.options().findIndex(
           option => option.value() === this.selectedValue()

@@ -30,6 +30,24 @@ export const errorStateTrigger = trigger('errorStateTrigger', [
   transition('false <=> true', animate('0.2s')),
 ]);
 
+export const selectErrorStateTrigger = trigger('selectErrorStateTrigger', [
+  state(
+    'true',
+    style({
+      color: 'var(--error-foreground, #c40000ab)',
+      borderColor: 'var(--error-foreground, #c40000ab)',
+    })
+  ),
+  state(
+    'false',
+    style({
+      color: 'var(--input-foreground, #798194)',
+      borderColor: 'var(--border-color, transparent)',
+    })
+  ),
+  transition('false <=> true', animate('0.2s')),
+]);
+
 export const labelErrorStateTrigger = trigger('labelErrorStateTrigger', [
   state(
     'true',
@@ -71,6 +89,31 @@ export const errorRightButtonStateTrigger = trigger(
   ]
 );
 
+export const selectErrorRightButtonStateTrigger = trigger(
+  'selectErrorRightButtonStateTrigger',
+  [
+    state(
+      'true',
+      style({
+        color: 'var(--error-foreground, #c40000ab)',
+        background:
+          'linear-gradient(to right, transparent, var(--error, #fff0f0) 50%)',
+        borderColor: 'var(--error-foreground, #c40000ab)',
+      })
+    ),
+    state(
+      'false',
+      style({
+        color: 'var(--input-foreground, #798194)',
+        background:
+          'linear-gradient(90deg, transparent 0%, var(--bg-color, #ffffff) 50%)',
+        borderColor: 'var(--border-color, transparent)',
+      })
+    ),
+    transition('false <=> true', animate('0.2s')),
+  ]
+);
+
 export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
   transition(
     ':enter',
@@ -81,7 +124,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
         transform: '{{ translateFrom }}',
       }),
       animate(
-        '{{ enterDelay }} {{ duration }}',
+        '{{ duration }} {{ enterDelay }}',
         style({
           opacity: 1,
           scale: '{{ scaleTo }}',
@@ -104,7 +147,7 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
     ':leave',
     [
       animate(
-        '{{ leaveDelay }} {{ duration }}',
+        '{{ duration }} {{ leaveDelay }}',
         style({
           opacity: 0,
           scale: '{{ scaleFrom }}',
@@ -152,43 +195,56 @@ export const labelStateTrigger = trigger('labelStateTrigger', [
     'small',
     style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
   ),
-  transition('normal <=> small', animate('0.2s')),
+  transition('normal <=> small', [animate('0.2s')]),
+]);
+
+export const rotateArrowTrigger = trigger('rotateArrowTrigger', [
+  state('expanded', style({ transform: 'rotate(180deg)' })),
+  state('collapsed', style({ transform: 'rotate(0deg)' })),
+  transition('expanded <=> collapsed', animate('200ms ease-in-out')),
 ]);
 
 export const textareaLabelStateTrigger = trigger('textareaLabelStateTrigger', [
   state(
     'normal',
-    style({ top: '0.688rem', fontSize: '100%', transform: 'translateY(0)' })
+    style({
+      top: '0.688rem',
+      fontSize: '100%',
+      transform: 'translateY(0)',
+    })
   ),
   state(
     'small',
-    style({ top: '0.344rem', fontSize: '70%', transform: 'translateY(0)' })
+    style({
+      top: '0.344rem',
+      fontSize: '70%',
+      transform: 'translateY(0)',
+    })
   ),
-  transition('normal <=> small', animate('0.2s')),
+  transition('normal <=> small', [animate('0.2s')]),
 ]);
 
 export const inputPaddingStateTrigger = trigger('inputPaddingStateTrigger', [
   state('normal', style({ padding: '0.688rem var(--padding-left)' })),
-  state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
-  transition('normal <=> small', animate('0.2s')),
+  state('small', style({ padding: '1.1rem var(--padding-left) 0.22rem' })),
+  transition('normal <=> small', animate('0.1s')),
 ]);
 
 export const selectInputPaddingStateTrigger = trigger(
   'selectInputPaddingStateTrigger',
   [
     state('normal', style({ padding: '0.688rem var(--padding-left)' })),
-    state('small', style({ padding: '1.2rem var(--padding-left) 0.313rem' })),
+    state('small', style({ padding: '1.1rem var(--padding-left) 0.22rem' })),
     transition('normal => small', [
       sequence([
-        animate('0.2s'),
+        animate('0.1s'),
         query('@fadeInFadeOutTrigger', [animateChild()]),
       ]),
     ]),
     transition('small => normal', [
       sequence([
         query('@fadeInFadeOutTrigger', [animateChild()]),
-
-        animate('0.2s'),
+        animate('0.1s'),
       ]),
     ]),
   ]

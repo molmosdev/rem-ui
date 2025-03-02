@@ -7,7 +7,7 @@
     </label>
   }
   <div
-    [@errorStateTrigger]="error()"
+    [@selectErrorStateTrigger]="error()"
     [@selectInputPaddingStateTrigger]="inputPaddingState()"
     class="select-box"
     (click)="isOpen.set(!isOpen())"
@@ -19,7 +19,7 @@
     <div
       class="right-button"
       [class.clearable]="clearable() && selectedContent()"
-      [@errorRightButtonStateTrigger]="error()"
+      [@selectErrorRightButtonStateTrigger]="error()"
       (click)="clearable() && selectedContent() && clearSelection($event)">
       @if (clearable() && selectedContent()) {
         <svg
@@ -37,35 +37,19 @@
           <path d="m6 6 12 12" />
         </svg>
       } @else {
-        @if (isOpen()) {
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="0.094rem"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-up">
-            <path d="m18 15-6-6-6 6" />
-          </svg>
-        } @else {
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="0.094rem"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down">
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        }
+        <svg
+          [@rotateArrowTrigger]="isOpen() ? 'expanded' : 'collapsed'"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
       }
     </div>
   </div>
