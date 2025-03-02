@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "lint": "ng lint",
-    "format": "prettier --write .",
+    "fmt": "prettier --write .",
     "watch:lib": "ng build lib --watch --configuration development",
     "build:lib": "ng build lib",
     "build:elements": "ng build elements --output-hashing=none",
@@ -18,7 +18,7 @@
     "build:docs": "ng build docs",
     "watch:docs": "ng build docs --watch",
     "serve:ssr:docs": "node dist/docs/server/server.mjs",
-    "deploy:docs": "npm run format && npm run lint && vercel --prod"
+    "deploy:docs": "npm run fmt && npm run lint && vercel --prod"
   },
   "private": true,
   "dependencies": {
