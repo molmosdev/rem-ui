@@ -1,0 +1,24 @@
+.r-attached-box-trigger {
+  cursor: pointer;
+}
+
+.r-attached-box-content {
+  position: absolute;
+  z-index: 1000;
+}
+
+.r-attached-box-content.top {
+  bottom: 100%;
+}
+
+.r-attached-box-content.bottom {
+  top: 100%;
+}
+
+.r-attached-box-content.left {
+  right: 100%;
+}
+
+.r-attached-box-content.right {
+  left: 100%;
+}

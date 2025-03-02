@@ -1,0 +1,11 @@
+<div
+  #trigger
+  (click)="toggleContentVisibility()"
+  class="r-attached-box-trigger">
+  <ng-content select="r-attacher-box-trigger" />
+</div>
+@if (isContentVisible()) {
+  <div #content [class]="position()" class="r-attached-box-content">
+    <ng-content select="r-attacher-box-content" />
+  </div>
+}
