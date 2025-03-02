@@ -5,29 +5,18 @@ import {
   ElementRef,
   linkedSignal,
   HostListener,
+  computed,
 } from '@angular/core';
-
-type Position =
-  | 'top-left'
-  | 'top-center'
-  | 'top-right'
-  | 'bottom-left'
-  | 'bottom-center'
-  | 'bottom-right'
-  | 'left-top'
-  | 'left-center'
-  | 'left-bottom'
-  | 'right-top'
-  | 'right-center'
-  | 'right-bottom';
-
-type Direction = 'top' | 'bottom' | 'left' | 'right';
-type Alignment = 'left' | 'center' | 'right' | 'top' | 'bottom';
+import { fadeInFadeOutTrigger } from '../../../public-api';
+import { Position } from './types/position.type';
+import { Direction } from './types/direction.type';
+import { Alignment } from './types/alignment.type';
 
 @Component({
   selector: 'r-attached-box',
   templateUrl: './attached-box.component.html',
   styleUrl: './attached-box.component.css',
+  animations: [fadeInFadeOutTrigger],
 })
 export class AttachedBox {
   /**
@@ -44,13 +33,13 @@ export class AttachedBox {
    * The primary direction of the content relative to the trigger.
    * Valores aceptados: 'top' | 'bottom' | 'left' | 'right'
    */
-  direction = model<Direction>('bottom');
+  direction = model<Direction>('right');
 
   /**
    * The secondary alignment of the content relative to the trigger.
    * Valores aceptados: 'left' | 'center' | 'right'
    */
-  alignment = model<Alignment>('left');
+  alignment = model<Alignment>('top');
 
   /**
    * Signal indicating whether the content is visible or not.
@@ -64,6 +53,57 @@ export class AttachedBox {
   adjustedPosition = linkedSignal<Position>(() =>
     this.calculateAdjustedPosition()
   );
+
+  /**
+   * Signal that provides the animation parameters based on the adjusted
+   * position of the content. These parameters are used to animate the content.
+   */
+  animationParams = computed(() => {
+    const position = this.adjustedPosition();
+    const direction = position.split('-')[0];
+    const isCenter = position.includes('center');
+    const defaultParams = {
+      duration: '0.15s',
+      enterDelay: '0s',
+      leaveDelay: '0.1s',
+      scaleFrom: 0.99,
+      scaleTo: 1,
+      translateFrom: '',
+    };
+
+    switch (direction) {
+      case 'top':
+        return {
+          ...defaultParams,
+          translateFrom: isCenter
+            ? 'translate(-50%, 10px)'
+            : 'translateY(10px)',
+        };
+      case 'bottom':
+        return {
+          ...defaultParams,
+          translateFrom: isCenter
+            ? 'translate(-50%, -10px)'
+            : 'translateY(-10px)',
+        };
+      case 'left':
+        return {
+          ...defaultParams,
+          translateFrom: isCenter
+            ? 'translate(10px, -50%)'
+            : 'translateX(10px)',
+        };
+      case 'right':
+        return {
+          ...defaultParams,
+          translateFrom: isCenter
+            ? 'translate(-10px, -50%)'
+            : 'translateX(-10px)',
+        };
+      default:
+        return defaultParams;
+    }
+  });
 
   /**
    * Recalculates and updates the content's adjusted position when the window is scrolled.
@@ -123,8 +163,8 @@ export class AttachedBox {
       getComputedStyle(document.documentElement).fontSize
     );
     const extraMargin = fontSize * 2;
-    const primary = this.direction(); // Read direction signal directly
-    const secondary = this.alignment(); // Read alignment signal directly
+    const primary = this.direction();
+    const secondary = this.alignment();
 
     const adjustedPrimary = this.adjustPrimaryDirection(
       primary,

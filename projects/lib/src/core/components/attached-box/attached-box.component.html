@@ -5,7 +5,14 @@
   <ng-content select="[r-attached-box-trigger]" />
 </div>
 @if (isContentVisible()) {
-  <div #content [class]="adjustedPosition()" class="r-attached-box-content">
+  <div
+    #content
+    [class]="adjustedPosition()"
+    class="r-attached-box-content"
+    [@fadeInFadeOutTrigger]="{
+      value: isContentVisible(),
+      params: animationParams(),
+    }">
     <ng-content select="[r-attached-box-content]" />
   </div>
 }
