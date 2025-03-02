@@ -1,26 +1,30 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Select, Option } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
+import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-select-playground',
-  imports: [Select, Option, ArgsComponent],
+  imports: [Select, Option, ArgsComponent, CodeBlockComponent],
   template: `
     <div class="playground">
-      <div class="component">
-        <r-select
-          [label]="args()[0].value()"
-          [clearable]="args()[1].value()"
-          [error]="args()[2].value()"
-          [positioning]="args()[3].value()"
-          [noResultsMessage]="args()[4].value()">
-          @for (option of options; track option) {
-            <r-option [value]="option.value" [disabled]="option.disabled">
-              {{ option.label }}
-            </r-option>
-          }
-        </r-select>
+      <div class="top">
+        <div class="component">
+          <r-select
+            [label]="args()[0].value()"
+            [clearable]="args()[1].value()"
+            [error]="args()[2].value()"
+            [positioning]="args()[3].value()"
+            [noResultsMessage]="args()[4].value()">
+            @for (option of options; track option) {
+              <r-option [value]="option.value" [disabled]="option.disabled">
+                {{ option.label }}
+              </r-option>
+            }
+          </r-select>
+        </div>
+        <app-code-block [code]="code()" />
       </div>
       <app-args [args]="args()" />
     </div>
@@ -64,4 +68,26 @@ export default class SelectPlaygroundComponent {
     { label: 'Option 2', value: 'option2', disabled: false },
     { label: 'Option 3', value: 'option3', disabled: true },
   ];
+
+  code = computed(() => {
+    const optionsString = this.options
+      .map(
+        option => `
+    <r-option [value]='${option.value}' [disabled]='${option.disabled}'>
+      ${option.label}
+    </r-option>
+  `
+      )
+      .join('');
+    return `
+      <r-select
+        [label]='"${this.args()[0].value()}"'
+        [clearable]="${this.args()[1].value()}"
+        [error]="${this.args()[2].value()}"
+        [positioning]='"${this.args()[3].value()}"'
+        [noResultsMessage]='"${this.args()[4].value()}"'>
+        ${optionsString}
+      </r-select>
+    `;
+  });
 }

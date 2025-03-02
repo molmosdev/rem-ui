@@ -39,9 +39,8 @@ body {
 
   height: var(--mobile-height-posible);
 
-  .component {
+  .top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
     padding: 1rem;
@@ -49,6 +48,14 @@ body {
     display: flex;
     justify-content: center;
     height: calc(var(--mobile-height-posible) * 0.4);
+    gap: 1rem;
+
+    .component {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   app-args {
@@ -56,7 +63,7 @@ body {
   }
 
   &.inverted {
-    .component {
+    .top {
       height: calc(var(--mobile-height-posible) * 0.6);
     }
 
@@ -66,7 +73,7 @@ body {
   }
 
   &.no-args {
-    .component {
+    .top {
       height: var(--mobile-height-posible);
     }
 
