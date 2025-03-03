@@ -162,7 +162,7 @@ export class AttachedBox {
     const fontSize = parseFloat(
       getComputedStyle(document.documentElement).fontSize
     );
-    const extraMargin = fontSize * 2;
+    const extraMargin = fontSize;
     const primary = this.direction();
     const secondary = this.alignment();
 
