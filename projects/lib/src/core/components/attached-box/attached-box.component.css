@@ -9,6 +9,7 @@
     position: absolute;
     display: flex;
     z-index: 1000;
+    min-width: 100%;
 
     &.top-left {
       bottom: calc(100% + 1rem);
