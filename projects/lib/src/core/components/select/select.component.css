@@ -46,7 +46,6 @@
 
   .dropdown-wrapper {
     z-index: 3;
-    position: absolute;
     background: var(--background, #ffffff);
     box-shadow: 0 0 0.25rem 0.125rem rgba(1, 1, 1, 0.01);
     border-radius: var(--roundness, 0.5rem);
@@ -56,19 +55,10 @@
         var(--foreground, #798194) 10%,
         var(--background, #ffffff)
       );
-    min-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
     padding-bottom: 0.313rem;
-
-    &.down {
-      top: calc(100% + 0.4rem);
-    }
-
-    &.up {
-      bottom: calc(100% + 0.4rem);
-    }
 
     .dropdown {
       width: 100%;

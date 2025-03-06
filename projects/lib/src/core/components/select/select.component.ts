@@ -10,8 +10,8 @@ import {
   input,
   output,
   computed,
+  inject,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { Option } from '../../../shared/components/option/option.component';
 import {
   disabledStateTrigger,
@@ -24,10 +24,12 @@ import {
   rotateArrowTrigger,
   selectInputPaddingStateTrigger,
 } from '../../../shared/animations/animations';
+import { AttachedBox } from '../attached-box/attached-box.component';
+import { ResponsiveService } from '../../services/responsive.service';
 
 @Component({
   selector: 'r-select',
-  imports: [NgClass],
+  imports: [AttachedBox],
   templateUrl: './select.component.html',
   animations: [
     fadeInFadeOutTrigger,
@@ -41,6 +43,9 @@ import {
     rotateArrowTrigger,
   ],
   styleUrl: './select.component.css',
+  host: {
+    '[style.width]': 'formattedWidth()',
+  },
 })
 export class Select {
   /** The label for the select component. */
@@ -98,6 +103,21 @@ export class Select {
 
   /** The displayed content of the selected option. */
   displayedSelectedContent = computed(() => this.selectedContent() || '');
+
+  /** The width of the select component. */
+  width = input<string>();
+
+  /** The responsive service. */
+  private responsiveService = inject(ResponsiveService);
+
+  /** The formatted width of the select component. */
+  readonly formattedWidth = computed(() => {
+    return this.width()
+      ? this.width()
+      : this.responsiveService.currentDevice() === 'mobile'
+        ? '100%'
+        : '240px';
+  });
 
   constructor(private elementRef: ElementRef) {
     effect(() => {

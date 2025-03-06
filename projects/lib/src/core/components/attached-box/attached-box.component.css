@@ -9,68 +9,69 @@
     position: absolute;
     display: flex;
     z-index: 1000;
+    min-width: 100%;
 
     &.top-left {
-      bottom: calc(100% + 1rem);
+      bottom: calc(100% + 0.5rem);
       left: 0;
     }
 
     &.top-center {
-      bottom: calc(100% + 1rem);
+      bottom: calc(100% + 0.5rem);
       left: 50%;
       transform: translateX(-50%);
     }
 
     &.top-right {
-      bottom: calc(100% + 1rem);
+      bottom: calc(100% + 0.5rem);
       right: 0;
     }
 
     &.bottom-left {
-      top: calc(100% + 1rem);
+      top: calc(100% + 0.5rem);
       left: 0;
     }
 
     &.bottom-center {
-      top: calc(100% + 1rem);
+      top: calc(100% + 0.5rem);
       left: 50%;
       transform: translateX(-50%);
     }
 
     &.bottom-right {
-      top: calc(100% + 1rem);
+      top: calc(100% + 0.5rem);
       right: 0;
     }
 
     &.left-top {
-      right: calc(100% + 1rem);
+      right: calc(100% + 0.5rem);
       top: 0;
     }
 
     &.left-center {
-      right: calc(100% + 1rem);
+      right: calc(100% + 0.5rem);
       top: 50%;
       transform: translateY(-50%);
     }
 
     &.left-bottom {
-      right: calc(100% + 1rem);
+      right: calc(100% + 0.5rem);
       bottom: 0;
     }
 
     &.right-top {
-      left: calc(100% + 1rem);
+      left: calc(100% + 0.5rem);
       top: 0;
     }
 
     &.right-center {
-      left: calc(100% + 1rem);
+      left: calc(100% + 0.5rem);
       top: 50%;
       transform: translateY(-50%);
     }
 
     &.right-bottom {
-      left: calc(100% + 1rem);
+      left: calc(100% + 0.5rem);
       bottom: 0;
     }
   }
