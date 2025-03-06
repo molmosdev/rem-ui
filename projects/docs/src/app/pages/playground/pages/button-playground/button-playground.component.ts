@@ -11,21 +11,23 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
     <div class="playground">
       <div class="top">
         <div class="component">
-          <r-button
-            [type]="args()[0].value()"
+          <button
+            r-button
+            [variant]="args()[0].value()"
             [disabled]="args()[1].value()"
             [loading]="args()[2].value()">
             {{ args()[3].value() }}
-          </r-button>
+          </button>
         </div>
         <app-code-block
           code="
-        <r-button
-          [type]='{{ args()[0].value() }}'
-          [disabled]='{{ args()[1].value() }}'
-          [loading]='{{ args()[2].value() }}'>
-          {{ args()[3].value() }}
-        </r-button>
+          <button
+            r-button
+            variant='{{ args()[0].value() }}'
+            [disabled]={{ args()[1].value() }}
+            [loading]={{ args()[2].value() }}>
+            {{ args()[3].value() }}
+          </button>
         " />
       </div>
       <app-args [args]="args()" />

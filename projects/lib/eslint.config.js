@@ -15,14 +15,6 @@ module.exports = tseslint.config(
           style: 'kebab-case',
         },
       ],
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'r',
-          style: 'kebab-case',
-        },
-      ],
     },
   },
   {

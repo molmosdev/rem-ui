@@ -1,7 +1,7 @@
 @defer (on idle) {
   @switch (currentDevice()) {
     @case ('mobile') {
-      <r-button type="secondary" (click)="isMenuVisible.set(true)">
+      <button r-button variant="secondary" (click)="isMenuVisible.set(true)">
         <div class="button-content-wrapper">
           <span>{{ actualRouteData()?.['title'] }}</span>
           <div class="chevron-wrapper">
@@ -9,7 +9,7 @@
             <i class="icon-chevron-down"></i>
           </div>
         </div>
-      </r-button>
+      </button>
       <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
         <ng-container *ngTemplateOutlet="componentsList"></ng-container>
       </r-bottom-sheet>

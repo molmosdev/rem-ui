@@ -13,7 +13,7 @@
   }
 }
 @if (removable()) {
-  <r-button type="secondary" (clickEmitter)="removeEmitter.emit(id())">
+  <button r-button variant="secondary" (click)="removeEmitter.emit(id())">
     @if (deleteButtonPosition() === 'bottom') {
       <ng-content select="[list-remove-text]" />
     } @else {
@@ -33,5 +33,5 @@
         <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
       </svg>
     }
-  </r-button>
+  </button>
 }

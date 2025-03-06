@@ -58,7 +58,7 @@
     box-sizing: border-box;
     background-color: var(--bg-color);
 
-    r-button {
+    button {
       --button-padding-inline: 1rem !important;
 
       .button-content-wrapper {

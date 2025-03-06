@@ -1,98 +1,102 @@
 :host {
-  button,
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.8rem;
+  background-color: var(--primary, #0a0a0a);
+  padding-inline: var(--button-padding-inline, 1rem);
+  border-radius: var(--roundness, 0.5rem);
+  box-sizing: border-box;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s;
+  font-size: 100%;
+  border: none;
+  text-decoration: none;
+
+  &:not(:has(span)) {
+    &:has(.icon) {
+      width: 2.8rem;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary, #0a0a0a);
+    outline-offset: 2px;
+  }
+
+  &.primary {
     background-color: var(--primary, #0a0a0a);
-    padding-inline: var(--button-padding-inline, 1rem);
-    border-radius: var(--roundness, 0.5rem);
-    box-sizing: border-box;
-    gap: 0.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.2s;
-    width: 100%;
-    font-size: 100%;
-    border: none;
-    text-decoration: none;
+    color: var(--primary-foreground, #ffffff);
+    border: 1px solid var(--primary-border-color, #0a0a0a);
 
-    &:not(:has(span)) {
-      &:has(.icon) {
-        width: 2.8rem;
-      }
-    }
-
-    &.primary {
-      background-color: var(--primary, #0a0a0a);
+    .icon {
       color: var(--primary-foreground, #ffffff);
-      border: 1px solid var(--primary-border-color, #0a0a0a);
-
-      .icon {
-        color: var(--primary-foreground, #ffffff);
-      }
-
-      @media (width > 768px) {
-        &:hover {
-          background-color: color-mix(
-            in srgb,
-            var(--primary-foreground, #ffffff) 5%,
-            var(--primary, #0a0a0a)
-          );
-        }
-      }
     }
 
-    &.secondary {
-      background-color: var(--secondary, transparent);
-      border: 1px solid var(--secondary-border-color, #ececec);
-
-      @media (width > 768px) {
-        &:hover {
-          background-color: color-mix(
-            in srgb,
-            var(--secondary-foreground, #0a0a0a) 5%,
-            var(--secondary, transparent)
-          );
-        }
+    @media (width > 768px) {
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--primary-foreground, #ffffff) 5%,
+          var(--primary, #0a0a0a)
+        );
       }
     }
+  }
 
-    &.ghost {
-      background-color: transparent;
+  &.secondary {
+    background-color: var(--secondary, transparent);
+    border: 1px solid var(--secondary-border-color, #ececec);
 
-      @media (width > 768px) {
-        &:hover {
-          background-color: var(--secondary, transparent);
-        }
+    @media (width > 768px) {
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--secondary-foreground, #0a0a0a) 5%,
+          var(--secondary, transparent)
+        );
       }
     }
+  }
 
-    &.secondary,
-    &.ghost {
-      color: var(--secondary-foreground, #0a0a0a);
-    }
+  &.ghost {
+    background-color: transparent;
 
-    &:not(:disabled):not(.disabled) {
-      &:active {
-        transform: scale(0.97);
-        transition: 0.1s;
-      }
-
-      @media (width > 768px) {
-        &:hover {
-          cursor: pointer;
-          transition: 0.2s;
-        }
+    @media (width > 768px) {
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--secondary-foreground, #0a0a0a) 5%,
+          var(--secondary, transparent)
+        );
       }
     }
+  }
 
-    &:disabled,
-    &.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      pointer-events: none;
+  &.secondary,
+  &.ghost {
+    color: var(--secondary-foreground, #0a0a0a);
+  }
+
+  &:not(:disabled) {
+    &:active {
+      transform: scale(0.97);
+      transition: 0.1s;
     }
+
+    @media (width > 768px) {
+      &:hover {
+        cursor: pointer;
+        transition: 0.2s;
+      }
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }

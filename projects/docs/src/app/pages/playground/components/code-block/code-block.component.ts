@@ -6,7 +6,7 @@ import { Button } from '../../../../../../../lib/src/public-api';
   imports: [Button],
   template: `
     <pre> {{ code() }} </pre>
-    <r-button type="secondary">Copy code</r-button>
+    <button r-button variant="secondary">Copy code</button>
   `,
   styles: `
     :host {
@@ -38,7 +38,7 @@ import { Button } from '../../../../../../../lib/src/public-api';
         padding-right: 5rem;
       }
 
-      r-button {
+      button {
         position: absolute;
         right: 1rem;
         top: 1rem;

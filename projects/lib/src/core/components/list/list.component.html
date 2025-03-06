@@ -2,7 +2,7 @@
   <ng-content />
 </div>
 @if (addable()) {
-  <r-button type="secondary" (clickEmitter)="addEmitter.emit()">
+  <button r-button variant="secondary" (clickEmitter)="addEmitter.emit()">
     <ng-content select="[list-add-text]" />
-  </r-button>
+  </button>
 }
