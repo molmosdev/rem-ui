@@ -14,7 +14,14 @@
         </r-select>
       }
       @case ('switch') {
-        <r-switch [label]="arg.label" [(value)]="arg.value"></r-switch>
+        <div class="switch-wrapper">
+          <!-- eslint-disable-next-line @angular-eslint/template/elements-content -->
+          <button
+            r-switch
+            [(checked)]="arg.value"
+            [id]="'switch' + arg.label"></button>
+          <label [for]="'switch' + arg.label">{{ arg.label }}</label>
+        </div>
       }
       @case ('number') {
         <r-number [label]="arg.label" [(value)]="arg.value"></r-number>

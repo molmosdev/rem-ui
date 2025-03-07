@@ -16,8 +16,19 @@
     flex-wrap: wrap;
     align-content: start;
 
-    & > *:not(r-switch) {
+    & > *:not(.switch-wrapper) {
       width: 240px;
+    }
+  }
+
+  .switch-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+
+    label:hover {
+      cursor: pointer;
     }
   }
 }

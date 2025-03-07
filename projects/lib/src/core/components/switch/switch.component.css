@@ -1,78 +1,68 @@
 :host {
-  display: flex;
-  justify-content: flex-start;
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  vertical-align: middle;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 9999px;
+  background-color: color-mix(
+    in srgb,
+    var(--foreground, #798194) 5%,
+    var(--background, #ffffff)
+  );
 
-  section {
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary, #0a0a0a);
+    outline-offset: 2px;
+  }
+
+  &[aria-checked='true'] {
+    background-color: color-mix(
+      in srgb,
+      var(--foreground, #798194) 20%,
+      var(--background, #ffffff)
+    );
+  }
+
+  .thumb {
     display: flex;
+    background-color: var(--foreground, #798194);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    height: 2.125rem;
+  }
 
-    &:hover {
-      cursor: pointer;
-    }
+  &.default {
+    height: 1.5rem;
+    width: 2.5rem;
 
-    .switch-container {
-      width: 2rem;
-      min-width: 2rem;
+    .thumb {
       height: 1rem;
-      padding: 0.0625rem;
-      background-color: color-mix(
-        in srgb,
-        var(--foreground, #798194) 5%,
-        var(--background, #ffffff)
-      );
-      border-radius: 1.5625rem;
-      position: relative;
-      cursor: pointer;
-      border: 0.0625rem solid
-        color-mix(
-          in srgb,
-          white 30%,
-          color-mix(
-            in srgb,
-            var(--foreground, #798194) 30%,
-            var(--background, #ffffff)
-          )
-        );
-
-      &.small {
-        width: 1.25rem;
-        height: 0.625rem;
-      }
-
-      &.large {
-        width: 2.5rem;
-        height: 1.25rem;
-      }
-
-      .switch {
-        width: 1rem;
-        height: 1rem;
-        background-color: color-mix(
-          in srgb,
-          var(--foreground, #798194) 60%,
-          var(--background, #ffffff)
-        );
-        border-radius: 50%;
-        position: absolute;
-        transform: translateX(0);
-        top: 0.0625rem;
-        left: 0.0625rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      &.large .switch {
-        width: 1.25rem;
-        height: 1.25rem;
-      }
+      width: 1rem;
+      margin: 0.25rem;
     }
+  }
 
-    .label {
-      color: var(--foreground, #798194);
-      user-select: none;
+  &.large {
+    height: 2.1rem;
+    width: 3.7rem;
+
+    .thumb {
+      height: 1.6rem;
+      width: 1.6rem;
+      margin: 0.25rem;
     }
   }
 }

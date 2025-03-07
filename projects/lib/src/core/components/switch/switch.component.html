@@ -1,12 +1,9 @@
-<section (click)="toggleSwitch()" tabindex="0">
-  <div class="switch-container" [ngClass]="size()">
-    <div [@switchState]="value() ? 'true' : 'false'" class="switch">
-      <ng-content></ng-content>
-    </div>
-  </div>
-  @if (label()) {
-    <div class="label">
-      {{ label() }}
-    </div>
-  }
-</section>
+<span
+  [@thumbState]="{
+    value: checked() ? 'checked' : 'unchecked',
+    params: { checkedTransformX: checkedTransformX() },
+  }"
+  [attr.data-state]="checked() ? 'checked' : 'unchecked'"
+  class="thumb">
+  <ng-content />
+</span>

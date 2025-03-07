@@ -11,19 +11,19 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
     <div class="playground">
       <div class="top">
         <div class="component">
-          <r-switch
-            [label]="args()[0].value()"
-            [size]="args()[1].value()"
-            [value]="args()[2].value()">
-          </r-switch>
+          <!-- eslint-disable-next-line @angular-eslint/template/elements-content -->
+          <button
+            r-switch
+            [size]="args()[0].value()"
+            [(checked)]="args()[1].value"></button>
         </div>
         <app-code-block
           code="
-          <r-switch
-            [label]='{{ args()[0].value() }}'
-            [size]='{{ args()[1].value() }}'
-            [value]='{{ args()[2].value() }}'>
-          </r-switch>
+          <button
+            r-switch
+            size='{{ args()[0].value() }}'
+            [value]='{{ args()[1].value() }}'>
+          </button>
           " />
       </div>
       <app-args [args]="args()" />
@@ -33,14 +33,9 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
 export default class SwitchPlaygroundComponent {
   args = signal<IArg[]>([
     {
-      label: 'Label',
-      type: 'text',
-      value: signal('Notifications'),
-    },
-    {
       label: 'Size',
       type: 'select',
-      value: signal('medium'),
+      value: signal('default'),
       options: [
         { label: 'Default', value: 'default' },
         { label: 'Large', value: 'large' },
