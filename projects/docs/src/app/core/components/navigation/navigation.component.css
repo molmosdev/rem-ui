@@ -57,9 +57,11 @@
     padding: 1rem;
     box-sizing: border-box;
     background-color: var(--bg-color);
+    display: flex;
 
     button {
       --button-padding-inline: 1rem !important;
+      flex: 1;
 
       .button-content-wrapper {
         display: flex;
