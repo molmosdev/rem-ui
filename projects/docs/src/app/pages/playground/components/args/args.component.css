@@ -6,18 +6,19 @@
   scrollbar-width: thin;
   scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
   overflow-y: auto;
-
-  @media (width <= 576px) {
-    flex-direction: column;
-  }
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: start;
 
   @media (width > 576px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: start;
-
     & > *:not(.switch-wrapper) {
       width: 240px;
+    }
+  }
+
+  @media (width < 576px) {
+    & > *:not(.switch-wrapper) {
+      flex: 1;
     }
   }
 

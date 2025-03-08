@@ -2,11 +2,10 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Password } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-password-playground',
-  imports: [Password, ArgsComponent, CodeBlockComponent],
+  imports: [Password, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -22,7 +21,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             [showPasswordToggle]="args()[7].value()">
           </r-password>
         </div>
-        <app-code-block
+        <!-- <app-code-block
           code="
           <r-password
             [label]='{{ args()[0].value() }}'
@@ -34,7 +33,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             [searching]='{{ args()[6].value() }}'
             [showPasswordToggle]='{{ args()[7].value() }}'>
           </r-password>
-          " />
+          " /> -->
       </div>
       <app-args [args]="args()" />
     </div>

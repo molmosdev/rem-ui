@@ -7,7 +7,6 @@ import {
 import { VerticalNavSection } from '../../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-vertical-nav-playground',
@@ -18,7 +17,6 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
     VerticalNavGroup,
     VerticalNavSection,
     ArgsComponent,
-    CodeBlockComponent,
   ],
   template: `
     <div class="playground">
@@ -53,7 +51,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             </r-vertical-nav-section>
           </r-vertical-nav>
         </div>
-        <app-code-block
+        <!-- <app-code-block
           code="
           <r-vertical-nav>
             <r-vertical-nav-section>
@@ -83,7 +81,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
               </r-vertical-nav-item>
             </r-vertical-nav-section>
           </r-vertical-nav>
-          " />
+          " /> -->
       </div>
       <app-args [args]="args()" />
     </div>

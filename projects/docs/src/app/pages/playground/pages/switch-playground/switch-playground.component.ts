@@ -2,11 +2,10 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Switch } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-switch-playground',
-  imports: [Switch, ArgsComponent, CodeBlockComponent],
+  imports: [Switch, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -17,14 +16,14 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             [size]="args()[0].value()"
             [(checked)]="args()[1].value"></button>
         </div>
-        <app-code-block
+        <!-- <app-code-block
           code="
           <button
             r-switch
             size='{{ args()[0].value() }}'
             [value]='{{ args()[1].value() }}'>
           </button>
-          " />
+          " /> -->
       </div>
       <app-args [args]="args()" />
     </div>

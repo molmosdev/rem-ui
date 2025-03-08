@@ -2,11 +2,10 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Button } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-button-playground',
-  imports: [Button, ArgsComponent, CodeBlockComponent],
+  imports: [Button, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -19,7 +18,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             {{ args()[3].value() }}
           </button>
         </div>
-        <app-code-block
+        <!-- <app-code-block
           code="
           <button
             r-button
@@ -28,7 +27,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             [loading]={{ args()[2].value() }}>
             {{ args()[3].value() }}
           </button>
-        " />
+        " /> -->
       </div>
       <app-args [args]="args()" />
     </div>

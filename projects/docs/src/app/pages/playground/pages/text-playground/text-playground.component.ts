@@ -2,11 +2,10 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Text } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-text-playground',
-  imports: [Text, ArgsComponent, CodeBlockComponent],
+  imports: [Text, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -21,18 +20,6 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             [searching]="args()[6].value()">
           </r-text>
         </div>
-        <app-code-block
-          code="
-          <r-text
-            [label]='{{ args()[0].value() }}'
-            [placeholder]='{{ args()[1].value() }}'
-            [value]='{{ args()[2].value() }}'
-            [error]='{{ args()[3].value() }}'
-            [clearable]='{{ args()[4].value() }}'
-            [disabled]='{{ args()[5].value() }}'
-            [searching]='{{ args()[6].value() }}'>
-          </r-text>
-          " />
       </div>
       <app-args [args]="args()" />
     </div>

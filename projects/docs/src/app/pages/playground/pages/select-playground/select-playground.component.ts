@@ -2,11 +2,10 @@ import { Component, computed, signal } from '@angular/core';
 import { Select, Option } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-select-playground',
-  imports: [Select, Option, ArgsComponent, CodeBlockComponent],
+  imports: [Select, Option, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -24,7 +23,7 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             }
           </r-select>
         </div>
-        <app-code-block [code]="code()" />
+        <!-- <app-code-block [code]="code()" /> -->
       </div>
       <app-args [args]="args()" />
     </div>

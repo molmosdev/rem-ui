@@ -2,11 +2,10 @@ import { Component, computed, signal } from '@angular/core';
 import { Tabs, Tab } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
-import { CodeBlockComponent } from '../../components/code-block/code-block.component';
 
 @Component({
   selector: 'app-tabs-playground',
-  imports: [Tabs, Tab, ArgsComponent, CodeBlockComponent],
+  imports: [Tabs, Tab, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -19,7 +18,6 @@ import { CodeBlockComponent } from '../../components/code-block/code-block.compo
             }
           </r-tabs>
         </div>
-        <app-code-block [code]="code()" />
       </div>
       <app-args [args]="args()" />
     </div>
