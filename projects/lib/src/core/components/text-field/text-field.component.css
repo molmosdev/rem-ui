@@ -29,9 +29,10 @@
     position: relative;
     flex: 1;
     margin-left: 0.4rem;
+    height: 100%;
 
     input {
-      height: 2.8rem;
+      height: 100%;
       box-sizing: border-box;
       font-size: 1rem;
       padding: 0.7rem 0;
