@@ -13,9 +13,11 @@ import { ArgsComponent } from '../../components/args/args.component';
           <button
             r-button
             [variant]="args()[0].value()"
-            [disabled]="args()[1].value()"
-            [loading]="args()[2].value()">
-            {{ args()[3].value() }}
+            [size]="args()[1].value()"
+            [radius]="args()[2].value()"
+            [disabled]="args()[3].value()"
+            [loading]="args()[4].value()">
+            {{ args()[5].value() }}
           </button>
         </div>
         <!-- <app-code-block
@@ -23,9 +25,11 @@ import { ArgsComponent } from '../../components/args/args.component';
           <button
             r-button
             variant='{{ args()[0].value() }}'
-            [disabled]={{ args()[1].value() }}
-            [loading]={{ args()[2].value() }}>
-            {{ args()[3].value() }}
+            size='{{ args()[1].value() }}'
+            radius='{{ args()[2].value() }}'
+            [disabled]={{ args()[3].value() }}
+            [loading]={{ args()[4].value() }}>
+            {{ args()[5].value() }}
           </button>
         " /> -->
       </div>
@@ -36,13 +40,32 @@ import { ArgsComponent } from '../../components/args/args.component';
 export default class ButtonPlaygroundComponent {
   args = signal<IArg[]>([
     {
-      label: 'Type',
+      label: 'Variant',
       type: 'select',
       value: signal('primary'),
       options: [
         { label: 'Primary', value: 'primary' },
         { label: 'Secondary', value: 'secondary' },
         { label: 'Ghost', value: 'ghost' },
+      ],
+    },
+    {
+      label: 'Size',
+      type: 'select',
+      value: signal('default'),
+      options: [
+        { label: 'Small', value: 'small' },
+        { label: 'Default', value: 'default' },
+      ],
+    },
+    {
+      label: 'Radius',
+      type: 'select',
+      value: signal('medium'),
+      options: [
+        { label: 'None', value: 'none' },
+        { label: 'Medium', value: 'medium' },
+        { label: 'Full', value: 'full' },
       ],
     },
     {

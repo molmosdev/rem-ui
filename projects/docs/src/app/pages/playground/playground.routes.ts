@@ -15,14 +15,22 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'text-field',
+    loadComponent: () =>
+      import('./pages/text-field-playground/text-field-playground.component'),
+    data: {
+      title: 'Text Field',
+    },
+  },
+  /* {
     path: 'text',
     loadComponent: () =>
       import('./pages/text-playground/text-playground.component'),
     data: {
       title: 'Text',
     },
-  },
-  {
+  }, */
+  /*   {
     path: 'number',
     loadComponent: () =>
       import('./pages/number-playground/number-playground.component'),
@@ -37,7 +45,7 @@ export const playgroundRoutes: Routes = [
     data: {
       title: 'Password',
     },
-  },
+  }, */
   {
     path: 'spinner',
     loadComponent: () =>

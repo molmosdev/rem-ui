@@ -1,0 +1,24 @@
+<!-- Leading content -->
+<ng-content select="[leading]" />
+
+<section>
+  <!-- Label -->
+  @if (label()) {
+    <label>
+      {{ label() }}
+    </label>
+  }
+
+  <!-- Input -->
+  <input
+    [type]="type()"
+    [value]="value()"
+    [placeholder]="placeholder() || ''"
+    [disabled]="disabled()"
+    (input)="onValueChange($event)"
+    (focus)="focused.set(true)"
+    (blur)="focused.set(false)" />
+</section>
+
+<!-- Tailing content -->
+<ng-content select="[tailing]" />
