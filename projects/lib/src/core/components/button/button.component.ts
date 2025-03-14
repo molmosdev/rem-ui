@@ -13,7 +13,7 @@ import { Spinner } from '../spinner/spinner.component';
 })
 export class Button {
   /** The variant of the button. */
-  variant = input<'primary' | 'secondary' | 'ghost'>('primary');
+  variant = input<'primary' | 'secondary' | 'ghost' | 'transparent'>('primary');
 
   /** The size of the button. */
   size = input<'small' | 'default'>('default');
