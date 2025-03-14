@@ -89,6 +89,7 @@ export default class TextFieldPlaygroundComponent {
       label: 'Value',
       type: 'text',
       value: signal(''),
+      hidden: true,
     },
     {
       label: 'Placeholder',
