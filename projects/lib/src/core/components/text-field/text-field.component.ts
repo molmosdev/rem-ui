@@ -23,9 +23,7 @@ export class TextField {
   /**
    * The type of the text field.
    */
-  readonly type = input<'text' | 'number' | 'password' | 'email' | 'search'>(
-    'text'
-  );
+  readonly type = input<'text' | 'number' | 'password' | 'email'>('text');
 
   /**
    * Indicates if the text field is of number type.
@@ -93,6 +91,11 @@ export class TextField {
    * Event emitted when the value changes.
    */
   valueChange = output<string | number | null>();
+
+  /**
+   * The autocomplete value of the input.
+   */
+  readonly autoComplete = input<string | undefined>(undefined);
 
   /**
    * Handles the input value change.

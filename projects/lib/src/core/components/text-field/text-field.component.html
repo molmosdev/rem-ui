@@ -16,6 +16,7 @@
     [value]="value()"
     [placeholder]="placeholder() || ''"
     [disabled]="disabled()"
+    [autocomplete]="autoComplete()"
     (input)="onInputValueChange($event)"
     (focus)="focused.set(true)"
     (blur)="onInputBlur($event)" />
