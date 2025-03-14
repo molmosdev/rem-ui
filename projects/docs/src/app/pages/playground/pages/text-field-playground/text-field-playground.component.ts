@@ -72,7 +72,7 @@ export default class TextFieldPlaygroundComponent {
     {
       label: 'Type',
       type: 'select',
-      value: signal('default'),
+      value: signal('text'),
       options: [
         { label: 'Text', value: 'text' },
         { label: 'Number', value: 'number' },
