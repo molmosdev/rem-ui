@@ -22,30 +22,6 @@ export const playgroundRoutes: Routes = [
       title: 'Text Field',
     },
   },
-  /* {
-    path: 'text',
-    loadComponent: () =>
-      import('./pages/text-playground/text-playground.component'),
-    data: {
-      title: 'Text',
-    },
-  }, */
-  /*   {
-    path: 'number',
-    loadComponent: () =>
-      import('./pages/number-playground/number-playground.component'),
-    data: {
-      title: 'Number',
-    },
-  },
-  {
-    path: 'password',
-    loadComponent: () =>
-      import('./pages/password-playground/password-playground.component'),
-    data: {
-      title: 'Password',
-    },
-  }, */
   {
     path: 'spinner',
     loadComponent: () =>

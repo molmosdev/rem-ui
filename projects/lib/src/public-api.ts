@@ -22,14 +22,8 @@ export * from './core/components/dropdown/components/dropdown-content/components
 export * from './core/components/dropdown/components/dropdown-content/components/dropdown-title/dropdown-title.component';
 export * from './core/components/dropdown/components/dropdown-trigger/dropdown-trigger.component';
 
-/* Number */
-export * from './core/components/number/number.component';
-
 /* Option */
 export * from './shared/components/option/option.component';
-
-/* Password */
-export * from './core/components/password/password.component';
 
 /* Search */
 export * from './core/components/search/search.component';
@@ -52,14 +46,8 @@ export * from './core/components/table/components/row/components/row-item/row-it
 export * from './core/components/tabs/tabs.component';
 export * from './core/components/tabs/components/tab/tab.component';
 
-/* Text */
-export * from './core/components/text/text.component';
-
 /* Textarea */
 export * from './core/components/textarea/textarea.component';
-
-/* User */
-export * from './core/components/user/user.component';
 
 /* Vertical Nav */
 export * from './core/components/vertical-nav/vertical-nav.component';
