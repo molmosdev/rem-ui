@@ -19,6 +19,8 @@ import { Button } from '../../../../../../../lib/src/public-api';
             [placeholder]="args()[3].value()"
             [error]="args()[4].value()"
             [disabled]="args()[5].value()"
+            [numberType]="args()[8].value()"
+            [decimals]="args()[9].value()"
             maxWidth="240px">
             @if (args()[7].value() !== 'none') {
               <i
@@ -30,14 +32,13 @@ import { Button } from '../../../../../../../lib/src/public-api';
                   !args()[4].value()
                     ? 'var(--input-foreground, #798194)'
                     : 'var(--error-foreground, #c40000ab)'
-                "
-                marginInline="0.4rem 0"></i>
+                "></i>
             }
             @if (args()[6].value() && args()[2].value()) {
               <button
                 r-button
                 tailing
-                variant="ghost"
+                variant="transparent"
                 size="small"
                 [noPaddingInline]="true"
                 (click)="args()[2].value.set(null)"
@@ -54,9 +55,10 @@ import { Button } from '../../../../../../../lib/src/public-api';
                     !args()[4].value()
                       ? 'var(--input-foreground, #798194)'
                       : 'var(--error-foreground, #c40000ab)'
-                  "
-                  marginInline="0.3rem"></i>
+                  "></i>
               </button>
+            } @else if (args()[10].value() !== 'none') {
+              <span tailing>{{ args()[10].value() }}</span>
             }
           </r-text-field>
         </div>
@@ -116,6 +118,30 @@ export default class TextFieldPlaygroundComponent {
         { label: 'Search', value: 'Search' },
         { label: 'Home', value: 'Home' },
         { label: 'None', value: 'none' },
+      ],
+    },
+    {
+      label: 'Number Type',
+      type: 'select',
+      value: signal('integer'),
+      options: [
+        { label: 'Integer', value: 'integer' },
+        { label: 'Decimal', value: 'decimal' },
+      ],
+    },
+    {
+      label: 'Decimals number',
+      type: 'number',
+      value: signal(2),
+    },
+    {
+      label: 'Tailing',
+      type: 'select',
+      value: signal('none'),
+      options: [
+        { label: 'None', value: 'none' },
+        { label: '€', value: '€' },
+        { label: 'Centimeters', value: 'cm' },
       ],
     },
   ]);
