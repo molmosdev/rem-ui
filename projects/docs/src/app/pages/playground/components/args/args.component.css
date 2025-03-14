@@ -19,6 +19,7 @@
   @media (width < 576px) {
     & > *:not(.switch-wrapper) {
       flex: 1;
+      min-width: 240px;
     }
   }
 
