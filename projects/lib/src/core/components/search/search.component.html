@@ -1,11 +1,44 @@
 @if (!selectedContent()) {
-  <r-text
+  <r-text-field
+    type="text"
     [label]="label()"
     [(value)]="query"
     [error]="error()"
-    (changeEmitter)="handleTextChanges($event)"
-    [searching]="searching()"
-    [clearable]="!!(query() && !searching())" />
+    (valueChange)="handleTextChanges($event)">
+    @if (!!(query() && !searching())) {
+      <button
+        r-button
+        tailing
+        variant="transparent"
+        size="small"
+        [noPaddingInline]="true"
+        (click)="query.set(null)"
+        [style.color]="
+          error()
+            ? 'var(--error-foreground, #c40000ab)'
+            : 'var(--input-foreground, #798194)'
+        ">
+        <i
+          r-icon
+          icon="X"
+          [size]="19"
+          [color]="
+            error()
+              ? 'var(--input-foreground, #798194)'
+              : 'var(--error-foreground, #c40000ab)'
+          "></i>
+      </button>
+    } @else if (searching()) {
+      <r-spinner
+        tailing
+        [size]="19"
+        [color]="
+          error()
+            ? 'var(--error-foreground, #c40000ab)'
+            : 'var(--input-foreground, #798194)'
+        "></r-spinner>
+    }
+  </r-text-field>
 } @else {
   <div
     [ngClass]="{ 'has-label': label(), error: error() }"

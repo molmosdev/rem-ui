@@ -12,13 +12,13 @@ import {
 } from '@angular/core';
 import { Option } from '../../../shared/components/option/option.component';
 import { NgClass, NgStyle } from '@angular/common';
-import { Text } from '../text/text.component';
+import { TextField, Button, Icon, Spinner } from '../../../public-api';
 import { UtilsService } from '../../../shared/services/utils.service';
 import { fadeInFadeOutTrigger } from '../../../shared/animations/animations';
 
 @Component({
   selector: 'r-search',
-  imports: [NgClass, NgStyle, Text],
+  imports: [NgClass, NgStyle, TextField, Button, Icon, Spinner],
   templateUrl: './search.component.html',
   animations: [fadeInFadeOutTrigger],
   styleUrl: './search.component.css',
@@ -275,10 +275,10 @@ export class Search {
    * Handle text changes in the input field.
    * @param {string | null} textContent - The new text content.
    */
-  handleTextChanges(textContent: string | null): void {
+  handleTextChanges(textContent: string | number | null): void {
     if (textContent) {
       this.utilsService.debounce(() => {
-        this.textEmitter.emit(textContent);
+        this.textEmitter.emit(textContent as string);
         this.isOpen.set(true);
       }, this.debounceDelay());
     } else {
