@@ -1,9 +1,6 @@
 @for (arg of args(); track arg.label) {
   @if (!arg.hidden) {
     @switch (arg.type) {
-      @case ('text') {
-        <r-text [label]="arg.label" [(value)]="arg.value"></r-text>
-      }
       @case ('select') {
         <r-select [label]="arg.label" [(selectedValue)]="arg.value">
           @if (arg.options) {
@@ -23,8 +20,23 @@
           <label [for]="'switch' + arg.label">{{ arg.label }}</label>
         </div>
       }
-      @case ('number') {
-        <r-number [label]="arg.label" [(value)]="arg.value"></r-number>
+      @default {
+        <r-text-field
+          [type]="arg.type === 'text' ? 'text' : 'number'"
+          [label]="arg.label"
+          [(value)]="arg.value">
+          @if (arg.value()) {
+            <button
+              r-button
+              tailing
+              variant="transparent"
+              size="small"
+              [noPaddingInline]="true"
+              (click)="arg.value.set(null)">
+              <i r-icon icon="X" [size]="19"></i>
+            </button>
+          }
+        </r-text-field>
       }
     }
   }
