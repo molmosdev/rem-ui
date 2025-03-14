@@ -11,13 +11,14 @@
 
   <!-- Input -->
   <input
+    #input
     [type]="type()"
     [value]="value()"
     [placeholder]="placeholder() || ''"
     [disabled]="disabled()"
-    (input)="onValueChange($event)"
+    (input)="onInputValueChange($event)"
     (focus)="focused.set(true)"
-    (blur)="focused.set(false)" />
+    (blur)="onInputBlur($event)" />
 </section>
 
 <!-- Tailing content -->

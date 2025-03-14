@@ -1,69 +1,140 @@
-import { Component, computed, input, model } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  input,
+  model,
+  output,
+  viewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'r-text-field',
   templateUrl: './text-field.component.html',
   styleUrl: './text-field.component.css',
   host: {
-    '(input)': 'value.set($event.target.value)',
     '[class.error]': 'error()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '[class.active]': 'isActive()',
+    '[class.active]': 'isActive() && label()',
   },
 })
 export class TextField {
   /**
    * The type of the text field.
    */
-  type = input<'text' | 'number' | 'password' | 'email' | 'search'>('text');
+  readonly type = input<'text' | 'number' | 'password' | 'email' | 'search'>(
+    'text'
+  );
+
+  /**
+   * Indicates if the text field is of number type.
+   */
+  readonly isNumberType = computed(() => this.type() === 'number');
 
   /**
    * The label of the text field.
    */
-  label = input<string | undefined>(undefined);
+  readonly label = input<string | undefined>(undefined);
 
   /**
    * The value of the text field.
    */
-  value = model<string | number | null>(null);
+  readonly value = model<string | number | null>(null);
 
   /**
-   * Whether the text field has an error.
+   * Indicates if the text field has an error.
    */
-  error = input<boolean>(false);
+  readonly error = input<boolean>(false);
 
   /**
-   * Whether the text field is disabled.
+   * Indicates if the text field is disabled.
    */
-  disabled = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
 
   /**
    * The placeholder of the text field.
    */
-  placeholder = input<string>('');
+  readonly placeholder = input<string>('');
 
   /**
-   * The icon of the text field.
+   * The maximum width of the text field.
    */
-  maxWidth = input<string>('');
+  readonly maxWidth = input<string>('');
 
   /**
-   * Whether the text field is focused.
+   * Indicates if the text field is focused.
    */
-  focused = model<boolean>(false);
+  readonly focused = model<boolean>(false);
 
   /**
-   * Whether the text field has a label.
+   * Indicates if the text field has a label and is active.
    */
-  isActive = computed(
-    () => (this.focused() || this.value() || this.placeholder()) && this.label()
+  readonly isActive = computed(
+    () => this.focused() || this.value() || this.placeholder()
   );
 
   /**
-   * The input element.
+   * The number type of the text field.
    */
-  onValueChange(event: any) {
-    this.value.set(event.target.value);
+  readonly numberType = input<'integer' | 'decimal'>('integer');
+
+  /**
+   * The number of decimals for decimal type.
+   */
+  readonly decimals = input<number>(1);
+
+  /**
+   * Reference to the input element.
+   */
+  readonly input = viewChild<ElementRef>('input');
+
+  /**
+   * Event emitted when the value changes.
+   */
+  valueChange = output<string | number | null>();
+
+  /**
+   * Handles the input value change.
+   */
+  onInputValueChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+
+    // If the input is not of number type, update the value and emit the value change event.
+    if (!this.isNumberType()) {
+      this.value.set(target.value);
+      this.valueChange.emit(target.value);
+    }
+  }
+
+  /**
+   * The blur event handler.
+   */
+  onInputBlur(event: any) {
+    this.focused.set(false);
+
+    // If the input is of number type, format the value and emit the value change event.
+    if (this.isNumberType()) {
+      const formattedValue = this.formatNumber(event.target.value);
+      this.input()!.nativeElement.value = formattedValue;
+      this.value.set(formattedValue);
+      this.valueChange.emit(formattedValue);
+    }
+  }
+
+  /**
+   * Formats the number value.
+   * @param value - The value to format.
+   * @returns The formatted value.
+   */
+  formatNumber(value: string | null) {
+    if (value) {
+      const numericValue = Number(value);
+      return this.numberType() === 'integer'
+        ? Math.round(numericValue).toString()
+        : numericValue.toFixed(this.decimals());
+    } else {
+      return null;
+    }
   }
 }
