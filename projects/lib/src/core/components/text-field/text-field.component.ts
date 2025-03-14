@@ -95,7 +95,7 @@ export class TextField {
   /**
    * The autocomplete value of the input.
    */
-  readonly autoComplete = input<string | undefined>(undefined);
+  readonly autoComplete = input<string>('off');
 
   /**
    * Handles the input value change.
