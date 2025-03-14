@@ -6,7 +6,7 @@ import {
   model,
   output,
 } from '@angular/core';
-import { Button, Text, Number } from '../../../../../public-api';
+import { Button, TextField } from '../../../../../public-api';
 
 export interface ListItemContent {
   label: string | undefined;
@@ -16,7 +16,7 @@ export interface ListItemContent {
 
 @Component({
   selector: 'r-list-item',
-  imports: [Text, Number, Button],
+  imports: [TextField, Button],
   templateUrl: './list-item.component.html',
   styleUrl: './list-item.component.css',
 })
