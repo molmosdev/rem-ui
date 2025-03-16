@@ -16,7 +16,7 @@ import {
     '[class.error]': 'error()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '[class.active]': 'isActive() && label()',
+    '[class.active-with-label]': 'isActive() && label()',
   },
 })
 export class TextField {

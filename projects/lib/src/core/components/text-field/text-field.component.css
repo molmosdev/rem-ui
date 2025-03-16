@@ -95,7 +95,7 @@
     }
   }
 
-  &.active {
+  &.active-with-label {
     section {
       label {
         top: 0.344rem;
