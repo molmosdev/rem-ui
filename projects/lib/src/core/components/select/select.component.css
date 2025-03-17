@@ -4,6 +4,7 @@
   align-items: center;
   transition: opacity 0.2s;
   position: relative;
+  min-height: 2.8rem;
 
   label {
     position: absolute;
@@ -20,7 +21,6 @@
 
   select {
     appearance: base-select;
-    height: 2.8rem !important;
     height: 100%;
     box-sizing: border-box;
     width: 100%;
