@@ -70,6 +70,7 @@ s:host {
 
   select {
     appearance: base-select;
+    -webkit-appearance: none;
     height: 2.8rem;
     box-sizing: border-box;
     width: 100%;
