@@ -1,341 +1,259 @@
 import {
   Component,
-  HostListener,
-  signal,
-  effect,
-  contentChildren,
-  viewChild,
-  model,
-  ElementRef,
-  input,
-  output,
   computed,
+  ElementRef,
+  HostListener,
   inject,
+  input,
+  model,
+  output,
+  signal,
+  viewChild,
+  OnInit,
+  Directive,
+  Renderer2,
+  AfterViewInit,
+  effect,
 } from '@angular/core';
-import { Option } from '../../../shared/components/option/option.component';
-import {
-  disabledStateTrigger,
-  selectErrorRightButtonStateTrigger,
-  selectErrorStateTrigger,
-  fadeInFadeOutTrigger,
-  inputPaddingStateTrigger,
-  labelErrorStateTrigger,
-  labelStateTrigger,
-  rotateArrowTrigger,
-  selectInputPaddingStateTrigger,
-} from '../../../shared/animations/animations';
-import { AttachedBox } from '../attached-box/attached-box.component';
-import { ResponsiveService } from '../../services/responsive.service';
+import { Icon } from '../icon/icon.component';
 
+/**
+ * Represents an option within a select element.
+ */
+export interface Option {
+  value: string;
+  text: string;
+  disabled?: boolean;
+}
+
+/**
+ * A directive that provides options for a select element.
+ */
+@Directive({
+  selector: 'select[r-options]',
+})
+export class OptionsDirective implements OnInit {
+  /**
+   * The options available for selection.
+   */
+  readonly options = input<Option[]>();
+
+  /**
+   * Reference to the host element.
+   */
+  private readonly el = inject(ElementRef);
+
+  /**
+   * Reference to the renderer.
+   */
+  private readonly renderer = inject(Renderer2);
+
+  /**
+   * Initializes the options based on the provided input
+   */
+  ngOnInit(): void {
+    this.updateOptions();
+    console.log('OptionsDirective');
+  }
+
+  /**
+   * Updates the options based on the provided input.
+   */
+  private updateOptions(): void {
+    const selectElement = this.el.nativeElement as HTMLSelectElement;
+    selectElement.innerHTML = '';
+
+    this.options()?.forEach(option => {
+      const optionElement = this.renderer.createElement('option');
+      this.renderer.setProperty(optionElement, 'value', option.value);
+      this.renderer.setProperty(optionElement, 'textContent', option.text);
+      if (option.disabled) {
+        this.renderer.setProperty(optionElement, 'disabled', true);
+      }
+      this.renderer.appendChild(selectElement, optionElement);
+    });
+  }
+}
+
+/**
+ * A custom select component that provides enhanced styling and control over native select elements.
+ */
 @Component({
   selector: 'r-select',
-  imports: [AttachedBox],
   templateUrl: './select.component.html',
-  animations: [
-    fadeInFadeOutTrigger,
-    selectErrorStateTrigger,
-    labelErrorStateTrigger,
-    selectErrorRightButtonStateTrigger,
-    labelStateTrigger,
-    inputPaddingStateTrigger,
-    disabledStateTrigger,
-    selectInputPaddingStateTrigger,
-    rotateArrowTrigger,
-  ],
   styleUrl: './select.component.css',
+  imports: [Icon, OptionsDirective],
   host: {
-    '[style.width]': 'formattedWidth()',
+    '[class.invalid]': 'invalid()',
+    '[class.disabled]': 'disabled()',
+    '[style.max-width]': 'maxWidth()',
+    '[class.active-with-label]': 'isActiveState() && label()',
   },
+  standalone: true,
 })
-export class Select {
-  /** The label for the select component. */
-  label = input<string | undefined>(undefined);
+export class Select implements AfterViewInit {
+  /**
+   * The label associated with the select component.
+   */
+  readonly label = input<string>();
 
-  /** Indicates whether the select component is clearable. */
-  clearable = input<boolean>(false);
+  /**
+   * The placeholder text displayed when no option is selected.
+   */
+  readonly placeholder = input('');
 
-  /** Indicates whether there is an error state. */
-  error = input<boolean>(false);
+  /**
+   * The maximum width of the select component.
+   */
+  readonly maxWidth = input('');
 
-  /** Indicates whether the dropdown is open. */
-  isOpen = signal(false);
+  /**
+   * An optional suffix to display within the select button.
+   */
+  readonly suffix = input<string>();
 
-  /** The selected value. */
+  /**
+   * The options available for selection.
+   */
+  readonly options = input<Option[]>([]);
+
+  /**
+   * The selected value of the select component.
+   */
   selectedValue = model<string | null>(null);
 
-  /** The index of the selected option. */
-  selectedIndex = signal<number>(-1);
+  /**
+   * Indicates whether the select component is in an invalid state.
+   */
+  invalid = model(false);
 
-  /** The content of the selected option. */
-  selectedContent = signal<string | null>(null);
+  /**
+   * Indicates whether the select component is disabled.
+   */
+  disabled = model(false);
 
-  /** The index of the highlighted option. */
-  highlightedIndex = signal<number>(-1);
+  /**
+   * Emits the new value when the selection changes.
+   */
+  valueChange = output<string | number | null>();
 
-  /** The list of options. */
-  options = contentChildren(Option);
+  /**
+   * Indicates whether the options dropdown is open.
+   */
+  isOpen = signal(false);
 
-  /** The wrapper element for the options. */
-  optionsWrapper = viewChild<ElementRef>('optionsWrapper');
+  /**
+   * The text of the currently selected option.
+   */
+  selectedOptionText = signal<string>('');
 
-  /** The last selected value. */
-  lastSelectedValue: string | null = null;
+  /**
+   * Reference to the native select element.
+   */
+  private readonly select = viewChild<ElementRef<HTMLSelectElement>>('select');
 
-  /** The maximum height of the options dropdown. */
-  optionsMaxHeight = input<number>(200);
+  /**
+   * Reference to the button element that triggers the options dropdown.
+   */
+  private readonly button = viewChild<ElementRef<HTMLButtonElement>>('button');
 
-  /** Event emitted when the selected value changes. */
-  changesEmitter = output<string | null>();
-
-  /** The positioning of the dropdown ('up' or 'down'). */
-  positioning = input<'up' | 'down'>('down');
-
-  /** The message displayed when no results are found. */
-  noResultsMessage = input<string>('No results found');
-
-  /** The state of the label. */
-  labelState = computed(() => (this.selectedContent() ? 'small' : 'normal'));
-
-  /** The state of the input padding. */
-  inputPaddingState = computed(() =>
-    this.label() && this.selectedContent() ? 'small' : 'normal'
+  /**
+   * Computed property indicating whether the select component is in an active state (i.e., has a value or placeholder).
+   */
+  protected readonly isActiveState = computed(
+    () => !!this.selectedValue() || !!this.placeholder()
   );
 
-  /** The displayed content of the selected option. */
-  displayedSelectedContent = computed(() => this.selectedContent() || '');
+  /**
+   * Reference to the host element.
+   */
+  private readonly elementRef = inject(ElementRef);
 
-  /** The width of the select component. */
-  width = input<string>();
-
-  /** The responsive service. */
-  private responsiveService = inject(ResponsiveService);
-
-  /** The formatted width of the select component. */
-  readonly formattedWidth = computed(() => {
-    return this.width()
-      ? this.width()
-      : this.responsiveService.currentDevice() === 'mobile'
-        ? '100%'
-        : '240px';
-  });
-
-  constructor(private elementRef: ElementRef) {
-    effect(() => {
-      if (this.optionsWrapper()) {
-        this.handleScrollToSelectedOptionOnOpen();
-        this.handleOptionSelection();
-      }
-      this.handleExternalSelectedValue();
-    });
+  /**
+   * Initializes the selected text based on the initial value.
+   */
+  ngAfterViewInit(): void {
+    this.initializeSelectedText();
   }
 
   /**
-   * Scroll to the selected option when the dropdown is opened.
+   * Sets the `selectedOptionText` based on the initial value.
    */
-  handleScrollToSelectedOptionOnOpen() {
-    if (this.selectedIndex() !== -1) {
-      this.scrollToOption(this.selectedIndex(), 'instant');
-    }
-  }
+  private initializeSelectedText(): void {
+    const initialValue = this.selectedValue();
+    if (!initialValue) return;
 
-  /**
-   * Scroll to a specific option in the dropdown.
-   * @param index - The index of the option to scroll to.
-   * @param behavior - The scroll behavior ('instant' or 'smooth').
-   */
-  scrollToOption(index: number, behavior: string): void {
-    const optionElements = this.options();
-    if (optionElements[index]) {
-      optionElements[index].el.nativeElement.scrollIntoView({
-        block: 'nearest',
-        behavior: behavior,
-      });
-    }
-  }
-
-  /**
-   * Handle the selection of an option.
-   */
-  handleOptionSelection(): void {
-    this.options().forEach((option, index) => {
-      option.selectEmitter.subscribe(optionEmitted => {
-        this.selectOption(optionEmitted, index);
-        this.highlightOption(index);
-        this.handleOptionsStates();
-        this.isOpen.set(false);
-      });
-    });
-  }
-
-  /**
-   * Select an option.
-   * @param option - The option to select.
-   * @param index - The index of the option.
-   */
-  selectOption(option: Option, index: number): void {
-    this.selectedValue.set(option.value());
-    this.lastSelectedValue = option.value();
-    this.selectedContent.set(option.el.nativeElement.innerText.trim());
-    this.selectedIndex.set(index);
-    this.changesEmitter.emit(option.value());
-  }
-
-  /**
-   * Highlight an option.
-   * @param index - The index of the option to highlight.
-   */
-  highlightOption(index: number) {
-    this.highlightedIndex.set(index);
-  }
-
-  /**
-   * Handle the states of the options.
-   */
-  handleOptionsStates(): void {
-    this.options().forEach((option, index) => {
-      option.selected.set(index === this.selectedIndex());
-      option.highlighted.set(index === this.highlightedIndex());
-    });
-  }
-
-  /**
-   * Handle the external selected value.
-   */
-  handleExternalSelectedValue(): void {
-    if (
-      this.lastSelectedValue !== this.selectedValue() &&
-      this.options().length > 0
-    ) {
-      if (this.selectedValue()) {
-        const selectedOptionIndex = this.options().findIndex(
-          option => option.value() === this.selectedValue()
-        );
-        if (selectedOptionIndex !== -1) {
-          this.selectOption(
-            this.options()[selectedOptionIndex],
-            selectedOptionIndex
-          );
-          this.highlightOption(selectedOptionIndex);
-          this.handleOptionsStates();
-        }
-      } else {
-        this.selectedValue.set(null);
-        this.lastSelectedValue = null;
-        this.selectedContent.set(null);
-        this.selectedIndex.set(-1);
-        this.changesEmitter.emit(null);
-        this.highlightOption(-1);
-        this.handleOptionsStates();
-      }
-    }
-  }
-
-  /**
-   * Handle keyboard events for navigation and selection.
-   * @param event - The keyboard event.
-   */
-  @HostListener('keydown', ['$event'])
-  handleKeyboard(event: KeyboardEvent) {
-    switch (event.key) {
-      case 'ArrowDown':
-        event.preventDefault();
-        this.focusOption('next');
-        break;
-      case 'ArrowUp':
-        event.preventDefault();
-        this.focusOption('previous');
-        break;
-      case 'Enter':
-        event.preventDefault();
-        this.isOpen() ? this.selectFocusedOption() : this.isOpen.set(true);
-        break;
-      case 'Escape':
-        event.preventDefault();
-        this.isOpen.set(false);
-        break;
-      case 'Tab':
-        if (this.isOpen()) {
-          event.preventDefault();
-          this.isOpen.set(false);
-        }
-        break;
-    }
-  }
-
-  /**
-   * Focus on the next or previous option.
-   * @param direction - The direction to move the focus.
-   */
-  focusOption(direction: 'next' | 'previous') {
-    let index = this.highlightedIndex();
-    const increment = direction === 'next' ? 1 : -1;
-
-    index += increment;
-    while (
-      index >= 0 &&
-      index < this.options().length &&
-      this.options()[index].disabled()
-    ) {
-      index += increment;
-    }
-
-    if (index >= 0 && index < this.options().length) {
-      this.highlightOption(index);
-      this.handleOptionsStates();
-      this.scrollToOption(this.highlightedIndex(), 'smooth');
-    }
-  }
-
-  /**
-   * Select the currently focused option.
-   */
-  selectFocusedOption() {
-    this.selectOption(
-      this.options()[this.highlightedIndex()],
-      this.highlightedIndex()
+    const option = Array.from(this.select()?.nativeElement.options || []).find(
+      opt => opt.value === initialValue
     );
-    this.handleOptionsStates();
-    this.isOpen.set(false);
+
+    this.selectedOptionText.set(option?.textContent || '');
   }
 
   /**
-   * Handle focus event to open the dropdown.
+   * Shows the options dropdown.
    */
-  @HostListener('focus')
-  handleFocus(): void {
+  protected showOptions(): void {
+    this.select()?.nativeElement.showPicker();
     this.isOpen.set(true);
   }
 
   /**
-   * Handle blur event to close the dropdown.
+   * Hides the options dropdown and restores focus to the button.
    */
-  @HostListener('blur')
-  handleBlur(): void {
+  protected hideOptions(): void {
     this.isOpen.set(false);
   }
 
   /**
-   * Handle click outside the component to close the dropdown.
-   * @param event - The mouse event.
+   * Handles the selection change event from the native select element.
+   * @param event The selection change event.
+   */
+  onSelectionChange(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    const value = select.value === 'null' ? null : select.value;
+
+    this.selectedValue.set(value);
+    this.selectedOptionText.set(select.selectedOptions[0]?.textContent || '');
+    this.hideOptions();
+    this.restoreFocus();
+  }
+
+  /**
+   * Restores focus to the button after a selection change.
+   */
+  private restoreFocus(): void {
+    setTimeout(() => {
+      this.select()?.nativeElement.blur();
+      this.button()?.nativeElement.focus();
+    }, 0);
+  }
+
+  /**
+   * Handles click events outside the select component to close the options dropdown.
+   * @param event The mouse click event.
    */
   @HostListener('document:click', ['$event'])
-  handleClickOutside(event: MouseEvent): void {
+  protected onOutsideClick(event: MouseEvent): void {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.isOpen.set(false);
     }
   }
 
   /**
-   * Clear the current selection.
-   * @param $event - The event object.
+   * Handles the escape key press to close the options dropdown.
    */
-  clearSelection($event: any): void {
-    this.selectedIndex.set(-1);
-    this.selectedValue.set(null);
-    this.selectedContent.set(null);
-    this.highlightedIndex.set(-1);
-    this.isOpen.set(false);
-    this.handleOptionsStates();
-    $event.stopPropagation();
+  @HostListener('document:keydown.escape')
+  protected onEscapePress(): void {
+    if (this.isOpen()) {
+      this.hideOptions();
+      this.restoreFocus();
+    }
+  }
+
+  constructor() {
+    effect(() => {
+      console.log(this.selectedValue());
+    });
   }
 }

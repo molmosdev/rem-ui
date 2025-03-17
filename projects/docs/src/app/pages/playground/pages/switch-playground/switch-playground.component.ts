@@ -36,8 +36,8 @@ export default class SwitchPlaygroundComponent {
       type: 'select',
       value: signal('default'),
       options: [
-        { label: 'Default', value: 'default' },
-        { label: 'Large', value: 'large' },
+        { text: 'Default', value: 'default' },
+        { text: 'Large', value: 'large' },
       ],
     },
     {

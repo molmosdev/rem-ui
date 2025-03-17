@@ -44,9 +44,9 @@ export default class ButtonPlaygroundComponent {
       type: 'select',
       value: signal('primary'),
       options: [
-        { label: 'Primary', value: 'primary' },
-        { label: 'Secondary', value: 'secondary' },
-        { label: 'Ghost', value: 'ghost' },
+        { text: 'Primary', value: 'primary' },
+        { text: 'Secondary', value: 'secondary' },
+        { text: 'Ghost', value: 'ghost' },
       ],
     },
     {
@@ -54,8 +54,8 @@ export default class ButtonPlaygroundComponent {
       type: 'select',
       value: signal('default'),
       options: [
-        { label: 'Small', value: 'small' },
-        { label: 'Default', value: 'default' },
+        { text: 'Small', value: 'small' },
+        { text: 'Default', value: 'default' },
       ],
     },
     {
@@ -63,9 +63,9 @@ export default class ButtonPlaygroundComponent {
       type: 'select',
       value: signal('medium'),
       options: [
-        { label: 'None', value: 'none' },
-        { label: 'Medium', value: 'medium' },
-        { label: 'Full', value: 'full' },
+        { text: 'None', value: 'none' },
+        { text: 'Medium', value: 'medium' },
+        { text: 'Full', value: 'full' },
       ],
     },
     {

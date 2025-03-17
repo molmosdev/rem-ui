@@ -22,9 +22,6 @@ export * from './core/components/dropdown/components/dropdown-content/components
 export * from './core/components/dropdown/components/dropdown-content/components/dropdown-title/dropdown-title.component';
 export * from './core/components/dropdown/components/dropdown-trigger/dropdown-trigger.component';
 
-/* Option */
-export * from './shared/components/option/option.component';
-
 /* Search */
 export * from './core/components/search/search.component';
 

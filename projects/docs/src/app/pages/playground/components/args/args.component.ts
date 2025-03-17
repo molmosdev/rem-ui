@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import {
   Select,
-  Option,
   Switch,
   Button,
   TextField,
@@ -11,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-args',
-  imports: [TextField, Select, Option, Switch, Button, Icon],
+  imports: [TextField, Select, Switch, Button, Icon],
   templateUrl: './args.component.html',
   styleUrl: './args.component.css',
 })

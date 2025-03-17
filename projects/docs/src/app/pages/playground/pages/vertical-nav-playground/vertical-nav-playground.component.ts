@@ -94,8 +94,8 @@ export default class VerticalNavPlaygroundComponent {
       type: 'select',
       value: signal('icon-house'),
       options: [
-        { label: 'House', value: 'icon-house' },
-        { label: 'Building', value: 'icon-building' },
+        { text: 'House', value: 'icon-house' },
+        { text: 'Building', value: 'icon-building' },
       ],
     },
     {
@@ -108,8 +108,8 @@ export default class VerticalNavPlaygroundComponent {
       type: 'select',
       value: signal('icon-contact'),
       options: [
-        { label: 'Contact', value: 'icon-contact' },
-        { label: 'User round sarch', value: 'icon-user-round-search' },
+        { text: 'Contact', value: 'icon-contact' },
+        { text: 'User round sarch', value: 'icon-user-round-search' },
       ],
     },
     {
@@ -122,8 +122,8 @@ export default class VerticalNavPlaygroundComponent {
       type: 'select',
       value: signal('icon-settings'),
       options: [
-        { label: 'Settings', value: 'icon-settings' },
-        { label: 'Cog', value: 'icon-cog' },
+        { text: 'Settings', value: 'icon-settings' },
+        { text: 'Cog', value: 'icon-cog' },
       ],
     },
     {
@@ -136,8 +136,8 @@ export default class VerticalNavPlaygroundComponent {
       type: 'select',
       value: signal('icon-bell-dot'),
       options: [
-        { label: 'Bell Dot', value: 'icon-bell-dot' },
-        { label: 'Bell ring', value: 'icon-bell-ring' },
+        { text: 'Bell Dot', value: 'icon-bell-dot' },
+        { text: 'Bell ring', value: 'icon-bell-ring' },
       ],
     },
     {
@@ -150,9 +150,9 @@ export default class VerticalNavPlaygroundComponent {
       type: 'select',
       value: signal('icon-circle-help'),
       options: [
-        { label: 'Circle Help', value: 'icon-circle-help' },
+        { text: 'Circle Help', value: 'icon-circle-help' },
         {
-          label: 'Message circle question',
+          text: 'Message circle question',
           value: 'icon-message-circle-question',
         },
       ],

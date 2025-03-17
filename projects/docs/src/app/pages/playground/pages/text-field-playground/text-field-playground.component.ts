@@ -74,10 +74,10 @@ export default class TextFieldPlaygroundComponent {
       type: 'select',
       value: signal('text'),
       options: [
-        { label: 'Text', value: 'text' },
-        { label: 'Number', value: 'number' },
-        { label: 'Password', value: 'password' },
-        { label: 'Email', value: 'email' },
+        { text: 'Text', value: 'text' },
+        { text: 'Number', value: 'number' },
+        { text: 'Password', value: 'password' },
+        { text: 'Email', value: 'email' },
       ],
     },
     {
@@ -116,9 +116,9 @@ export default class TextFieldPlaygroundComponent {
       type: 'select',
       value: signal('Search'),
       options: [
-        { label: 'Search', value: 'Search' },
-        { label: 'Home', value: 'Home' },
-        { label: 'None', value: 'none' },
+        { text: 'Search', value: 'Search' },
+        { text: 'Home', value: 'Home' },
+        { text: 'None', value: 'none' },
       ],
     },
     {
@@ -126,8 +126,8 @@ export default class TextFieldPlaygroundComponent {
       type: 'select',
       value: signal('integer'),
       options: [
-        { label: 'Integer', value: 'integer' },
-        { label: 'Decimal', value: 'decimal' },
+        { text: 'Integer', value: 'integer' },
+        { text: 'Decimal', value: 'decimal' },
       ],
     },
     {
@@ -140,9 +140,9 @@ export default class TextFieldPlaygroundComponent {
       type: 'select',
       value: signal('none'),
       options: [
-        { label: 'None', value: 'none' },
-        { label: '€', value: '€' },
-        { label: 'Centimeters', value: 'cm' },
+        { text: 'None', value: 'none' },
+        { text: '€', value: '€' },
+        { text: 'Centimeters', value: 'cm' },
       ],
     },
   ]);

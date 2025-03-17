@@ -36,9 +36,9 @@ export default class TabsPlaygroundComponent {
       type: 'select',
       value: signal(null),
       options: [
-        { label: 'Tab 1', value: 'tab1' },
-        { label: 'Tab 2', value: 'tab2' },
-        { label: 'Tab 3', value: 'tab3' },
+        { text: 'Tab 1', value: 'tab1' },
+        { text: 'Tab 2', value: 'tab2' },
+        { text: 'Tab 3', value: 'tab3' },
       ],
     },
     {

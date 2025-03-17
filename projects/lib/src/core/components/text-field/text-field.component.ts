@@ -5,6 +5,7 @@ import {
   input,
   model,
   output,
+  signal,
   viewChild,
 } from '@angular/core';
 
@@ -63,7 +64,7 @@ export class TextField {
   /**
    * Indicates if the text field is focused.
    */
-  readonly focused = model<boolean>(false);
+  readonly focused = signal<boolean>(false);
 
   /**
    * Indicates if the text field has a label and is active.
