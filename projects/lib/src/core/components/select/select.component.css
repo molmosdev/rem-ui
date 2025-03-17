@@ -20,7 +20,7 @@
 
   select {
     appearance: base-select;
-    min-height: 2.8rem;
+    height: 2.8rem !important;
     height: 100%;
     box-sizing: border-box;
     width: 100%;
