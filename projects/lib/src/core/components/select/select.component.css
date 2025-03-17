@@ -1,82 +1,45 @@
 :host {
   width: 100%;
-  min-height: 2.8rem;
   display: flex;
   align-items: center;
   transition: opacity 0.2s;
   position: relative;
 
-  button {
+  label {
     position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
+    z-index: 1;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition:
+      top 0.2s,
+      font-size 0.2s,
+      transform 0.2s;
+  }
+
+  select {
+    appearance: base-select;
+    min-height: 2.8rem;
+    box-sizing: border-box;
     width: 100%;
     border-radius: var(--roundness, 0.5rem);
     color: var(--input-foreground, #798194);
     border-width: 1px;
     border-style: solid;
     border-color: var(--border-color, transparent);
-    font-size: 100%;
-    text-decoration: none;
-    box-sizing: border-box;
-    background: transparent;
     cursor: pointer;
-    display: flex;
-    gap: 0.8rem;
-    padding-inline: 0.8rem;
-    align-items: center;
     transition:
       color 0.2s,
       background-color 0.2s,
       border-color 0.2s;
-
-    section {
-      flex: 1;
-      text-align: left;
-      display: flex;
-      height: 100%;
-      align-items: center;
-      box-sizing: border-box;
-      padding: 0.7rem 0;
-
-      label {
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        transition:
-          top 0.2s,
-          font-size 0.2s,
-          transform 0.2s;
-      }
-    }
-
-    i {
-      transition: transform 0.2s;
-      transform: rotate(0deg);
-
-      &.open {
-        transform: rotate(180deg);
-      }
-    }
+    padding: 0.7rem 2.8rem 0.7rem 0.8rem;
+    font-size: 1rem;
 
     &:focus-visible {
       outline: 2px solid var(--primary, #0a0a0a);
       outline-offset: 2px;
     }
-  }
-
-  select {
-    appearance: base-select;
-    -webkit-appearance: none;
-    height: 2.8rem;
-    box-sizing: border-box;
-    width: 100%;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 10;
 
     &::picker(select) {
       pointer-events: all;
@@ -102,8 +65,22 @@
     }
   }
 
+  i {
+    position: absolute;
+    right: 0.8rem;
+    top: 0;
+    height: 100%;
+    transform: translateY(-50%);
+    transition: transform 0.2s;
+    transform: rotate(0deg);
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
   &.invalid {
-    button {
+    select {
       color: var(--error-foreground, #c40000ab);
       background-color: var(--error, #fff0f0);
       border-color: var(--error-foreground, #c40000ab);
@@ -111,16 +88,14 @@
   }
 
   &.active-with-label {
-    button {
-      section {
-        label {
-          top: 0.344rem;
-          font-size: 0.7rem;
-          transform: translateY(0);
-        }
+    label {
+      top: 0.344rem;
+      font-size: 0.7rem;
+      transform: translateY(0);
+    }
 
-        padding-top: 1.6rem;
-      }
+    select {
+      padding: 1.1rem 2.8rem 0.3rem 0.8rem;
     }
   }
 

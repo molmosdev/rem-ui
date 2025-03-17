@@ -2,18 +2,15 @@ import {
   Component,
   computed,
   ElementRef,
-  HostListener,
   inject,
   input,
   model,
   output,
   signal,
-  viewChild,
   OnInit,
   Directive,
   Renderer2,
-  AfterViewInit,
-  effect,
+  HostListener,
 } from '@angular/core';
 import { Icon } from '../icon/icon.component';
 
@@ -53,7 +50,6 @@ export class OptionsDirective implements OnInit {
    */
   ngOnInit(): void {
     this.updateOptions();
-    console.log('OptionsDirective');
   }
 
   /**
@@ -88,10 +84,11 @@ export class OptionsDirective implements OnInit {
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
     '[class.active-with-label]': 'isActiveState() && label()',
+    '(keydown)': 'onKeyDown($event)',
   },
   standalone: true,
 })
-export class Select implements AfterViewInit {
+export class Select {
   /**
    * The label associated with the select component.
    */
@@ -143,21 +140,6 @@ export class Select implements AfterViewInit {
   isOpen = signal(false);
 
   /**
-   * The text of the currently selected option.
-   */
-  selectedOptionText = signal<string>('');
-
-  /**
-   * Reference to the native select element.
-   */
-  private readonly select = viewChild<ElementRef<HTMLSelectElement>>('select');
-
-  /**
-   * Reference to the button element that triggers the options dropdown.
-   */
-  private readonly button = viewChild<ElementRef<HTMLButtonElement>>('button');
-
-  /**
    * Computed property indicating whether the select component is in an active state (i.e., has a value or placeholder).
    */
   protected readonly isActiveState = computed(
@@ -170,42 +152,6 @@ export class Select implements AfterViewInit {
   private readonly elementRef = inject(ElementRef);
 
   /**
-   * Initializes the selected text based on the initial value.
-   */
-  ngAfterViewInit(): void {
-    this.initializeSelectedText();
-  }
-
-  /**
-   * Sets the `selectedOptionText` based on the initial value.
-   */
-  private initializeSelectedText(): void {
-    const initialValue = this.selectedValue();
-    if (!initialValue) return;
-
-    const option = Array.from(this.select()?.nativeElement.options || []).find(
-      opt => opt.value === initialValue
-    );
-
-    this.selectedOptionText.set(option?.textContent || '');
-  }
-
-  /**
-   * Shows the options dropdown.
-   */
-  protected showOptions(): void {
-    this.select()?.nativeElement.showPicker();
-    this.isOpen.set(true);
-  }
-
-  /**
-   * Hides the options dropdown and restores focus to the button.
-   */
-  protected hideOptions(): void {
-    this.isOpen.set(false);
-  }
-
-  /**
    * Handles the selection change event from the native select element.
    * @param event The selection change event.
    */
@@ -214,19 +160,7 @@ export class Select implements AfterViewInit {
     const value = select.value === 'null' ? null : select.value;
 
     this.selectedValue.set(value);
-    this.selectedOptionText.set(select.selectedOptions[0]?.textContent || '');
-    this.hideOptions();
-    this.restoreFocus();
-  }
-
-  /**
-   * Restores focus to the button after a selection change.
-   */
-  private restoreFocus(): void {
-    setTimeout(() => {
-      this.select()?.nativeElement.blur();
-      this.button()?.nativeElement.focus();
-    }, 0);
+    this.isOpen.set(false);
   }
 
   /**
@@ -241,19 +175,14 @@ export class Select implements AfterViewInit {
   }
 
   /**
-   * Handles the escape key press to close the options dropdown.
+   * Handles keyboard events to open or close the options dropdown.
+   * @param event The keyboard event.
    */
-  @HostListener('document:keydown.escape')
-  protected onEscapePress(): void {
-    if (this.isOpen()) {
-      this.hideOptions();
-      this.restoreFocus();
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.isOpen.set(false);
+    } else if (event.key !== 'Enter') {
+      this.isOpen.set(true);
     }
-  }
-
-  constructor() {
-    effect(() => {
-      console.log(this.selectedValue());
-    });
   }
 }

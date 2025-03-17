@@ -1,45 +1,28 @@
-<button
-  #button
-  (click)="isOpen() ? hideOptions() : showOptions()"
-  [disabled]="disabled()">
-  <!-- Leading content -->
-  <ng-content select="[leading]" />
-
-  <section>
-    <!-- Label -->
-    @if (label()) {
-      <label>
-        {{ label() }}
-      </label>
-    }
-
-    @if (selectedOptionText() && selectedValue()) {
-      <!--  Selected value -->
-      {{ selectedOptionText() }}
-    } @else if (placeholder()) {
-      <!-- Placeholder -->
-      {{ placeholder() }}
-    }
-  </section>
-
-  <i
-    r-icon
-    icon="ChevronDown"
-    [class.open]="isOpen()"
-    [size]="20"
-    [color]="
-      invalid()
-        ? 'var(--error-foreground, #c40000ab)'
-        : ' var(--input-foreground, #798194)'
-    "></i>
-</button>
+<!-- Label -->
+@if (label()) {
+  <label>
+    {{ label() }}
+  </label>
+}
 
 <!-- Select -->
 <select
-  #select
   [value]="selectedValue()"
+  (close)="isOpen.set(false)"
   (change)="onSelectionChange($event)"
-  tabindex="-1"
+  (mousedown)="isOpen.set(true)"
   [disabled]="disabled()"
   r-options
   [options]="options()"></select>
+
+<!-- Icon -->
+<i
+  r-icon
+  icon="ChevronDown"
+  [class.open]="isOpen()"
+  [size]="20"
+  [color]="
+    invalid()
+      ? 'var(--error-foreground, #c40000ab)'
+      : ' var(--input-foreground, #798194)'
+  "></i>
