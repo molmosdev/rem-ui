@@ -1,4 +1,4 @@
-:host {
+s:host {
   width: 100%;
   min-height: 2.8rem;
   display: flex;
@@ -38,6 +38,7 @@
       height: 100%;
       align-items: center;
       box-sizing: border-box;
+      padding: 0.7rem 0;
 
       label {
         position: absolute;
@@ -117,7 +118,7 @@
           transform: translateY(0);
         }
 
-        padding-top: 1.15rem;
+        padding-top: 1.6rem;
       }
     }
   }
