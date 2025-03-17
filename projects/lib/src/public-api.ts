@@ -29,7 +29,7 @@ export * from './core/components/search/search.component';
 export * from './core/components/select/select.component';
 
 /* Option */
-export * from './core/components/select/components/option/option.component';
+export * from './shared/components/option/option.component';
 
 /* Spinner */
 export * from './core/components/spinner/spinner.component';

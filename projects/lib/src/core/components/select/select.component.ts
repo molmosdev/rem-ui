@@ -14,7 +14,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { Icon } from '../icon/icon.component';
-import { Option } from './components/option/option.component';
+import { Option } from '../../../public-api';
 
 /**
  * A custom select component that provides enhanced styling and control over native select elements.
