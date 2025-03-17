@@ -21,7 +21,7 @@ import { Icon } from '../icon/icon.component';
  * Represents an option within a select element.
  */
 export interface Option {
-  value: string;
+  value: string | null;
   text: string;
   disabled?: boolean;
 }
