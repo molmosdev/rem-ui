@@ -76,6 +76,7 @@
     transform: translateY(-50%);
     transition: transform 0.2s;
     transform: rotate(0deg);
+    pointer-events: none;
 
     &.open {
       transform: rotate(180deg);
