@@ -20,6 +20,7 @@
   }
 
   select {
+    -webkit-appearance: none;
     appearance: base-select;
     height: 100%;
     box-sizing: border-box;
