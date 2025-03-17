@@ -28,6 +28,9 @@ export * from './core/components/search/search.component';
 /* Select */
 export * from './core/components/select/select.component';
 
+/* Option */
+export * from './core/components/select/components/option/option.component';
+
 /* Spinner */
 export * from './core/components/spinner/spinner.component';
 

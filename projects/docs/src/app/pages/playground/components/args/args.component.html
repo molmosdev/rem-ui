@@ -2,10 +2,11 @@
   @if (!arg.hidden) {
     @switch (arg.type) {
       @case ('select') {
-        <r-select
-          [label]="arg.label"
-          [(selectedValue)]="arg.value"
-          [options]="arg.options!" />
+        <r-select [label]="arg.label" [(selectedValue)]="arg.value">
+          @for (option of arg.options; track option.value) {
+            <option r-option [value]="option.value">{{ option.text }}</option>
+          }
+        </r-select>
       }
       @case ('switch') {
         <div class="switch-wrapper">

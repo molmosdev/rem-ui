@@ -7,69 +7,14 @@ import {
   model,
   output,
   signal,
-  OnInit,
-  Directive,
   Renderer2,
   HostListener,
+  effect,
+  contentChildren,
+  viewChild,
 } from '@angular/core';
 import { Icon } from '../icon/icon.component';
-
-/**
- * Represents an option within a select element.
- */
-export interface Option {
-  value: string | null;
-  text: string;
-  disabled?: boolean;
-}
-
-/**
- * A directive that provides options for a select element.
- */
-@Directive({
-  selector: 'select[r-options]',
-})
-export class OptionsDirective implements OnInit {
-  /**
-   * The options available for selection.
-   */
-  readonly options = input<Option[]>();
-
-  /**
-   * Reference to the host element.
-   */
-  private readonly el = inject(ElementRef);
-
-  /**
-   * Reference to the renderer.
-   */
-  private readonly renderer = inject(Renderer2);
-
-  /**
-   * Initializes the options based on the provided input
-   */
-  ngOnInit(): void {
-    this.updateOptions();
-  }
-
-  /**
-   * Updates the options based on the provided input.
-   */
-  private updateOptions(): void {
-    const selectElement = this.el.nativeElement as HTMLSelectElement;
-    selectElement.innerHTML = '';
-
-    this.options()?.forEach(option => {
-      const optionElement = this.renderer.createElement('option');
-      this.renderer.setProperty(optionElement, 'value', option.value);
-      this.renderer.setProperty(optionElement, 'textContent', option.text);
-      if (option.disabled) {
-        this.renderer.setProperty(optionElement, 'disabled', true);
-      }
-      this.renderer.appendChild(selectElement, optionElement);
-    });
-  }
-}
+import { Option } from './components/option/option.component';
 
 /**
  * A custom select component that provides enhanced styling and control over native select elements.
@@ -78,7 +23,7 @@ export class OptionsDirective implements OnInit {
   selector: 'r-select',
   templateUrl: './select.component.html',
   styleUrl: './select.component.css',
-  imports: [Icon, OptionsDirective],
+  imports: [Icon],
   host: {
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
@@ -112,7 +57,7 @@ export class Select {
   /**
    * The options available for selection.
    */
-  readonly options = input<Option[]>([]);
+  readonly options = contentChildren(Option);
 
   /**
    * The selected value of the select component.
@@ -150,6 +95,44 @@ export class Select {
    * Reference to the host element.
    */
   private readonly elementRef = inject(ElementRef);
+
+  /**
+   * Reference to the select element within the component
+   * @private
+   */
+  private select = viewChild<ElementRef>('select');
+
+  /**
+   * Reference to the renderer
+   * @private
+   */
+  private readonly renderer = inject(Renderer2);
+
+  /**
+   * Initializes the select component.
+   */
+  constructor() {
+    effect(() => this.renderOptions());
+  }
+
+  /**
+   * Renders the options within the select element.
+   * @private
+   */
+  private renderOptions(): void {
+    const select = this.select()?.nativeElement;
+
+    if (!select) {
+      return;
+    }
+    // Clear the existing options
+    select.innerHTML = '';
+
+    // Append the options to the select
+    this.options()?.forEach(option => {
+      this.renderer.appendChild(select, option.el.nativeElement);
+    });
+  }
 
   /**
    * Handles the selection change event from the native select element.

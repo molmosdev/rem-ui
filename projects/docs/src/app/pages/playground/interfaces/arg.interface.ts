@@ -1,10 +1,13 @@
 import { WritableSignal } from '@angular/core';
-import { Option } from '../../../../../../lib/src/public-api';
 
 export interface IArg {
   label: string;
   type: string;
   value: WritableSignal<any>;
-  options?: Option[];
+  options?: {
+    value: string | null;
+    text: string;
+    disabled?: boolean;
+  }[];
   hidden?: boolean;
 }

@@ -7,13 +7,12 @@
 
 <!-- Select -->
 <select
+  #select
   [value]="selectedValue()"
   (close)="isOpen.set(false)"
   (change)="onSelectionChange($event)"
   (mousedown)="isOpen.set(true)"
-  [disabled]="disabled()"
-  r-options
-  [options]="options()"></select>
+  [disabled]="disabled()"></select>
 
 <!-- Icon -->
 <i
@@ -26,3 +25,6 @@
       ? 'var(--error-foreground, #c40000ab)'
       : ' var(--input-foreground, #798194)'
   "></i>
+
+<!-- Projected Options -->
+<ng-content />

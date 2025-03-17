@@ -6,11 +6,12 @@ import {
   Button,
   TextField,
   Icon,
+  Option,
 } from '../../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-args',
-  imports: [TextField, Select, Switch, Button, Icon],
+  imports: [TextField, Select, Option, Switch, Button, Icon],
   templateUrl: './args.component.html',
   styleUrl: './args.component.css',
 })

@@ -1,11 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
-import { Select } from '../../../../../../../lib/src/public-api';
+import { Option, Select } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
 
 @Component({
   selector: 'app-select-playground',
-  imports: [Select, ArgsComponent],
+  imports: [Select, Option, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -14,8 +14,16 @@ import { IArg } from '../../interfaces/arg.interface';
             [label]="args()[0].value()"
             [invalid]="args()[1].value()"
             [disabled]="args()[2].value()"
-            maxWidth="240px"
-            [options]="options">
+            [selectedValue]="args()[3].value()"
+            maxWidth="240px">
+            @for (option of options; track option) {
+              <option
+                r-option
+                [value]="option.value"
+                [disabled]="option.disabled">
+                {{ option.text }}
+              </option>
+            }
           </r-select>
         </div>
         <!-- <app-code-block [code]="code()" /> -->
@@ -40,6 +48,11 @@ export default class SelectPlaygroundComponent {
       label: 'Disabled',
       type: 'switch',
       value: signal(false),
+    },
+    {
+      label: 'Selected Value',
+      type: 'text',
+      value: signal('option1'),
     },
   ]);
 
