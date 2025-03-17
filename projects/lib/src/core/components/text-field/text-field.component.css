@@ -57,6 +57,10 @@
         -moz-appearance: textfield;
       }
 
+      &[type='password'] {
+        font-size: 1.8rem;
+      }
+
       &::placeholder {
         opacity: 0.5;
       }
