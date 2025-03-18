@@ -1,90 +1,37 @@
-@if (!selectedContent()) {
-  <r-text-field
-    type="text"
-    [label]="label()"
-    [(value)]="query"
-    [error]="error()"
-    (valueChange)="handleTextChanges($event)">
-    @if (!!(query() && !searching())) {
-      <button
-        r-button
-        tailing
-        variant="transparent"
-        size="small"
-        [noPaddingInline]="true"
-        (click)="query.set(null)"
-        [style.color]="
-          error()
-            ? 'var(--error-foreground, #c40000ab)'
-            : 'var(--input-foreground, #798194)'
-        ">
-        <i
-          r-icon
-          icon="X"
-          [size]="19"
-          [color]="
-            error()
-              ? 'var(--input-foreground, #798194)'
-              : 'var(--error-foreground, #c40000ab)'
-          "></i>
-      </button>
-    } @else if (searching()) {
-      <r-spinner
-        tailing
-        [size]="19"
-        [color]="
-          error()
-            ? 'var(--error-foreground, #c40000ab)'
-            : 'var(--input-foreground, #798194)'
-        "></r-spinner>
-    }
-  </r-text-field>
-} @else {
-  <div
-    [ngClass]="{ 'has-label': label(), error: error() }"
-    class="select-box has-value"
-    [attr.aria-expanded]="isOpen()">
-    @if (label()) {
-      <label
-        class="has-value"
-        [ngClass]="{ error: error(), 'options-open': isOpen() }">
-        {{ label() }}
-      </label>
-    }
-    {{ selectedContent() }}
-    <div
-      class="right-button clearable"
-      [ngClass]="{ error: error() }"
-      (click)="clearSelection($event)">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="19"
-        height="19"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="0.094rem"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-x">
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
-      </svg>
-    </div>
-  </div>
+<!-- Leading content -->
+<ng-content select="[leading]" />
+
+<section>
+  <!-- Label -->
+  @if (label()) {
+    <label>
+      {{ label() }}
+    </label>
+  }
+
+  <!-- Input -->
+  <input
+    #input
+    [value]="inputTextValue()"
+    [placeholder]="placeholder() || ''"
+    [disabled]="disabled()"
+    (focus)="focused.set(true)"
+    (blur)="focused.set(false)"
+    (input)="onInputValueChange($event)" />
+</section>
+
+<!-- Clear Button -->
+@if (inputTextValue() || value()) {
+  <i r-icon icon="X" [size]="18" (click)="reset()"></i>
 }
-@if (isOpen() && !searching()) {
-  <div class="dropdown-wrapper" @fadeInFadeOutTrigger [ngClass]="positioning()">
-    <ul
-      class="dropdown"
-      role="listbox"
-      #optionsWrapper
-      [ngStyle]="{ 'max-height.px': optionsMaxHeight() }">
-      @if (options() && options().length > 0) {
-        <ng-content></ng-content>
-      } @else {
-        <div class="no-options">{{ noResultsMessage() }}</div>
-      }
-    </ul>
-  </div>
-}
+
+<!-- Select -->
+<select
+  #select
+  [value]="selectValue()"
+  tabindex="-1"
+  (change)="onSelectValueChange($event)"
+  [disabled]="disabled()"></select>
+
+<!-- Projected Options -->
+<ng-content />
