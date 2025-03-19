@@ -11,3 +11,17 @@
 <code>npm install &#64;rem-ui/angular</code>
 <h2>Web Components</h2>
 <code>npm install &#64;rem-ui/elements</code>
+
+<!-- Temporal, testing purposes -->
+@let optionsVisible = searchValue() == 'test';
+
+<r-search
+  maxWidth="240px"
+  label="Search"
+  (searchChange)="handleSearchChange($event)">
+  @if (optionsVisible) {
+    <option r-option value="option1">Option 1</option>
+    <option r-option value="option2">Option 2</option>
+    <option r-option value="option3">Option 3</option>
+  }
+</r-search>
