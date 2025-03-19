@@ -4,6 +4,7 @@ import {
   contentChildren,
   effect,
   ElementRef,
+  HostListener,
   inject,
   input,
   model,
@@ -25,7 +26,8 @@ import { Option } from '../../../public-api';
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[class.label-up]':
-      '(inputTextValue() || placeholder() || focused()) && label()',
+      '(inputTextValue() || value() || placeholder() || focused()) && label()',
+    '(keydown)': 'onKeyDown($event)',
   },
 })
 export class Search {
@@ -82,6 +84,11 @@ export class Search {
   focused = signal<boolean>(false);
 
   /**
+   * Indicates whether the options dropdown is open.
+   */
+  isOpen = signal(false);
+
+  /**
    * The options available for selection.
    */
   readonly options = contentChildren(Option);
@@ -91,12 +98,6 @@ export class Search {
    * @private
    */
   private select = viewChild<ElementRef>('select');
-
-  /**
-   * Reference to the input element within the component
-   * @private
-   */
-  private input = viewChild<ElementRef>('input');
 
   /**
    * Reference to the renderer
@@ -135,10 +136,6 @@ export class Search {
     options.forEach(option => {
       this.renderer.appendChild(select, option.el.nativeElement);
     });
-
-    // Set the selected value
-    const htmlSelect = select as HTMLSelectElement;
-    htmlSelect.showPicker();
   }
 
   /**
@@ -146,17 +143,7 @@ export class Search {
    */
   onInputValueChange(event: any): void {
     const value = event.target.value as string;
-    if (this.value()) {
-      this.value.set(null);
-      this.inputTextValue.set('');
-    } else {
-      this.inputTextValue.set(value);
-
-      setTimeout(() => {
-        this.select()?.nativeElement.blur();
-        this.input()?.nativeElement.focus();
-      }, 0);
-    }
+    this.inputTextValue.set(value);
     this.searchChange.emit(value);
   }
 
@@ -169,25 +156,44 @@ export class Search {
   }
 
   /**
-   * Handles the select value change event.
+   * Handles the selection change event from the native select element.
+   * @param event The selection change event.
    */
-  onSelectValueChange(event: any): void {
-    const value = event.target.value as string;
-    const option = this.options().find(
-      (option: Option) => option.el.nativeElement.value === value
-    );
-    const optionInnerText = option?.el.nativeElement.innerText || '';
+  onSelectValueChange(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    const value = select.value === 'null' ? null : select.value;
 
     this.value.set(value);
-    this.inputTextValue.set(optionInnerText);
-
-    setTimeout(() => {
-      this.select()?.nativeElement.blur();
-      this.input()?.nativeElement.focus();
-    }, 0);
+    this.isOpen.set(false);
   }
 
-  //TODO: Add feature to handle keydown arrow up and down to focus on options
+  /**
+   * Handles click events outside the select component to close the options dropdown.
+   * @param event The mouse click event.
+   */
+  @HostListener('document:click', ['$event'])
+  protected onOutsideClick(event: MouseEvent): void {
+    if (!this.select()!.nativeElement.contains(event.target)) {
+      this.isOpen.set(false);
+    }
+  }
 
-  //TODO: Add feature to show datalist for iOS devices
+  /**
+   * Handles keyboard events to open or close the options dropdown.
+   * @param event The keyboard event.
+   */
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.isOpen.set(false);
+    }
+  }
+
+  /**
+   * Handles the icon click event.
+   */
+  handleIconClick(): void {
+    if (this.value()) {
+      this.reset();
+    }
+  }
 }

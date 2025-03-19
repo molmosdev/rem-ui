@@ -1,37 +1,53 @@
-<!-- Leading content -->
-<ng-content select="[leading]" />
+<!-- Label -->
+@if (label()) {
+  <label>
+    {{ label() }}
+  </label>
+}
 
-<section>
-  <!-- Label -->
-  @if (label()) {
-    <label>
-      {{ label() }}
-    </label>
-  }
+@if (!value()) {
+  <section>
+    <!-- Input -->
+    <input
+      #input
+      [value]="inputTextValue()"
+      [placeholder]="placeholder() || ''"
+      [disabled]="disabled()"
+      (focus)="focused.set(true)"
+      (blur)="focused.set(false)"
+      (input)="onInputValueChange($event)" />
 
-  <!-- Input -->
-  <input
-    #input
-    [value]="inputTextValue()"
-    [placeholder]="placeholder() || ''"
-    [disabled]="disabled()"
-    (focus)="focused.set(true)"
-    (blur)="focused.set(false)"
-    (input)="onInputValueChange($event)" />
-</section>
-
-<!-- Clear Button -->
-@if (inputTextValue() || value()) {
-  <i r-icon icon="X" [size]="18" (click)="reset()"></i>
+    <!-- Clear Button -->
+    @if (inputTextValue() || value()) {
+      <i r-icon icon="X" [size]="18" (click)="inputTextValue.set('')"></i>
+    }
+  </section>
 }
 
 <!-- Select -->
 <select
   #select
   [value]="selectValue()"
-  tabindex="-1"
   (change)="onSelectValueChange($event)"
+  (mousedown)="isOpen.set(true)"
   [disabled]="disabled()"></select>
+
+<!-- Icon -->
+<i
+  r-icon
+  class="select-icon"
+  [icon]="value() ? 'X' : 'ChevronDown'"
+  [class.open]="isOpen() && !value()"
+  [style.pointer-events]="value() ? 'auto' : 'none'"
+  [style.cursor]="value() ? 'pointer' : 'default'"
+  [style.transition]="value() ? 'none' : 'transform 0.2s'"
+  (click)="handleIconClick()"
+  [size]="20"
+  [color]="
+    invalid()
+      ? 'var(--error-foreground, #c40000ab)'
+      : ' var(--input-foreground, #798194)'
+  "></i>
 
 <!-- Projected Options -->
 <ng-content />
