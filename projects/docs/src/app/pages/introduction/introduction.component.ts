@@ -1,17 +1,8 @@
-import { Component, signal } from '@angular/core';
-import { Search } from '../../../../../lib/src/core/components/search/search.component';
-import { Option } from '../../../../../lib/src/public-api';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-introduction',
-  imports: [Search, Option],
   templateUrl: './introduction.component.html',
   styleUrl: './introduction.component.css',
 })
-export default class IntroductionComponent {
-  searchValue = signal<string>('');
-
-  handleSearchChange(value: string) {
-    this.searchValue.set(value);
-  }
-}
+export default class IntroductionComponent {}
