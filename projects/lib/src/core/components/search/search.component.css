@@ -30,6 +30,8 @@
 
   section {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     flex: 1;
     padding-inline: 0.8rem 0;
     height: 100%;
