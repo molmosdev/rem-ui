@@ -14,7 +14,7 @@ import { IArg } from '../../interfaces/arg.interface';
             [label]="args()[0].value()"
             [invalid]="args()[1].value()"
             [disabled]="args()[2].value()"
-            [value]="args()[3].value()"
+            [selectedValue]="args()[3].value()"
             maxWidth="240px">
             @for (option of options; track option) {
               <option

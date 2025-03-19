@@ -1,6 +1,5 @@
 import {
   Component,
-  computed,
   ElementRef,
   inject,
   input,
@@ -28,7 +27,7 @@ import { Option } from '../../../public-api';
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '[class.label-up]': '(selectValue() || placeholder()) && label()',
+    '[class.label-up]': '(selectedValue() || placeholder()) && label()',
     '(keydown)': 'onKeyDown($event)',
   },
   standalone: true,
@@ -62,12 +61,7 @@ export class Select {
   /**
    * The selected value of the select component.
    */
-  value = model<string | null>(null);
-
-  /**
-   * The selected value of the select component.
-   */
-  selectValue = computed(() => this.value());
+  selectedValue = model<string | null>(null);
 
   /**
    * Indicates whether the select component is in an invalid state.
@@ -140,7 +134,7 @@ export class Select {
     const select = event.target as HTMLSelectElement;
     const value = select.value === 'null' ? null : select.value;
 
-    this.value.set(value);
+    this.selectedValue.set(value);
     this.isOpen.set(false);
   }
 
