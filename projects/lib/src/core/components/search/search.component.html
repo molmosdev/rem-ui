@@ -6,7 +6,7 @@
 }
 
 @if (!selectedValue()) {
-  <section [class.large]="noOptions()">
+  <section [class.large]="noOptions() && !searching()">
     <!-- Input -->
     <input
       #input
@@ -29,10 +29,13 @@
   #select
   [value]="selectedValue()"
   (change)="onSelectValueChange($event)"
+  [class.no-options]="noOptions()"
   (mousedown)="isOpen.set(true)"
   [disabled]="disabled()"></select>
 
-@if (!noOptions()) {
+nooptions: {{ noOptions() }} searching: {{ searching() }}
+
+@if (!noOptions() || searching()) {
   <!-- Icon -->
   <div class="icon-wrapper">
     <i

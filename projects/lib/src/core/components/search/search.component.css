@@ -113,6 +113,10 @@
     font-family: 'Geist', sans-serif;
     height: 100%;
 
+    &.no-options {
+      pointer-events: none;
+    }
+
     &::picker(select) {
       max-height: 200px;
       opacity: 1;
