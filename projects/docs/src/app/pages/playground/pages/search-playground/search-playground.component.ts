@@ -81,6 +81,7 @@ export default class SearchPlaygroundComponent {
   searchValue = signal<string>('');
 
   options = [
+    { text: '', value: null, disabled: false },
     { text: 'Option 1', value: 'option1', disabled: false },
     { text: 'Option 2', value: 'option2', disabled: false },
     { text: 'Option 3', value: 'option3', disabled: true },

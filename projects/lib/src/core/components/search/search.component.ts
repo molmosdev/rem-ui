@@ -158,14 +158,9 @@ export class Search {
     if (!select || !options || options.length === 0) {
       return;
     }
+
     // Clear the existing options
     select.innerHTML = '';
-
-    const noValueOption = this.renderer.createElement('option');
-    noValueOption.value = '';
-    noValueOption.innerText = '';
-
-    this.renderer.appendChild(select, noValueOption);
 
     // Append the options to the select
     options.forEach(option => {
