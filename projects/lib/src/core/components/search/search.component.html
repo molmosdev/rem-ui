@@ -5,8 +5,10 @@
   </label>
 }
 
+@let withoutOptions = !options() || options().length === 0;
+
 @if (!value()) {
-  <section>
+  <section [class.large]="withoutOptions">
     <!-- Input -->
     <input
       #input
@@ -28,6 +30,7 @@
 <select
   #select
   [value]="selectValue()"
+  [style.display]="withoutOptions ? 'none' : 'block'"
   (change)="onSelectValueChange($event)"
   (mousedown)="isOpen.set(true)"
   [disabled]="disabled()"></select>
@@ -36,6 +39,7 @@
 <i
   r-icon
   class="select-icon"
+  [style.display]="withoutOptions ? 'none' : 'flex'"
   [icon]="value() ? 'X' : 'ChevronDown'"
   [class.open]="isOpen() && !value()"
   [style.pointer-events]="value() ? 'auto' : 'none'"

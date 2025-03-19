@@ -44,6 +44,10 @@
     padding-right: 0.8rem;
     box-sizing: border-box;
 
+    &.large {
+      width: 100%;
+    }
+
     input {
       height: 100%;
       box-sizing: border-box;
