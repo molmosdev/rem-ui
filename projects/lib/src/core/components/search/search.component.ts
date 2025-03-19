@@ -15,6 +15,7 @@ import {
 } from '@angular/core';
 import { Icon } from '../icon/icon.component';
 import { Option } from '../../../public-api';
+import { UtilsService } from '../../../shared/services/utils.service';
 
 @Component({
   selector: 'r-search',
@@ -26,7 +27,7 @@ import { Option } from '../../../public-api';
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[class.label-up]':
-      '(inputTextValue() || selectedValue() || placeholder() || focused()) && label()',
+      '(searchValue() || selectedValue() || placeholder() || focused()) && label()',
     '(keydown)': 'onKeyDown($event)',
   },
 })
@@ -49,7 +50,7 @@ export class Search {
   /**
    * Indicates whether the search component is searching.
    */
-  readonly searching = input<boolean>(false);
+  readonly searching = model<boolean>(false);
 
   /**
    * Indicates whether the search component is in an invalid state.
@@ -62,19 +63,19 @@ export class Search {
   disabled = model(false);
 
   /**
-   * The value of the text field.
+   * The value of the selected option.
    */
   selectedValue = model<string | null>(null);
+
+  /**
+   * The search value.
+   */
+  searchValue = model<string>('');
 
   /**
    * Emits the value of the search component when the value changes.
    */
   searchChange = output<string>();
-
-  /**
-   * The value of the text field.
-   */
-  inputTextValue = signal<string>('');
 
   /**
    * Emits when the search component is focused.
@@ -129,6 +130,17 @@ export class Search {
   });
 
   /**
+   * The debounce time for the search input.
+   */
+  readonly debounceTime = input<number>(300);
+
+  /**
+   * Reference to the UtilsService
+   * @private
+   */
+  private readonly utilsService = inject(UtilsService);
+
+  /**
    * Initializes the search component.
    */
   constructor() {
@@ -165,9 +177,14 @@ export class Search {
    * Handles the change event of the input text.
    */
   onInputValueChange(event: any): void {
+    this.searching.set(true);
     const value = event.target.value as string;
-    this.inputTextValue.set(value);
-    this.searchChange.emit(value);
+    this.searchValue.set(value);
+
+    // Use the debounce method from UtilsService
+    this.utilsService.debounce(() => {
+      this.searchChange.emit(value);
+    }, this.debounceTime());
   }
 
   /**
@@ -175,7 +192,7 @@ export class Search {
    */
   reset(): void {
     this.selectedValue.set(null);
-    this.inputTextValue.set('');
+    this.searchValue.set('');
   }
 
   /**

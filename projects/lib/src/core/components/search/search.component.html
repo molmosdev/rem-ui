@@ -10,7 +10,7 @@
     <!-- Input -->
     <input
       #input
-      [value]="inputTextValue()"
+      [value]="searchValue()"
       [placeholder]="placeholder() || ''"
       [disabled]="disabled()"
       (focus)="focused.set(true)"
@@ -18,8 +18,8 @@
       (input)="onInputValueChange($event)" />
 
     <!-- Clear Button -->
-    @if (inputTextValue() || selectedValue()) {
-      <i r-icon icon="X" [size]="18" (click)="inputTextValue.set('')"></i>
+    @if (searchValue() || selectedValue()) {
+      <i r-icon icon="X" [size]="18" (click)="searchValue.set('')"></i>
     }
   </section>
 }
