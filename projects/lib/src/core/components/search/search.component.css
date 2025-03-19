@@ -150,8 +150,18 @@
     pointer-events: none;
 
     i {
-      &.open {
-        transform: rotate(180deg);
+      &.select-has-value {
+        pointer-events: all;
+        cursor: pointer;
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+
+      &:not(.select-has-value) {
+        pointer-events: none;
+        transition: transform 0.2s;
       }
 
       &.searching {

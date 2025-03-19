@@ -5,10 +5,8 @@
   </label>
 }
 
-@let withoutOptions = !options() || options().length === 0;
-
-@if (!value()) {
-  <section [class.large]="withoutOptions">
+@if (!selectedValue()) {
+  <section [class.large]="noOptions()">
     <!-- Input -->
     <input
       #input
@@ -20,7 +18,7 @@
       (input)="onInputValueChange($event)" />
 
     <!-- Clear Button -->
-    @if (inputTextValue() || value()) {
+    @if (inputTextValue() || selectedValue()) {
       <i r-icon icon="X" [size]="18" (click)="inputTextValue.set('')"></i>
     }
   </section>
@@ -29,31 +27,29 @@
 <!-- Select -->
 <select
   #select
-  [value]="selectValue()"
-  [style.display]="withoutOptions ? 'none' : 'block'"
+  [value]="selectedValue()"
   (change)="onSelectValueChange($event)"
   (mousedown)="isOpen.set(true)"
   [disabled]="disabled()"></select>
 
-<!-- Icon -->
-<div class="icon-wrapper">
-  <i
-    r-icon
-    [style.display]="withoutOptions ? 'none' : 'flex'"
-    [icon]="searching() ? 'LoaderCircle' : value() ? 'X' : 'ChevronDown'"
-    [class.open]="isOpen() && !value()"
-    [style.pointer-events]="value() ? 'auto' : 'none'"
-    [style.cursor]="value() ? 'pointer' : 'default'"
-    [style.transition]="value() ? 'none' : 'transform 0.2s'"
-    (click)="handleIconClick()"
-    [class.searching]="searching()"
-    [size]="searching() ? 17 : value() ? 18 : 20"
-    [color]="
-      invalid()
-        ? 'var(--error-foreground, #c40000ab)'
-        : ' var(--input-foreground, #798194)'
-    "></i>
-</div>
+@if (!noOptions()) {
+  <!-- Icon -->
+  <div class="icon-wrapper">
+    <i
+      r-icon
+      [icon]="selectIconName()"
+      [class.open]="isOpen()"
+      [class.select-has-value]="selectedValue()"
+      (click)="handleIconClick()"
+      [class.searching]="searching()"
+      [size]="selectIconSize()"
+      [color]="
+        invalid()
+          ? 'var(--error-foreground, #c40000ab)'
+          : ' var(--input-foreground, #798194)'
+      "></i>
+  </div>
+}
 
 <!-- Projected Options -->
 <ng-content />

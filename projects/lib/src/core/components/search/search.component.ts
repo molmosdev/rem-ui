@@ -26,7 +26,7 @@ import { Option } from '../../../public-api';
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[class.label-up]':
-      '(inputTextValue() || value() || placeholder() || focused()) && label()',
+      '(inputTextValue() || selectedValue() || placeholder() || focused()) && label()',
     '(keydown)': 'onKeyDown($event)',
   },
 })
@@ -64,14 +64,7 @@ export class Search {
   /**
    * The value of the text field.
    */
-  value = model<string | null>(null);
-
-  /**
-   * The selected value of the search component. Computed to avoid issues
-   * when passing the value directly to the select, as it may conflict
-   * with the prop value of the select and the value model.
-   */
-  selectValue = computed(() => this.value());
+  selectedValue = model<string | null>(null);
 
   /**
    * Emits the value of the search component when the value changes.
@@ -99,6 +92,13 @@ export class Search {
   readonly options = contentChildren(Option);
 
   /**
+   * Indicates whether the search component has no options.
+   */
+  readonly noOptions = computed(
+    () => !this.options() || this.options().length === 0
+  );
+
+  /**
    * Reference to the select element within the component
    * @private
    */
@@ -109,6 +109,24 @@ export class Search {
    * @private
    */
   private readonly renderer = inject(Renderer2);
+
+  /**
+   * The icon name to display.
+   */
+  readonly selectIconName = computed(() => {
+    return this.searching()
+      ? 'LoaderCircle'
+      : this.selectedValue()
+        ? 'X'
+        : 'ChevronDown';
+  });
+
+  /**
+   * The icon size to display.
+   */
+  readonly selectIconSize = computed(() => {
+    return this.searching() ? 17 : this.selectedValue() ? 18 : 20;
+  });
 
   /**
    * Initializes the search component.
@@ -156,7 +174,7 @@ export class Search {
    * Resets the search component.
    */
   reset(): void {
-    this.value.set(null);
+    this.selectedValue.set(null);
     this.inputTextValue.set('');
   }
 
@@ -168,7 +186,7 @@ export class Search {
     const select = event.target as HTMLSelectElement;
     const value = select.value === 'null' ? null : select.value;
 
-    this.value.set(value);
+    this.selectedValue.set(value);
     this.isOpen.set(false);
   }
 
@@ -197,7 +215,7 @@ export class Search {
    * Handles the icon click event.
    */
   handleIconClick(): void {
-    if (this.value()) {
+    if (this.selectedValue()) {
       this.reset();
     }
   }
