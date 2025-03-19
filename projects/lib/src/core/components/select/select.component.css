@@ -113,39 +113,3 @@
     opacity: 0.5;
   }
 }
-
-::ng-deep option {
-  margin-bottom: 0.25rem;
-  cursor: pointer;
-  padding: 0.5rem 0.75rem;
-  color: var(--foreground, #798194);
-  transition: 0.1s;
-  border-radius: calc(var(--roundness, 0.5rem) - 0.2rem);
-}
-
-::ng-deep option::checkmark {
-  display: none;
-}
-
-::ng-deep option:focus-visible {
-  outline-width: 0;
-}
-
-::ng-deep option:hover,
-::ng-deep option:focus-visible {
-  background-color: color-mix(
-    in srgb,
-    var(--foreground, #798194) 5%,
-    var(--background, #ffffff)
-  );
-}
-
-::ng-deep option:checked {
-  background-color: var(--primary, #0a0a0a);
-  color: var(--primary-foreground, #ffffff);
-}
-
-::ng-deep option:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
