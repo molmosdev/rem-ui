@@ -47,6 +47,11 @@ export class Search {
   readonly placeholder = input<string>('');
 
   /**
+   * Indicates whether the search component is searching.
+   */
+  readonly searching = input(true);
+
+  /**
    * Indicates whether the search component is in an invalid state.
    */
   invalid = model(false);

@@ -136,17 +136,27 @@
     }
   }
 
-  i.select-icon {
+  .icon-wrapper {
     position: absolute;
-    right: 0.8rem;
-    top: 0;
-    height: 100%;
+    right: 0;
+    top: 50%;
     transform: translateY(-50%);
-    transition: transform 0.2s;
-    transform: rotate(0deg);
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    width: 3rem;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 
-    &.open {
-      transform: rotate(180deg);
+    i {
+      &.open {
+        transform: rotate(180deg);
+      }
+
+      &.searching {
+        animation: spin 1.7s linear infinite;
+      }
     }
   }
 
@@ -223,4 +233,13 @@
 ::ng-deep option:disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
