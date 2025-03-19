@@ -7,6 +7,7 @@
   border-color: var(--border-color, transparent);
   transition: border-color 0.2s;
   border-radius: var(--roundness, 0.5rem);
+  overflow: hidden;
 
   &:has(input:focus-visible),
   &:has(select:focus-visible) {
