@@ -49,7 +49,7 @@ export class Search {
   /**
    * Indicates whether the search component is searching.
    */
-  readonly searching = input(true);
+  readonly searching = input(false);
 
   /**
    * Indicates whether the search component is in an invalid state.
