@@ -173,7 +173,9 @@ export class Search {
    */
   onSelectValueChange(event: any): void {
     const value = event.target.value as string;
-    const option = this.options().find(option => option.value() === value);
+    const option = this.options().find(
+      (option: Option) => option.el.nativeElement.value === value
+    );
     const optionInnerText = option?.el.nativeElement.innerText || '';
 
     this.value.set(value);

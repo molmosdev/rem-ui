@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input } from '@angular/core';
+import { Component, ElementRef, inject } from '@angular/core';
 
 @Component({
   selector: 'option[r-option]',
@@ -9,9 +9,4 @@ export class Option {
    * Reference to the host element.
    */
   el = inject(ElementRef);
-
-  /**
-   * The value of the option.
-   */
-  value = input<string | null>(null);
 }

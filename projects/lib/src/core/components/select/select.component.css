@@ -96,7 +96,7 @@
     }
   }
 
-  &.active-with-label {
+  &.label-up {
     label {
       top: 0.344rem;
       font-size: 0.7rem;

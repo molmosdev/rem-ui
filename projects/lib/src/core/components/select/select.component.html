@@ -8,7 +8,7 @@
 <!-- Select -->
 <select
   #select
-  [value]="selectedValue()"
+  [value]="selectValue()"
   (close)="isOpen.set(false)"
   (change)="onSelectionChange($event)"
   (mousedown)="isOpen.set(true)"

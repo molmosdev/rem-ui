@@ -28,7 +28,7 @@ import { Option } from '../../../public-api';
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '[class.active-with-label]': 'isActiveState() && label()',
+    '[class.label-up]': '(selectValue() || placeholder()) && label()',
     '(keydown)': 'onKeyDown($event)',
   },
   standalone: true,
@@ -62,7 +62,12 @@ export class Select {
   /**
    * The selected value of the select component.
    */
-  selectedValue = model<string | null>(null);
+  value = model<string | null>(null);
+
+  /**
+   * The selected value of the select component.
+   */
+  selectValue = computed(() => this.value());
 
   /**
    * Indicates whether the select component is in an invalid state.
@@ -83,13 +88,6 @@ export class Select {
    * Indicates whether the options dropdown is open.
    */
   isOpen = signal(false);
-
-  /**
-   * Computed property indicating whether the select component is in an active state (i.e., has a value or placeholder).
-   */
-  protected readonly isActiveState = computed(
-    () => !!this.selectedValue() || !!this.placeholder()
-  );
 
   /**
    * Reference to the host element.
@@ -142,7 +140,7 @@ export class Select {
     const select = event.target as HTMLSelectElement;
     const value = select.value === 'null' ? null : select.value;
 
-    this.selectedValue.set(value);
+    this.value.set(value);
     this.isOpen.set(false);
   }
 
