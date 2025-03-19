@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Search, Option } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
@@ -12,14 +12,24 @@ import { IArg } from '../../interfaces/arg.interface';
         <div class="component">
           <r-search
             [label]="args()[0].value()"
-            [error]="args()[1].value()"
-            [positioning]="args()[2].value()"
-            [noResultsMessage]="args()[3].value()"
-            [debounceDelay]="args()[4].value()">
-            @for (option of options; track option) {
-              <r-option [value]="option.value" [disabled]="option.disabled">
-                {{ option.label }}
-              </r-option>
+            [placeholder]="args()[1].value()"
+            [invalid]="args()[2].value()"
+            [disabled]="args()[3].value()"
+            [(searching)]="args()[4].value"
+            [(selectedValue)]="args()[5].value"
+            [debounceTime]="args()[6].value()"
+            [(searchValue)]="searchValue"
+            (searchChange)="onSearchChange()"
+            maxWidth="240px">
+            @if (searchValue()) {
+              @for (option of options; track option) {
+                <option
+                  r-option
+                  [value]="option.value"
+                  [disabled]="option.disabled">
+                  {{ option.text }}
+                </option>
+              }
             }
           </r-search>
         </div>
@@ -34,59 +44,49 @@ export default class SearchPlaygroundComponent {
     {
       label: 'Label',
       type: 'text',
-      value: signal('Search for an option'),
+      value: signal('Search'),
     },
     {
-      label: 'Error',
+      label: 'Placeholder',
+      type: 'text',
+      value: signal('Type to search...'),
+    },
+    {
+      label: 'Invalid',
       type: 'switch',
       value: signal(false),
     },
     {
-      label: 'Positioning',
-      type: 'select',
-      value: signal('down'),
-      options: [
-        { label: 'Down', value: 'down' },
-        { label: 'Up', value: 'up' },
-      ],
+      label: 'Disabled',
+      type: 'switch',
+      value: signal(false),
     },
     {
-      label: 'No Results Message',
+      label: 'Searching',
+      type: 'switch',
+      value: signal(false),
+    },
+    {
+      label: 'Selected Value',
       type: 'text',
-      value: signal('No results found'),
+      value: signal(''),
     },
     {
-      label: 'Debounce Delay',
+      label: 'Debounce Time',
       type: 'number',
-      value: signal(400),
+      value: signal(500),
     },
   ]);
 
+  searchValue = signal<string>('');
+
   options = [
-    { label: 'Option 1', value: 'option1', disabled: false },
-    { label: 'Option 2', value: 'option2', disabled: false },
-    { label: 'Option 3', value: 'option3', disabled: true },
+    { text: 'Option 1', value: 'option1', disabled: false },
+    { text: 'Option 2', value: 'option2', disabled: false },
+    { text: 'Option 3', value: 'option3', disabled: true },
   ];
 
-  code = computed(() => {
-    const optionsString = this.options
-      .map(
-        option => `
-    <r-option [value]='${option.value}' [disabled]='${option.disabled}'>
-      ${option.label}
-    </r-option>
-  `
-      )
-      .join('');
-    return `
-      <r-search
-        [label]='"${this.args()[0].value()}"'
-        [error]="${this.args()[1].value()}"
-        [positioning]='"${this.args()[2].value()}"'
-        [noResultsMessage]='"${this.args()[3].value()}"'
-        [debounceDelay]="${this.args()[4].value()}">
-        ${optionsString}
-      </r-search>
-    `;
-  });
+  onSearchChange() {
+    this.args()[4].value.set(false);
+  }
 }

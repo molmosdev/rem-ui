@@ -54,14 +54,14 @@ export const playgroundRoutes: Routes = [
       title: 'Select',
     },
   },
-  /* {
+  {
     path: 'search',
     loadComponent: () =>
       import('./pages/search-playground/search-playground.component'),
     data: {
       title: 'Search',
     },
-  }, */
+  },
   {
     path: 'tabs',
     loadComponent: () =>
