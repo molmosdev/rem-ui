@@ -5,6 +5,9 @@
 /* Animations */
 export * from './shared/animations/animations';
 
+/* Theme Service */
+export * from './core/services/theme.service';
+
 /* Button */
 export * from './core/components/button/button.component';
 
