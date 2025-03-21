@@ -31,14 +31,6 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
-    path: 'text-field',
-    loadComponent: () =>
-      import('./pages/text-field-playground/text-field-playground.component'),
-    data: {
-      title: 'Text Field',
-    },
-  },
-  {
     path: 'spinner',
     loadComponent: () =>
       import('./pages/spinner-playground/spinner-playground.component'),
