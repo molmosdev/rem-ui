@@ -26,7 +26,7 @@ import {
     '(blur)': 'onBlur($event)',
   },
 })
-export class InputComponent {
+export class Input {
   /**
    * The type of the input.
    */

@@ -1,13 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { ArgsComponent } from '../../components/args/args.component';
-import { InputComponent } from '../../../../../../../lib/src/core/components/input/input.component';
-import { Icon } from '../../../../../../../lib/src/core/components/icon/icon.component';
-import { Button } from '../../../../../../../lib/src/public-api';
+import { Input } from '../../../../../../../lib/src/core/components/input/input.component';
 
 @Component({
   selector: 'app-input-playground',
-  imports: [InputComponent, ArgsComponent, Icon, Button],
+  imports: [Input, ArgsComponent],
   template: `
     <div class="playground">
       <div class="top">
@@ -20,31 +18,8 @@ import { Button } from '../../../../../../../lib/src/public-api';
             [disabled]="args()[3].value()"
             [numberType]="args()[4].value()"
             [decimals]="args()[5].value()"
+            [invalid]="args()[6].value()"
             maxWidth="240px" />
-          @if (args()[6].value() && args()[2].value()) {
-            <button
-              r-button
-              tailing
-              variant="transparent"
-              size="small"
-              [noPaddingInline]="true"
-              (click)="args()[2].value.set(null)"
-              [style.color]="
-                args()[7].value()
-                  ? 'var(--error-foreground, #c40000ab)'
-                  : 'var(--input-foreground, #798194)'
-              ">
-              <i
-                r-icon
-                icon="X"
-                [size]="19"
-                [color]="
-                  !args()[7].value()
-                    ? 'var(--input-foreground, #798194)'
-                    : 'var(--error-foreground, #c40000ab)'
-                "></i>
-            </button>
-          }
         </div>
       </div>
       <app-args [args]="args()" />
@@ -95,7 +70,7 @@ export default class InputPlaygroundComponent {
       value: signal(2),
     },
     {
-      label: 'Error',
+      label: 'Invalid',
       type: 'switch',
       value: signal(false),
     },
