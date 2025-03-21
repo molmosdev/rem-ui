@@ -1,5 +1,6 @@
 import { Component, computed, contentChild } from '@angular/core';
 import { Input } from '../../../core/components/input/input.component';
+import { Select } from '../../../public-api';
 
 @Component({
   selector: 'r-float-label',
@@ -22,5 +23,18 @@ export class FloatLabel {
   isInputActive = computed(() => {
     const input = this.input();
     return !!(input?.focused() || input?.value() || input?.placeholder());
+  });
+
+  /**
+   * The select element.
+   */
+  select = contentChild(Select);
+
+  /**
+   * Whether the select is active.
+   */
+  isSelectActive = computed(() => {
+    const select = this.select();
+    return !!select?.value();
   });
 }
