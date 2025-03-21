@@ -23,6 +23,14 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'select',
+    loadComponent: () =>
+      import('./pages/select-playground/select-playground.component'),
+    data: {
+      title: 'Select',
+    },
+  },
+  {
     path: 'text-field',
     loadComponent: () =>
       import('./pages/text-field-playground/text-field-playground.component'),
@@ -52,14 +60,6 @@ export const playgroundRoutes: Routes = [
       import('./pages/textarea-playground/textarea-playground.component'),
     data: {
       title: 'Textarea',
-    },
-  },
-  {
-    path: 'select',
-    loadComponent: () =>
-      import('./pages/select-playground/select-playground.component'),
-    data: {
-      title: 'Select',
     },
   },
   {
