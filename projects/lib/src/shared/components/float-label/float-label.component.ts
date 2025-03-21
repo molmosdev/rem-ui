@@ -8,7 +8,7 @@ import { Select } from '../../../public-api';
   template: ` <ng-content /> `,
   styleUrl: './float-label.component.css',
   host: {
-    '[class.up]': 'isInputActive()',
+    '[class.up]': 'isInputActive() || isSelectActive()',
   },
 })
 export class FloatLabel {
@@ -33,8 +33,5 @@ export class FloatLabel {
   /**
    * Whether the select is active.
    */
-  isSelectActive = computed(() => {
-    const select = this.select();
-    return !!select?.value();
-  });
+  isSelectActive = computed(() => !!this.select()?.value());
 }

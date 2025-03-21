@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   Component,
   computed,
   ElementRef,
@@ -16,7 +17,6 @@ import {
   host: {
     '[type]': 'type()',
     '[placeholder]': 'placeholder() || ""',
-    '[value]': 'value()',
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
@@ -25,7 +25,7 @@ import {
     '(blur)': 'onBlur($event)',
   },
 })
-export class Input {
+export class Input implements AfterViewChecked {
   /**
    * The type of the input.
    */
@@ -39,7 +39,7 @@ export class Input {
   /**
    * The value of the input.
    */
-  value = model<string | number | null>(null);
+  value = signal<string | number | null>(null);
 
   /**
    * Whether the input is invalid.
@@ -85,6 +85,14 @@ export class Input {
    * Reference to the input element.
    */
   readonly el = inject<ElementRef<HTMLInputElement>>(ElementRef);
+
+  /**
+   * After the view has been initialized, set the value of the select.
+   */
+  ngAfterViewChecked(): void {
+    const value = this.el.nativeElement.value;
+    this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
+  }
 
   /**
    * Handles the input event.

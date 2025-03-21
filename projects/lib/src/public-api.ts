@@ -28,6 +28,9 @@ export * from './core/components/dropdown/components/dropdown-trigger/dropdown-t
 /* Search */
 export * from './core/components/search/search.component';
 
+/* Input */
+export * from './core/components/input/input.component';
+
 /* Select */
 export * from './core/components/select/select.component';
 

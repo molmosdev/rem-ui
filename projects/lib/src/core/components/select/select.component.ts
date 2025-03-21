@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   effect,
   ElementRef,
@@ -16,14 +17,14 @@ import {
   template: ``,
   styleUrl: './select.component.css',
   host: {
-    '[value]': 'value()',
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
     '(keydown)': 'onKeyDown($event)',
+    '(change)': 'change($event.target.value)',
   },
 })
-export class Select {
+export class Select implements AfterViewInit {
   /**
    * The value of the input.
    */
@@ -84,6 +85,13 @@ export class Select {
   }
 
   /**
+   * After the view has been initialized, set the value of the select.
+   */
+  ngAfterViewInit(): void {
+    this.value.set(this.el.nativeElement.value);
+  }
+
+  /**
    * Renders the options within the select element.
    * @private
    */
@@ -104,5 +112,14 @@ export class Select {
       optionEl.disabled = option.disabled;
       this.renderer.appendChild(select, optionEl);
     });
+  }
+
+  /**
+   * Handles the select change event.
+   * @param value - The value of the select.
+   */
+  change(value: string): void {
+    this.valueChange.emit(value);
+    this.value.set(value);
   }
 }
