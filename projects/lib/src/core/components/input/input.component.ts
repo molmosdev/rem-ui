@@ -15,12 +15,11 @@ import {
   styleUrl: './input.component.css',
   host: {
     '[type]': 'type()',
-    '[placeholder]': 'placeholder()',
+    '[placeholder]': 'placeholder() || ""',
     '[value]': 'value()',
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '[class.label-up]': '(focused() || value() || placeholder()) && hasLabel()',
     '(input)': 'onInput($event)',
     '(focus)': 'focused.set(true)',
     '(blur)': 'onBlur($event)',
@@ -76,11 +75,6 @@ export class Input {
    * Whether the input is focused.
    */
   focused = signal<boolean>(false);
-
-  /**
-   * Whether the input has a label.
-   */
-  hasLabel = signal<boolean>(false);
 
   /**
    * Event emitted when the value changes.
