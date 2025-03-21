@@ -1,30 +1,23 @@
 import { Component, computed, signal } from '@angular/core';
-import { Option, Select } from '../../../../../../../lib/src/public-api';
+import { Select } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
 import { IArg } from '../../interfaces/arg.interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-select-playground',
-  imports: [Select, Option, ArgsComponent],
+  imports: [Select, ArgsComponent, FormsModule],
   template: `
     <div class="playground">
       <div class="top">
         <div class="component">
-          <r-select
-            [label]="args()[0].value()"
+          <select
+            r-select
+            [options]="options"
             [invalid]="args()[1].value()"
             [disabled]="args()[2].value()"
-            [selectedValue]="args()[3].value()"
-            maxWidth="240px">
-            @for (option of options; track option) {
-              <option
-                r-option
-                [value]="option.value"
-                [disabled]="option.disabled">
-                {{ option.text }}
-              </option>
-            }
-          </r-select>
+            [(ngModel)]="args()[3].value"
+            maxWidth="240px"></select>
         </div>
         <!-- <app-code-block [code]="code()" /> -->
       </div>

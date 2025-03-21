@@ -2,11 +2,11 @@
   @if (!arg.hidden) {
     @switch (arg.type) {
       @case ('select') {
-        <r-select [label]="arg.label" [(selectedValue)]="arg.value">
-          @for (option of arg.options; track option.value) {
-            <option r-option [value]="option.value">{{ option.text }}</option>
-          }
-        </r-select>
+        <select
+          r-select
+          [options]="arg.options!"
+          maxWidth="240px"
+          [(ngModel)]="arg.value"></select>
       }
       @case ('switch') {
         <div class="switch-wrapper">

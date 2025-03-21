@@ -6,12 +6,12 @@ import {
   Button,
   TextField,
   Icon,
-  Option,
 } from '../../../../../../../lib/src/public-api';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-args',
-  imports: [TextField, Select, Option, Switch, Button, Icon],
+  imports: [TextField, Select, Switch, Button, Icon, FormsModule],
   templateUrl: './args.component.html',
   styleUrl: './args.component.css',
 })
