@@ -15,6 +15,14 @@ export const playgroundRoutes: Routes = [
     },
   },
   {
+    path: 'input',
+    loadComponent: () =>
+      import('./pages/input-playground/input-playground.component'),
+    data: {
+      title: 'Input',
+    },
+  },
+  {
     path: 'text-field',
     loadComponent: () =>
       import('./pages/text-field-playground/text-field-playground.component'),
