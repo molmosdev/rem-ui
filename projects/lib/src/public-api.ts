@@ -82,6 +82,3 @@ export * from './core/components/attached-box/attached-box.component';
 
 /* Icon */
 export * from './core/components/icon/icon.component';
-
-/* Text Field */
-export * from './core/components/text-field/text-field.component';
