@@ -1,5 +1,5 @@
 import {
-  AfterViewChecked,
+  AfterViewInit,
   Component,
   computed,
   ElementRef,
@@ -25,7 +25,7 @@ import {
     '(blur)': 'onBlur($event)',
   },
 })
-export class Input implements AfterViewChecked {
+export class Input implements AfterViewInit {
   /**
    * The type of the input.
    */
@@ -89,9 +89,11 @@ export class Input implements AfterViewChecked {
   /**
    * After the view has been initialized, set the value of the select.
    */
-  ngAfterViewChecked(): void {
-    const value = this.el.nativeElement.value;
-    this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const value = this.el.nativeElement.value;
+      this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
+    }, 0);
   }
 
   /**
