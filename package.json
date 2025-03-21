@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "fmt": "prettier --write .",
     "watch:lib": "ng build lib --watch --configuration development",
     "build:lib": "ng build lib",
