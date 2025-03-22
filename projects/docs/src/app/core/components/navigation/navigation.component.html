@@ -1,7 +1,7 @@
 @defer (on idle) {
   @switch (currentDevice()) {
     @case ('mobile') {
-      <button r-button variant="secondary" (click)="isMenuVisible.set(true)">
+      <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
         {{ actualRouteData()?.['title'] }}
         <div class="chevron-wrapper">
           <i class="icon-chevron-up"></i>
