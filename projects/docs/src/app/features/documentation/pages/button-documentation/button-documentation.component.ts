@@ -24,27 +24,31 @@ import { Button, Icon } from '../../../../../../../lib/src/public-api';
         </tr>
         <tr>
           <td><strong>variant</strong></td>
-          <td><code>'primary' | 'secondary' | 'ghost' | 'outlined'</code></td>
+          <td>
+            <span class="code"
+              >'primary' | 'secondary' | 'ghost' | 'outlined'</span
+            >
+          </td>
           <td>The variant of the button.</td>
         </tr>
         <tr>
           <td><strong>size</strong></td>
-          <td><code>'small' | 'default'</code></td>
+          <td><span class="code">'small' | 'default'</span></td>
           <td>The size of the button.</td>
         </tr>
         <tr>
           <td><strong>radius</strong></td>
-          <td><code>'none' | 'medium' | 'full'</code></td>
+          <td><span class="code">'none' | 'medium' | 'full'</span></td>
           <td>The radius of the button.</td>
         </tr>
         <tr>
           <td><strong>loading</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the button is in a loading state.</td>
         </tr>
         <tr>
           <td><strong>equalPadding</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>
             Whether the padding should be equal vertically and horizontally.
           </td>

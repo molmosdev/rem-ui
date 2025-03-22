@@ -27,22 +27,22 @@ import {
         </tr>
         <tr>
           <td><strong>value</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>The value of the switch.</td>
         </tr>
         <tr>
           <td><strong>size</strong></td>
-          <td><code>'default' | 'large'</code></td>
+          <td><span class="code">'default' | 'large'</span></td>
           <td>The size of the switch.</td>
         </tr>
         <tr>
           <td><strong>disabled</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the switch is disabled.</td>
         </tr>
         <tr>
           <td><strong>invalid</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the switch is invalid.</td>
         </tr>
       </table>
@@ -58,7 +58,7 @@ import {
         </tr>
         <tr>
           <td><strong>valueChange</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Emitted when the value of the switch changes.</td>
         </tr>
       </table>

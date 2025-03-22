@@ -30,26 +30,27 @@ import {
         <tr>
           <td><strong>options</strong></td>
           <td>
-            <code
+            <span
+              class="code"
               [innerText]="
                 '{ value: string | null; text: string; disabled?: boolean; }[]'
-              "></code>
+              "></span>
           </td>
           <td>The options available for selection.</td>
         </tr>
         <tr>
           <td><strong>disabled</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the select is disabled.</td>
         </tr>
         <tr>
           <td><strong>invalid</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the select is invalid.</td>
         </tr>
         <tr>
           <td><strong>maxWidth</strong></td>
-          <td><code>string</code></td>
+          <td><span class="code">string</span></td>
           <td>The maximum width of the select.</td>
         </tr>
       </table>
@@ -65,7 +66,7 @@ import {
         </tr>
         <tr>
           <td><strong>valueChange</strong></td>
-          <td><code>string | null</code></td>
+          <td><span class="code">string | null</span></td>
           <td>Emitted when the value of the select changes.</td>
         </tr>
       </table>

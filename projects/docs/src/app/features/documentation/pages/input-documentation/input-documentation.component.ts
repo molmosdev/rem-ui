@@ -27,42 +27,44 @@ import {
         </tr>
         <tr>
           <td><strong>type</strong></td>
-          <td><code>'text' | 'number' | 'password' | 'email'</code></td>
+          <td>
+            <span class="code">'text' | 'number' | 'password' | 'email'</span>
+          </td>
           <td>The type of the input.</td>
         </tr>
         <tr>
           <td><strong>placeholder</strong></td>
-          <td><code>string</code></td>
+          <td><span class="code">string</span></td>
           <td>The placeholder text for the input.</td>
         </tr>
         <tr>
           <td><strong>value</strong></td>
-          <td><code>string | number | null</code></td>
+          <td><span class="code">string | number | null</span></td>
           <td>The value of the input.</td>
         </tr>
         <tr>
           <td><strong>invalid</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the input is invalid.</td>
         </tr>
         <tr>
           <td><strong>disabled</strong></td>
-          <td><code>boolean</code></td>
+          <td><span class="code">boolean</span></td>
           <td>Whether the input is disabled.</td>
         </tr>
         <tr>
           <td><strong>maxWidth</strong></td>
-          <td><code>string</code></td>
+          <td><span class="code">string</span></td>
           <td>The maximum width of the input.</td>
         </tr>
         <tr>
           <td><strong>decimals</strong></td>
-          <td><code>number</code></td>
+          <td><span class="code">number</span></td>
           <td>The number of decimal places for number input.</td>
         </tr>
         <tr>
           <td><strong>numberType</strong></td>
-          <td><code>'integer' | 'decimal'</code></td>
+          <td><span class="code">'integer' | 'decimal'</span></td>
           <td>The type of number input (integer or decimal).</td>
         </tr>
       </table>
@@ -78,7 +80,7 @@ import {
         </tr>
         <tr>
           <td><strong>valueChange</strong></td>
-          <td><code>string | number | null</code></td>
+          <td><span class="code">string | number | null</span></td>
           <td>Emitted when the value of the input changes.</td>
         </tr>
       </table>
