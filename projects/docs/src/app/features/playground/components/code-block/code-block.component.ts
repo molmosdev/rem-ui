@@ -17,7 +17,7 @@ import { Component, input } from '@angular/core';
       );
       margin: 0;
       overflow-x: auto;
-      width: 100%;
+      max-width: 100%;
 
       pre {
         padding: 1rem;
