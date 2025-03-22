@@ -2,17 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2.8rem;
   background-color: var(--primary, #0a0a0a);
   border-radius: var(--roundness, 0.5rem);
   box-sizing: border-box;
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.2s;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
   font-size: 100%;
   border: none;
   text-decoration: none;
+  font-family: 'Geist', sans-serif;
+  --padding-inline-multiple: 1.5;
 
   &:not(:has(span)) {
     &:has(.icon) {
@@ -84,15 +87,15 @@
   }
 
   &:not(:disabled) {
-    &:active {
-      transform: scale(0.97);
-      transition: 0.1s;
-    }
-
     @media (width > 768px) {
       &:hover {
         cursor: pointer;
-        transition: 0.2s;
+      }
+    }
+
+    @media (width >= 768px) {
+      &:active {
+        transform: scale(0.98);
       }
     }
   }
@@ -103,18 +106,6 @@
     pointer-events: none;
   }
 
-  &.size-small {
-    height: 2rem;
-    font-size: 0.875rem;
-    padding-inline: var(--button-padding-inline, 0.875rem);
-  }
-
-  &.size-default {
-    height: 2.8rem;
-    font-size: 1rem;
-    padding-inline: var(--button-padding-inline, 1.2rem);
-  }
-
   &.radius-none {
     border-radius: 0;
   }
@@ -123,11 +114,34 @@
     border-radius: 0.5rem;
 
     &.size-small {
-      border-radius: 0.3rem;
+      border-radius: 0.4rem;
     }
   }
 
   &.radius-full {
     border-radius: 9999px;
+    --padding-inline-multiple: 2;
+  }
+
+  &.size-small {
+    --padding: calc(0.5625rem - 2px);
+    font-size: 0.875rem;
+    padding: var(--padding)
+      calc(var(--padding) * var(--padding-inline-multiple));
+
+    &.equal-padding {
+      padding: var(--padding);
+    }
+  }
+
+  &.size-default {
+    --padding: calc(0.9rem - 2px);
+    font-size: 1rem;
+    padding: var(--padding)
+      calc(var(--padding) * var(--padding-inline-multiple));
+
+    &.equal-padding {
+      padding: var(--padding);
+    }
   }
 }

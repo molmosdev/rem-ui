@@ -8,7 +8,7 @@ import { Spinner } from '../spinner/spinner.component';
   styleUrl: './button.component.css',
   host: {
     '[class]': 'variant() + " size-" + size() + " radius-" + radius()',
-    '[style.padding-inline]': 'noPaddingInline() ? "0" : ""',
+    '[class.equal-padding]': 'equalPadding()',
   },
 })
 export class Button {
@@ -24,6 +24,6 @@ export class Button {
   /** Whether is loading. */
   loading = input(false);
 
-  /** Whether it has no padding. */
-  noPaddingInline = input(false);
+  /** Whether the padding should be equal vertically and horizontally. */
+  equalPadding = input(false);
 }
