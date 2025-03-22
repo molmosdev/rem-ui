@@ -39,11 +39,16 @@ app-label-documentation {
     margin-top: 1rem;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow-x: auto;
-    display: block;
+  .table-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: 0.3rem;
+    overflow: hidden;
+
+    table {
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: block;
+    }
   }
 
   th,
@@ -52,6 +57,15 @@ app-label-documentation {
     padding: 1rem;
     text-align: left;
     white-space: nowrap;
+  }
+
+  tr {
+    &:last-child {
+      th,
+      td {
+        border-bottom: none;
+      }
+    }
   }
 
   th {

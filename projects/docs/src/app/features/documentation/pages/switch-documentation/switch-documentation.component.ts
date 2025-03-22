@@ -18,47 +18,51 @@ import {
     <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>value</strong></td>
-        <td><code>boolean</code></td>
-        <td>The value of the switch.</td>
-      </tr>
-      <tr>
-        <td><strong>size</strong></td>
-        <td><code>'default' | 'large'</code></td>
-        <td>The size of the switch.</td>
-      </tr>
-      <tr>
-        <td><strong>disabled</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the switch is disabled.</td>
-      </tr>
-      <tr>
-        <td><strong>invalid</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the switch is invalid.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>value</strong></td>
+          <td><code>boolean</code></td>
+          <td>The value of the switch.</td>
+        </tr>
+        <tr>
+          <td><strong>size</strong></td>
+          <td><code>'default' | 'large'</code></td>
+          <td>The size of the switch.</td>
+        </tr>
+        <tr>
+          <td><strong>disabled</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the switch is disabled.</td>
+        </tr>
+        <tr>
+          <td><strong>invalid</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the switch is invalid.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Events</h2>
-    <table>
-      <tr>
-        <th>Event</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>valueChange</strong></td>
-        <td><code>boolean</code></td>
-        <td>Emitted when the value of the switch changes.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>valueChange</strong></td>
+          <td><code>boolean</code></td>
+          <td>Emitted when the value of the switch changes.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />

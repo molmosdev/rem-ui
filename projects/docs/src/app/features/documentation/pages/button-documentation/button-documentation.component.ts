@@ -15,52 +15,56 @@ import { Button, Icon } from '../../../../../../../lib/src/public-api';
     <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>variant</strong></td>
-        <td><code>'primary' | 'secondary' | 'ghost' | 'outlined'</code></td>
-        <td>The variant of the button.</td>
-      </tr>
-      <tr>
-        <td><strong>size</strong></td>
-        <td><code>'small' | 'default'</code></td>
-        <td>The size of the button.</td>
-      </tr>
-      <tr>
-        <td><strong>radius</strong></td>
-        <td><code>'none' | 'medium' | 'full'</code></td>
-        <td>The radius of the button.</td>
-      </tr>
-      <tr>
-        <td><strong>loading</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the button is in a loading state.</td>
-      </tr>
-      <tr>
-        <td><strong>equalPadding</strong></td>
-        <td><code>boolean</code></td>
-        <td>
-          Whether the padding should be equal vertically and horizontally.
-        </td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>variant</strong></td>
+          <td><code>'primary' | 'secondary' | 'ghost' | 'outlined'</code></td>
+          <td>The variant of the button.</td>
+        </tr>
+        <tr>
+          <td><strong>size</strong></td>
+          <td><code>'small' | 'default'</code></td>
+          <td>The size of the button.</td>
+        </tr>
+        <tr>
+          <td><strong>radius</strong></td>
+          <td><code>'none' | 'medium' | 'full'</code></td>
+          <td>The radius of the button.</td>
+        </tr>
+        <tr>
+          <td><strong>loading</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the button is in a loading state.</td>
+        </tr>
+        <tr>
+          <td><strong>equalPadding</strong></td>
+          <td><code>boolean</code></td>
+          <td>
+            Whether the padding should be equal vertically and horizontally.
+          </td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Events</h2>
-    <table>
-      <tr>
-        <th>Event</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>click</strong></td>
-        <td>Emitted when the button is clicked.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>click</strong></td>
+          <td>Emitted when the button is clicked.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />

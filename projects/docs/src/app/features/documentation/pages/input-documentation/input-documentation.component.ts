@@ -18,67 +18,71 @@ import {
     <code-block [code]="webComponentsImport"></code-block>
 
     <h2>Properties</h2>
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>type</strong></td>
-        <td><code>'text' | 'number' | 'password' | 'email'</code></td>
-        <td>The type of the input.</td>
-      </tr>
-      <tr>
-        <td><strong>placeholder</strong></td>
-        <td><code>string</code></td>
-        <td>The placeholder text for the input.</td>
-      </tr>
-      <tr>
-        <td><strong>value</strong></td>
-        <td><code>string | number | null</code></td>
-        <td>The value of the input.</td>
-      </tr>
-      <tr>
-        <td><strong>invalid</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the input is invalid.</td>
-      </tr>
-      <tr>
-        <td><strong>disabled</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the input is disabled.</td>
-      </tr>
-      <tr>
-        <td><strong>maxWidth</strong></td>
-        <td><code>string</code></td>
-        <td>The maximum width of the input.</td>
-      </tr>
-      <tr>
-        <td><strong>decimals</strong></td>
-        <td><code>number</code></td>
-        <td>The number of decimal places for number input.</td>
-      </tr>
-      <tr>
-        <td><strong>numberType</strong></td>
-        <td><code>'integer' | 'decimal'</code></td>
-        <td>The type of number input (integer or decimal).</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>type</strong></td>
+          <td><code>'text' | 'number' | 'password' | 'email'</code></td>
+          <td>The type of the input.</td>
+        </tr>
+        <tr>
+          <td><strong>placeholder</strong></td>
+          <td><code>string</code></td>
+          <td>The placeholder text for the input.</td>
+        </tr>
+        <tr>
+          <td><strong>value</strong></td>
+          <td><code>string | number | null</code></td>
+          <td>The value of the input.</td>
+        </tr>
+        <tr>
+          <td><strong>invalid</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the input is invalid.</td>
+        </tr>
+        <tr>
+          <td><strong>disabled</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the input is disabled.</td>
+        </tr>
+        <tr>
+          <td><strong>maxWidth</strong></td>
+          <td><code>string</code></td>
+          <td>The maximum width of the input.</td>
+        </tr>
+        <tr>
+          <td><strong>decimals</strong></td>
+          <td><code>number</code></td>
+          <td>The number of decimal places for number input.</td>
+        </tr>
+        <tr>
+          <td><strong>numberType</strong></td>
+          <td><code>'integer' | 'decimal'</code></td>
+          <td>The type of number input (integer or decimal).</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Events</h2>
-    <table>
-      <tr>
-        <th>Event</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>valueChange</strong></td>
-        <td><code>string | number | null</code></td>
-        <td>Emitted when the value of the input changes.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>valueChange</strong></td>
+          <td><code>string | number | null</code></td>
+          <td>Emitted when the value of the input changes.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage"></code-block>

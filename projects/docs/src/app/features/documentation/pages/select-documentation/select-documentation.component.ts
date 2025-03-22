@@ -20,52 +20,56 @@ import {
     <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
-    <table>
-      <tr>
-        <th>Property</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>options</strong></td>
-        <td>
-          <code
-            [innerText]="
-              '{ value: string | null; text: string; disabled?: boolean; }[]'
-            "></code>
-        </td>
-        <td>The options available for selection.</td>
-      </tr>
-      <tr>
-        <td><strong>disabled</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the select is disabled.</td>
-      </tr>
-      <tr>
-        <td><strong>invalid</strong></td>
-        <td><code>boolean</code></td>
-        <td>Whether the select is invalid.</td>
-      </tr>
-      <tr>
-        <td><strong>maxWidth</strong></td>
-        <td><code>string</code></td>
-        <td>The maximum width of the select.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>options</strong></td>
+          <td>
+            <code
+              [innerText]="
+                '{ value: string | null; text: string; disabled?: boolean; }[]'
+              "></code>
+          </td>
+          <td>The options available for selection.</td>
+        </tr>
+        <tr>
+          <td><strong>disabled</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the select is disabled.</td>
+        </tr>
+        <tr>
+          <td><strong>invalid</strong></td>
+          <td><code>boolean</code></td>
+          <td>Whether the select is invalid.</td>
+        </tr>
+        <tr>
+          <td><strong>maxWidth</strong></td>
+          <td><code>string</code></td>
+          <td>The maximum width of the select.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Events</h2>
-    <table>
-      <tr>
-        <th>Event</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><strong>valueChange</strong></td>
-        <td><code>string | null</code></td>
-        <td>Emitted when the value of the select changes.</td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>valueChange</strong></td>
+          <td><code>string | null</code></td>
+          <td>Emitted when the value of the select changes.</td>
+        </tr>
+      </table>
+    </div>
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />
