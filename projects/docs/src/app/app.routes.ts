@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { playgroundRoutes } from './features/playground/playground.routes';
 import { documentationRoutes } from './features/documentation/documentation.routes';
 
 export const routes: Routes = [
@@ -24,14 +23,14 @@ export const routes: Routes = [
       type: 'section',
     },
   },
-  {
+  /*   {
     path: 'playground',
     children: playgroundRoutes,
     data: {
       title: 'Playground',
       type: 'section',
     },
-  },
+  }, */
   {
     path: '**',
     redirectTo: '',
