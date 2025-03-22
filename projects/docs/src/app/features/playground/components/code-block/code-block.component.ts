@@ -1,16 +1,16 @@
 import { Component, input } from '@angular/core';
-import { Button } from '../../../../../../../lib/src/public-api';
 
 @Component({
-  selector: 'app-code-block',
-  imports: [Button],
-  template: `
-    <pre> {{ code() }} </pre>
-    <button r-button variant="secondary">Copy code</button>
-  `,
+  selector: 'pre',
+  template: ``,
   styles: `
     :host {
-      height: 100%;
+      font-family: 'Geist Mono', monospace !important;
+      max-height: 100%;
+      font-size: 90%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
       border: 1px solid var(--border-color);
       border-radius: var(--roundness, 0.5rem);
       background-color: color-mix(
@@ -18,33 +18,14 @@ import { Button } from '../../../../../../../lib/src/public-api';
         var(--bg-color),
         var(--text-color) 1%
       );
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      position: relative;
-
-      pre {
-        font-family: 'Geist Mono', monospace !important;
-        max-height: 100%;
-        font-size: 90%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: var(--border-color, transparent)
-          var(--bg-color, #ffffff);
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        padding-right: 5rem;
-      }
-
-      button {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-      }
+      margin: 0;
+      padding: 1.5rem;
+      box-sizing: border-box;
     }
   `,
+  host: {
+    '[innerText]': 'code()',
+  },
 })
 export class CodeBlockComponent {
   code = input<string>('');

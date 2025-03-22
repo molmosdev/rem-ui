@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
+import { Button } from '../../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-button-documentation',
-  imports: [],
   templateUrl: './button-documentation.component.html',
   styleUrl: './button-documentation.component.css',
+  imports: [CodeBlockComponent, Button],
 })
 export default class ButtonDocumentationComponent {}

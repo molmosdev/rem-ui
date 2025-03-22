@@ -9,6 +9,7 @@ import { Spinner } from '../spinner/spinner.component';
   host: {
     '[class]': 'variant() + " size-" + size() + " radius-" + radius()',
     '[class.equal-padding]': 'equalPadding()',
+    '[class.loading]': 'loading()',
   },
 })
 export class Button {
