@@ -102,7 +102,8 @@
   }
 
   &.secondary,
-  &.ghost {
+  &.ghost,
+  &.outlined {
     color: var(--secondary-foreground, #0a0a0a);
   }
 
