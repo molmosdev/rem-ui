@@ -2,12 +2,10 @@
   @switch (currentDevice()) {
     @case ('mobile') {
       <button r-button variant="secondary" (click)="isMenuVisible.set(true)">
-        <div class="button-content-wrapper">
-          <span>{{ actualRouteData()?.['title'] }}</span>
-          <div class="chevron-wrapper">
-            <i class="icon-chevron-up"></i>
-            <i class="icon-chevron-down"></i>
-          </div>
+        {{ actualRouteData()?.['title'] }}
+        <div class="chevron-wrapper">
+          <i class="icon-chevron-up"></i>
+          <i class="icon-chevron-down"></i>
         </div>
       </button>
       <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
