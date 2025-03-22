@@ -20,7 +20,6 @@ import {
     '[class.invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
-    '(keydown)': 'onKeyDown($event)',
     '(change)': 'change($event.target.value)',
   },
 })
