@@ -2,11 +2,10 @@ import { Component, computed, inject, model } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../../lib/src/core/services/theme.service';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
-import { Switch } from '../../../../../../lib/src/core/components/switch/switch.component';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, Switch],
+  imports: [RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })

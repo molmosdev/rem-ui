@@ -2,19 +2,20 @@ import { Component, signal } from '@angular/core';
 import { IArg } from '../../interfaces/arg.interface';
 import { Switch } from '../../../../../../../lib/src/public-api';
 import { ArgsComponent } from '../../components/args/args.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-switch-playground',
-  imports: [Switch, ArgsComponent],
+  imports: [Switch, ArgsComponent, FormsModule],
   template: `
     <div class="playground">
       <div class="top">
         <div class="component">
-          <!-- eslint-disable-next-line @angular-eslint/template/elements-content -->
-          <button
+          <input
+            type="checkbox"
             r-switch
             [size]="args()[0].value()"
-            [(checked)]="args()[1].value"></button>
+            [(ngModel)]="args()[1].value" />
         </div>
         <!-- <app-code-block
           code="

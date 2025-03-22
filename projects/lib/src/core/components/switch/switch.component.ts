@@ -1,52 +1,32 @@
-import { Component, computed, input, model, output } from '@angular/core';
 import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  input,
+  model,
+} from '@angular/core';
 
 @Component({
-  selector: 'button[r-switch]',
-  templateUrl: './switch.component.html',
+  selector: 'input[r-switch]',
+  template: ``,
   styleUrl: './switch.component.css',
-  animations: [
-    trigger('thumbState', [
-      state('unchecked', style({ transform: 'translateX(0)' })),
-      state('checked', style({ transform: '{{checkedTransformX}}' }), {
-        params: { checkedTransformX: 'translateX(1rem)' },
-      }),
-      transition('unchecked <=> checked', [animate('100ms ease-out')]),
-    ]),
-  ],
   host: {
-    '(click)': 'toggle()',
-    'attr.type': 'button',
-    'attr.role': 'switch',
-    'attr.value': 'on',
-    class: 'rt-reset rt-SwitchRoot rt-r-size-1 rt-variant-surface',
-    '[attr.aria-checked]': 'checked()',
-    '[attr.data-state]': 'dataState()',
-    '[attr.aria-pressed]': 'checked()',
+    '[attr.role]': 'switch',
+    '[attr.checked]': 'value()',
+    '[attr.aria-checked]': 'value()',
+    '(click)': 'value.set(!value())',
     '[class]': 'size()',
+    '(keydown.enter)': 'value.set(!value())',
+    '(keydown.arrowleft)': 'value.set(false)',
+    '(keydown.arrowright)': 'value.set(true)',
   },
 })
-export class Switch {
+export class Switch implements AfterViewInit {
   /**
-   * Whether the switch is checked.
+   * Value of the switch.
    */
-  checked = model<boolean>(false);
-
-  /**
-   * Emits when the checked state
-   */
-  checkedChange = output<boolean>();
-
-  /**
-   * The data state of the switch.
-   */
-  dataState = computed(() => (this.checked() ? 'checked' : 'unchecked'));
+  value = model<boolean>(false);
 
   /**
    * The size of the switch.
@@ -54,17 +34,14 @@ export class Switch {
   size = input<'default' | 'large'>('default');
 
   /**
-   * The transform value for the thumb animation.
+   * Reference to the switch element.
    */
-  checkedTransformX = computed(() =>
-    this.size() === 'large' ? 'translateX(1.6rem)' : 'translateX(1rem)'
-  );
+  el = inject(ElementRef);
 
   /**
-   * Toggles the checked state of the switch.
+   * Initializes the switch value after the view is initialized.
    */
-  toggle(): void {
-    this.checked.set(!this.checked());
-    this.checkedChange.emit(this.checked());
+  ngAfterViewInit() {
+    this.value.set(this.el.nativeElement.checked);
   }
 }

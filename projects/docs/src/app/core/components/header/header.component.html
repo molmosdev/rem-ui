@@ -9,13 +9,8 @@
     <span>Rem UI</span>
   </div>
 </div>
-<button
-  r-switch
-  [checked]="!isDarkTheme()"
-  size="large"
-  (click)="toggleTheme()">
-  <i
-    [class.icon-sun]="!isDarkTheme()"
-    [class.icon-moon]="isDarkTheme()"
-    style="color: var(--bg-color)"></i>
-</button>
+<i
+  [class.icon-sun]="!isDarkTheme()"
+  [class.icon-moon]="isDarkTheme()"
+  (click)="toggleTheme()"
+  style="color: var(--text-color)"></i>

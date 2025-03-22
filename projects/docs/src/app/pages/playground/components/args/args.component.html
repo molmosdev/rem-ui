@@ -14,11 +14,11 @@
       }
       @case ('switch') {
         <div class="switch-wrapper">
-          <!-- eslint-disable-next-line @angular-eslint/template/elements-content -->
-          <button
+          <input
+            type="checkbox"
             r-switch
-            [(checked)]="arg.value"
-            [id]="'switch' + arg.label"></button>
+            [(ngModel)]="arg.value"
+            [id]="'switch' + arg.label" />
           <label [for]="'switch' + arg.label">{{ arg.label }}</label>
         </div>
       }

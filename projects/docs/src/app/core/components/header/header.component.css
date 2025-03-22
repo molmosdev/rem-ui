@@ -40,10 +40,20 @@
     }
   }
 
-  r-switch {
-    i {
-      font-size: 0.8rem;
-      color: var(--bg-color);
+  i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 1.6rem;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 }
