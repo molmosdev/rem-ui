@@ -42,6 +42,8 @@ app-label-documentation {
   table {
     width: 100%;
     border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
   }
 
   th,
@@ -49,6 +51,7 @@ app-label-documentation {
     border-bottom: 1px solid var(--border-color);
     padding: 1rem;
     text-align: left;
+    white-space: nowrap;
   }
 
   th {
