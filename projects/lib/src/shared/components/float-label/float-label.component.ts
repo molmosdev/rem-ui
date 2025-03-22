@@ -8,7 +8,8 @@ import { Select } from '../../../public-api';
   template: ` <ng-content /> `,
   styleUrl: './float-label.component.css',
   host: {
-    '[class.up]': 'isInputActive() || isSelectActive()',
+    '[class.up]': 'labelUp()',
+    '[style.max-width]': 'maxWidth()',
   },
 })
 export class FloatLabel {
@@ -18,20 +19,30 @@ export class FloatLabel {
   input = contentChild(Input);
 
   /**
-   * Whether the input is active.
-   */
-  isInputActive = computed(() => {
-    const input = this.input();
-    return !!(input?.focused() || input?.value() || input?.placeholder());
-  });
-
-  /**
    * The select element.
    */
   select = contentChild(Select);
 
   /**
-   * Whether the select is active.
+   * Whether the label should be up.
    */
-  isSelectActive = computed(() => !!this.select()?.value());
+  labelUp = computed(() => {
+    const input = this.input();
+    const select = this.select();
+
+    return (
+      input?.focused() ||
+      input?.value() ||
+      input?.placeholder() ||
+      select?.value()
+    );
+  });
+
+  /**
+   * The label width.
+   */
+  maxWidth = computed(() => {
+    const input = this.input();
+    return input?.maxWidth() || this.select()?.maxWidth();
+  });
 }
