@@ -30,7 +30,7 @@ import {
         <tr>
           <td><strong>options</strong></td>
           <td>
-            <code>{{ optionsType }}</code>
+            <code>Option[]</code>
           </td>
           <td>The options available for selection.</td>
         </tr>
@@ -51,6 +51,9 @@ import {
         </tr>
       </table>
     </div>
+
+    <h2>Option Type</h2>
+    <code-block [code]="optionsType" />
 
     <h2>Events</h2>
     <div class="table-wrapper">
@@ -137,8 +140,9 @@ export default class SelectDocumentationComponent {
     console.log('Select value changed:', value);
   }
 
-  optionsType = `{
+  optionsType = `type Option = {
   value: string | null;
   text: string;
-  disabled?: boolean; }[]`;
+  disabled?: boolean;
+};`;
 }
