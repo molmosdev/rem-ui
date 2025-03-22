@@ -23,17 +23,15 @@
         </div>
       }
       @default {
-        @if (arg.value()) {
-          <r-float-label>
-            <label>
-              {{ arg.label }}
-            </label>
-            <input
-              r-input
-              [type]="arg.type === 'text' ? 'text' : 'number'"
-              [(ngModel)]="arg.value" />
-          </r-float-label>
-        }
+        <r-float-label>
+          <label>
+            {{ arg.label }}
+          </label>
+          <input
+            r-input
+            [type]="arg.type === 'text' ? 'text' : 'number'"
+            [(ngModel)]="arg.value" />
+        </r-float-label>
       }
     }
   }
