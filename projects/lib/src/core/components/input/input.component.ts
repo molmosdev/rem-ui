@@ -9,6 +9,7 @@ import {
   output,
   signal,
 } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'input[r-input]',
@@ -87,10 +88,15 @@ export class Input implements AfterViewInit {
   readonly el = inject<ElementRef<HTMLInputElement>>(ElementRef);
 
   /**
+   * Reference to the ngModel directive.
+   */
+  private ngModel = inject(NgModel, { optional: true });
+
+  /**
    * After the view has been initialized, set the value of the select.
    */
   ngAfterViewInit(): void {
-    const value = this.el.nativeElement.value;
+    const value = this.el.nativeElement.value || this.ngModel?.model;
     this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
   }
 
