@@ -90,10 +90,8 @@ export class Input implements AfterViewInit {
    * After the view has been initialized, set the value of the select.
    */
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      const value = this.el.nativeElement.value;
-      this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
-    }, 0);
+    const value = this.el.nativeElement.value;
+    this.value.set(this.isNumberType() ? this.formatNumber(value) : value);
   }
 
   /**
