@@ -52,7 +52,7 @@ import {
       </table>
     </div>
 
-    <h2>Option Type</h2>
+    <h3>Option Type</h3>
     <code-block [code]="optionsType" />
 
     <h2>Events</h2>
