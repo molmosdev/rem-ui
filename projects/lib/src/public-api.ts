@@ -82,3 +82,6 @@ export * from './core/components/attached-box/attached-box.component';
 
 /* Icon */
 export * from './core/components/icon/icon.component';
+
+/* Label */
+export * from './shared/components/label/label.component';

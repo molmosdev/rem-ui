@@ -2,7 +2,7 @@
   @if (!arg.hidden) {
     @switch (arg.type) {
       @case ('select') {
-        <r-float-label>
+        <r-label>
           <label>
             {{ arg.label }}
           </label>
@@ -10,7 +10,7 @@
             r-select
             [options]="arg.options!"
             [(ngModel)]="arg.value"></select>
-        </r-float-label>
+        </r-label>
       }
       @case ('switch') {
         <div class="switch-wrapper">
@@ -23,7 +23,7 @@
         </div>
       }
       @default {
-        <r-float-label>
+        <r-label>
           <label>
             {{ arg.label }}
           </label>
@@ -31,7 +31,7 @@
             r-input
             [type]="arg.type === 'text' ? 'text' : 'number'"
             [(ngModel)]="arg.value" />
-        </r-float-label>
+        </r-label>
       }
     }
   }

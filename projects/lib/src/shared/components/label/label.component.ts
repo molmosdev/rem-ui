@@ -3,16 +3,16 @@ import { Input } from '../../../core/components/input/input.component';
 import { Select } from '../../../public-api';
 
 @Component({
-  selector: 'r-float-label',
+  selector: 'r-label',
   imports: [],
   template: ` <ng-content /> `,
-  styleUrl: './float-label.component.css',
+  styleUrl: './label.component.css',
   host: {
     '[class.up]': 'labelUp()',
     '[style.max-width]': 'maxWidth()',
   },
 })
-export class FloatLabel {
+export class Label {
   /**
    * The input element.
    */
