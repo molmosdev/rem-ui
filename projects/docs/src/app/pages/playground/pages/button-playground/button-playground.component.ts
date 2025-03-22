@@ -46,6 +46,7 @@ export default class ButtonPlaygroundComponent {
       options: [
         { text: 'Primary', value: 'primary' },
         { text: 'Secondary', value: 'secondary' },
+        { text: 'Outlined', value: 'outlined' },
         { text: 'Ghost', value: 'ghost' },
       ],
     },

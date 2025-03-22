@@ -16,6 +16,7 @@
   text-decoration: none;
   font-family: 'Geist', sans-serif;
   --padding-inline-multiple: 1.5;
+  --border-px: 0px;
 
   &:not(:has(span)) {
     &:has(.icon) {
@@ -28,10 +29,15 @@
     outline-offset: 2px;
   }
 
+  &.primary,
+  &.outlined {
+    --border-px: 1px;
+  }
+
   &.primary {
     background-color: var(--primary, #0a0a0a);
     color: var(--primary-foreground, #ffffff);
-    border: 1px solid var(--primary-border-color, #0a0a0a);
+    border: var(--border-px) solid var(--primary-border-color, #0a0a0a);
 
     .icon {
       color: var(--primary-foreground, #ffffff);
@@ -49,14 +55,17 @@
   }
 
   &.secondary {
-    background-color: var(--secondary, transparent);
-    border: 1px solid var(--secondary-border-color, #ececec);
+    background-color: color-mix(
+      in srgb,
+      var(--secondary-foreground, #0a0a0a) 5%,
+      var(--secondary, transparent)
+    );
 
     @media (width > 768px) {
       &:hover {
         background-color: color-mix(
           in srgb,
-          var(--secondary-foreground, #0a0a0a) 5%,
+          var(--secondary-foreground, #0a0a0a) 8%,
           var(--secondary, transparent)
         );
       }
@@ -77,8 +86,19 @@
     }
   }
 
-  &.transparent {
-    background-color: transparent;
+  &.outlined {
+    background-color: var(--secondary, transparent);
+    border: var(--border-px) solid var(--secondary-border-color, #ececec);
+
+    @media (width > 768px) {
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--secondary-foreground, #0a0a0a) 5%,
+          var(--secondary, transparent)
+        );
+      }
+    }
   }
 
   &.secondary,
@@ -124,7 +144,7 @@
   }
 
   &.size-small {
-    --padding: calc(0.5625rem - 2px);
+    --padding: calc(0.5625rem - (var(--border-px) * 2));
     font-size: 0.875rem;
     padding: var(--padding)
       calc(var(--padding) * var(--padding-inline-multiple));
@@ -135,7 +155,7 @@
   }
 
   &.size-default {
-    --padding: calc(0.9rem - 2px);
+    --padding: calc(0.9rem - (var(--border-px) * 2));
     font-size: 1rem;
     padding: var(--padding)
       calc(var(--padding) * var(--padding-inline-multiple));
