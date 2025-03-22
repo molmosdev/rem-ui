@@ -19,14 +19,23 @@ import { FormsModule } from '@angular/forms';
     <code-block [code]="withInputUsage"></code-block>
     <r-label>
       <label>Input Label</label>
-      <input r-input type="text" placeholder="Enter text" maxWidth="240px" />
+      <input
+        r-input
+        type="text"
+        value="Text example"
+        placeholder="Enter text"
+        maxWidth="240px" />
     </r-label>
 
     <h2>With Select</h2>
     <code-block [code]="withSelectUsage"></code-block>
     <r-label>
       <label>Select Label</label>
-      <select r-select [options]="options" maxWidth="240px"></select>
+      <select
+        r-select
+        [options]="options"
+        [value]="1"
+        maxWidth="240px"></select>
     </r-label> `,
   imports: [CodeBlockComponent, Label, Input, Select, FormsModule],
 })
@@ -35,11 +44,11 @@ export default class LabelDocumentationComponent {
   webComponentsImport = `import { Label } from 'rem-ui/elements'`;
   withInputUsage = `<r-label>
   <label>Input Label</label>
-  <input r-input type="text" placeholder="Enter text" maxWidth="240px" />
+  <input r-input type="text" value="Text example" placeholder="Enter text" maxWidth="240px" />
 </r-label>`;
   withSelectUsage = `<r-label>
   <label>Select Label</label>
-  <select r-select [options]="options" maxWidth="240px"></select>
+  <select r-select [options]="options" [value]="1" maxWidth="240px"></select>
 </r-label>`;
 
   options = [
