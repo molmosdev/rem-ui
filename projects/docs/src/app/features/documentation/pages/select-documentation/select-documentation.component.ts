@@ -30,10 +30,7 @@ import {
         <tr>
           <td><strong>options</strong></td>
           <td>
-            <code
-              [innerText]="
-                '{ value: string | null; text: string; disabled?: boolean; }[]'
-              "></code>
+            <code>{{ optionsType }}</code>
           </td>
           <td>The options available for selection.</td>
         </tr>
@@ -139,4 +136,9 @@ export default class SelectDocumentationComponent {
   onValueChange(value: string | null) {
     console.log('Select value changed:', value);
   }
+
+  optionsType = `{
+  value: string | null;
+  text: string;
+  disabled?: boolean; }[]`;
 }
