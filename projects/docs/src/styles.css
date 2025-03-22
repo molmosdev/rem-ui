@@ -17,6 +17,57 @@ body {
   font-size: 14px;
 }
 
+app-button-documentation,
+app-select-documentation,
+app-input-documentation,
+app-switch-documentation,
+app-label-documentation {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: start;
+
+  h1,
+  h2 {
+    margin: 0;
+    width: 100%;
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--bg-color);
+  }
+
+  code {
+    font-family: 'Geist Mono', monospace;
+    background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 4%);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  code-block {
+    width: 100%;
+  }
+}
+
 .playground {
   display: flex;
   flex-direction: column;

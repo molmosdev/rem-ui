@@ -5,6 +5,7 @@ import {
   inject,
   input,
   model,
+  output,
 } from '@angular/core';
 
 @Component({
@@ -15,11 +16,11 @@ import {
     '[attr.role]': 'switch',
     '[attr.checked]': 'value()',
     '[attr.aria-checked]': 'value()',
-    '(click)': 'value.set(!value())',
+    '(click)': 'toggleValue()',
     '[class]': 'size()',
-    '(keydown.enter)': 'value.set(!value())',
-    '(keydown.arrowleft)': 'value.set(false)',
-    '(keydown.arrowright)': 'value.set(true)',
+    '(keydown.enter)': 'toggleValue()',
+    '(keydown.arrowleft)': 'setValue(false)',
+    '(keydown.arrowright)': 'setValue(true)',
   },
 })
 export class Switch implements AfterViewInit {
@@ -39,9 +40,32 @@ export class Switch implements AfterViewInit {
   el = inject(ElementRef);
 
   /**
+   * Event emitted when the value changes.
+   */
+  valueChange = output<boolean>();
+
+  /**
    * Initializes the switch value after the view is initialized.
    */
   ngAfterViewInit() {
     this.value.set(this.el.nativeElement.checked);
+  }
+
+  /**
+   * Toggles the value of the switch.
+   */
+  toggleValue() {
+    const newValue = !this.value();
+    this.value.set(newValue);
+    this.valueChange.emit(newValue);
+  }
+
+  /**
+   * Sets the value of the switch.
+   * @param newValue - The new value to set.
+   */
+  setValue(newValue: boolean) {
+    this.value.set(newValue);
+    this.valueChange.emit(newValue);
   }
 }
