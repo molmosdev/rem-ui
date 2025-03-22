@@ -72,12 +72,12 @@ app-label-documentation {
     background-color: var(--bg-color);
   }
 
-  .code {
+  code {
     font-family: 'Geist Mono', monospace;
     background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 4%);
     padding: 0.2rem 0.4rem;
     border-radius: 0.3rem;
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
   }
 
   code-block {
