@@ -14,14 +14,7 @@ body {
     color 0.3s;
   color: var(--text-color);
   font-family: 'Geist', sans-serif;
-
-  @media (width < 576px) {
-    font-size: 16px;
-  }
-
-  @media (width >= 576px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
 }
 
 .playground {
