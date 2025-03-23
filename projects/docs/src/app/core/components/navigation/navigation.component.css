@@ -63,6 +63,8 @@
     box-sizing: border-box;
     background-color: var(--bg-color);
     display: flex;
+    background-color: color-mix(in srgb, var(--bg-color), transparent 60%);
+    backdrop-filter: blur(10px);
 
     button {
       flex: 1;
