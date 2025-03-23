@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+
+  ::ng-deep button:not(:last-child) {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  ::ng-deep button:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &.radius-none {
+    border-radius: 0;
+  }
+
+  &.radius-medium {
+    border-radius: 0.5rem;
+
+    &.size-small {
+      border-radius: 0.4rem;
+    }
+  }
+
+  &.radius-full {
+    border-radius: 9999px;
+  }
+}

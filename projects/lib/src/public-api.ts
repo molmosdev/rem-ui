@@ -10,6 +10,7 @@ export * from './core/services/theme.service';
 
 /* Button */
 export * from './core/components/button/button.component';
+export * from './core/components/button-group/button-group.component';
 
 /* Dialog */
 export * from './core/components/dialog/dialog.component';

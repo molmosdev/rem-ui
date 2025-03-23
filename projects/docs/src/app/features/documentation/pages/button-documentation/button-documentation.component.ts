@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
 import { Button, Icon } from '../../../../../../../lib/src/public-api';
+import { ButtonGroup } from '../../../../../../../lib/src/core/components/button-group/button-group.component';
 
 @Component({
   selector: 'app-button-documentation',
@@ -112,8 +113,18 @@ import { Button, Icon } from '../../../../../../../lib/src/public-api';
       <button r-button [equalPadding]="true">
         <i r-icon icon="House" [size]="16" color="var(--bg-color)"></i>
       </button>
+    </div>
+
+    <h2>Button Group</h2>
+    <code-block [code]="buttonGroupUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button r-button variant="primary">Button 1</button>
+        <button r-button variant="secondary">Button 2</button>
+        <button r-button variant="ghost">Button 3</button>
+      </r-button-group>
     </div>`,
-  imports: [CodeBlockComponent, Button, Icon],
+  imports: [CodeBlockComponent, Button, Icon, ButtonGroup],
 })
 export default class ButtonDocumentationComponent {
   angularImport = `import { Button } from 'rem-ui/angular'`;
@@ -132,4 +143,9 @@ export default class ButtonDocumentationComponent {
   equalPaddingUsage = `<button r-button [equalPadding]="true">
   <i r-icon icon="House" [size]="16" color="var(--bg-color)"></i>
 </button>`;
+  buttonGroupUsage = `<r-button-group>
+  <button r-button variant="primary">Button 1</button>
+  <button r-button variant="secondary">Button 2</button>
+  <button r-button variant="ghost">Button 3</button>
+</r-button-group>`;
 }

@@ -1,0 +1,63 @@
+import { Component } from '@angular/core';
+import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
+import { Button } from '../../../../../../../lib/src/public-api';
+import { ButtonGroup } from '../../../../../../../lib/src/core/components/button-group/button-group.component';
+
+@Component({
+  selector: 'app-button-group-documentation',
+  template: `<h1>Button Group</h1>
+    <span>
+      Button Group is a container for grouping multiple buttons together.
+    </span>
+    <h2>Usage</h2>
+    <code-block [code]="buttonGroupUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button r-button variant="outlined">Button 1</button>
+        <button r-button variant="outlined">Button 2</button>
+        <button r-button variant="outlined">Button 3</button>
+      </r-button-group>
+    </div>
+
+    <h2>All Primary</h2>
+    <code-block [code]="allPrimaryUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button r-button variant="primary">Button 1</button>
+        <button r-button variant="primary">Button 2</button>
+        <button r-button variant="primary">Button 3</button>
+      </r-button-group>
+    </div>
+
+    <h2>Mixed Variants</h2>
+    <code-block [code]="mixedVariantsUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button r-button variant="primary">Primary</button>
+        <button r-button variant="secondary">Secondary</button>
+        <button r-button variant="ghost">Ghost</button>
+        <button r-button variant="outlined">Outlined</button>
+      </r-button-group>
+    </div>`,
+  imports: [CodeBlockComponent, Button, ButtonGroup],
+})
+export default class ButtonGroupDocumentationComponent {
+  buttonGroupUsage = `<r-button-group>
+  <button r-button variant="outlined">Button 1</button>
+  <button r-button variant="outlined">Button 2</button>
+  <button r-button variant="outlined">Button 3</button>
+</r-button-group>`;
+
+  allPrimaryUsage = `<r-button-group>
+  <button r-button variant="primary">Button 1</button>
+  <button r-button variant="primary">Button 2</button>
+  <button r-button variant="primary">Button 3</button>
+</r-button-group>`;
+
+  mixedVariantsUsage = `<r-button-group>
+  <button r-button variant="primary">Primary</button>
+  <button r-button variant="secondary">Secondary</button>
+  <button r-button variant="ghost">Ghost</button>
+  <button r-button variant="outlined">Outlined</button>
+</r-button-group>`;
+}
