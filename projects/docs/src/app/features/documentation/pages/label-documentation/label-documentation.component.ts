@@ -17,17 +17,21 @@ import { FormsModule } from '@angular/forms';
 
     <h2>With Input</h2>
     <code-block [code]="withInputUsage"></code-block>
-    <r-label>
-      <label>Input Label</label>
-      <input r-input type="text" maxWidth="240px" />
-    </r-label>
+    <div class="documentation-playground">
+      <r-label>
+        <label>Input Label</label>
+        <input r-input type="text" maxWidth="240px" />
+      </r-label>
+    </div>
 
     <h2>With Select</h2>
     <code-block [code]="withSelectUsage"></code-block>
-    <r-label>
-      <label>Select Label</label>
-      <select r-select [options]="options" maxWidth="240px"></select>
-    </r-label> `,
+    <div class="documentation-playground">
+      <r-label>
+        <label>Select Label</label>
+        <select r-select [options]="options" maxWidth="240px"></select>
+      </r-label>
+    </div> `,
   imports: [CodeBlockComponent, Label, Input, Select, FormsModule],
 })
 export default class LabelDocumentationComponent {

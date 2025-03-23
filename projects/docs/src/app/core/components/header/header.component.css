@@ -3,6 +3,14 @@
   padding: 1rem 1.5rem;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: color-mix(in srgb, var(--bg-color), transparent 60%);
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  box-sizing: border-box;
 
   .left {
     display: flex;

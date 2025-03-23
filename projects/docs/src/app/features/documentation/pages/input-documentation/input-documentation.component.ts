@@ -86,78 +86,94 @@ import {
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage"></code-block>
-    <input
-      r-input
-      type="text"
-      placeholder="Enter text"
-      [value]="basicValue"
-      (valueChange)="onValueChange($event)"
-      maxWidth="240px" />
-
-    <h2>Angular Binding with ngModel</h2>
-    <code-block [code]="ngModelUsage"></code-block>
-    <input
-      r-input
-      type="text"
-      placeholder="Enter text"
-      [(ngModel)]="ngModelValue"
-      maxWidth="240px" />
-
-    <h2>Angular Forms with formControlName</h2>
-    <code-block [code]="formControlUsage"></code-block>
-    <form [formGroup]="form">
+    <div class="documentation-playground">
       <input
         r-input
         type="text"
         placeholder="Enter text"
-        formControlName="inputControl"
+        [value]="basicValue"
+        (valueChange)="onValueChange($event)"
         maxWidth="240px" />
+    </div>
+
+    <h2>Angular Binding with ngModel</h2>
+    <code-block [code]="ngModelUsage"></code-block>
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="text"
+        placeholder="Enter text"
+        [(ngModel)]="ngModelValue"
+        maxWidth="240px" />
+    </div>
+
+    <h2>Angular Forms with formControlName</h2>
+    <code-block [code]="formControlUsage"></code-block>
+    <form [formGroup]="form">
+      <div class="documentation-playground">
+        <input
+          r-input
+          type="text"
+          placeholder="Enter text"
+          formControlName="inputControl"
+          maxWidth="240px" />
+      </div>
     </form>
 
     <h2>Disabled</h2>
     <code-block [code]="disabledUsage"></code-block>
-    <input
-      r-input
-      type="text"
-      placeholder="Enter text"
-      [disabled]="true"
-      maxWidth="240px" />
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="text"
+        placeholder="Enter text"
+        [disabled]="true"
+        maxWidth="240px" />
+    </div>
 
     <h2>Invalid</h2>
     <code-block [code]="invalidUsage"></code-block>
-    <input
-      r-input
-      type="text"
-      placeholder="Enter text"
-      [invalid]="true"
-      maxWidth="240px" />
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="text"
+        placeholder="Enter text"
+        [invalid]="true"
+        maxWidth="240px" />
+    </div>
 
     <h2>Number Input with Decimals</h2>
     <code-block [code]="decimalsUsage"></code-block>
-    <input
-      r-input
-      type="number"
-      placeholder="Enter number"
-      numberType="decimal"
-      [decimals]="2"
-      maxWidth="240px" />
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="number"
+        placeholder="Enter number"
+        numberType="decimal"
+        [decimals]="2"
+        maxWidth="240px" />
+    </div>
 
     <h2>Number Input with Integer Type</h2>
     <code-block [code]="integerUsage"></code-block>
-    <input
-      r-input
-      type="number"
-      placeholder="Enter integer"
-      numberType="integer"
-      maxWidth="240px" />
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="number"
+        placeholder="Enter integer"
+        numberType="integer"
+        maxWidth="240px" />
+    </div>
 
     <h2>Password Input</h2>
     <code-block [code]="passwordUsage"></code-block>
-    <input
-      r-input
-      type="password"
-      placeholder="Enter password"
-      maxWidth="240px" />`,
+    <div class="documentation-playground">
+      <input
+        r-input
+        type="password"
+        placeholder="Enter password"
+        maxWidth="240px" />
+    </div>`,
   imports: [CodeBlockComponent, Input, FormsModule, ReactiveFormsModule],
 })
 export default class InputDocumentationComponent {

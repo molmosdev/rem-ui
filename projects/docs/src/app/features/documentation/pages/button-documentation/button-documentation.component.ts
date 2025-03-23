@@ -70,37 +70,49 @@ import { Button, Icon } from '../../../../../../../lib/src/public-api';
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />
-    <button r-button variant="primary" size="default" radius="medium">
-      This is a button
-    </button>
+    <div class="documentation-playground">
+      <button r-button variant="primary" size="default" radius="medium">
+        This is a button
+      </button>
+    </div>
 
     <h2>Variants</h2>
     <code-block [code]="variantsUsage" />
-    <button r-button variant="primary">Primary</button>
-    <button r-button variant="secondary">Secondary</button>
-    <button r-button variant="ghost">Ghost</button>
-    <button r-button variant="outlined">Outlined</button>
+    <div class="documentation-playground">
+      <button r-button variant="primary">Primary</button>
+      <button r-button variant="secondary">Secondary</button>
+      <button r-button variant="ghost">Ghost</button>
+      <button r-button variant="outlined">Outlined</button>
+    </div>
 
     <h2>Sizes</h2>
     <code-block [code]="sizesUsage" />
-    <button r-button size="small">Small</button>
-    <button r-button size="default">Default</button>
+    <div class="documentation-playground">
+      <button r-button size="small">Small</button>
+      <button r-button size="default">Default</button>
+    </div>
 
     <h2>Radius</h2>
     <code-block [code]="radiusUsage" />
-    <button r-button radius="none">None</button>
-    <button r-button radius="medium">Medium</button>
-    <button r-button radius="full">Full</button>
+    <div class="documentation-playground">
+      <button r-button radius="none">None</button>
+      <button r-button radius="medium">Medium</button>
+      <button r-button radius="full">Full</button>
+    </div>
 
     <h2>Loading State</h2>
     <code-block [code]="loadingUsage" />
-    <button r-button [loading]="true">Loading...</button>
+    <div class="documentation-playground">
+      <button r-button [loading]="true">Loading...</button>
+    </div>
 
     <h2>Equal Padding</h2>
     <code-block [code]="equalPaddingUsage" />
-    <button r-button [equalPadding]="true">
-      <i r-icon icon="House" [size]="16" color="var(--bg-color)"></i>
-    </button>`,
+    <div class="documentation-playground">
+      <button r-button [equalPadding]="true">
+        <i r-icon icon="House" [size]="16" color="var(--bg-color)"></i>
+      </button>
+    </div>`,
   imports: [CodeBlockComponent, Button, Icon],
 })
 export default class ButtonDocumentationComponent {

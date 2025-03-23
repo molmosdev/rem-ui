@@ -73,46 +73,56 @@ import {
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />
-    <select
-      r-select
-      [options]="options"
-      [value]="basicValue"
-      (valueChange)="onValueChange($event)"
-      maxWidth="240px"></select>
+    <div class="documentation-playground">
+      <select
+        r-select
+        [options]="options"
+        [value]="basicValue"
+        (valueChange)="onValueChange($event)"
+        maxWidth="240px"></select>
+    </div>
 
     <h2>Angular Binding with ngModel</h2>
     <code-block [code]="ngModelUsage" />
-    <select
-      r-select
-      [options]="options"
-      [(ngModel)]="ngModelValue"
-      maxWidth="240px"></select>
+    <div class="documentation-playground">
+      <select
+        r-select
+        [options]="options"
+        [(ngModel)]="ngModelValue"
+        maxWidth="240px"></select>
+    </div>
 
     <h2>Angular Forms with formControlName</h2>
     <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
-      <select
-        r-select
-        [options]="options"
-        formControlName="selectControl"
-        maxWidth="240px"></select>
+      <div class="documentation-playground">
+        <select
+          r-select
+          [options]="options"
+          formControlName="selectControl"
+          maxWidth="240px"></select>
+      </div>
     </form>
 
     <h2>Disabled</h2>
     <code-block [code]="disabledUsage" />
-    <select
-      r-select
-      [disabled]="true"
-      [options]="options"
-      maxWidth="240px"></select>
+    <div class="documentation-playground">
+      <select
+        r-select
+        [disabled]="true"
+        [options]="options"
+        maxWidth="240px"></select>
+    </div>
 
     <h2>Invalid</h2>
     <code-block [code]="invalidUsage" />
-    <select
-      r-select
-      [invalid]="true"
-      [options]="options"
-      maxWidth="240px"></select>`,
+    <div class="documentation-playground">
+      <select
+        r-select
+        [invalid]="true"
+        [options]="options"
+        maxWidth="240px"></select>
+    </div>`,
   imports: [CodeBlockComponent, Select, FormsModule, ReactiveFormsModule],
 })
 export default class SelectDocumentationComponent {

@@ -43,7 +43,9 @@
   }
 
   @media (width > 992px) {
-    height: 100%;
+    position: sticky;
+    top: calc(3.8rem + 1px);
+    height: calc(100vh - (3.8rem + 1px));
 
     .components-list {
       width: 290px;

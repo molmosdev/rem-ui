@@ -66,20 +66,26 @@ import {
 
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />
-    <input
-      type="checkbox"
-      r-switch
-      [value]="basicValue"
-      (valueChange)="onValueChange($event)" />
+    <div class="documentation-playground">
+      <input
+        type="checkbox"
+        r-switch
+        [value]="basicValue"
+        (valueChange)="onValueChange($event)" />
+    </div>
 
     <h2>Angular Binding with ngModel</h2>
     <code-block [code]="ngModelUsage" />
-    <input type="checkbox" r-switch [(ngModel)]="ngModelValue" />
+    <div class="documentation-playground">
+      <input type="checkbox" r-switch [(ngModel)]="ngModelValue" />
+    </div>
 
     <h2>Angular Forms with formControlName</h2>
     <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
-      <input type="checkbox" r-switch formControlName="switchControl" />
+      <div class="documentation-playground">
+        <input type="checkbox" r-switch formControlName="switchControl" />
+      </div>
     </form>`,
   imports: [CodeBlockComponent, Switch, FormsModule, ReactiveFormsModule],
 })

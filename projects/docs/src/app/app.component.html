@@ -1,9 +1,5 @@
 <app-header [(sideSheet)]="isMenuVisible" />
-<div class="content">
-  <app-navigation [(isMenuVisible)]="isMenuVisible" />
-  @defer (on idle) {
-    <div class="pages">
-      <router-outlet></router-outlet>
-    </div>
-  }
-</div>
+<app-navigation [(isMenuVisible)]="isMenuVisible" />
+@defer (on idle) {
+  <router-outlet></router-outlet>
+}

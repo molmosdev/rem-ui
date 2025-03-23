@@ -26,14 +26,13 @@ app-label-documentation {
   box-sizing: border-box;
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  align-items: start;
+  flex-direction: column;
+  width: 100%;
 
   h1,
   h2,
   h3 {
     margin: 0;
-    width: 100%;
   }
 
   h2 {
@@ -44,6 +43,7 @@ app-label-documentation {
     border: 1px solid var(--border-color);
     border-radius: 0.3rem;
     overflow: hidden;
+    max-width: fit-content;
 
     table {
       border-collapse: collapse;
@@ -81,8 +81,14 @@ app-label-documentation {
     font-size: 90%;
   }
 
-  code-block {
-    width: 100%;
+  .documentation-playground {
+    border: 1px solid var(--border-color);
+    border-radius: 0.3rem;
+    padding: 3rem;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 1rem;
   }
 }
 
