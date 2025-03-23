@@ -41,7 +41,7 @@ body[data-theme='dark'] {
   /* UI colors */
   --background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
   --foreground: var(--text-color);
-  --border-color: color-mix(in srgb, var(--bg-color), var(--white) 5%);
+  --border-color: color-mix(in srgb, var(--bg-color), var(--white) 10%);
 
   /* Component colors */
   --primary: var(--white);
