@@ -23,14 +23,6 @@ export const documentationRoutes: Routes = [
     },
   },
   {
-    path: 'label',
-    loadComponent: () =>
-      import('./pages/label-documentation/label-documentation.component'),
-    data: {
-      title: 'Label',
-    },
-  },
-  {
     path: 'select',
     loadComponent: () =>
       import('./pages/select-documentation/select-documentation.component'),

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Input } from '../../../../../../../lib/src/public-api';
+import { Input, Label } from '../../../../../../../lib/src/public-api';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -173,8 +173,17 @@ import {
         type="password"
         placeholder="Enter password"
         maxWidth="240px" />
+    </div>
+
+    <h2>With Label</h2>
+    <code-block [code]="withInputUsage"></code-block>
+    <div class="documentation-playground">
+      <r-label>
+        <label>Input Label</label>
+        <input r-input type="text" maxWidth="240px" />
+      </r-label>
     </div>`,
-  imports: [CodeBlockComponent, Input, FormsModule, ReactiveFormsModule],
+  imports: [CodeBlockComponent, Input, FormsModule, ReactiveFormsModule, Label],
 })
 export default class InputDocumentationComponent {
   angularImport = `import { Input } from 'rem-ui/angular'`;
@@ -189,6 +198,10 @@ export default class InputDocumentationComponent {
   decimalsUsage = `<input r-input type="number" placeholder="Enter number" numberType="decimal" [decimals]="2" maxWidth="240px" />`;
   integerUsage = `<input r-input type="number" placeholder="Enter integer" numberType="integer" maxWidth="240px" />`;
   passwordUsage = `<input r-input type="password" placeholder="Enter password" maxWidth="240px" />`;
+  withInputUsage = `<r-label>
+  <label>Input Label</label>
+  <input r-input type="text" maxWidth="240px" />
+</r-label>`;
 
   basicValue = '';
   ngModelValue = '';
