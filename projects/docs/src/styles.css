@@ -90,6 +90,10 @@ app-label-documentation {
     justify-content: center;
     gap: 1rem;
   }
+
+  code-block {
+    align-self: start;
+  }
 }
 
 .playground {
