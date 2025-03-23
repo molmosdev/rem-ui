@@ -2,14 +2,14 @@
   display: flex;
 
   ::ng-deep button:not(:last-child) {
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-right: none !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 
   ::ng-deep button:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
   }
 
   &.radius-none {

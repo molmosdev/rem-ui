@@ -38,6 +38,16 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
         <button r-button variant="ghost">Ghost</button>
         <button r-button variant="outlined">Outlined</button>
       </r-button-group>
+    </div>
+
+    <h2>Outlined and Small</h2>
+    <code-block [code]="outlinedSmallUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button r-button variant="outlined" size="small">Button 1</button>
+        <button r-button variant="outlined" size="small">Button 2</button>
+        <button r-button variant="outlined" size="small">Button 3</button>
+      </r-button-group>
     </div>`,
   imports: [CodeBlockComponent, Button, ButtonGroup],
 })
@@ -59,5 +69,11 @@ export default class ButtonGroupDocumentationComponent {
   <button r-button variant="secondary">Secondary</button>
   <button r-button variant="ghost">Ghost</button>
   <button r-button variant="outlined">Outlined</button>
+</r-button-group>`;
+
+  outlinedSmallUsage = `<r-button-group>
+  <button r-button variant="outlined" size="small">Button 1</button>
+  <button r-button variant="outlined" size="small">Button 2</button>
+  <button r-button variant="outlined" size="small">Button 3</button>
 </r-button-group>`;
 }
