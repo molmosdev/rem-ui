@@ -18,6 +18,8 @@ import { Component, input } from '@angular/core';
       margin: 0;
       overflow-x: auto;
       max-width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
 
       pre {
         padding: 1rem;
