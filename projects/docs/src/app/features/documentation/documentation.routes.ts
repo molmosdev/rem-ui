@@ -15,6 +15,16 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'button-group',
+    loadComponent: () =>
+      import(
+        './pages/button-group-documentation/button-group-documentation.component'
+      ),
+    data: {
+      title: 'Button Group',
+    },
+  },
+  {
     path: 'select',
     loadComponent: () =>
       import('./pages/select-documentation/select-documentation.component'),
@@ -44,16 +54,6 @@ export const documentationRoutes: Routes = [
       import('./pages/label-documentation/label-documentation.component'),
     data: {
       title: 'Label',
-    },
-  },
-  {
-    path: 'button-group',
-    loadComponent: () =>
-      import(
-        './pages/button-group-documentation/button-group-documentation.component'
-      ),
-    data: {
-      title: 'Button Group',
     },
   },
   {
