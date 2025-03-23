@@ -70,6 +70,7 @@
       flex: 1;
       justify-content: start;
       position: relative;
+      background-color: var(--bg-color);
 
       .chevron-wrapper {
         display: flex;
