@@ -25,14 +25,6 @@ export const documentationRoutes: Routes = [
     },
   },
   {
-    path: 'select',
-    loadComponent: () =>
-      import('./pages/select-documentation/select-documentation.component'),
-    data: {
-      title: 'Select',
-    },
-  },
-  {
     path: 'input',
     loadComponent: () =>
       import('./pages/input-documentation/input-documentation.component'),
@@ -41,19 +33,27 @@ export const documentationRoutes: Routes = [
     },
   },
   {
-    path: 'switch',
-    loadComponent: () =>
-      import('./pages/switch-documentation/switch-documentation.component'),
-    data: {
-      title: 'Switch',
-    },
-  },
-  {
     path: 'label',
     loadComponent: () =>
       import('./pages/label-documentation/label-documentation.component'),
     data: {
       title: 'Label',
+    },
+  },
+  {
+    path: 'select',
+    loadComponent: () =>
+      import('./pages/select-documentation/select-documentation.component'),
+    data: {
+      title: 'Select',
+    },
+  },
+  {
+    path: 'switch',
+    loadComponent: () =>
+      import('./pages/switch-documentation/switch-documentation.component'),
+    data: {
+      title: 'Switch',
     },
   },
   {

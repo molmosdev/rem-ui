@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'r-button-group',
@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-group.component.css'],
   host: {
     class: 'button-group',
+    '[class.spaced]': 'spaced()',
   },
 })
-export class ButtonGroup {}
+export class ButtonGroup {
+  /**
+   * Whether the buttons should be spaced.
+   */
+  spaced = input<boolean>(false);
+}
