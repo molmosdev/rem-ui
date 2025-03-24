@@ -33,6 +33,7 @@ app-button-group-documentation {
   flex-direction: column;
   width: 100%;
   max-width: 1600px;
+  margin-inline: auto;
 
   h1,
   h2,
