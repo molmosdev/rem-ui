@@ -12,7 +12,7 @@ export class Tab {
   disabled = input<boolean>(false);
   selected = signal<boolean>(false);
   highlighted = signal<boolean>(false);
-  select = output<Tab>();
+  selectEmitter = output<Tab>();
 
   constructor(public el: ElementRef) {}
 
@@ -20,7 +20,7 @@ export class Tab {
    * Emit the select event when the tab is selected.
    */
   onSelect(): void {
-    this.select.emit(this);
+    this.selectEmitter.emit(this);
   }
 
   /**
