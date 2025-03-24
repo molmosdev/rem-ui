@@ -2,6 +2,7 @@
 @import url('lucide-static/font/lucide.css');
 @import url('./app/styles/fonts.css');
 @import url('./app/styles/theme.css');
+@import 'highlight.js/styles/github-dark.css';
 
 /* Base styles */
 html,
@@ -78,10 +79,14 @@ app-button-group-documentation {
 
   code {
     font-family: 'Geist Mono', monospace;
-    background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 4%);
+  }
+
+  table code {
+    font-size: 90%;
     padding: 0.2rem 0.4rem;
     border-radius: 0.3rem;
     font-size: 90%;
+    background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 4%);
   }
 
   .documentation-playground {
@@ -94,10 +99,6 @@ app-button-group-documentation {
     gap: 1rem;
     flex-wrap: wrap;
     align-items: flex-start;
-  }
-
-  code-block {
-    align-self: start;
   }
 }
 
@@ -171,4 +172,9 @@ app-button-group-documentation {
   r-vertical-nav {
     height: auto;
   }
+}
+
+/* ngx-highlight */
+.hljs {
+  line-height: 1.8;
 }
