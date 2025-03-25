@@ -88,7 +88,7 @@
 
   &.outlined {
     background-color: var(--secondary, transparent);
-    border: var(--border-px) solid var(--secondary-border-color, #ececec);
+    border: var(--border-px) solid var(--border-color, #ececec);
 
     @media (width > 768px) {
       &:hover {
