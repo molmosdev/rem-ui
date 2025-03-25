@@ -47,7 +47,7 @@ app-button-group-documentation {
 
   .table-wrapper {
     border: 1px solid var(--border-color);
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     overflow: hidden;
     max-width: fit-content;
 
@@ -86,14 +86,14 @@ app-button-group-documentation {
   table code {
     font-size: 90%;
     padding: 0.2rem 0.4rem;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     font-size: 90%;
     background-color: color-mix(in srgb, var(--bg-color), var(--text-color) 4%);
   }
 
   .documentation-playground {
     border: 1px solid var(--border-color);
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     padding: 3rem;
     display: flex;
     box-sizing: border-box;
