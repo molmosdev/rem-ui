@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Select } from '../../../../../../../lib/src/public-api';
+import { Select, Label } from '../../../../../../../lib/src/public-api';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -122,8 +122,23 @@ import {
         [invalid]="true"
         [options]="options"
         maxWidth="240px"></select>
+    </div>
+
+    <h2>With Label</h2>
+    <code-block [code]="withSelectUsage"></code-block>
+    <div class="documentation-playground">
+      <r-label>
+        <label>Select Label</label>
+        <select r-select [options]="options" maxWidth="240px"></select>
+      </r-label>
     </div>`,
-  imports: [CodeBlockComponent, Select, FormsModule, ReactiveFormsModule],
+  imports: [
+    CodeBlockComponent,
+    Select,
+    FormsModule,
+    ReactiveFormsModule,
+    Label,
+  ],
 })
 export default class SelectDocumentationComponent {
   angularImport = `import { Select } from 'rem-ui/angular'`;
@@ -155,4 +170,9 @@ export default class SelectDocumentationComponent {
   text: string;
   disabled?: boolean;
 };`;
+
+  withSelectUsage = `<r-label>
+  <label>Select Label</label>
+  <select r-select [options]="options" maxWidth="240px"></select>
+</r-label>`;
 }

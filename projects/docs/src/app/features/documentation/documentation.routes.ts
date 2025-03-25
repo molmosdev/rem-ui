@@ -15,29 +15,11 @@ export const documentationRoutes: Routes = [
     },
   },
   {
-    path: 'button-group',
-    loadComponent: () =>
-      import(
-        './pages/button-group-documentation/button-group-documentation.component'
-      ),
-    data: {
-      title: 'Button Group',
-    },
-  },
-  {
     path: 'input',
     loadComponent: () =>
       import('./pages/input-documentation/input-documentation.component'),
     data: {
       title: 'Input',
-    },
-  },
-  {
-    path: 'label',
-    loadComponent: () =>
-      import('./pages/label-documentation/label-documentation.component'),
-    data: {
-      title: 'Label',
     },
   },
   {

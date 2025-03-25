@@ -13,9 +13,9 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <code-block [code]="buttonGroupUsage" />
     <div class="documentation-playground">
       <r-button-group>
-        <button r-button variant="outlined">Button 1</button>
-        <button r-button variant="outlined">Button 2</button>
-        <button r-button variant="outlined">Button 3</button>
+        <button r-button variant="outlined">Outlined</button>
+        <button r-button variant="outlined">Outlined</button>
+        <button r-button variant="outlined">Outlined</button>
       </r-button-group>
     </div>
 
@@ -23,9 +23,9 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <code-block [code]="allPrimaryUsage" />
     <div class="documentation-playground">
       <r-button-group>
-        <button r-button variant="primary">Button 1</button>
-        <button r-button variant="primary">Button 2</button>
-        <button r-button variant="primary">Button 3</button>
+        <button r-button variant="primary">Primary</button>
+        <button r-button variant="primary">Primary</button>
+        <button r-button variant="primary">Primary</button>
       </r-button-group>
     </div>
 
@@ -35,6 +35,8 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
       <r-button-group>
         <button r-button variant="primary">Primary</button>
         <button r-button variant="secondary">Secondary</button>
+      </r-button-group>
+      <r-button-group>
         <button r-button variant="ghost">Ghost</button>
         <button r-button variant="outlined">Outlined</button>
       </r-button-group>
@@ -44,9 +46,9 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <code-block [code]="outlinedSmallUsage" />
     <div class="documentation-playground">
       <r-button-group>
-        <button r-button variant="outlined" size="small">Button 1</button>
-        <button r-button variant="outlined" size="small">Button 2</button>
-        <button r-button variant="outlined" size="small">Button 3</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
       </r-button-group>
     </div>
 
@@ -54,9 +56,9 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <code-block [code]="spacedUsage" />
     <div class="documentation-playground">
       <r-button-group [spaced]="true">
-        <button r-button variant="outlined">Button 1</button>
-        <button r-button variant="outlined">Button 2</button>
-        <button r-button variant="outlined">Button 3</button>
+        <button r-button variant="outlined">Outlined</button>
+        <button r-button variant="outlined">Outlined</button>
+        <button r-button variant="outlined">Outlined</button>
       </r-button-group>
     </div>
 
@@ -64,48 +66,50 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <code-block [code]="spacedSmallUsage" />
     <div class="documentation-playground">
       <r-button-group [spaced]="true">
-        <button r-button variant="outlined" size="small">Button 1</button>
-        <button r-button variant="outlined" size="small">Button 2</button>
-        <button r-button variant="outlined" size="small">Button 3</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
+        <button r-button variant="outlined" size="small">Outlined</button>
       </r-button-group>
     </div>`,
   imports: [CodeBlockComponent, Button, ButtonGroup],
 })
 export default class ButtonGroupDocumentationComponent {
   buttonGroupUsage = `<r-button-group>
-  <button r-button variant="outlined">Button 1</button>
-  <button r-button variant="outlined">Button 2</button>
-  <button r-button variant="outlined">Button 3</button>
+  <button r-button variant="outlined"> Outlined </button>
+  <button r-button variant="outlined"> Outlined </button>
+  <button r-button variant="outlined"> Outlined </button>
 </r-button-group>`;
 
   allPrimaryUsage = `<r-button-group>
-  <button r-button variant="primary">Button 1</button>
-  <button r-button variant="primary">Button 2</button>
-  <button r-button variant="primary">Button 3</button>
+  <button r-button variant="primary"> Primary </button>
+  <button r-button variant="primary"> Primary </button>
+  <button r-button variant="primary"> Primary </button>
 </r-button-group>`;
 
   mixedVariantsUsage = `<r-button-group>
-  <button r-button variant="primary">Primary</button>
-  <button r-button variant="secondary">Secondary</button>
-  <button r-button variant="ghost">Ghost</button>
-  <button r-button variant="outlined">Outlined</button>
+  <button r-button variant="primary"> Primary </button>
+  <button r-button variant="secondary"> Secondary </button>
+</r-button-group>
+<r-button-group>
+  <button r-button variant="ghost"> Ghost </button>
+  <button r-button variant="outlined"> Outlined </button>
 </r-button-group>`;
 
   outlinedSmallUsage = `<r-button-group>
-  <button r-button variant="outlined" size="small">Button 1</button>
-  <button r-button variant="outlined" size="small">Button 2</button>
-  <button r-button variant="outlined" size="small">Button 3</button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
 </r-button-group>`;
 
   spacedUsage = `<r-button-group [spaced]="true">
-  <button r-button variant="outlined">Button 1</button>
-  <button r-button variant="outlined">Button 2</button>
-  <button r-button variant="outlined">Button 3</button>
+  <button r-button variant="outlined"> Outlined </button>
+  <button r-button variant="outlined"> Outlined </button>
+  <button r-button variant="outlined"> Outlined </button>
 </r-button-group>`;
 
   spacedSmallUsage = `<r-button-group [spaced]="true">
-  <button r-button variant="outlined" size="small">Button 1</button>
-  <button r-button variant="outlined" size="small">Button 2</button>
-  <button r-button variant="outlined" size="small">Button 3</button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
+  <button r-button variant="outlined" size="small"> Outlined </button>
 </r-button-group>`;
 }

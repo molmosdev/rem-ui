@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
+import { HighlightAuto } from 'ngx-highlightjs';
 
 @Component({
   selector: 'code-block',
-  template: `<pre [innerText]="code()"></pre>`,
+  imports: [HighlightAuto],
+  template: `<pre><code [highlightAuto]="code()"></code></pre>`,
   styles: `
     :host {
-      font-family: 'Geist Mono', monospace !important;
       font-size: 90%;
       scrollbar-width: thin;
       border: 1px solid var(--border-color);
@@ -22,7 +23,6 @@ import { Component, input } from '@angular/core';
       scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
 
       pre {
-        padding: 1rem;
         margin: 0;
       }
     }

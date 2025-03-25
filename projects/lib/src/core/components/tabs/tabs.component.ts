@@ -35,7 +35,7 @@ export class Tabs {
    */
   handleTabSelection(): void {
     this.tabs().forEach((tab, index) => {
-      tab.select.subscribe(tabEmitted => {
+      tab.selectEmitter.subscribe(tabEmitted => {
         this.selectTab(tabEmitted, index);
         this.highlightTab(index);
         this.handleTabStates();
