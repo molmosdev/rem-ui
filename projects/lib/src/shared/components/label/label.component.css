@@ -37,5 +37,6 @@
   &.is-switch {
     gap: 0.5rem;
     align-items: center;
+    cursor: pointer;
   }
 }

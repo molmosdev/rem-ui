@@ -111,8 +111,8 @@ export default class SwitchDocumentationComponent {
   ngModelUsage = `<input type="checkbox" r-switch [(ngModel)]="ngModelValue" />`;
   formControlUsage = `<input type="checkbox" r-switch formControlName="switchControl" />`;
   withLabelUsage = `<r-label>
-  <input type="checkbox" r-switch />
-  <label>Switch Label</label>
+  <input type="checkbox" r-switch id="switch-label" />
+  <label for="switch-label">Switch Label</label>
 </r-label>`;
 
   basicValue = false;
