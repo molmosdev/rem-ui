@@ -1,33 +1,41 @@
 :host {
   position: relative;
   display: flex;
-  width: 100%;
 
-  ::ng-deep label {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 0.8rem;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition:
-      top 0.2s,
-      font-size 0.2s,
-      transform 0.2s;
+  &:not(.is-switch) {
+    width: 100%;
+
+    ::ng-deep label {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 0.8rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition:
+        top 0.2s,
+        font-size 0.2s,
+        transform 0.2s;
+    }
+
+    &.up {
+      ::ng-deep label {
+        top: 0.45rem;
+        font-size: 0.7rem;
+        transform: translateY(0);
+      }
+
+      ::ng-deep input,
+      ::ng-deep select {
+        --vertical-padding: calc(0.9rem - 2px);
+        padding-top: calc(var(--vertical-padding) + 0.5rem);
+        padding-bottom: calc(var(--vertical-padding) - 0.5rem);
+      }
+    }
   }
 
-  &.up {
-    ::ng-deep label {
-      top: 0.45rem;
-      font-size: 0.7rem;
-      transform: translateY(0);
-    }
-
-    ::ng-deep input,
-    ::ng-deep select {
-      --vertical-padding: calc(0.9rem - 2px);
-      padding-top: calc(var(--vertical-padding) + 0.5rem);
-      padding-bottom: calc(var(--vertical-padding) - 0.5rem);
-    }
+  &.is-switch {
+    gap: 0.5rem;
+    align-items: center;
   }
 }

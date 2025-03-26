@@ -1,6 +1,5 @@
 import { Component, computed, contentChild } from '@angular/core';
-import { Input } from '../../../core/components/input/input.component';
-import { Select } from '../../../public-api';
+import { Select, Input, Switch } from '../../../public-api';
 
 @Component({
   selector: 'r-label',
@@ -10,6 +9,7 @@ import { Select } from '../../../public-api';
   host: {
     '[class.up]': 'labelUp()',
     '[style.max-width]': 'maxWidth()',
+    '[class.is-switch]': 'switch()',
   },
 })
 export class Label {
@@ -22,6 +22,11 @@ export class Label {
    * The select element.
    */
   readonly select = contentChild(Select);
+
+  /**
+   * The switch element.
+   */
+  readonly switch = contentChild(Switch);
 
   /**
    * Whether the label should be up.

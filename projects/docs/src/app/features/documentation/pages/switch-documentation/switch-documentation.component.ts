@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Switch } from '../../../../../../../lib/src/public-api';
+import { Label, Switch } from '../../../../../../../lib/src/public-api';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -86,8 +86,23 @@ import {
       <div class="documentation-playground">
         <input type="checkbox" r-switch formControlName="switchControl" />
       </div>
-    </form>`,
-  imports: [CodeBlockComponent, Switch, FormsModule, ReactiveFormsModule],
+    </form>
+
+    <h2>With Label</h2>
+    <code-block [code]="withLabelUsage" />
+    <div class="documentation-playground">
+      <r-label>
+        <input type="checkbox" r-switch id="switch-label" />
+        <label for="switch-label">Switch Label</label>
+      </r-label>
+    </div>`,
+  imports: [
+    CodeBlockComponent,
+    Switch,
+    FormsModule,
+    ReactiveFormsModule,
+    Label,
+  ],
 })
 export default class SwitchDocumentationComponent {
   angularImport = `import { Switch } from 'rem-ui/angular'`;
@@ -95,6 +110,10 @@ export default class SwitchDocumentationComponent {
   basicUsage = `<input type="checkbox" r-switch [value]="basicValue" (valueChange)="onValueChange($event)" />`;
   ngModelUsage = `<input type="checkbox" r-switch [(ngModel)]="ngModelValue" />`;
   formControlUsage = `<input type="checkbox" r-switch formControlName="switchControl" />`;
+  withLabelUsage = `<r-label>
+  <input type="checkbox" r-switch />
+  <label>Switch Label</label>
+</r-label>`;
 
   basicValue = false;
   ngModelValue = false;
