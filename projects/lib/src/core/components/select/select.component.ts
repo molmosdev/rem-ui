@@ -27,17 +27,17 @@ export class Select implements AfterViewInit {
   /**
    * The value of the input.
    */
-  value = signal<string | null>(null);
+  readonly value = signal<string | null>(null);
 
   /**
    * Whether the input is invalid.
    */
-  invalid = model<boolean>(false);
+  readonly invalid = model<boolean>(false);
 
   /**
    * Whether the input is disabled.
    */
-  disabled = model<boolean>(false);
+  readonly disabled = model<boolean>(false);
 
   /**
    * The maximum width of the input.
@@ -47,7 +47,7 @@ export class Select implements AfterViewInit {
   /**
    * The options available for selection.
    */
-  options = input<
+  readonly options = input<
     {
       value: string | null;
       text: string;
@@ -68,7 +68,7 @@ export class Select implements AfterViewInit {
   /**
    * Indicates whether the options dropdown is open.
    */
-  isOpen = signal(false);
+  readonly isOpen = signal(false);
 
   /**
    * Reference to the renderer

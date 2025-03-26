@@ -6,5 +6,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './dropdown-title.component.css',
 })
 export class DropdownTitle {
-  text = input.required<string>();
+  readonly text = input.required<string>();
 }

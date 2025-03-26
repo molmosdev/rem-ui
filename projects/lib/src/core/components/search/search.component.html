@@ -23,14 +23,15 @@
         r-icon
         icon="X"
         [size]="18"
+        tabindex="0"
         (click)="searchValue.set('')"
+        (keydown.enter)="searchValue.set('')"
+        (keydown.space)="searchValue.set('')"
         [color]="
           invalid()
             ? 'var(--error-foreground, #c40000ab)'
             : ' var(--input-foreground, #798194)'
-        "
-        >></i
-      >
+        "></i>
     }
   </section>
 }
@@ -55,6 +56,9 @@ nooptions: {{ noOptions() }} searching: {{ searching() }}
       [class.open]="isOpen()"
       [class.select-has-value]="selectedValue()"
       (click)="handleIconClick()"
+      (keydown.enter)="handleIconClick()"
+      (keydown.space)="handleIconClick()"
+      tabindex="0"
       [class.searching]="searching()"
       [size]="selectIconSize()"
       [color]="

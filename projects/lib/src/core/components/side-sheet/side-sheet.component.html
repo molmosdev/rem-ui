@@ -1,7 +1,10 @@
 <div
   class="side-sheet-overlay"
   [@overlayTrigger]="isOpen() ? 'visible' : 'hidden'"
-  (click)="isOpen.set(false)"></div>
+  (click)="isOpen.set(false)"
+  (keydown.enter)="isOpen.set(false)"
+  (keydown.space)="isOpen.set(false)"
+  tabindex="0"></div>
 <div
   class="side-sheet"
   [@horizontalSlideTrigger]="
@@ -31,6 +34,6 @@
     </svg>
   </button>
   <div class="side-sheet-content">
-    <ng-content></ng-content>
+    <ng-content />
   </div>
 </div>

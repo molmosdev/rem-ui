@@ -8,6 +8,6 @@ import { NgClass } from '@angular/common';
   styleUrl: './dropdown-item.component.css',
 })
 export class DropdownItem {
-  disabled = input<boolean>(false);
-  selected = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
+  readonly selected = input<boolean>(false);
 }

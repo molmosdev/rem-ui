@@ -24,25 +24,29 @@ export type DeviceType = 'mobile' | 'tablet' | 'desktop';
 })
 export class ResponsiveService {
   /** Signal that holds the breakpoint configuration */
-  private breakpoints = signal<DeviceBreakpoints>({
+  private readonly breakpoints = signal<DeviceBreakpoints>({
     mobile: 576,
     tablet: 992,
     desktop: 1200,
   });
 
   /** Signal that holds the current window width */
-  private windowWidth = signal<number>(0);
+  private readonly windowWidth = signal<number>(0);
 
   /**
    * Computed signal that returns the current device type based on window width
    * @returns The current device type ('mobile', 'tablet', or 'desktop')
    */
-  currentDevice = computed<DeviceType>(() => {
+  readonly currentDevice = computed<DeviceType>(() => {
     const width = this.windowWidth();
     const breaks = this.breakpoints();
 
-    if (width < breaks.mobile) return 'mobile';
-    if (width < breaks.tablet) return 'tablet';
+    if (width < breaks.mobile) {
+      return 'mobile';
+    }
+    if (width < breaks.tablet) {
+      return 'tablet';
+    }
     return 'desktop';
   });
 

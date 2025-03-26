@@ -15,9 +15,9 @@ import { DropdownContent } from './components/dropdown-content/dropdown-content.
   styleUrl: './dropdown.component.css',
 })
 export class Dropdown {
-  toggle = signal<boolean>(false);
-  dropdownTrigger = contentChild<DropdownTrigger>(DropdownTrigger);
-  dropdownContent = contentChild<DropdownContent>(DropdownContent);
+  readonly toggle = signal<boolean>(false);
+  readonly dropdownTrigger = contentChild<DropdownTrigger>(DropdownTrigger);
+  readonly dropdownContent = contentChild<DropdownContent>(DropdownContent);
 
   constructor() {
     effect(() => {

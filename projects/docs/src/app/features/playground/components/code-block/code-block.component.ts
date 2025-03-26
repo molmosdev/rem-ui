@@ -29,5 +29,5 @@ import { HighlightAuto } from 'ngx-highlightjs';
   `,
 })
 export class CodeBlockComponent {
-  code = input<string>('');
+  readonly code = input<string>('');
 }

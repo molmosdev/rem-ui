@@ -19,19 +19,19 @@ import { overlayTrigger } from '../../../shared/animations/animations';
 })
 export class SideSheet {
   /** Controls the open/closed state of the sheet. Two-way bindable. */
-  isOpen = model(false);
+  readonly isOpen = model(false);
 
   /** Determines which side the sheet appears from. Defaults to 'right'. */
-  side = input<'left' | 'right'>('right');
+  readonly side = input<'left' | 'right'>('right');
 
   /** Sets the width of the sheet. Accepts any valid CSS width value. */
-  width = input('300px');
+  readonly width = input('300px');
 
   /** Computed signal that returns true if the sheet is positioned on the left */
-  isLeft = computed(() => this.side() === 'left');
+  readonly isLeft = computed(() => this.side() === 'left');
 
   /** Computed signal that returns true if the sheet is positioned on the right */
-  isRight = computed(() => this.side() === 'right');
+  readonly isRight = computed(() => this.side() === 'right');
 
   /** Event emitted when the sheet should be closed */
   closeSheet = output<void>();

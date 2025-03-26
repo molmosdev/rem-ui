@@ -8,8 +8,8 @@ import { NgStyle } from '@angular/common';
   styleUrl: './spinner.component.css',
 })
 export class Spinner {
-  active = input<boolean>(true);
-  color = input<string>('var(--foreground)');
-  backgroundColor = input<string>('transparent');
-  size = input<number>(20);
+  readonly active = input<boolean>(true);
+  readonly color = input<string>('var(--foreground)');
+  readonly backgroundColor = input<string>('transparent');
+  readonly size = input<number>(20);
 }

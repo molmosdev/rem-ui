@@ -33,27 +33,27 @@ export class Textarea {
   get animationState() {
     return this.disabled();
   }
-  value = model<string | null>(null);
-  displayValue = computed(() => this.value() || '');
-  label = input<string | undefined>(undefined);
-  error = input<boolean>(false);
-  hasValueForced = input<boolean>(false);
+  readonly value = model<string | null>(null);
+  readonly displayValue = computed(() => this.value() || '');
+  readonly label = input<string | undefined>(undefined);
+  readonly error = input<boolean>(false);
+  readonly hasValueForced = input<boolean>(false);
   changeEmitter = output<string | null>();
-  disabled = model<boolean>(false);
-  placeholder = input<string | undefined>(undefined);
-  displayPlaceholder = computed(() => this.placeholder() || '');
-  labelState = computed(() =>
+  readonly disabled = model<boolean>(false);
+  readonly placeholder = input<string | undefined>(undefined);
+  readonly displayPlaceholder = computed(() => this.placeholder() || '');
+  readonly labelState = computed(() =>
     this.displayValue() || this.focused() || this.placeholder()
       ? 'small'
       : 'normal'
   );
-  inputPaddingState = computed(() =>
+  readonly inputPaddingState = computed(() =>
     this.label() &&
     (this.displayValue() || this.focused() || this.placeholder())
       ? 'small'
       : 'normal'
   );
-  focused = signal<boolean>(false);
+  readonly focused = signal<boolean>(false);
 
   /**
    * Get the input trigger state

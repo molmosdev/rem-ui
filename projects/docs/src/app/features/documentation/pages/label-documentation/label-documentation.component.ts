@@ -11,12 +11,12 @@ import { FormsModule } from '@angular/forms';
       elements.
     </span>
     <h2>Angular</h2>
-    <code-block [code]="angularImport"></code-block>
+    <code-block [code]="angularImport" />
     <h2>Web components</h2>
-    <code-block [code]="webComponentsImport"></code-block>
+    <code-block [code]="webComponentsImport" />
 
     <h2>With Input</h2>
-    <code-block [code]="withInputUsage"></code-block>
+    <code-block [code]="withInputUsage" />
     <div class="documentation-playground">
       <r-label>
         <label>Input Label</label>
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     </div>
 
     <h2>With Select</h2>
-    <code-block [code]="withSelectUsage"></code-block>
+    <code-block [code]="withSelectUsage" />
     <div class="documentation-playground">
       <r-label>
         <label>Select Label</label>

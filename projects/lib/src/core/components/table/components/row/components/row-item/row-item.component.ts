@@ -8,10 +8,10 @@ import { NgStyle } from '@angular/common';
   styleUrl: './row-item.component.css',
 })
 export class RowItem {
-  widthPx = input<number>();
-  alignedLeft = input<boolean>(false);
-  isHeader = input<boolean>(false);
-  style = computed(() => {
+  readonly widthPx = input<number>();
+  readonly alignedLeft = input<boolean>(false);
+  readonly isHeader = input<boolean>(false);
+  readonly style = computed(() => {
     return {
       width: `${this.widthPx()}px`,
       justifyContent: this.alignedLeft() ? 'flex-start' : 'center',

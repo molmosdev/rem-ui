@@ -31,7 +31,7 @@ import { FormsModule } from '@angular/forms';
   `,
 })
 export default class SwitchPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Size',
       type: 'select',

@@ -12,7 +12,7 @@ import { signal } from '@angular/core';
 })
 export class ThemeService {
   /** Signal to hold the current theme, either 'light' or 'dark'. */
-  theme = signal<'light' | 'dark'>('light');
+  readonly theme = signal<'light' | 'dark'>('light');
   private renderer: Renderer2;
   private rendererFactory = inject(RendererFactory2);
 

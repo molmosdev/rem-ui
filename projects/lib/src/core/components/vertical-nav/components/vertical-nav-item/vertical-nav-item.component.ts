@@ -8,6 +8,6 @@ import { Component, input } from '@angular/core';
   styleUrl: './vertical-nav-item.component.css',
 })
 export class VerticalNavItem {
-  active = input<boolean>(false);
-  disabled = input<boolean>(false);
+  readonly active = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
 }

@@ -12,7 +12,9 @@ export const verticalSlideTrigger = trigger('verticalSlideTrigger', [
   state(
     'intermediate',
     style({ transform: 'translateY({{currentTranslateY}}px)' }),
-    { params: { currentTranslateY: 0 } }
+    {
+      params: { currentTranslateY: 0 },
+    }
   ),
   transition('open <=> closed', animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')),
   transition(

@@ -38,12 +38,14 @@ import {
 })
 export class NavigationComponent implements OnInit {
   responsiveService = inject(ResponsiveService);
-  currentDevice = computed(() => this.responsiveService.currentDevice());
+  readonly currentDevice = computed(() =>
+    this.responsiveService.currentDevice()
+  );
   router = inject(Router);
-  routes = signal(this.router.config);
-  isMenuVisible = model(false);
-  actualRouteData = signal(undefined);
-  activeRoute = signal('');
+  readonly routes = signal(this.router.config);
+  readonly isMenuVisible = model(false);
+  readonly actualRouteData = signal(undefined);
+  readonly activeRoute = signal('');
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {

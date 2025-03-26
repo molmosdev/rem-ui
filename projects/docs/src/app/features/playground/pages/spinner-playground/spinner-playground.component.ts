@@ -10,8 +10,7 @@ import { ArgsComponent } from '../../components/args/args.component';
     <div class="playground">
       <div class="top">
         <div class="component">
-          <r-spinner [active]="args()[0].value()" [size]="args()[1].value()">
-          </r-spinner>
+          <r-spinner [active]="args()[0].value()" [size]="args()[1].value()" />
         </div>
         <!-- <app-code-block
           code="
@@ -26,7 +25,7 @@ import { ArgsComponent } from '../../components/args/args.component';
   `,
 })
 export default class SpinnerPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Active',
       type: 'switch',

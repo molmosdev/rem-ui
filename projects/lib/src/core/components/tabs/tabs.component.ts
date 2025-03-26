@@ -15,10 +15,10 @@ import { Tab } from './components/tab/tab.component';
   styleUrl: './tabs.component.css',
 })
 export class Tabs {
-  tabs = contentChildren(Tab);
-  selectedIndex = signal<number>(-1);
-  selectedValue = model<string | null>(null);
-  highlightedIndex = signal<number>(-1);
+  readonly tabs = contentChildren(Tab);
+  readonly selectedIndex = signal<number>(-1);
+  readonly selectedValue = model<string | null>(null);
+  readonly highlightedIndex = signal<number>(-1);
   changesEmitter = output<string>();
   lastSelectedValue: string | null = null;
 

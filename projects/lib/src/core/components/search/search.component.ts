@@ -55,22 +55,22 @@ export class Search {
   /**
    * Indicates whether the search component is in an invalid state.
    */
-  invalid = model(false);
+  readonly invalid = model(false);
 
   /**
    * Indicates whether the search component is disabled.
    */
-  disabled = model(false);
+  readonly disabled = model(false);
 
   /**
    * The value of the selected option.
    */
-  selectedValue = model<string | null>(null);
+  readonly selectedValue = model<string | null>(null);
 
   /**
    * The search value.
    */
-  searchValue = model<string>('');
+  readonly searchValue = model<string>('');
 
   /**
    * Emits the value of the search component when the value changes.
@@ -80,12 +80,12 @@ export class Search {
   /**
    * Emits when the search component is focused.
    */
-  focused = signal<boolean>(false);
+  readonly focused = signal<boolean>(false);
 
   /**
    * Indicates whether the options dropdown is open.
    */
-  isOpen = signal(false);
+  readonly isOpen = signal(false);
 
   /**
    * The options available for selection.
@@ -103,7 +103,7 @@ export class Search {
    * Reference to the select element within the component
    * @private
    */
-  private select = viewChild<ElementRef>('select');
+  private readonly select = viewChild<ElementRef>('select');
 
   /**
    * Reference to the renderer

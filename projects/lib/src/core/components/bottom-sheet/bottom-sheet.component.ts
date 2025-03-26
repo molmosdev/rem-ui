@@ -20,31 +20,31 @@ import { overlayTrigger } from '../../../public-api';
 })
 export class BottomSheet {
   /** Indicates whether the bottom sheet is open. */
-  isOpen = model(false);
+  readonly isOpen = model(false);
 
   /** The height of the bottom sheet. */
-  height = input('30dvh');
+  readonly height = input('30dvh');
 
   /** The threshold for closing the bottom sheet. */
-  closeThreshold = input(30);
+  readonly closeThreshold = input(30);
 
   /** Event emitted when the bottom sheet is closed. */
   closeSheet = output<void>();
 
   /** Indicates whether a drag event is in progress. */
-  private isDragging = signal(false);
+  private readonly isDragging = signal(false);
 
   /** The starting Y-coordinate of the drag event. */
-  private startY = signal(0);
+  private readonly startY = signal(0);
 
   /** The current translation in the Y-axis during a drag event. */
-  currentTranslateY = signal(0);
+  readonly currentTranslateY = signal(0);
 
   /** The height of the content inside the bottom sheet. */
-  private contentHeight = signal(0);
+  private readonly contentHeight = signal(0);
 
   /** The current animation state of the bottom sheet. */
-  animationState = computed(() => {
+  readonly animationState = computed(() => {
     return this.isDragging()
       ? 'intermediate'
       : this.isOpen()
@@ -68,7 +68,9 @@ export class BottomSheet {
    * @param event The mouse or touch event.
    */
   onDragMove(event: MouseEvent | TouchEvent): void {
-    if (!this.isDragging()) return;
+    if (!this.isDragging()) {
+      return;
+    }
     event.preventDefault();
     const currentY = this.getEventY(event);
     const deltaY = currentY - this.startY();

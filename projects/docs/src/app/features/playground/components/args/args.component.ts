@@ -12,5 +12,5 @@ import { Label } from '../../../../../../../lib/src/shared/components/label/labe
 })
 export class ArgsComponent {
   /** List of arguments to display */
-  args = input.required<IArg[]>();
+  readonly args = input.required<IArg[]>();
 }

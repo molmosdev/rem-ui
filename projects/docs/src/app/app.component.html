@@ -1,5 +1,3 @@
 <app-header [(sideSheet)]="isMenuVisible" />
 <app-navigation [(isMenuVisible)]="isMenuVisible" />
-@defer (on idle) {
-  <router-outlet></router-outlet>
-}
+<router-outlet />

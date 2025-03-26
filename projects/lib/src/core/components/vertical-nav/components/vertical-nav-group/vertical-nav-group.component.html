@@ -2,6 +2,8 @@
   <div
     class="group-wrapper"
     (click)="toggleExpandedState()"
+    (keydown.enter)="toggleExpandedState()"
+    (keydown.space)="toggleExpandedState()"
     [class.expanded]="expanded()"
     role="button"
     tabindex="0">

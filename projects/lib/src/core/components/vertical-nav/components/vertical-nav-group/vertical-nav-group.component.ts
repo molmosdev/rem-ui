@@ -11,8 +11,8 @@ import { rotateArrowTrigger } from '../../../../../shared/animations/animations'
   animations: [expandCollapseTrigger, rotateArrowTrigger],
 })
 export class VerticalNavGroup {
-  groups = contentChildren(VerticalNavGroup);
-  expanded = model<boolean>(false);
+  readonly groups = contentChildren(VerticalNavGroup);
+  readonly expanded = model<boolean>(false);
 
   /**
    * Toggle the expanded state of the sidebar

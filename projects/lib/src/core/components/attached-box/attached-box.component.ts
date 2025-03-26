@@ -22,35 +22,35 @@ export class AttachedBox {
   /**
    * The trigger element that will be used to open the content.
    */
-  trigger = viewChild<ElementRef>('trigger');
+  readonly trigger = viewChild<ElementRef>('trigger');
 
   /**
    * The content that will be displayed when the trigger is activated.
    */
-  content = viewChild<ElementRef>('content');
+  readonly content = viewChild<ElementRef>('content');
 
   /**
    * The primary direction of the content relative to the trigger.
    * Valores aceptados: 'top' | 'bottom' | 'left' | 'right'
    */
-  direction = model<Direction>('right');
+  readonly direction = model<Direction>('right');
 
   /**
    * The secondary alignment of the content relative to the trigger.
    * Valores aceptados: 'left' | 'center' | 'right'
    */
-  alignment = model<Alignment>('top');
+  readonly alignment = model<Alignment>('top');
 
   /**
    * Signal indicating whether the content is visible or not.
    */
-  isContentVisible = model<boolean>(false);
+  readonly isContentVisible = model<boolean>(false);
 
   /**
    * Signal that dynamically calculates and provides the adjusted position of the content.
    * This position is adjusted to prevent overflow and ensure optimal visibility.
    */
-  adjustedPosition = linkedSignal<Position>(() =>
+  readonly adjustedPosition = linkedSignal<Position>(() =>
     this.calculateAdjustedPosition()
   );
 
@@ -58,7 +58,7 @@ export class AttachedBox {
    * Signal that provides the animation parameters based on the adjusted
    * position of the content. These parameters are used to animate the content.
    */
-  animationParams = computed(() => {
+  readonly animationParams = computed(() => {
     const position = this.adjustedPosition();
     const direction = position.split('-')[0];
     const isCenter = position.includes('center');

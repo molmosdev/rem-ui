@@ -1,25 +1,23 @@
-@defer (on idle) {
-  @switch (currentDevice()) {
-    @case ('mobile') {
-      <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
-        {{ actualRouteData()?.['title'] }}
-        <div class="chevron-wrapper">
-          <i class="icon-chevron-up"></i>
-          <i class="icon-chevron-down"></i>
-        </div>
-      </button>
-      <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
-        <ng-container *ngTemplateOutlet="componentsList"></ng-container>
-      </r-bottom-sheet>
-    }
-    @case ('tablet') {
-      <r-side-sheet [(isOpen)]="isMenuVisible" side="left">
-        <ng-container *ngTemplateOutlet="componentsList"></ng-container>
-      </r-side-sheet>
-    }
-    @case ('desktop') {
-      <ng-container *ngTemplateOutlet="componentsList"></ng-container>
-    }
+@switch (currentDevice()) {
+  @case ('mobile') {
+    <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
+      {{ actualRouteData()?.['title'] }}
+      <div class="chevron-wrapper">
+        <i class="icon-chevron-up"></i>
+        <i class="icon-chevron-down"></i>
+      </div>
+    </button>
+    <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
+      <ng-container *ngTemplateOutlet="componentsList" />
+    </r-bottom-sheet>
+  }
+  @case ('tablet') {
+    <r-side-sheet [(isOpen)]="isMenuVisible" side="left">
+      <ng-container *ngTemplateOutlet="componentsList" />
+    </r-side-sheet>
+  }
+  @case ('desktop') {
+    <ng-container *ngTemplateOutlet="componentsList" />
   }
 }
 <ng-template #componentsList>
@@ -35,7 +33,7 @@
             *ngTemplateOutlet="
               renderRoute;
               context: { $implicit: route, accumulatedPath: '' }
-            "></ng-container>
+            " />
         }
       }
     </r-vertical-nav>
@@ -56,7 +54,7 @@
                   $implicit: child,
                   accumulatedPath: getRoutePath(route, accumulatedPath),
                 }
-              "></ng-container>
+              " />
           }
         }
       </r-vertical-nav-section>
@@ -73,7 +71,7 @@
                   $implicit: child,
                   accumulatedPath: getRoutePath(route, accumulatedPath),
                 }
-              "></ng-container>
+              " />
           }
         }
       </r-vertical-nav-group>

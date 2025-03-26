@@ -2,22 +2,23 @@ import { Component, computed, inject, model } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../../lib/src/core/services/theme.service';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
+import { Icon } from '../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, Icon],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   themeService = inject(ThemeService);
-  isDarkTheme = computed(() => this.themeService.theme() === 'dark');
+  readonly isDarkTheme = computed(() => this.themeService.theme() === 'dark');
   responsiveService = inject(ResponsiveService);
-  isTablet = computed(
+  readonly isTablet = computed(
     () => this.responsiveService.currentDevice() === 'tablet'
   );
   toggleTheme() {
     this.themeService.toggleTheme();
   }
-  sideSheet = model(false);
+  readonly sideSheet = model(false);
 }

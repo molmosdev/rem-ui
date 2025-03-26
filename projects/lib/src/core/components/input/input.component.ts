@@ -13,7 +13,7 @@ import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'input[r-input]',
-  template: ``,
+  template: '',
   styleUrl: './input.component.css',
   host: {
     '[type]': 'type()',
@@ -40,17 +40,17 @@ export class Input implements AfterViewInit {
   /**
    * The value of the input.
    */
-  value = signal<string | number | null>(null);
+  readonly value = signal<string | number | null>(null);
 
   /**
    * Whether the input is invalid.
    */
-  invalid = model<boolean>(false);
+  readonly invalid = model<boolean>(false);
 
   /**
    * Whether the input is disabled.
    */
-  disabled = model<boolean>(false);
+  readonly disabled = model<boolean>(false);
 
   /**
    * The maximum width of the input.
@@ -75,7 +75,7 @@ export class Input implements AfterViewInit {
   /**
    * Whether the input is focused.
    */
-  focused = signal<boolean>(false);
+  readonly focused = signal<boolean>(false);
 
   /**
    * Event emitted when the value changes.

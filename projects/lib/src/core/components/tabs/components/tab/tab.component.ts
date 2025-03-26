@@ -8,10 +8,10 @@ import { Component, ElementRef, input, output, signal } from '@angular/core';
   styleUrl: './tab.component.css',
 })
 export class Tab {
-  value = input.required<string>();
-  disabled = input<boolean>(false);
-  selected = signal<boolean>(false);
-  highlighted = signal<boolean>(false);
+  readonly value = input.required<string>();
+  readonly disabled = input<boolean>(false);
+  readonly selected = signal<boolean>(false);
+  readonly highlighted = signal<boolean>(false);
   selectEmitter = output<Tab>();
 
   constructor(public el: ElementRef) {}

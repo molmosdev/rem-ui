@@ -20,14 +20,14 @@ import { LazyContentDirective } from '../../../../../shared/directives/lazy-cont
   styleUrl: './dropdown-content.component.css',
 })
 export class DropdownContent {
-  positioning = input<
+  readonly positioning = input<
     'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
   >('bottom-left');
-  width = input<number>(210);
-  isDropdownContentVisible = signal<boolean>(false);
-  lazyContent = contentChild(LazyContentDirective);
-  dropdown = viewChild<ElementRef>('dropdown');
-  forcePopover = input<boolean>(false);
+  readonly width = input<number>(210);
+  readonly isDropdownContentVisible = signal<boolean>(false);
+  readonly lazyContent = contentChild(LazyContentDirective);
+  readonly dropdown = viewChild<ElementRef>('dropdown');
+  readonly forcePopover = input<boolean>(false);
   closeEmitter = output<void>();
   triggerRect: DOMRect | undefined = undefined;
 

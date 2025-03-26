@@ -5,7 +5,7 @@ import { createElement, icons } from 'lucide';
 @Component({
   selector: 'i[r-icon]',
   imports: [],
-  template: ``,
+  template: '',
   host: {
     '[innerHTML]': 'iconSvg()',
     '[style.margin-inline]': 'marginInline()',
@@ -29,27 +29,27 @@ export class Icon {
   /**
    * The icon of the text field.
    */
-  icon = input.required<string>();
+  readonly icon = input.required<string>();
 
   /**
    * The size of the icon.
    */
-  size = input(24);
+  readonly size = input(24);
 
   /**
    * The stroke of the icon.
    */
-  strokeWidth = input(1.8);
+  readonly strokeWidth = input(1.8);
 
   /**
    * The color of the icon.
    */
-  color = input<string>('var(--foreground, #798194)');
+  readonly color = input<string>('var(--foreground, #798194)');
 
   /**
    * The svg of the icon.
    */
-  iconSvg = computed(() => {
+  readonly iconSvg = computed(() => {
     if (!(icons as any)[this.icon()]) {
       console.error(`Icon '${this.icon()}' not found in Lucide icons.`);
       return this.sanitizer.bypassSecurityTrustHtml('');
@@ -67,5 +67,5 @@ export class Icon {
   /**
    * Whether the icon is leading.
    */
-  marginInline = input('0px');
+  readonly marginInline = input('0px');
 }

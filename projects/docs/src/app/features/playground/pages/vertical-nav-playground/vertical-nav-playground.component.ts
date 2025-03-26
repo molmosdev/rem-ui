@@ -88,7 +88,7 @@ import { IArg } from '../../interfaces/arg.interface';
   `,
 })
 export default class VerticalNavPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Home Icon',
       type: 'select',

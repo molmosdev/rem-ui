@@ -5,7 +5,7 @@ import { Component, ElementRef, input, output } from '@angular/core';
   templateUrl: './dropdown-trigger.component.html',
 })
 export class DropdownTrigger {
-  disabled = input<boolean>(false);
+  readonly disabled = input<boolean>(false);
   triggerEmitter = output<void>();
   el: any;
 

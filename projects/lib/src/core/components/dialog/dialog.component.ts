@@ -18,16 +18,16 @@ import { LazyContentDirective } from '../../../shared/directives/lazy-content.di
 })
 export class Dialog {
   /** Indicates whether the dialog is shown */
-  show = model.required<boolean>();
+  readonly show = model.required<boolean>();
 
   /** Indicates whether clicking outside the dialog should close it */
-  clickOutside = model<boolean>(true);
+  readonly clickOutside = model<boolean>(true);
 
   /** Indicates whether the mobile bottom style is active */
-  mobileBottomActive = input<boolean>(false);
+  readonly mobileBottomActive = input<boolean>(false);
 
   /** Lazy content directive */
-  lazyContent = contentChild(LazyContentDirective);
+  readonly lazyContent = contentChild(LazyContentDirective);
 
   /**
    * Listen for keyboard escape events

@@ -1,7 +1,9 @@
 <div
   class="bottom-sheet-overlay"
   [@overlayTrigger]="isOpen() ? 'visible' : 'hidden'"
-  (click)="isOpen.set(false)"></div>
+  (click)="isOpen.set(false)"
+  (keydown.enter)="isOpen.set(false)"
+  tabindex="0"></div>
 <div
   class="bottom-sheet"
   [@verticalSlideTrigger]="{
@@ -21,5 +23,5 @@
     (touchcancel)="onDragEnd()">
     <div class="drag-indicator"></div>
   </div>
-  <ng-content></ng-content>
+  <ng-content />
 </div>

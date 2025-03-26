@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'input[r-switch]',
-  template: ``,
+  template: '',
   styleUrl: './switch.component.css',
   host: {
     '[attr.role]': 'switch',
@@ -27,12 +27,12 @@ export class Switch implements AfterViewInit {
   /**
    * Value of the switch.
    */
-  value = model<boolean>(false);
+  readonly value = model<boolean>(false);
 
   /**
    * The size of the switch.
    */
-  size = input<'default' | 'large'>('default');
+  readonly size = input<'default' | 'large'>('default');
 
   /**
    * Reference to the switch element.

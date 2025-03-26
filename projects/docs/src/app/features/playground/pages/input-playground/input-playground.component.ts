@@ -27,7 +27,7 @@ import { Input } from '../../../../../../../lib/src/core/components/input/input.
   `,
 })
 export default class InputPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Type',
       type: 'select',

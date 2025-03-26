@@ -8,5 +8,5 @@ import { NgStyle } from '@angular/common';
   styleUrl: './dialog-title.component.css',
 })
 export class DialogTitle {
-  aligned = input<boolean>(false);
+  readonly aligned = input<boolean>(false);
 }

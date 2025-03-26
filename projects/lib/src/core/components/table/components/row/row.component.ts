@@ -8,8 +8,8 @@ import { NgClass } from '@angular/common';
   styleUrl: './row.component.css',
 })
 export class Row {
-  header = input<boolean>(false);
-  subheader = input<boolean>(false);
-  clickable = input<boolean>(false);
-  highlighted = input<boolean>(false);
+  readonly header = input<boolean>(false);
+  readonly subheader = input<boolean>(false);
+  readonly clickable = input<boolean>(false);
+  readonly highlighted = input<boolean>(false);
 }

@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'r-button-group',
-  template: `<ng-content />`,
+  template: '<ng-content />',
   styleUrls: ['./button-group.component.css'],
   host: {
     class: 'button-group',
@@ -13,5 +13,5 @@ export class ButtonGroup {
   /**
    * Whether the buttons should be spaced.
    */
-  spaced = input<boolean>(false);
+  readonly spaced = input<boolean>(false);
 }

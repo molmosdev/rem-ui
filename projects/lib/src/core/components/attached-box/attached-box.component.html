@@ -1,6 +1,9 @@
 <div
   #trigger
   (click)="toggleContentVisibility()"
+  (keydown.enter)="toggleContentVisibility()"
+  (keydown.space)="toggleContentVisibility()"
+  tabindex="0"
   class="r-attached-box-trigger">
   <ng-content select="[r-attached-box-trigger]" />
 </div>

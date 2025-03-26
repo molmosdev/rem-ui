@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
   `,
 })
 export default class SelectPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Label',
       type: 'text',
@@ -56,7 +56,7 @@ export default class SelectPlaygroundComponent {
     { text: 'Option 3', value: 'option3', disabled: true },
   ];
 
-  code = computed(() => {
+  readonly code = computed(() => {
     const optionsString = this.options
       .map(
         option => `

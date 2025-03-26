@@ -1,6 +1,15 @@
 <div class="left">
   @if (isTablet()) {
-    <i class="icon-menu" (click)="sideSheet.set(!sideSheet())"></i>
+    <i
+      r-icon
+      icon="Menu"
+      class="icon-menu"
+      tabindex="0"
+      (click)="sideSheet.set(!sideSheet())"
+      (keydown)="
+        ($event.key === 'Enter' || $event.key === ' ') &&
+          sideSheet.set(!sideSheet())
+      "></i>
   }
   <div class="home-nav-link" [routerLink]="['/']">
     <div class="logo-wrapper">
@@ -10,6 +19,9 @@
   </div>
 </div>
 <i
-  [class.icon-sun]="!isDarkTheme()"
-  [class.icon-moon]="isDarkTheme()"
-  (click)="toggleTheme()"></i>
+  r-icon
+  [icon]="isDarkTheme() ? 'Moon' : 'Sun'"
+  tabindex="0"
+  (click)="toggleTheme()"
+  (keydown)="($event.key === 'Enter' || $event.key === ' ') && toggleTheme()">
+</i>

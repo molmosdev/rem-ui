@@ -14,17 +14,19 @@ import { Spinner } from '../spinner/spinner.component';
 })
 export class Button {
   /** The variant of the button. */
-  variant = input<'primary' | 'secondary' | 'ghost' | 'outlined'>('primary');
+  readonly variant = input<'primary' | 'secondary' | 'ghost' | 'outlined'>(
+    'primary'
+  );
 
   /** The size of the button. */
-  size = input<'small' | 'default'>('default');
+  readonly size = input<'small' | 'default'>('default');
 
   /** The radius of the button. */
-  radius = input<'none' | 'medium' | 'full'>('medium');
+  readonly radius = input<'none' | 'medium' | 'full'>('medium');
 
   /** Whether is loading. */
-  loading = input(false);
+  readonly loading = input(false);
 
   /** Whether the padding should be equal vertically and horizontally. */
-  equalPadding = input(false);
+  readonly equalPadding = input(false);
 }

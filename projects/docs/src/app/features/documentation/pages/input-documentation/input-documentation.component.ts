@@ -13,9 +13,9 @@ import {
   template: `<h1>Input</h1>
     <span> Input is a custom input component with additional features. </span>
     <h2>Angular</h2>
-    <code-block [code]="angularImport"></code-block>
+    <code-block [code]="angularImport" />
     <h2>Web components</h2>
-    <code-block [code]="webComponentsImport"></code-block>
+    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -85,7 +85,7 @@ import {
     </div>
 
     <h2>Basic</h2>
-    <code-block [code]="basicUsage"></code-block>
+    <code-block [code]="basicUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -97,7 +97,7 @@ import {
     </div>
 
     <h2>Angular Binding with ngModel</h2>
-    <code-block [code]="ngModelUsage"></code-block>
+    <code-block [code]="ngModelUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -108,7 +108,7 @@ import {
     </div>
 
     <h2>Angular Forms with formControlName</h2>
-    <code-block [code]="formControlUsage"></code-block>
+    <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
       <div class="documentation-playground">
         <input
@@ -121,7 +121,7 @@ import {
     </form>
 
     <h2>Disabled</h2>
-    <code-block [code]="disabledUsage"></code-block>
+    <code-block [code]="disabledUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -132,7 +132,7 @@ import {
     </div>
 
     <h2>Invalid</h2>
-    <code-block [code]="invalidUsage"></code-block>
+    <code-block [code]="invalidUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -143,7 +143,7 @@ import {
     </div>
 
     <h2>Number Input with Decimals</h2>
-    <code-block [code]="decimalsUsage"></code-block>
+    <code-block [code]="decimalsUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -155,7 +155,7 @@ import {
     </div>
 
     <h2>Number Input with Integer Type</h2>
-    <code-block [code]="integerUsage"></code-block>
+    <code-block [code]="integerUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -166,7 +166,7 @@ import {
     </div>
 
     <h2>Password Input</h2>
-    <code-block [code]="passwordUsage"></code-block>
+    <code-block [code]="passwordUsage" />
     <div class="documentation-playground">
       <input
         r-input
@@ -176,7 +176,7 @@ import {
     </div>
 
     <h2>With Label</h2>
-    <code-block [code]="withInputUsage"></code-block>
+    <code-block [code]="withInputUsage" />
     <div class="documentation-playground">
       <r-label>
         <label>Input Label</label>

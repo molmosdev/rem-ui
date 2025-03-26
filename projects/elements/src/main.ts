@@ -10,9 +10,7 @@ import {
   DropdownItem,
   DropdownTitle,
   DropdownTrigger,
-  Number,
   Option,
-  Password,
   Row,
   RowItem,
   Search,
@@ -22,9 +20,7 @@ import {
   Tab,
   Table,
   Tabs,
-  Text,
   Textarea,
-  User,
   VerticalNav,
   VerticalNavGroup,
   VerticalNavItem,
@@ -74,9 +70,6 @@ createApplication(appConfig)
     const rOption = createCustomElement(Option, { injector: app.injector });
     customElements.define('r-option', rOption);
 
-    const rPassword = createCustomElement(Password, { injector: app.injector });
-    customElements.define('r-password', rPassword);
-
     const rSearch = createCustomElement(Search, { injector: app.injector });
     customElements.define('r-search', rSearch);
 
@@ -109,9 +102,6 @@ createApplication(appConfig)
 
     const rTextarea = createCustomElement(Textarea, { injector: app.injector });
     customElements.define('r-textarea', rTextarea);
-
-    const rUser = createCustomElement(User, { injector: app.injector });
-    customElements.define('r-user', rUser);
 
     const rVerticalNav = createCustomElement(VerticalNav, {
       injector: app.injector,

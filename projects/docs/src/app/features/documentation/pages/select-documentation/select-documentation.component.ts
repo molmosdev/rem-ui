@@ -125,7 +125,7 @@ import {
     </div>
 
     <h2>With Label</h2>
-    <code-block [code]="withSelectUsage"></code-block>
+    <code-block [code]="withSelectUsage" />
     <div class="documentation-playground">
       <r-label>
         <label>Select Label</label>

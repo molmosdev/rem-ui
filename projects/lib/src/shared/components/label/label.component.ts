@@ -5,7 +5,7 @@ import { Select } from '../../../public-api';
 @Component({
   selector: 'r-label',
   imports: [],
-  template: ` <ng-content /> `,
+  template: ' <ng-content /> ',
   styleUrl: './label.component.css',
   host: {
     '[class.up]': 'labelUp()',
@@ -16,17 +16,17 @@ export class Label {
   /**
    * The input element.
    */
-  input = contentChild(Input);
+  readonly input = contentChild(Input);
 
   /**
    * The select element.
    */
-  select = contentChild(Select);
+  readonly select = contentChild(Select);
 
   /**
    * Whether the label should be up.
    */
-  labelUp = computed(() => {
+  readonly labelUp = computed(() => {
     const input = this.input();
     const select = this.select();
 
@@ -41,7 +41,7 @@ export class Label {
   /**
    * The label width.
    */
-  maxWidth = computed(() => {
+  readonly maxWidth = computed(() => {
     const input = this.input();
     return input?.maxWidth() || this.select()?.maxWidth();
   });

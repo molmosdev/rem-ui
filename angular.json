@@ -10,7 +10,7 @@
       "prefix": "r",
       "architect": {
         "build": {
-          "builder": "@angular/build:ng-packagr",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "projects/lib/ng-package.json"
           },
@@ -152,12 +152,7 @@
               }
             ],
             "styles": ["projects/docs/src/styles.css"],
-            "scripts": [],
-            "server": "projects/docs/src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "projects/docs/src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {

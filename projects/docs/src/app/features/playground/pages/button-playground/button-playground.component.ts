@@ -38,7 +38,7 @@ import { ArgsComponent } from '../../components/args/args.component';
   `,
 })
 export default class ButtonPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Variant',
       type: 'select',

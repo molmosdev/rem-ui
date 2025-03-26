@@ -9,7 +9,6 @@ module.exports = tseslint.config(
   {
     files: ['**/*.ts'],
     plugins: {
-      // @ts-ignore
       'unused-imports': unusedImports,
     },
     extends: [
@@ -21,6 +20,7 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      'no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -31,9 +31,15 @@ module.exports = tseslint.config(
           argsIgnorePattern: '^_',
         },
       ],
+      '@angular-eslint/prefer-signals': 'error',
       '@angular-eslint/component-class-suffix': ['off'],
       '@typescript-eslint/no-explicit-any': ['off'],
-      '@typescript-eslint/no-unused-expressions': ['off'],
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+        },
+      ],
     },
   },
   {
@@ -43,9 +49,9 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {
-      '@angular-eslint/template/click-events-have-key-events': 'off',
-      '@angular-eslint/template/label-has-associated-control': 'off',
-      '@angular-eslint/template/interactive-supports-focus': 'off',
+      '@angular-eslint/template/prefer-self-closing-tags': ['warn'],
+      '@angular-eslint/template/label-has-associated-control': ['off'],
+      '@angular-eslint/template/prefer-control-flow': ['error'],
     },
   }
 );

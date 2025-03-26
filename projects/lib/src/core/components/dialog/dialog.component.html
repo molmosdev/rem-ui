@@ -4,6 +4,7 @@
     @fadeInFadeOutTrigger
     class="background"
     (click)="close()"
+    (keydown.enter)="close()"
     [ngClass]="{ 'click-outside': clickOutside() }"></span>
   <div
     class="dialog"
@@ -19,7 +20,7 @@
       },
     }">
     @if (lazyContent()) {
-      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!"></ng-container>
+      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!" />
     } @else {
       <ng-content />
     }

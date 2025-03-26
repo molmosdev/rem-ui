@@ -15,8 +15,7 @@ import { ArgsComponent } from '../../components/args/args.component';
             [placeholder]="args()[1].value()"
             [value]="args()[2].value()"
             [error]="args()[3].value()"
-            [disabled]="args()[4].value()">
-          </r-textarea>
+            [disabled]="args()[4].value()" />
         </div>
         <!-- <app-code-block
           code="
@@ -34,7 +33,7 @@ import { ArgsComponent } from '../../components/args/args.component';
   `,
 })
 export default class TextareaPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Label',
       type: 'text',

@@ -13,5 +13,5 @@ import { HeaderComponent } from './core/components/header/header.component';
 export class AppComponent {
   title = 'rem-ui';
   themeService = inject(ThemeService);
-  isMenuVisible = signal(false);
+  readonly isMenuVisible = signal(false);
 }

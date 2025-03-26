@@ -1,3 +1,6 @@
-<section (click)="!disabled() && triggerEmitter.emit()" tabindex="0">
+<section
+  (click)="!disabled() && triggerEmitter.emit()"
+  (keydown.enter)="!disabled() && triggerEmitter.emit()"
+  tabindex="0">
   <ng-content />
 </section>

@@ -9,7 +9,7 @@ import { Button } from '../button/button.component';
 })
 export class List {
   /** Boolean to determine if the list is addable */
-  addable = input<boolean>(true);
+  readonly addable = input<boolean>(true);
   /** Emits an event when the add button is clicked */
   addEmitter = output<void>();
 }

@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class InViewportService {
-  elements = signal<Record<string, boolean>>({});
+  readonly elements = signal<Record<string, boolean>>({});
   observer!: IntersectionObserver;
 
   /**

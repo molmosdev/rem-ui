@@ -30,7 +30,7 @@ export default class TabsPlaygroundComponent {
     { label: signal('Tab 3'), value: 'tab3', disabled: true },
   ];
 
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Selected Tab',
       type: 'select',
@@ -58,7 +58,7 @@ export default class TabsPlaygroundComponent {
     },
   ]);
 
-  code = computed(() => {
+  readonly code = computed(() => {
     const tabsString = this.tabs
       .map(
         tab => `

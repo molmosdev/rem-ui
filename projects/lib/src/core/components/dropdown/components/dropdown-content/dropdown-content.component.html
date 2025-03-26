@@ -5,9 +5,10 @@
     id="dropdown"
     @fadeInFadeOutTrigger
     (click)="closeEmitter.emit()"
+    (keydown.enter)="closeEmitter.emit()"
     [ngStyle]="{ width: width() + 'px' }">
     @if (lazyContent()) {
-      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!"></ng-container>
+      <ng-container [ngTemplateOutlet]="lazyContent()?.tpl!" />
     } @else {
       <ng-content />
     }

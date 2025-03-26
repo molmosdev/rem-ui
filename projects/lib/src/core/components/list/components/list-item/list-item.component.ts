@@ -22,13 +22,13 @@ export interface ListItemContent {
 })
 export class ListItem {
   /** The unique identifier for the list item. */
-  id = input.required<string>();
+  readonly id = input.required<string>();
 
   /** The content of the list item. */
-  content = model.required<ListItemContent[]>();
+  readonly content = model.required<ListItemContent[]>();
 
   /** Indicates whether the list item is removable. */
-  removable = input<boolean>(true);
+  readonly removable = input<boolean>(true);
 
   /** Event emitted when the list item is removed. */
   removeEmitter = output<string>();
@@ -37,7 +37,7 @@ export class ListItem {
   changeEmitter = output<{ id: string; content: ListItemContent }>();
 
   /** The position of the delete button. */
-  deleteButtonPosition = input<'bottom' | 'right'>('right');
+  readonly deleteButtonPosition = input<'bottom' | 'right'>('right');
 
   @HostBinding('class.bottom-delete')
   get isBottomDelete() {

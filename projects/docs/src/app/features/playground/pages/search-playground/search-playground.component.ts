@@ -40,7 +40,7 @@ import { IArg } from '../../interfaces/arg.interface';
   `,
 })
 export default class SearchPlaygroundComponent {
-  args = signal<IArg[]>([
+  readonly args = signal<IArg[]>([
     {
       label: 'Label',
       type: 'text',
@@ -78,7 +78,7 @@ export default class SearchPlaygroundComponent {
     },
   ]);
 
-  searchValue = signal<string>('');
+  readonly searchValue = signal<string>('');
 
   options = [
     { text: '', value: null, disabled: false },

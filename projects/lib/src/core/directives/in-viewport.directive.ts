@@ -6,8 +6,8 @@ import { InViewportService } from '../services/in-viewport.service';
   selector: '[r-in-viewport]',
 })
 export class InViewportDirective implements OnDestroy {
-  inViewportId = input.required<string>();
-  inViewportInitialVisibility = input<boolean>(false);
+  readonly inViewportId = input.required<string>();
+  readonly inViewportInitialVisibility = input<boolean>(false);
   el = inject(ElementRef);
   inViewportService = inject(InViewportService);
 
