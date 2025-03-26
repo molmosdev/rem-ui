@@ -18,7 +18,6 @@
     "serve:docs": "ng serve docs",
     "build:docs": "ng build docs",
     "watch:docs": "ng build docs --watch",
-    "serve:ssr:docs": "node dist/docs/server/server.mjs",
     "deploy:docs": "npm run fmt && npm run lint && vercel --prod"
   },
   "private": true,
