@@ -86,3 +86,6 @@ export * from './core/components/icon/icon.component';
 
 /* Label */
 export * from './shared/components/label/label.component';
+
+/* Badge */
+export * from './core/components/badge/badge.component';

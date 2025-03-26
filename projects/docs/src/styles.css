@@ -22,7 +22,8 @@ app-select-documentation,
 app-input-documentation,
 app-switch-documentation,
 app-label-documentation,
-app-button-group-documentation {
+app-button-group-documentation,
+app-badge-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;

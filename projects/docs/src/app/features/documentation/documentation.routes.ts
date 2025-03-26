@@ -28,6 +28,7 @@ export const documentationRoutes: Routes = [
       import('./pages/select-documentation/select-documentation.component'),
     data: {
       title: 'Select',
+      new: true,
     },
   },
   {
@@ -36,6 +37,15 @@ export const documentationRoutes: Routes = [
       import('./pages/switch-documentation/switch-documentation.component'),
     data: {
       title: 'Switch',
+    },
+  },
+  {
+    path: 'badge',
+    loadComponent: () =>
+      import('./pages/badge-documentation/badge-documentation.component'),
+    data: {
+      title: 'Badge',
+      new: true,
     },
   },
   {
