@@ -17,6 +17,7 @@ import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sh
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
 import {
   fadeInFadeOutTrigger,
+  Icon,
   SideSheet,
 } from '../../../../../../lib/src/public-api';
 
@@ -31,6 +32,7 @@ import {
     BottomSheet,
     SideSheet,
     Button,
+    Icon,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
