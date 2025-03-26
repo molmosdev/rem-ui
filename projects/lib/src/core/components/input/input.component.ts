@@ -13,7 +13,7 @@ import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'input[r-input]',
-  template: '',
+  template: ``,
   styleUrl: './input.component.css',
   host: {
     '[type]': 'type()',

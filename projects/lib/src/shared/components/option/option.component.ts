@@ -2,7 +2,7 @@ import { Component, ElementRef, inject } from '@angular/core';
 
 @Component({
   selector: 'option[r-option]',
-  template: ' <ng-content /> ',
+  template: `<ng-content />`,
   styles: [
     `
       :host {

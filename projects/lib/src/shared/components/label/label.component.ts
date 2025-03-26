@@ -5,7 +5,7 @@ import { Select } from '../../../public-api';
 @Component({
   selector: 'r-label',
   imports: [],
-  template: ' <ng-content /> ',
+  template: `<ng-content />`,
   styleUrl: './label.component.css',
   host: {
     '[class.up]': 'labelUp()',

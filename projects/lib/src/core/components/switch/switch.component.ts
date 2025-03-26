@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'input[r-switch]',
-  template: '',
+  template: ``,
   styleUrl: './switch.component.css',
   host: {
     '[attr.role]': 'switch',

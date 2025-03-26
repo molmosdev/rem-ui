@@ -5,7 +5,7 @@ import { createElement, icons } from 'lucide';
 @Component({
   selector: 'i[r-icon]',
   imports: [],
-  template: '',
+  template: ``,
   host: {
     '[innerHTML]': 'iconSvg()',
     '[style.margin-inline]': 'marginInline()',
