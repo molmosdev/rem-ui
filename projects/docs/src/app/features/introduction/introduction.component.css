@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: start;
   padding: 2rem;
+  max-width: 1600px;
+  margin-inline: auto;
 
   h1 {
     font-weight: 600;
