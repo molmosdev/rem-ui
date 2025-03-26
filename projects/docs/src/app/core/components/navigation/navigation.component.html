@@ -81,6 +81,10 @@
         (click)="navigate(getRoutePath(route, accumulatedPath))"
         [active]="activeRoute() === getRoutePath(route, accumulatedPath)">
         {{ route.data?.['title'] }}
+
+        @if (route.data?.['new']) {
+          <span r-badge variant="outlined" size="small" r-item-suffix>New</span>
+        }
       </r-vertical-nav-item>
     }
   }

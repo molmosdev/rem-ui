@@ -19,6 +19,7 @@ import {
   fadeInFadeOutTrigger,
   Icon,
   SideSheet,
+  Badge,
 } from '../../../../../../lib/src/public-api';
 
 @Component({
@@ -33,6 +34,7 @@ import {
     SideSheet,
     Button,
     Icon,
+    Badge,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
