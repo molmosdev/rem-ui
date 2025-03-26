@@ -20,6 +20,7 @@
     background-color: var(--background, #ffffff);
     border-radius: 16px 16px 0 0;
     border: 1px solid var(--border-color, transparent);
+    border-bottom: none;
     display: flex;
     flex-direction: column;
     z-index: 1001;
