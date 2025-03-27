@@ -1,5 +1,5 @@
 import { Component, computed, contentChild } from '@angular/core';
-import { Select, Input, Switch } from '../../../public-api';
+import { Select, Input, Switch, Checkbox } from '../../../public-api';
 
 @Component({
   selector: 'r-label',
@@ -10,6 +10,7 @@ import { Select, Input, Switch } from '../../../public-api';
     '[class.up]': 'labelUp()',
     '[style.max-width]': 'maxWidth()',
     '[class.is-switch]': 'switch()',
+    '[class.is-checkbox]': 'checkbox()',
   },
 })
 export class Label {
@@ -27,6 +28,11 @@ export class Label {
    * The switch element.
    */
   readonly switch = contentChild(Switch);
+
+  /**
+   * The checkbox element.
+   */
+  readonly checkbox = contentChild(Checkbox);
 
   /**
    * Whether the label should be up.

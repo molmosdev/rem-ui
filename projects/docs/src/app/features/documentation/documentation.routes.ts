@@ -49,6 +49,14 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'checkbox',
+    loadComponent: () =>
+      import('./pages/checkbox-documentation/checkbox-documentation.component'),
+    data: {
+      title: 'Checkbox',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

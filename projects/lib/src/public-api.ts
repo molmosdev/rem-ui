@@ -89,3 +89,6 @@ export * from './shared/components/label/label.component';
 
 /* Badge */
 export * from './core/components/badge/badge.component';
+
+/* Checkbox */
+export * from './core/components/checkbox/checkbox.component';
