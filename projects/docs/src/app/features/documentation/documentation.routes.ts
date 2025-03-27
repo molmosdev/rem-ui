@@ -57,6 +57,14 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'textarea',
+    loadComponent: () =>
+      import('./pages/textarea-documentation/textarea-documentation.component'),
+    data: {
+      title: 'Textarea',
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

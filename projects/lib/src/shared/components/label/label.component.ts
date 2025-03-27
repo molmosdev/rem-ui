@@ -1,5 +1,5 @@
 import { Component, computed, contentChild } from '@angular/core';
-import { Select, Input, Switch, Checkbox } from '../../../public-api';
+import { Select, Input, Switch, Checkbox, Textarea } from '../../../public-api';
 
 @Component({
   selector: 'r-label',
@@ -11,6 +11,7 @@ import { Select, Input, Switch, Checkbox } from '../../../public-api';
     '[style.max-width]': 'maxWidth()',
     '[class.is-switch]': 'switch()',
     '[class.is-checkbox]': 'checkbox()',
+    '[class.is-textarea]': 'textarea()',
   },
 })
 export class Label {
@@ -35,17 +36,26 @@ export class Label {
   readonly checkbox = contentChild(Checkbox);
 
   /**
+   * The textarea element.
+   */
+  readonly textarea = contentChild(Textarea);
+
+  /**
    * Whether the label should be up.
    */
   readonly labelUp = computed(() => {
     const input = this.input();
     const select = this.select();
+    const textarea = this.textarea();
 
     return (
       input?.focused() ||
       input?.value() ||
       input?.placeholder() ||
-      select?.value()
+      select?.value() ||
+      textarea?.focused() ||
+      textarea?.value() ||
+      textarea?.placeholder()
     );
   });
 
@@ -54,6 +64,7 @@ export class Label {
    */
   readonly maxWidth = computed(() => {
     const input = this.input();
-    return input?.maxWidth() || this.select()?.maxWidth();
+    const textarea = this.textarea();
+    return input?.maxWidth() || this.select()?.maxWidth() || textarea?.cols();
   });
 }

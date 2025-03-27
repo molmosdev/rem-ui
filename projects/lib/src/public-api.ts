@@ -53,9 +53,6 @@ export * from './core/components/table/components/row/components/row-item/row-it
 export * from './core/components/tabs/tabs.component';
 export * from './core/components/tabs/components/tab/tab.component';
 
-/* Textarea */
-export * from './core/components/textarea/textarea.component';
-
 /* Vertical Nav */
 export * from './core/components/vertical-nav/vertical-nav.component';
 export * from './core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
@@ -92,3 +89,6 @@ export * from './core/components/badge/badge.component';
 
 /* Checkbox */
 export * from './core/components/checkbox/checkbox.component';
+
+/* Textarea */
+export * from './core/components/textarea/textarea.component';

@@ -1,91 +1,82 @@
 import {
   Component,
-  computed,
-  HostBinding,
-  HostListener,
+  ElementRef,
+  inject,
   input,
   model,
   output,
   signal,
 } from '@angular/core';
-import {
-  disabledStateTrigger,
-  errorStateTrigger,
-  inputPaddingStateTrigger,
-  labelErrorStateTrigger,
-  textareaLabelStateTrigger,
-} from '../../../shared/animations/animations';
 
 @Component({
-  selector: 'r-textarea',
-  templateUrl: './textarea.component.html',
+  selector: 'textarea[r-textarea]',
+  template: ``,
   styleUrl: './textarea.component.css',
-  animations: [
-    errorStateTrigger,
-    labelErrorStateTrigger,
-    textareaLabelStateTrigger,
-    inputPaddingStateTrigger,
-    disabledStateTrigger,
-  ],
+  host: {
+    '[placeholder]': 'placeholder() || ""',
+    '[rows]': 'rows()',
+    '[cols]': 'cols()',
+    '[class.invalid]': 'invalid()',
+    '[class.disabled]': 'disabled()',
+    '(input)': 'onInput($event)',
+    '(focus)': 'focused.set(true)',
+    '(blur)': 'focused.set(false)',
+  },
 })
 export class Textarea {
-  @HostBinding('@disabledStateTrigger')
-  get animationState() {
-    return this.disabled();
-  }
-  readonly value = model<string | null>(null);
-  readonly displayValue = computed(() => this.value() || '');
-  readonly label = input<string | undefined>(undefined);
-  readonly error = input<boolean>(false);
-  readonly hasValueForced = input<boolean>(false);
-  changeEmitter = output<string | null>();
+  /**
+   * The placeholder text for the textarea.
+   */
+  readonly placeholder = input<string>('');
+
+  /**
+   * The value of the textarea.
+   */
+  readonly value = signal<string | null>(null);
+
+  /**
+   * The number of rows for the textarea.
+   */
+  readonly rows = input<number>(3);
+
+  /**
+   * The number of columns for the textarea.
+   */
+  readonly cols = input<number>(30);
+
+  /**
+   * Whether the textarea is invalid.
+   */
+  readonly invalid = model<boolean>(false);
+
+  /**
+   * Whether the textarea is disabled.
+   */
   readonly disabled = model<boolean>(false);
-  readonly placeholder = input<string | undefined>(undefined);
-  readonly displayPlaceholder = computed(() => this.placeholder() || '');
-  readonly labelState = computed(() =>
-    this.displayValue() || this.focused() || this.placeholder()
-      ? 'small'
-      : 'normal'
-  );
-  readonly inputPaddingState = computed(() =>
-    this.label() &&
-    (this.displayValue() || this.focused() || this.placeholder())
-      ? 'small'
-      : 'normal'
-  );
+
+  /**
+   * Whether the textarea is focused.
+   * This will be used by the Label component.
+   */
   readonly focused = signal<boolean>(false);
 
   /**
-   * Get the input trigger state
-   * @returns {string} - The input trigger state
+   * Event emitted when the value changes.
    */
-  get inputTriggerState(): string {
-    return this.label() ? (this.value() ? 'hasValue' : 'null') : 'withoutLabel';
-  }
+  valueChange = output<string | null>();
 
   /**
-   * Update the value
-   * @param {KeyboardEvent} event - The keyboard event
+   * Reference to the textarea element.
    */
-  updateValue(event: KeyboardEvent): void {
-    const newValue = (event.target as HTMLInputElement).value;
-    this.value.set(newValue === '' ? null : newValue);
-    this.changeEmitter.emit(this.value());
-  }
+  readonly el = inject<ElementRef<HTMLTextAreaElement>>(ElementRef);
 
   /**
-   * Handle focus in event
+   * Handles the input event.
+   * @param event The input event.
    */
-  @HostListener('focusin')
-  onFocusIn() {
-    this.focused.set(true);
-  }
-
-  /**
-   * Handle focus out event
-   */
-  @HostListener('focusout')
-  onFocusOut() {
-    this.focused.set(false);
+  onInput(event: Event): void {
+    const target = event.target as HTMLTextAreaElement;
+    this.value.set(target.value);
+    this.valueChange.emit(target.value);
   }
 }

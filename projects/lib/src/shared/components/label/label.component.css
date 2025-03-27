@@ -31,6 +31,25 @@
         padding-top: calc(var(--vertical-padding) + 0.5rem);
         padding-bottom: calc(var(--vertical-padding) - 0.5rem);
       }
+
+      ::ng-deep textarea {
+        padding-top: 1.5rem;
+        box-sizing: border-box;
+      }
+    }
+
+    &.is-textarea {
+      ::ng-deep label {
+        top: 0.8rem;
+        transform: none;
+      }
+
+      &.up {
+        ::ng-deep label {
+          top: 0.45rem;
+          font-size: 0.7rem;
+        }
+      }
     }
   }
 
