@@ -11,5 +11,8 @@
   },
   "sideEffects": false,
   "author": "molmos",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "npm i lucide"
+  }
 }
