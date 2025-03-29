@@ -1,21 +1,15 @@
+<ng-content select="[r-attached-box-trigger]" />
 <div
-  #trigger
-  (click)="toggleContentVisibility()"
-  (keydown.enter)="toggleContentVisibility()"
-  (keydown.space)="toggleContentVisibility()"
-  tabindex="0"
-  class="r-attached-box-trigger">
-  <ng-content select="[r-attached-box-trigger]" />
+  #content
+  class="r-attached-box-content"
+  [class]="adjustedPosition()"
+  [class.visible]="isContentVisible()"
+  [style.--gap.px]="gap()"
+  [style.--duration]="animationParams().duration"
+  [style.--enter-delay]="animationParams().enterDelay"
+  [style.--leave-delay]="animationParams().leaveDelay"
+  [style.--scale-from]="animationParams().scaleFrom"
+  [style.--scale-to]="animationParams().scaleTo"
+  [style.--translate-from]="animationParams().translateFrom">
+  <ng-content select="[r-attached-box-content]" />
 </div>
-@if (isContentVisible()) {
-  <div
-    #content
-    [class]="adjustedPosition()"
-    class="r-attached-box-content"
-    [@fadeInFadeOutTrigger]="{
-      value: isContentVisible(),
-      params: animationParams(),
-    }">
-    <ng-content select="[r-attached-box-content]" />
-  </div>
-}

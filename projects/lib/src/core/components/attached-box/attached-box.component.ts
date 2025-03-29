@@ -6,8 +6,8 @@ import {
   linkedSignal,
   HostListener,
   computed,
+  inject,
 } from '@angular/core';
-import { fadeInFadeOutTrigger } from '../../../public-api';
 import { Position } from './types/position.type';
 import { Direction } from './types/direction.type';
 import { Alignment } from './types/alignment.type';
@@ -16,13 +16,18 @@ import { Alignment } from './types/alignment.type';
   selector: 'r-attached-box',
   templateUrl: './attached-box.component.html',
   styleUrl: './attached-box.component.css',
-  animations: [fadeInFadeOutTrigger],
+  host: {
+    '[attr.tabindex]': '0',
+    '(click)': 'toggleContentVisibility()',
+    '(keydown.enter)': 'toggleContentVisibility()',
+    '(keydown.space)': 'toggleContentVisibility()',
+  },
 })
 export class AttachedBox {
   /**
    * The trigger element that will be used to open the content.
    */
-  readonly trigger = viewChild<ElementRef>('trigger');
+  readonly trigger = inject(ElementRef);
 
   /**
    * The content that will be displayed when the trigger is activated.
@@ -45,6 +50,11 @@ export class AttachedBox {
    * Signal indicating whether the content is visible or not.
    */
   readonly isContentVisible = model<boolean>(false);
+
+  /**
+   * The gap (spacing) between the trigger and the content.
+   */
+  readonly gap = model<number>(10);
 
   /**
    * Signal that dynamically calculates and provides the adjusted position of the content.
@@ -120,11 +130,11 @@ export class AttachedBox {
    */
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
-    if (!this.trigger()?.nativeElement || !this.content()?.nativeElement) {
+    if (!this.trigger?.nativeElement || !this.content()?.nativeElement) {
       return;
     }
 
-    const triggerElement = this.trigger()!.nativeElement;
+    const triggerElement = this.trigger!.nativeElement;
     const contentElement = this.content()!.nativeElement;
 
     if (
@@ -150,19 +160,16 @@ export class AttachedBox {
    * @returns The adjusted position as a Position type string (e.g., 'bottom-left').
    */
   private calculateAdjustedPosition(): Position {
-    if (!this.trigger()?.nativeElement || !this.content()?.nativeElement) {
+    if (!this.trigger?.nativeElement || !this.content()?.nativeElement) {
       return `${this.direction()}-${this.alignment()}` as Position;
     }
 
-    const triggerElement = this.trigger()!.nativeElement;
+    const triggerElement = this.trigger!.nativeElement;
     const contentElement = this.content()!.nativeElement;
 
     const triggerRect = triggerElement.getBoundingClientRect();
     const contentRect = contentElement.getBoundingClientRect();
-    const fontSize = parseFloat(
-      getComputedStyle(document.documentElement).fontSize
-    );
-    const extraMargin = fontSize;
+    const extraMargin = this.gap();
     const primary = this.direction();
     const secondary = this.alignment();
 
