@@ -18,9 +18,8 @@ import { Alignment } from './types/alignment.type';
   styleUrl: './attached-box.component.css',
   host: {
     '[attr.tabindex]': '0',
-    '(click)': 'toggleContentVisibility()',
-    '(keydown.enter)': 'toggleContentVisibility()',
-    '(keydown.space)': 'toggleContentVisibility()',
+    '(click)': 'handleMouseEvent($event)',
+    '(keydown)': 'handleKeyboardEvent($event)',
   },
 })
 export class AttachedBox {
@@ -130,18 +129,61 @@ export class AttachedBox {
    */
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
-    if (!this.trigger?.nativeElement || !this.content()?.nativeElement) {
-      return;
-    }
-
-    const triggerElement = this.trigger!.nativeElement;
-    const contentElement = this.content()!.nativeElement;
-
     if (
-      !triggerElement.contains(event.target as Node) &&
-      !contentElement.contains(event.target as Node)
+      this.isContentVisible() &&
+      this.isClickedOutsideContent(event) &&
+      this.isClickedOutsideTrigger(event)
     ) {
       this.isContentVisible.set(false);
+    }
+  }
+
+  /**
+   * Determines if a click event occurred outside the trigger and content elements.
+   * @param event The mouse event representing the click.
+   * @returns True if the click was outside both the trigger and content elements, false otherwise.
+   */
+  isClickedOutsideContent(event: MouseEvent): boolean {
+    const contentElement = this.content()?.nativeElement;
+    if (!contentElement) {
+      return false;
+    }
+    return !contentElement.contains(event.target as Node);
+  }
+
+  /**
+   * Determines if a click event occurred outside the trigger element.
+   * @param event The mouse event representing the click.
+   * @returns True if the click was outside the trigger element, false otherwise.
+   */
+  isClickedOutsideTrigger(event: MouseEvent): boolean {
+    const triggerElement = this.trigger?.nativeElement;
+    if (!triggerElement) {
+      return false;
+    }
+    return !triggerElement.contains(event.target as Node);
+  }
+
+  /**
+   * Handles keyboard events for the component.
+   * @param event The keyboard event to handle.
+   */
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Escape' || event.key === 'Enter') {
+      this.toggleContentVisibility();
+    }
+  }
+
+  /**
+   * Handles mouse events for the component.
+   * @param event The mouse event to handle.
+   */
+  handleMouseEvent(event: MouseEvent): void {
+    if (
+      this.isClickedOutsideContent(event) &&
+      !this.isClickedOutsideTrigger(event)
+    ) {
+      this.toggleContentVisibility();
     }
   }
 
