@@ -90,7 +90,7 @@
     .components-list {
       padding-top: 0;
       padding-bottom: 0;
-      height: calc(100dvh - 17rem);
+      height: 100%;
 
       r-vertical-nav {
         r-vertical-nav-item:last-child {
