@@ -68,27 +68,29 @@ import { Button } from '../../../../../../../lib/src/core/components/button/butt
       </button>
     </div>
 
-    <r-side-sheet
-      [(isOpen)]="isLeftOpen"
-      [width]="'300px'"
-      [side]="'left'"
-      (closeSheet)="isLeftOpen.set(false)">
-      <div
-        style="display: flex; justify-content: center; align-items: center; height: 100%;">
-        This is the left side sheet.
-      </div>
-    </r-side-sheet>
+    @defer (on timer(100ms)) {
+      <r-side-sheet
+        [(isOpen)]="isLeftOpen"
+        [width]="'300px'"
+        [side]="'left'"
+        (closeSheet)="isLeftOpen.set(false)">
+        <div
+          style="display: flex; justify-content: center; align-items: center; height: 100%;">
+          This is the left side sheet.
+        </div>
+      </r-side-sheet>
 
-    <r-side-sheet
-      [(isOpen)]="isRightOpen"
-      [width]="'300px'"
-      [side]="'right'"
-      (closeSheet)="isRightOpen.set(false)">
-      <div
-        style="display: flex; justify-content: center; align-items: center; height: 100%;">
-        This is the right side sheet.
-      </div>
-    </r-side-sheet>
+      <r-side-sheet
+        [(isOpen)]="isRightOpen"
+        [width]="'300px'"
+        [side]="'right'"
+        (closeSheet)="isRightOpen.set(false)">
+        <div
+          style="display: flex; justify-content: center; align-items: center; height: 100%;">
+          This is the right side sheet.
+        </div>
+      </r-side-sheet>
+    }
 
     <h2>Custom Width</h2>
     <code-block [code]="customWidthUsage" />
@@ -98,16 +100,18 @@ import { Button } from '../../../../../../../lib/src/core/components/button/butt
       </button>
     </div>
 
-    <r-side-sheet
-      [(isOpen)]="isCustomWidthOpen"
-      [width]="'500px'"
-      [side]="'right'"
-      (closeSheet)="isCustomWidthOpen.set(false)">
-      <div
-        style="display: flex; justify-content: center; align-items: center; height: 100%;">
-        This is a custom width side sheet.
-      </div>
-    </r-side-sheet>`,
+    @defer (on timer(100ms)) {
+      <r-side-sheet
+        [(isOpen)]="isCustomWidthOpen"
+        [width]="'500px'"
+        [side]="'right'"
+        (closeSheet)="isCustomWidthOpen.set(false)">
+        <div
+          style="display: flex; justify-content: center; align-items: center; height: 100%;">
+          This is a custom width side sheet.
+        </div>
+      </r-side-sheet>
+    }`,
   imports: [CodeBlockComponent, SideSheet, Button],
 })
 export default class SideSheetDocumentationComponent {
