@@ -35,6 +35,12 @@
     .group-arrow {
       display: flex;
       align-items: center;
+      transform: rotate(0deg);
+      transition: transform 200ms ease-in-out;
+
+      &.expanded {
+        transform: rotate(180deg);
+      }
     }
   }
 
@@ -43,5 +49,19 @@
     flex-direction: column;
     gap: 0.2rem;
     padding-left: 1rem;
+    overflow: hidden;
+    transition:
+      opacity 200ms ease-in-out,
+      transform 200ms ease-in-out,
+      max-height 200ms ease-in-out;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-0.5rem);
+
+    &.expanded {
+      opacity: 1;
+      max-height: 100%;
+      transform: translateY(0);
+    }
   }
 }

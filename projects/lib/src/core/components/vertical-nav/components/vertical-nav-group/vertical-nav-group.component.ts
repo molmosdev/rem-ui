@@ -1,6 +1,4 @@
 import { Component, contentChildren, model } from '@angular/core';
-import { expandCollapseTrigger } from './vertical-nav-group.animations';
-import { rotateArrowTrigger } from '../../../../../shared/animations/animations';
 
 @Component({
   selector: 'r-vertical-nav-group',
@@ -8,7 +6,6 @@ import { rotateArrowTrigger } from '../../../../../shared/animations/animations'
   imports: [],
   templateUrl: './vertical-nav-group.component.html',
   styleUrl: './vertical-nav-group.component.css',
-  animations: [expandCollapseTrigger, rotateArrowTrigger],
 })
 export class VerticalNavGroup {
   readonly groups = contentChildren(VerticalNavGroup);

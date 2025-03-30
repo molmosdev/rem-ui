@@ -1,10 +1,4 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 /* Used in dropdown-content, dialog y navigation */
 export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
@@ -57,11 +51,4 @@ export const fadeInFadeOutTrigger = trigger('fadeInFadeOutTrigger', [
       },
     }
   ),
-]);
-
-/* Used invertical nav */
-export const rotateArrowTrigger = trigger('rotateArrowTrigger', [
-  state('expanded', style({ transform: 'rotate(180deg)' })),
-  state('collapsed', style({ transform: 'rotate(0deg)' })),
-  transition('expanded <=> collapsed', animate('200ms ease-in-out')),
 ]);
