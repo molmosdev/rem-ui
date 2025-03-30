@@ -15,6 +15,9 @@
   touch-action: none;
   user-select: none;
   transition: transform 0.3s ease-out;
+  padding-top: 40px;
+  box-sizing: border-box;
+  overflow: hiddens;
 
   &.dragging {
     transition: none;
@@ -22,12 +25,14 @@
 
   .drag-section {
     width: 100%;
-    min-height: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: grab;
     touch-action: none;
+    position: absolute;
+    top: 0;
 
     .drag-indicator {
       width: 20%;
