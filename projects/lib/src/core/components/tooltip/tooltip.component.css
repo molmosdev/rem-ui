@@ -4,9 +4,7 @@
 
 .r-tooltip-content {
   padding: 0.5rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius, 0.5rem);
   white-space: nowrap;
 
   &.primary {
