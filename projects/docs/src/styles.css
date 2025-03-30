@@ -29,7 +29,8 @@ app-checkbox-documentation,
 app-textarea-documentation,
 app-vertical-nav-documentation,
 app-tooltip-documentation,
-app-bottom-sheet-documentation {
+app-bottom-sheet-documentation,
+app-side-sheet-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;

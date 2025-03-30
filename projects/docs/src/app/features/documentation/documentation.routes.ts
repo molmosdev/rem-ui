@@ -95,6 +95,17 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'side-sheet',
+    loadComponent: () =>
+      import(
+        './pages/side-sheet-documentation/side-sheet-documentation.component'
+      ),
+    data: {
+      title: 'Side Sheet',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
