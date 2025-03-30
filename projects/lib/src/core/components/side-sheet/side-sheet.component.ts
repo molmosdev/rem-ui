@@ -7,6 +7,7 @@ import {
   inject,
   ElementRef,
   HostListener,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -65,6 +66,15 @@ export class SideSheet {
    * Reference to the host element of the side sheet.
    */
   private readonly el = inject(ElementRef);
+
+  /**
+   * The constructor initializes the effect to manage the body's overflow style.
+   */
+  constructor() {
+    effect(() => {
+      document.body.style.overflow = this.isOpen() ? 'hidden' : 'auto';
+    });
+  }
 
   /**
    * Closes the side sheet when clicking outside of it.

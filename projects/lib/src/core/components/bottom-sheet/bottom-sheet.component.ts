@@ -8,6 +8,7 @@ import {
   inject,
   ElementRef,
   HostListener,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -74,6 +75,15 @@ export class BottomSheet {
    * The reference to the Bottom Sheet DOM element.
    */
   private readonly el = inject(ElementRef);
+
+  /**
+   * The constructor initializes the effect to manage the body's overflow style.
+   */
+  constructor() {
+    effect(() => {
+      document.body.style.overflow = this.isOpen() ? 'hidden' : 'auto';
+    });
+  }
 
   /**
    * Closes the bottom sheet when clicking outside of it.
