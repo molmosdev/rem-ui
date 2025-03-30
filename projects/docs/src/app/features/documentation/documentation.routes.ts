@@ -75,6 +75,15 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'tooltip',
+    loadComponent: () =>
+      import('./pages/tooltip-documentation/tooltip-documentation.component'),
+    data: {
+      title: 'Tooltip',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

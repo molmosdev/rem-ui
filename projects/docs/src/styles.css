@@ -27,7 +27,8 @@ app-button-group-documentation,
 app-badge-documentation,
 app-checkbox-documentation,
 app-textarea-documentation,
-app-vertical-nav-documentation {
+app-vertical-nav-documentation,
+app-tooltip-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;
