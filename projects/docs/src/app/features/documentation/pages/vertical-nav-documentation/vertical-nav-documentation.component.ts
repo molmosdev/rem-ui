@@ -21,6 +21,28 @@ import { CodeBlockComponent } from '../../../playground/components/code-block/co
     <h2>Web components</h2>
     <code-block [code]="webComponentsImport" />
 
+    <h2>Properties</h2>
+    <span>This section applies only to <strong>VerticalNavItem</strong>.</span>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>active</strong></td>
+          <td><code>boolean</code></td>
+          <td>Indicates whether the navigation item is active.</td>
+        </tr>
+        <tr>
+          <td><strong>disabled</strong></td>
+          <td><code>boolean</code></td>
+          <td>Indicates whether the navigation item is disabled.</td>
+        </tr>
+      </table>
+    </div>
+
     <h2>Basic Example</h2>
     <code-block [code]="basicUsage" />
     <div class="documentation-playground">
