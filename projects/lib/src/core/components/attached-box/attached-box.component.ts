@@ -34,16 +34,10 @@ export class AttachedBox {
   readonly content = viewChild<ElementRef>('content');
 
   /**
-   * The primary direction of the content relative to the trigger.
-   * Valores aceptados: 'top' | 'bottom' | 'left' | 'right'
+   * The position of the content relative to the trigger.
+   * Example values: 'top-left', 'bottom-center', etc.
    */
-  readonly direction = model<Direction>('right');
-
-  /**
-   * The secondary alignment of the content relative to the trigger.
-   * Valores aceptados: 'left' | 'center' | 'right'
-   */
-  readonly alignment = model<Alignment>('top');
+  readonly position = model<Position>('right-top');
 
   /**
    * Signal indicating whether the content is visible or not.
@@ -119,7 +113,8 @@ export class AttachedBox {
    * This ensures the content remains correctly positioned relative to the trigger even when scrolling.
    */
   @HostListener('window:scroll')
-  onScroll(): void {
+  @HostListener('window:resize')
+  onWindowEvent(): void {
     this.adjustedPosition.set(this.calculateAdjustedPosition());
   }
 
@@ -203,7 +198,7 @@ export class AttachedBox {
    */
   private calculateAdjustedPosition(): Position {
     if (!this.trigger?.nativeElement || !this.content()?.nativeElement) {
-      return `${this.direction()}-${this.alignment()}` as Position;
+      return this.position();
     }
 
     const triggerElement = this.trigger!.nativeElement;
@@ -212,8 +207,10 @@ export class AttachedBox {
     const triggerRect = triggerElement.getBoundingClientRect();
     const contentRect = contentElement.getBoundingClientRect();
     const extraMargin = this.gap();
-    const primary = this.direction();
-    const secondary = this.alignment();
+    const [primary, secondary] = this.position().split('-') as [
+      Direction,
+      Alignment,
+    ];
 
     const adjustedPrimary = this.adjustPrimaryDirection(
       primary,
