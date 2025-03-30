@@ -5,10 +5,11 @@ import {
   model,
   signal,
   computed,
+  inject,
+  ElementRef,
+  HostListener,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { verticalSlideTrigger } from './bottom-sheet.animations';
-import { overlayTrigger } from '../../../public-api';
 
 @Component({
   selector: 'r-bottom-sheet',
@@ -16,107 +17,128 @@ import { overlayTrigger } from '../../../public-api';
   imports: [CommonModule],
   templateUrl: './bottom-sheet.component.html',
   styleUrl: './bottom-sheet.component.css',
-  animations: [overlayTrigger, verticalSlideTrigger],
+  host: {
+    '[style.height]': 'height()',
+    '[class.dragging]': 'isDragging()',
+    '[style.transform]': 'transform()',
+  },
 })
 export class BottomSheet {
-  /** Indicates whether the bottom sheet is open. */
+  /**
+   * Indicates whether the bottom sheet is open.
+   */
   readonly isOpen = model(false);
 
-  /** The height of the bottom sheet. */
+  /**
+   * The height of the bottom sheet.
+   */
   readonly height = input('30dvh');
 
-  /** The threshold for closing the bottom sheet. */
-  readonly closeThreshold = input(30);
-
-  /** Event emitted when the bottom sheet is closed. */
+  /**
+   * Event emitted when the bottom sheet is closed.
+   */
   closeSheet = output<void>();
 
-  /** Indicates whether a drag event is in progress. */
+  /**
+   * Indicates whether a drag event is in progress.
+   */
   private readonly isDragging = signal(false);
 
-  /** The starting Y-coordinate of the drag event. */
-  private readonly startY = signal(0);
+  /**
+   * The starting Y position of the drag event.
+   */
+  readonly startY = signal(0);
 
-  /** The current translation in the Y-axis during a drag event. */
-  readonly currentTranslateY = signal(0);
+  /**
+   * The current Y translation of the bottom sheet in percentage.
+   */
+  private readonly translateY = signal(100);
 
-  /** The height of the content inside the bottom sheet. */
-  private readonly contentHeight = signal(0);
+  /**
+   * The threshold for closing the bottom sheet, in percentage.
+   */
+  readonly closeThreshold = input(30);
 
-  /** The current animation state of the bottom sheet. */
-  readonly animationState = computed(() => {
-    return this.isDragging()
-      ? 'intermediate'
+  /**
+   * The computed transform property for the bottom sheet.
+   */
+  readonly transform = computed(() =>
+    this.isDragging()
+      ? `translateY(${this.translateY()}%)`
       : this.isOpen()
-        ? 'open'
-        : 'closed';
-  });
+        ? 'translateY(0%)'
+        : 'translateY(100%)'
+  );
 
   /**
-   * Handles the start of a drag event.
-   * @param event The mouse or touch event.
+   * The reference to the Bottom Sheet DOM element.
    */
-  onDragStart(event: MouseEvent | TouchEvent): void {
-    event.preventDefault();
-    this.isDragging.set(true);
-    this.startY.set(this.getEventY(event));
-    this.currentTranslateY.set(0);
-  }
+  private readonly el = inject(ElementRef);
 
   /**
-   * Handles the movement during a drag event.
-   * @param event The mouse or touch event.
+   * Closes the bottom sheet when clicking outside of it.
+   * @param event The click event.
    */
-  onDragMove(event: MouseEvent | TouchEvent): void {
-    if (!this.isDragging()) {
-      return;
-    }
-    event.preventDefault();
-    const currentY = this.getEventY(event);
-    const deltaY = currentY - this.startY();
-    this.currentTranslateY.set(Math.max(0, deltaY));
-  }
-
-  /**
-   * Handles the end of a drag event.
-   */
-  onDragEnd(): void {
-    const heightValue = this.getHeightInPixels();
-    const threshold = heightValue * (this.closeThreshold() / 100);
-    this.isDragging.set(false);
-
-    if (this.currentTranslateY() > threshold) {
+  @HostListener('document:click', ['$event'])
+  closeOnOutsideClick(event: Event) {
+    if (this.isOpen() && !this.el.nativeElement.contains(event.target)) {
       this.isOpen.set(false);
-      this.closeSheet.emit();
+    }
+  }
+
+  /**
+   * Starts the drag event for the bottom sheet.
+   * @param event The pointer event that starts the drag.
+   */
+  startDrag(event: PointerEvent) {
+    this.isDragging.set(true);
+    this.startY.set(event.clientY);
+    // Initialize translateY based on the current state:
+    this.translateY.set(this.isOpen() ? 0 : 100);
+    // Disable text selection for better UX
+    document.body.style.userSelect = 'none';
+
+    const move = (e: PointerEvent) => this.updateDrag(e.clientY);
+    const end = () => {
+      this.isDragging.set(false);
+      this.snapToOpenOrClose();
+
+      // Restore text selection
+      document.body.style.userSelect = '';
+
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', end);
+    };
+
+    window.addEventListener('pointermove', move, { passive: false });
+    window.addEventListener('pointerup', end);
+  }
+
+  /**
+   * Updates the drag position of the bottom sheet.
+   * @param clientY The current Y position of the pointer.
+   */
+  updateDrag(clientY: number) {
+    const deltaPx = clientY - this.startY();
+    const sheetHeight = this.el.nativeElement.offsetHeight;
+    // Convert the pixel delta to a percentage relative to the sheet height
+    const deltaPercent = (deltaPx / sheetHeight) * 100;
+    // If open, the initial position is 0%; if closed, it is 100%
+    const newPos = Math.min(
+      100,
+      Math.max(0, this.isOpen() ? 0 + deltaPercent : 100 + deltaPercent)
+    );
+    this.translateY.set(newPos);
+  }
+
+  /**
+   * Snaps the bottom sheet to either open or closed state based on the drag position.
+   */
+  snapToOpenOrClose() {
+    if (this.translateY() > this.closeThreshold()) {
+      this.isOpen.set(false);
     } else {
       this.isOpen.set(true);
     }
-  }
-
-  /**
-   * Converts the height value to pixels.
-   * @returns The height in pixels.
-   */
-  private getHeightInPixels(): number {
-    if (this.height() === 'auto') {
-      return this.contentHeight();
-    }
-    const element = document.createElement('div');
-    element.style.height = this.height();
-    document.body.appendChild(element);
-    const heightInPixels = element.getBoundingClientRect().height;
-    document.body.removeChild(element);
-    return heightInPixels;
-  }
-
-  /**
-   * Gets the Y-coordinate from the event.
-   * @param event The mouse or touch event.
-   * @returns The Y-coordinate.
-   */
-  private getEventY(event: MouseEvent | TouchEvent): number {
-    return event instanceof MouseEvent
-      ? event.clientY
-      : event.touches[0].clientY;
   }
 }

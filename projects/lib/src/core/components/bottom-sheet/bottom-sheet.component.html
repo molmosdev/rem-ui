@@ -1,27 +1,4 @@
-<div
-  class="bottom-sheet-overlay"
-  [@overlayTrigger]="isOpen() ? 'visible' : 'hidden'"
-  (click)="isOpen.set(false)"
-  (keydown.enter)="isOpen.set(false)"
-  tabindex="0"></div>
-<div
-  class="bottom-sheet"
-  [@verticalSlideTrigger]="{
-    value: animationState(),
-    params: { currentTranslateY: currentTranslateY() },
-  }"
-  [style.height]="height()">
-  <div
-    class="drag-section"
-    (mousedown)="onDragStart($event)"
-    (touchstart)="onDragStart($event)"
-    (mousemove)="onDragMove($event)"
-    (touchmove)="onDragMove($event)"
-    (mouseup)="onDragEnd()"
-    (mouseleave)="onDragEnd()"
-    (touchend)="onDragEnd()"
-    (touchcancel)="onDragEnd()">
-    <div class="drag-indicator"></div>
-  </div>
-  <ng-content />
+<div class="drag-section" (pointerdown)="startDrag($event)">
+  <div class="drag-indicator"></div>
 </div>
+<ng-content />
