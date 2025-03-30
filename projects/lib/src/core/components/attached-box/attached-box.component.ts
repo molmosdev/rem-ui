@@ -7,6 +7,8 @@ import {
   HostListener,
   computed,
   inject,
+  input,
+  signal,
 } from '@angular/core';
 import { Position } from './types/position.type';
 import { Direction } from './types/direction.type';
@@ -18,11 +20,19 @@ import { Alignment } from './types/alignment.type';
   styleUrl: './attached-box.component.css',
   host: {
     '[attr.tabindex]': '0',
-    '(click)': 'handleMouseEvent($event)',
+    '(click)': 'type() === "click" ? handleMouseEvent($event) : null',
     '(keydown)': 'handleKeyboardEvent($event)',
+    '(mouseenter)': 'type() === "hover" ? showContent() : null',
+    '(mouseleave)': 'type() === "hover" ? hideContent() : null',
   },
 })
 export class AttachedBox {
+  /**
+   * Input signal to define the interaction type: 'click' or 'hover'.
+   * Default is 'click'.
+   */
+  readonly type = input<'click' | 'hover'>('click');
+
   /**
    * The trigger element that will be used to open the content.
    */
@@ -42,7 +52,7 @@ export class AttachedBox {
   /**
    * Signal indicating whether the content is visible or not.
    */
-  readonly isContentVisible = model<boolean>(false);
+  readonly isContentVisible = signal<boolean>(false);
 
   /**
    * The gap (spacing) between the trigger and the content.
@@ -188,6 +198,20 @@ export class AttachedBox {
    */
   toggleContentVisibility(): void {
     this.isContentVisible.set(!this.isContentVisible());
+  }
+
+  /**
+   * Shows the content (used for hover interaction).
+   */
+  showContent(): void {
+    this.isContentVisible.set(true);
+  }
+
+  /**
+   * Hides the content (used for hover interaction).
+   */
+  hideContent(): void {
+    this.isContentVisible.set(false);
   }
 
   /**
