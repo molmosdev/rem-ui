@@ -17,6 +17,41 @@ import { Position } from '../../../../../../../lib/src/core/components/attached-
     <h2>Web components</h2>
     <code-block [code]="webComponentsImport" />
 
+    <h2>Properties</h2>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>position</strong></td>
+          <td><code>Position</code></td>
+          <td>The position of the tooltip relative to its trigger element.</td>
+        </tr>
+        <tr>
+          <td><strong>gap</strong></td>
+          <td><code>number</code></td>
+          <td>
+            The gap (in pixels) between the tooltip and its trigger element.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>variant</strong></td>
+          <td>
+            <code>'primary' | 'secondary' | 'ghost' | 'outlined'</code>
+          </td>
+          <td>The visual variant of the tooltip.</td>
+        </tr>
+        <tr>
+          <td><strong>size</strong></td>
+          <td><code>'small' | 'default'</code></td>
+          <td>The size of the tooltip.</td>
+        </tr>
+      </table>
+    </div>
+
     <h2>Basic Example</h2>
     <code-block [code]="basicUsage" />
     <div class="documentation-playground">
