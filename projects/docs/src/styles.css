@@ -26,7 +26,8 @@ app-label-documentation,
 app-button-group-documentation,
 app-badge-documentation,
 app-checkbox-documentation,
-app-textarea-documentation {
+app-textarea-documentation,
+app-vertical-nav-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;

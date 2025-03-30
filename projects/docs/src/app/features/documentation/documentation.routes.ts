@@ -28,7 +28,6 @@ export const documentationRoutes: Routes = [
       import('./pages/select-documentation/select-documentation.component'),
     data: {
       title: 'Select',
-      new: true,
     },
   },
   {
@@ -62,6 +61,17 @@ export const documentationRoutes: Routes = [
       import('./pages/textarea-documentation/textarea-documentation.component'),
     data: {
       title: 'Textarea',
+    },
+  },
+  {
+    path: 'vertical-nav',
+    loadComponent: () =>
+      import(
+        './pages/vertical-nav-documentation/vertical-nav-documentation.component'
+      ),
+    data: {
+      title: 'Vertical Navigation',
+      new: true,
     },
   },
   {
