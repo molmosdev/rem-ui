@@ -100,7 +100,3 @@
     }
   }
 }
-
-::ng-deep .item-wrapper:has(span[r-badge]) {
-  justify-content: space-between;
-}
