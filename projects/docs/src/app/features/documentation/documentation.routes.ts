@@ -84,6 +84,17 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'bottom-sheet',
+    loadComponent: () =>
+      import(
+        './pages/bottom-sheet-documentation/bottom-sheet-documentation.component'
+      ),
+    data: {
+      title: 'Bottom Sheet',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
