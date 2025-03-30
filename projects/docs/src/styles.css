@@ -113,6 +113,8 @@ app-tooltip-documentation {
   .documentation-playground {
     @media (width < 576px) {
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
