@@ -109,6 +109,14 @@ app-side-sheet-documentation {
   }
 }
 
+app-tooltip-documentation {
+  .documentation-playground {
+    @media (width < 576px) {
+      flex-direction: column;
+    }
+  }
+}
+
 .playground {
   display: flex;
   flex-direction: column;
