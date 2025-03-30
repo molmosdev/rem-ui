@@ -68,7 +68,7 @@ import { Button } from '../../../../../../../lib/src/core/components/button/butt
       </button>
     </div>
 
-    @defer (on timer(100ms)) {
+    @defer (on timer(1000ms)) {
       <r-side-sheet
         [(isOpen)]="isLeftOpen"
         [width]="'300px'"
@@ -100,7 +100,7 @@ import { Button } from '../../../../../../../lib/src/core/components/button/butt
       </button>
     </div>
 
-    @defer (on timer(100ms)) {
+    @defer (on timer(1000ms)) {
       <r-side-sheet
         [(isOpen)]="isCustomWidthOpen"
         [width]="'500px'"
