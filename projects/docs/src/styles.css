@@ -50,6 +50,10 @@ app-side-sheet-documentation {
     margin-top: 1rem;
   }
 
+  span {
+    max-width: 600px;
+  }
+
   .table-wrapper {
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
