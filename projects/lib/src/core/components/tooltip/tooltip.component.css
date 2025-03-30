@@ -30,7 +30,7 @@
   }
 
   &.outlined {
-    background-color: var(--secondary, transparent);
+    background-color: var(--background, #ffffff);
     border: 1px solid var(--border-color, #ececec);
     color: var(--secondary-foreground, #0a0a0a);
   }
