@@ -114,8 +114,14 @@ import { Position } from '../../../../../../../lib/src/core/components/attached-
       The position property allows you to control where the tooltip appears
       relative to the trigger element. It is composed of two parts: direction
       (e.g., top, bottom, left, right) and alignment (e.g., left, center,
-      right). Below are examples of all possible combinations.</span
-    >
+      right). Below are examples of all possible combinations.
+    </span>
+    <span>
+      The tooltip leverages the functionality of the AttachedBox component from
+      this library, which dynamically adjusts the direction and alignment to
+      prevent overflowing the screen. This ensures the tooltip remains fully
+      visible even in constrained spaces.
+    </span>
 
     <h3>Top</h3>
     <code-block [code]="topPositionsUsage" />
