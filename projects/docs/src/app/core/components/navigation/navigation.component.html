@@ -22,10 +22,6 @@
 }
 <ng-template #componentsList>
   <div class="components-list">
-    <div class="banner">
-      Only documented components are listed here. Other components will be added
-      over time.
-    </div>
     <r-vertical-nav>
       @for (route of routes(); track route) {
         @if (route.path !== '**' && route.path !== '') {
