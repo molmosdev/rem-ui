@@ -5,6 +5,7 @@ import {
   VerticalNavItem,
   VerticalNavSection,
   Icon,
+  Badge,
 } from '../../../../../../../lib/src/public-api';
 import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
 
@@ -34,13 +35,11 @@ import { CodeBlockComponent } from '../../../playground/components/code-block/co
     <div class="documentation-playground">
       <r-vertical-nav style="width: 240px;">
         <r-vertical-nav-group>
-          <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
           <div r-group-title>Group 1</div>
           <r-vertical-nav-item>Item 1.1</r-vertical-nav-item>
           <r-vertical-nav-item>Item 1.2</r-vertical-nav-item>
         </r-vertical-nav-group>
         <r-vertical-nav-group>
-          <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
           <div r-group-title>Group 2</div>
           <r-vertical-nav-item>Item 2.1</r-vertical-nav-item>
         </r-vertical-nav-group>
@@ -67,19 +66,42 @@ import { CodeBlockComponent } from '../../../playground/components/code-block/co
     <div class="documentation-playground">
       <r-vertical-nav style="width: 240px;">
         <r-vertical-nav-item>
-          <i r-icon [size]="13" icon="Circle" r-item-prefix></i>
-          Item
-          <i r-icon [size]="13" icon="Star" r-item-suffix></i>
+          Item 1
+          <span r-badge variant="outlined" size="small" r-item-suffix>New</span>
         </r-vertical-nav-item>
         <r-vertical-nav-group>
           <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
-          <div r-group-title>Group</div>
+          <div r-group-title>Group 2</div>
+          <span r-badge variant="outlined" size="small" r-group-suffix
+            >New</span
+          >
           <r-vertical-nav-item>
-            <i r-icon [size]="13" icon="ChevronRight" r-item-prefix></i>
-            Nested Item
-            <i r-icon [size]="13" icon="Check" r-item-suffix></i>
+            <i r-icon [size]="13" icon="Gear" r-item-prefix></i>
+            2.1
           </r-vertical-nav-item>
-          <i r-icon [size]="13" icon="FolderOpen" r-group-suffix></i>
+        </r-vertical-nav-group>
+      </r-vertical-nav>
+    </div>
+
+    <h2>Infinite Nesting</h2>
+    <code-block [code]="infiniteNestingUsage" />
+    <div class="documentation-playground">
+      <r-vertical-nav style="width: 240px;">
+        <r-vertical-nav-group>
+          <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+          <div r-group-title>Group 1</div>
+          <r-vertical-nav-item>Item 1.1</r-vertical-nav-item>
+          <r-vertical-nav-group>
+            <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+            <div r-group-title>Nested Group 1.1</div>
+            <r-vertical-nav-item>Item 1.1.1</r-vertical-nav-item>
+            <r-vertical-nav-group>
+              <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+              <div r-group-title>Nested Group 1.1.1</div>
+              <r-vertical-nav-item>Item 1.1.1.1</r-vertical-nav-item>
+              <r-vertical-nav-item>Item 1.1.1.2</r-vertical-nav-item>
+            </r-vertical-nav-group>
+          </r-vertical-nav-group>
         </r-vertical-nav-group>
       </r-vertical-nav>
     </div>`,
@@ -91,6 +113,7 @@ import { CodeBlockComponent } from '../../../playground/components/code-block/co
     VerticalNavSection,
     Icon,
     CodeBlockComponent,
+    Badge,
   ],
 })
 export default class VerticalNavDocumentationComponent {
@@ -104,13 +127,11 @@ export default class VerticalNavDocumentationComponent {
 
   groupsUsage = `<r-vertical-nav>
   <r-vertical-nav-group>
-    <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
     <div r-group-title>Group 1</div>
     <r-vertical-nav-item>Item 1.1</r-vertical-nav-item>
     <r-vertical-nav-item>Item 1.2</r-vertical-nav-item>
   </r-vertical-nav-group>
   <r-vertical-nav-group>
-    <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
     <div r-group-title>Group 2</div>
     <r-vertical-nav-item>Item 2.1</r-vertical-nav-item>
   </r-vertical-nav-group>
@@ -129,19 +150,36 @@ export default class VerticalNavDocumentationComponent {
 
   prefixSuffixUsage = `<r-vertical-nav>
   <r-vertical-nav-item>
-    <i r-icon [size]="13" icon="Circle" r-item-prefix></i>
-    Item
-    <i r-icon [size]="13" icon="Star" r-item-suffix></i>
+    Item 1
+    <span r-badge variant="outlined" size="small" r-item-suffix>New</span>
   </r-vertical-nav-item>
   <r-vertical-nav-group>
     <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
-    <div r-group-title>Group</div>
+    <div r-group-title>Group 2</div>
+    <span r-badge variant="outlined" size="small" r-group-suffix>New</span>
     <r-vertical-nav-item>
-      <i r-icon [size]="13" icon="ChevronRight" r-item-prefix></i>
-      Nested Item
-      <i r-icon [size]="13" icon="Check" r-item-suffix></i>
+      <i r-icon [size]="13" icon="Gear" r-item-prefix></i>
+      Item 2.1
     </r-vertical-nav-item>
-    <i r-icon [size]="13" icon="FolderOpen" r-group-suffix></i>
+  </r-vertical-nav-group>
+</r-vertical-nav>`;
+
+  infiniteNestingUsage = `<r-vertical-nav>
+  <r-vertical-nav-group>
+    <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+    <div r-group-title>Group 1</div>
+    <r-vertical-nav-item>Item 1.1</r-vertical-nav-item>
+    <r-vertical-nav-group>
+      <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+      <div r-group-title>Nested Group 1.1</div>
+      <r-vertical-nav-item>Item 1.1.1</r-vertical-nav-item>
+      <r-vertical-nav-group>
+        <i r-icon [size]="13" icon="Folder" r-group-prefix></i>
+        <div r-group-title>Nested Group 1.1.1</div>
+        <r-vertical-nav-item>Item 1.1.1.1</r-vertical-nav-item>
+        <r-vertical-nav-item>Item 1.1.1.2</r-vertical-nav-item>
+      </r-vertical-nav-group>
+    </r-vertical-nav-group>
   </r-vertical-nav-group>
 </r-vertical-nav>`;
 }
