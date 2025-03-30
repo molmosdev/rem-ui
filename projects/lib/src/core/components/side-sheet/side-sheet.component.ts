@@ -1,7 +1,14 @@
-import { Component, input, output, computed, model } from '@angular/core';
+import {
+  Component,
+  input,
+  output,
+  computed,
+  model,
+  inject,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { horizontalSlideTrigger } from './side-sheet.animations';
-import { overlayTrigger } from '../../../shared/animations/animations';
 
 /**
  * A sliding sheet component that can be positioned on either side of the screen.
@@ -15,24 +22,59 @@ import { overlayTrigger } from '../../../shared/animations/animations';
   imports: [CommonModule],
   templateUrl: './side-sheet.component.html',
   styleUrl: './side-sheet.component.css',
-  animations: [overlayTrigger, horizontalSlideTrigger],
+  host: {
+    '[class.left]': 'isLeft()',
+    '[class.right]': '!isLeft()',
+    '[class.open]': 'isOpen()',
+    '[style.width]': 'width()',
+  },
 })
 export class SideSheet {
-  /** Controls the open/closed state of the sheet. Two-way bindable. */
+  /**
+   * Indicates whether the side sheet is open.
+   */
   readonly isOpen = model(false);
 
-  /** Determines which side the sheet appears from. Defaults to 'right'. */
+  /**
+   * Specifies the side of the screen where the sheet is positioned.
+   * Can be either 'left' or 'right'.
+   */
   readonly side = input<'left' | 'right'>('right');
 
-  /** Sets the width of the sheet. Accepts any valid CSS width value. */
+  /**
+   * Specifies the width of the side sheet.
+   */
   readonly width = input('300px');
 
-  /** Computed signal that returns true if the sheet is positioned on the left */
+  /**
+   * Computes whether the side sheet is positioned on the left side.
+   */
   readonly isLeft = computed(() => this.side() === 'left');
 
-  /** Computed signal that returns true if the sheet is positioned on the right */
+  /**
+   * Computes whether the side sheet is positioned on the right side.
+   */
   readonly isRight = computed(() => this.side() === 'right');
 
-  /** Event emitted when the sheet should be closed */
+  /**
+   * Event emitted when the side sheet is closed.
+   */
   closeSheet = output<void>();
+
+  /**
+   * Reference to the host element of the side sheet.
+   */
+  private readonly el = inject(ElementRef);
+
+  /**
+   * Closes the side sheet when clicking outside of it.
+   *
+   * @param event - The click event.
+   */
+  @HostListener('document:click', ['$event'])
+  closeOnOutsideClick(event: Event) {
+    if (this.isOpen() && !this.el.nativeElement.contains(event.target)) {
+      this.isOpen.set(false);
+    }
+  }
 }

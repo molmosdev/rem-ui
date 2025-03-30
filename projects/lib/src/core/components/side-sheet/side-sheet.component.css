@@ -1,21 +1,28 @@
 :host {
-  .side-sheet-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  height: 100dvh;
+  background-color: var(--background, #ffffff);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  transition: transform 0.3s ease-in-out;
+
+  &.right {
     right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    transform: translateX(100%);
+
+    &.open {
+      transform: translateX(0);
+    }
   }
 
-  .side-sheet {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    background-color: var(--background, #ffffff);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
   }
 
   .close-button {
