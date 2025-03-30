@@ -95,17 +95,15 @@ import { Button } from '../../../../../../../lib/src/core/components/button/butt
       </button>
     </div>
 
-    @defer (on timer(100ms)) {
-      <r-bottom-sheet
-        [(isOpen)]="isOpen"
-        [height]="height()"
-        [closeThreshold]="closeThreshold()">
-        <div
-          style="display: flex; justify-content: center; align-items: center; height: 100%;">
-          This is the content of the bottom sheet.
-        </div>
-      </r-bottom-sheet>
-    }`,
+    <r-bottom-sheet
+      [(isOpen)]="isOpen"
+      [height]="height()"
+      [closeThreshold]="closeThreshold()">
+      <div
+        style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        This is the content of the bottom sheet.
+      </div>
+    </r-bottom-sheet>`,
   imports: [CodeBlockComponent, BottomSheet, Button],
 })
 export default class BottomSheetDocumentationComponent {
