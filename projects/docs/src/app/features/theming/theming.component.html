@@ -14,6 +14,12 @@
   <code>body</code> element.
 </span>
 <span>
+  Each component in the library comes with a very simple default theme, which is
+  based on the light theme. This ensures that components look consistent out of
+  the box, but you can easily customize or override these styles to match your
+  application's design.
+</span>
+<span>
   You can also override individual CSS variables to create a custom theme. The
   <strong>Theming</strong> component provides an interface to dynamically update
   these variables.
@@ -106,13 +112,11 @@
 </div>
 <h2>CSS Code</h2>
 <span>
-  The CSS code below defines the base colors and theme-specific variables for
-  the light and dark themes. These variables control the appearance of the
-  application, including background colors, text colors, borders, and
-  component-specific styles.
+  The CSS code below is an example of how you could implement a light and dark
+  theme using CSS variables. This approach is fully customizable, allowing you
+  to define themes in any way you prefer. You can create additional themes or
+  modify the existing ones to suit your application's needs. The possibilities
+  are endless, and you can apply themes dynamically or even support infinite
+  variations.
 </span>
-<span>
-  You can use these variables to customize the look and feel of your application
-  or create additional themes by overriding them.</span
->
 <code-block [code]="cssCode" />
