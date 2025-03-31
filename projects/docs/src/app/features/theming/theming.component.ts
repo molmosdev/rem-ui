@@ -33,9 +33,9 @@ body[data-theme='light'] {
   --text-color: var(--black);
 
   /* UI colors */
-  --background: var(--bg-color);
+  --background: var(--white);
   --foreground: var(--black);
-  --border-color: color-mix(in srgb, var(--bg-color), var(--black) 8%);
+  --border-color: color-mix(in srgb, var(--white), var(--black) 8%);
 
   /* Component colors */
   --primary: var(--black);
@@ -43,11 +43,11 @@ body[data-theme='light'] {
   --primary-border-color: var(--black);
 
   --secondary: transparent;
-  --secondary-foreground: var(--text-color);
-  --secondary-border-color: var(--border-color);
+  --secondary-foreground: var(--black);
+  --secondary-border-color: color-mix(in srgb, var(--white), var(--black) 8%);
 
   --input-background: color-mix(in srgb, var(--bg-color), var(--black) 1%);
-  --input-foreground: var(--text-color);
+  --input-foreground: var(--black);
 
   /* Error colors */
   --error-foreground: #c40000ab;
@@ -61,9 +61,9 @@ body[data-theme='dark'] {
   --text-color: var(--white);
 
   /* UI colors */
-  --background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
-  --foreground: var(--text-color);
-  --border-color: color-mix(in srgb, var(--bg-color), var(--white) 10%);
+  --background: var(--black);
+  --foreground: var(--white);
+  --border-color: color-mix(in srgb, var(--black), var(--white) 10%);
 
   /* Component colors */
   --primary: var(--white);
@@ -71,15 +71,11 @@ body[data-theme='dark'] {
   --primary-border-color: var(--white);
 
   --secondary: transparent;
-  --secondary-foreground: var(--text-color);
-  --secondary-border-color: color-mix(
-    in srgb,
-    var(--bg-color),
-    var(--white) 5%
-  );
+  --secondary-foreground: var(--white);
+  --secondary-border-color: color-mix(in srgb, var(--black), var(--white) 5%);
 
   --input-background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
-  --input-foreground: var(--text-color);
+  --input-foreground: var(--white);
 
   /* Error colors */
   --error-foreground: #ff6b6b;
