@@ -1,0 +1,69 @@
+<h2>Theme Configurator</h2>
+<span>Customize your theme by adjusting the variables below:</span>
+<h3>Base Colors</h3>
+@for (variable of baseVariables; track variable) {
+  <div class="property">
+    <span>{{ getVariableDisplayName(variable) }}</span>
+    <label for="{{ variable }}">
+      <span
+        class="color-preview"
+        [style.background-color]="getVariableValue(variable)"></span>
+      <input
+        id="{{ variable }}"
+        type="color"
+        (input)="updateThemeVariable(variable, $event)"
+        placeholder="Enter value" />
+    </label>
+  </div>
+}
+<h3>Component Colors</h3>
+@for (variable of componentVariables; track variable) {
+  <div class="property">
+    <span>{{ getVariableDisplayName(variable) }}</span>
+    <label for="{{ variable }}">
+      <span
+        class="color-preview"
+        [style.background-color]="getVariableValue(variable)"></span>
+      <input
+        id="{{ variable }}"
+        type="color"
+        (input)="updateThemeVariable(variable, $event)"
+        placeholder="Enter value" />
+    </label>
+  </div>
+}
+<h3>Error Colors</h3>
+@for (variable of errorVariables; track variable) {
+  <div class="property">
+    <span>{{ getVariableDisplayName(variable) }}</span>
+    <label for="{{ variable }}">
+      <span
+        class="color-preview"
+        [style.background-color]="getVariableValue(variable)"></span>
+      <input
+        id="{{ variable }}"
+        type="color"
+        (input)="updateThemeVariable(variable, $event)"
+        placeholder="Enter value" />
+    </label>
+  </div>
+}
+
+<button r-button variant="outlined" (click)="resetTheme()">
+  Reset to Default
+</button>
+
+<h3>Example Themes</h3>
+<div class="example-themes">
+  @for (theme of exampleThemes; track theme) {
+    <div
+      class="theme-preview"
+      tabindex="0"
+      (click)="applyTheme(theme)"
+      (keydown.enter)="applyTheme(theme)"
+      [style.background-color]="theme.background"
+      [style.color]="theme.foreground">
+      {{ theme.name }}
+    </div>
+  }
+</div>
