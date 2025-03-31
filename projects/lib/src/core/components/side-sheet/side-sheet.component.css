@@ -9,6 +9,7 @@
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
   opacity: 0;
+  padding-top: 3.1rem;
 
   &.right {
     right: 0;
@@ -50,9 +51,5 @@
         var(--foreground, #0a0a0a) 50%
       );
     }
-  }
-
-  .side-sheet-content {
-    margin-top: 50px;
   }
 }
