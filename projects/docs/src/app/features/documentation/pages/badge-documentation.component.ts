@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Badge } from '../../../../../../../lib/src/core/components/badge/badge.component';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
+import { Badge } from '../../../../../../lib/src/core/components/badge/badge.component';
 
 @Component({
   selector: 'app-badge-documentation',

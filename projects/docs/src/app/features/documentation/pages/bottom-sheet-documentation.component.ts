@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { BottomSheet } from '../../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
-import { Button } from '../../../../../../../lib/src/core/components/button/button.component';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
+import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
+import { Button } from '../../../../../../lib/src/core/components/button/button.component';
 
 @Component({
   selector: 'app-bottom-sheet-documentation',

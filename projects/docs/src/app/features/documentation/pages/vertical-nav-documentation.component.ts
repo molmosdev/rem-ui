@@ -6,8 +6,8 @@ import {
   VerticalNavSection,
   Icon,
   Badge,
-} from '../../../../../../../lib/src/public-api';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
+} from '../../../../../../lib/src/public-api';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
 
 @Component({
   selector: 'app-vertical-nav-documentation',

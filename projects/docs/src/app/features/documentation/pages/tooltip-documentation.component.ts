@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TooltipComponent } from '../../../../../../../lib/src/core/components/tooltip/tooltip.component';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Button } from '../../../../../../../lib/src/public-api';
-import { Position } from '../../../../../../../lib/src/core/components/attached-box/types/position.type';
+import { TooltipComponent } from '../../../../../../lib/src/core/components/tooltip/tooltip.component';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
+import { Button } from '../../../../../../lib/src/public-api';
+import { Position } from '../../../../../../lib/src/core/components/attached-box/types/position.type';
 
 @Component({
   selector: 'app-tooltip-documentation',

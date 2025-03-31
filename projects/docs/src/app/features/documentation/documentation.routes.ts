@@ -8,40 +8,35 @@ export const documentationRoutes: Routes = [
   },
   {
     path: 'button',
-    loadComponent: () =>
-      import('./pages/button-documentation/button-documentation.component'),
+    loadComponent: () => import('./pages/button-documentation.component'),
     data: {
       title: 'Button',
     },
   },
   {
     path: 'input',
-    loadComponent: () =>
-      import('./pages/input-documentation/input-documentation.component'),
+    loadComponent: () => import('./pages/input-documentation.component'),
     data: {
       title: 'Input',
     },
   },
   {
     path: 'select',
-    loadComponent: () =>
-      import('./pages/select-documentation/select-documentation.component'),
+    loadComponent: () => import('./pages/select-documentation.component'),
     data: {
       title: 'Select',
     },
   },
   {
     path: 'switch',
-    loadComponent: () =>
-      import('./pages/switch-documentation/switch-documentation.component'),
+    loadComponent: () => import('./pages/switch-documentation.component'),
     data: {
       title: 'Switch',
     },
   },
   {
     path: 'badge',
-    loadComponent: () =>
-      import('./pages/badge-documentation/badge-documentation.component'),
+    loadComponent: () => import('./pages/badge-documentation.component'),
     data: {
       title: 'Badge',
       new: true,
@@ -49,26 +44,21 @@ export const documentationRoutes: Routes = [
   },
   {
     path: 'checkbox',
-    loadComponent: () =>
-      import('./pages/checkbox-documentation/checkbox-documentation.component'),
+    loadComponent: () => import('./pages/checkbox-documentation.component'),
     data: {
       title: 'Checkbox',
     },
   },
   {
     path: 'textarea',
-    loadComponent: () =>
-      import('./pages/textarea-documentation/textarea-documentation.component'),
+    loadComponent: () => import('./pages/textarea-documentation.component'),
     data: {
       title: 'Textarea',
     },
   },
   {
     path: 'vertical-nav',
-    loadComponent: () =>
-      import(
-        './pages/vertical-nav-documentation/vertical-nav-documentation.component'
-      ),
+    loadComponent: () => import('./pages/vertical-nav-documentation.component'),
     data: {
       title: 'Vertical Navigation',
       new: true,
@@ -76,8 +66,7 @@ export const documentationRoutes: Routes = [
   },
   {
     path: 'tooltip',
-    loadComponent: () =>
-      import('./pages/tooltip-documentation/tooltip-documentation.component'),
+    loadComponent: () => import('./pages/tooltip-documentation.component'),
     data: {
       title: 'Tooltip',
       new: true,
@@ -85,10 +74,7 @@ export const documentationRoutes: Routes = [
   },
   {
     path: 'bottom-sheet',
-    loadComponent: () =>
-      import(
-        './pages/bottom-sheet-documentation/bottom-sheet-documentation.component'
-      ),
+    loadComponent: () => import('./pages/bottom-sheet-documentation.component'),
     data: {
       title: 'Bottom Sheet',
       new: true,
@@ -96,10 +82,7 @@ export const documentationRoutes: Routes = [
   },
   {
     path: 'side-sheet',
-    loadComponent: () =>
-      import(
-        './pages/side-sheet-documentation/side-sheet-documentation.component'
-      ),
+    loadComponent: () => import('./pages/side-sheet-documentation.component'),
     data: {
       title: 'Side Sheet',
       new: true,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Checkbox, Label } from '../../../../../../../lib/src/public-api';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
+import { Checkbox, Label } from '../../../../../../lib/src/public-api';
 import {
   FormsModule,
   ReactiveFormsModule,

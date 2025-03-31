@@ -23,14 +23,6 @@ export const routes: Routes = [
       type: 'section',
     },
   },
-  /*   {
-    path: 'playground',
-    children: playgroundRoutes,
-    data: {
-      title: 'Playground',
-      type: 'section',
-    },
-  }, */
   {
     path: '**',
     redirectTo: '',

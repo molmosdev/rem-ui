@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CodeBlockComponent } from '../../../playground/components/code-block/code-block.component';
-import { Button } from '../../../../../../../lib/src/public-api';
-import { ButtonGroup } from '../../../../../../../lib/src/core/components/button-group/button-group.component';
+import { CodeBlockComponent } from '../shared/components/code-block.component';
+import { Button } from '../../../../../../lib/src/public-api';
+import { ButtonGroup } from '../../../../../../lib/src/core/components/button-group/button-group.component';
 
 @Component({
   selector: 'app-button-group-documentation',
