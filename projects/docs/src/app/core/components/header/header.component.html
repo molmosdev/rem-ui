@@ -18,10 +18,29 @@
     <span>Rem UI</span>
   </div>
 </div>
-<i
-  r-icon
-  [icon]="isDarkTheme() ? 'Moon' : 'Sun'"
-  tabindex="0"
-  (click)="toggleTheme()"
-  (keydown)="($event.key === 'Enter' || $event.key === ' ') && toggleTheme()">
-</i>
+<div class="right">
+  <button
+    r-button
+    variant="outlined"
+    size="small"
+    [equalPadding]="true"
+    (click)="isThemeConfiguratorOpen.set(!isThemeConfiguratorOpen())">
+    <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
+  </button>
+  <button r-button variant="outlined" size="small" [equalPadding]="true">
+    <i
+      r-icon
+      [strokeWidth]="1.5"
+      [size]="22"
+      [icon]="isDarkTheme() ? 'Moon' : 'Sun'"
+      tabindex="0"
+      (click)="toggleTheme()"
+      (keydown)="
+        ($event.key === 'Enter' || $event.key === ' ') && toggleTheme()
+      ">
+    </i>
+  </button>
+</div>
+<r-side-sheet [(isOpen)]="isThemeConfiguratorOpen" width="350px">
+  <app-theme-configurator />
+</r-side-sheet>
