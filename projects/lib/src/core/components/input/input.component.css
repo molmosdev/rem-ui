@@ -5,7 +5,7 @@
     var(--foreground, #798194) 5%,
     var(--background, #ffffff)
   );
-  border-radius: var(--roundness, 0.5rem);
+  border-radius: var(--radius, 0.5rem);
   box-sizing: border-box;
   --vertical-padding: calc(0.9rem - 2px);
   padding: var(--vertical-padding) 0.8rem;

@@ -7,7 +7,7 @@
     align-items: center;
     height: 100%;
     padding-inline: var(--button-padding-inline, 1.9rem);
-    border-radius: var(--roundness, 0.5rem);
+    border-radius: var(--radius, 0.5rem);
     box-sizing: border-box;
     gap: 0.5rem;
     position: relative;

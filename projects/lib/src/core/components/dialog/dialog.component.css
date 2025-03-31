@@ -30,7 +30,7 @@
 
   .dialog {
     background: var(--background, #ffffff);
-    border-radius: calc(var(--roundness, 0.5rem) + 2px);
+    border-radius: calc(var(--radius, 0.5rem) + 2px);
     pointer-events: all;
     z-index: 1002;
     box-sizing: border-box;

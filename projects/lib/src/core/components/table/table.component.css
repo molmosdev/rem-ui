@@ -16,7 +16,7 @@
   position: relative;
   height: 100%;
   box-sizing: border-box;
-  border-radius: var(--roundness, 0.5rem);
+  border-radius: var(--radius, 0.5rem);
 
   .scroll-section {
     overflow-y: auto;

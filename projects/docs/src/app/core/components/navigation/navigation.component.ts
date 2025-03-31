@@ -15,12 +15,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { VerticalNavGroup } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
-import {
-  fadeInFadeOutTrigger,
-  Icon,
-  SideSheet,
-  Badge,
-} from '../../../../../../lib/src/public-api';
+import { Icon, SideSheet, Badge } from '../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-navigation',
@@ -38,7 +33,6 @@ import {
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
-  animations: [fadeInFadeOutTrigger],
 })
 export class NavigationComponent implements OnInit {
   responsiveService = inject(ResponsiveService);

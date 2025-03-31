@@ -36,11 +36,6 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
           <td>The size of the button.</td>
         </tr>
         <tr>
-          <td><strong>radius</strong></td>
-          <td><code>'none' | 'medium' | 'full'</code></td>
-          <td>The radius of the button.</td>
-        </tr>
-        <tr>
           <td><strong>loading</strong></td>
           <td><code>boolean</code></td>
           <td>Whether the button is in a loading state.</td>
@@ -72,7 +67,7 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <h2>Basic</h2>
     <code-block [code]="basicUsage" />
     <div class="documentation-playground">
-      <button r-button variant="primary" size="default" radius="medium">
+      <button r-button variant="primary" size="default">
         This is a button
       </button>
     </div>
@@ -91,14 +86,6 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
     <div class="documentation-playground">
       <button r-button size="small">Small</button>
       <button r-button size="default">Default</button>
-    </div>
-
-    <h2>Radius</h2>
-    <code-block [code]="radiusUsage" />
-    <div class="documentation-playground">
-      <button r-button radius="none">None</button>
-      <button r-button radius="medium">Medium</button>
-      <button r-button radius="full">Full</button>
     </div>
 
     <h2>Loading State</h2>
@@ -182,16 +169,13 @@ import { ButtonGroup } from '../../../../../../../lib/src/core/components/button
 export default class ButtonDocumentationComponent {
   angularImport = `import { Button } from 'rem-ui/angular'`;
   webComponentsImport = `import { Button } from 'rem-ui/elements'`;
-  basicUsage = `<button r-button variant="primary" size="default" radius="medium">This is a button</button>`;
+  basicUsage = `<button r-button variant="primary" size="default">This is a button</button>`;
   variantsUsage = `<button r-button variant="primary">Primary</button>
 <button r-button variant="secondary">Secondary</button>
 <button r-button variant="ghost">Ghost</button>
 <button r-button variant="outlined">Outlined</button>`;
   sizesUsage = `<button r-button size="small">Small</button>
 <button r-button size="default">Default</button>`;
-  radiusUsage = `<button r-button radius="none">None</button>
-<button r-button radius="medium">Medium</button>
-<button r-button radius="full">Full</button>`;
   loadingUsage = `<button r-button [loading]="true">Loading...</button>`;
   equalPaddingUsage = `<button r-button [equalPadding]="true">
   <i r-icon icon="House" [size]="16" color="var(--bg-color)"></i>

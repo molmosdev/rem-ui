@@ -7,7 +7,7 @@ import { Spinner } from '../spinner/spinner.component';
   templateUrl: './button.component.html',
   styleUrl: './button.component.css',
   host: {
-    '[class]': 'variant() + " size-" + size() + " radius-" + radius()',
+    '[class]': 'variant() + " size-" + size()',
     '[class.equal-padding]': 'equalPadding()',
     '[class.loading]': 'loading()',
   },
@@ -20,9 +20,6 @@ export class Button {
 
   /** The size of the button. */
   readonly size = input<'small' | 'default'>('default');
-
-  /** The radius of the button. */
-  readonly radius = input<'none' | 'medium' | 'full'>('medium');
 
   /** Whether is loading. */
   readonly loading = input(false);

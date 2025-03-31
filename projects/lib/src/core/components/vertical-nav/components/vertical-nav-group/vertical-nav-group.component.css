@@ -9,7 +9,7 @@
     align-items: center;
     height: 2.8rem;
     padding-inline: 1rem 0.8rem;
-    border-radius: var(--roundness, 0.5rem);
+    border-radius: var(--radius, 0.5rem);
 
     &:hover {
       cursor: pointer;

@@ -1,7 +1,7 @@
 :host {
   width: 100%;
   background-color: var(--background, #ffffff);
-  border-radius: var(--roundness, 0.5rem);
+  border-radius: var(--radius, 0.5rem);
   box-sizing: border-box;
   padding: 0.8rem;
   border: 1px solid var(--border-color, transparent);

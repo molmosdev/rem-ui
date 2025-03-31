@@ -4,7 +4,7 @@
     padding: 10px;
     box-sizing: border-box;
     gap: 8px;
-    border-radius: var(--roundness, 0.5rem);
+    border-radius: var(--radius, 0.5rem);
     transition: background-color 0.4s ease;
     background-color: transparent;
     position: relative;

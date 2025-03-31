@@ -5,7 +5,7 @@
   border: 1px solid var(--border-color, transparent);
   box-sizing: border-box;
   padding: 0.5rem;
-  border-radius: calc(var(--roundness, 0.5rem) + 0.25rem);
+  border-radius: calc(var(--radius, 0.5rem) + 0.25rem);
 
   &:not(.bottom-delete) {
     flex-direction: row;

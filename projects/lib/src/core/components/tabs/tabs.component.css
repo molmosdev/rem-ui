@@ -11,7 +11,7 @@
     );
     box-sizing: border-box;
     align-items: center;
-    border-radius: var(--roundness, 0.5rem);
+    border-radius: var(--radius, 0.5rem);
     border: 1px solid var(--border-color, transparent);
     gap: 0.3rem;
   }

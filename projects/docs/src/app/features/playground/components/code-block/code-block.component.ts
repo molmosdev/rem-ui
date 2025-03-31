@@ -10,7 +10,7 @@ import { HighlightAuto } from 'ngx-highlightjs';
       font-size: 90%;
       scrollbar-width: thin;
       border: 1px solid var(--border-color);
-      border-radius: var(--roundness, 0.5rem);
+      border-radius: var(--radius, 0.5rem);
       background-color: color-mix(
         in srgb,
         var(--bg-color),

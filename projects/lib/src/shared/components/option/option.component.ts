@@ -11,7 +11,7 @@ import { Component, ElementRef, inject } from '@angular/core';
         padding: 0.5rem 0.75rem;
         color: var(--foreground, #798194);
         transition: 0.1s;
-        border-radius: calc(var(--roundness, 0.5rem) - 0.2rem);
+        border-radius: calc(var(--radius, 0.5rem) - 0.2rem);
 
         &::checkmark {
           display: none;
