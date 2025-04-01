@@ -7,19 +7,11 @@
         <i r-icon icon="ChevronDown" [size]="12" class="icon-chevron-down"></i>
       </div>
     </button>
-    <r-bottom-sheet
-      [isOpen]="isMenuVisible() || isThemeConfigVisible()"
-      height="65dvh"
-      (closeSheet)="
-        isMenuVisible()
-          ? isMenuVisible.set(false)
-          : isThemeConfigVisible.set(false)
-      ">
-      @if (isMenuVisible()) {
-        <ng-container *ngTemplateOutlet="componentsList" />
-      } @else {
-        <ng-container *ngTemplateOutlet="themeConfigurator" />
-      }
+    <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
+      <ng-container *ngTemplateOutlet="componentsList" />
+    </r-bottom-sheet>
+    <r-bottom-sheet [(isOpen)]="isThemeConfigVisible" height="65dvh">
+      <ng-container *ngTemplateOutlet="themeConfigurator" />
     </r-bottom-sheet>
   }
   @case ('tablet') {
