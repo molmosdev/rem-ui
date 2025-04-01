@@ -5,10 +5,10 @@
       icon="Menu"
       class="icon-menu"
       tabindex="0"
-      (click)="sideSheet.set(!sideSheet())"
+      (click)="isMenuVisible.set(true)"
       (keydown)="
         ($event.key === 'Enter' || $event.key === ' ') &&
-          sideSheet.set(!sideSheet())
+          isMenuVisible.set(true)
       "></i>
   }
   <div class="home-nav-link" [routerLink]="['/']">
@@ -24,7 +24,7 @@
     variant="outlined"
     size="small"
     [equalPadding]="true"
-    (click)="isThemeConfiguratorOpen.set(!isThemeConfiguratorOpen())">
+    (click)="isThemeConfigVisible.set(!this.isThemeConfigVisible())">
     <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
   </button>
   <button r-button variant="outlined" size="small" [equalPadding]="true">
@@ -41,6 +41,3 @@
     </i>
   </button>
 </div>
-<r-side-sheet [(isOpen)]="isThemeConfiguratorOpen" width="350px">
-  <app-theme-configurator />
-</r-side-sheet>

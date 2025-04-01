@@ -14,4 +14,5 @@ export class AppComponent {
   title = 'rem-ui';
   themeService = inject(ThemeService);
   readonly isMenuVisible = signal(false);
+  readonly isThemeConfigVisible = signal(false);
 }

@@ -1,3 +1,7 @@
-<app-header [(sideSheet)]="isMenuVisible" />
-<app-navigation [(isMenuVisible)]="isMenuVisible" />
+<app-header
+  [(isMenuVisible)]="isMenuVisible"
+  [(isThemeConfigVisible)]="isThemeConfigVisible" />
+<app-navigation
+  [(isMenuVisible)]="isMenuVisible"
+  [(isThemeConfigVisible)]="isThemeConfigVisible" />
 <router-outlet />

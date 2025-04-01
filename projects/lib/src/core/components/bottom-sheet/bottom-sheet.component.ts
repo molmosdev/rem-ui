@@ -93,6 +93,7 @@ export class BottomSheet {
   closeOnOutsideClick(event: Event) {
     if (this.isOpen() && !this.el.nativeElement.contains(event.target)) {
       this.isOpen.set(false);
+      this.closeSheet.emit();
     }
   }
 

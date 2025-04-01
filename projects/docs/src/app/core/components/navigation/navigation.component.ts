@@ -16,6 +16,7 @@ import { VerticalNavGroup } from '../../../../../../lib/src/core/components/vert
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
 import { Icon, SideSheet, Badge } from '../../../../../../lib/src/public-api';
+import { ThemeConfiguratorComponent } from '../header/components/theme-configurator/theme-configurator.component';
 
 @Component({
   selector: 'app-navigation',
@@ -30,6 +31,7 @@ import { Icon, SideSheet, Badge } from '../../../../../../lib/src/public-api';
     Button,
     Icon,
     Badge,
+    ThemeConfiguratorComponent,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
@@ -42,6 +44,7 @@ export class NavigationComponent implements OnInit {
   router = inject(Router);
   readonly routes = signal(this.router.config);
   readonly isMenuVisible = model(false);
+  readonly isThemeConfigVisible = model(false);
   readonly actualRouteData = signal(undefined);
   readonly activeRoute = signal('');
 
