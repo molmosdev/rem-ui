@@ -32,7 +32,8 @@ app-textarea-documentation,
 app-vertical-nav-documentation,
 app-tooltip-documentation,
 app-bottom-sheet-documentation,
-app-side-sheet-documentation {
+app-side-sheet-documentation,
+app-color-picker-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;

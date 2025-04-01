@@ -89,6 +89,14 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'color-picker',
+    loadComponent: () => import('./pages/color-picker-documentation.component'),
+    data: {
+      title: 'Color Picker',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
