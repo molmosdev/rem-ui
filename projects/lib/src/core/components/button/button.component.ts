@@ -10,6 +10,7 @@ import { Spinner } from '../spinner/spinner.component';
     '[class]': 'variant() + " size-" + size()',
     '[class.equal-padding]': 'equalPadding()',
     '[class.loading]': 'loading()',
+    '[class.toggled]': 'isToggled()',
   },
 })
 export class Button {
@@ -26,4 +27,10 @@ export class Button {
 
   /** Whether the padding should be equal vertically and horizontally. */
   readonly equalPadding = input(false);
+
+  /** Whether the button is toggleable. */
+  readonly toggle = input(false);
+
+  /** The value of the button when it is toggled. */
+  readonly isToggled = input(false);
 }
