@@ -9,77 +9,70 @@ import { Icon, Button } from '../../../../../lib/src/public-api';
   styleUrl: './theming.component.css',
 })
 export default class ThemingComponent {
-  customThemeExample = `
-document.body.style.setProperty('--bg-color', '#f0f0f0');
-document.body.style.setProperty('--text-color', '#333333');
-document.body.style.setProperty('--primary', '#007bff');
-document.body.style.setProperty('--primary-foreground', '#ffffff');
+  themeSwitcherCode = `<button r-button variant='outlined' (click)='switchTheme("light")'>
+  <i r-icon [size]='18' icon='Sun'></i> Light Theme
+</button>
+<button r-button variant='outlined' (click)='switchTheme("dark")'>
+  <i r-icon [size]='18' icon='Moon'></i> Dark Theme
+</button>`;
 
-// Switch to dark theme
-document.body.setAttribute('data-theme', 'dark');
-  `;
+  cssCode = `:root {
+  /* Enable support for light and dark color schemes */
+  color-scheme: light dark;
 
-  cssCode = `/* Base colors */
-:root {
+  /* Base colors */
   --black: #0a0a0a;
   --white: #ffffff;
+
+  /* Base properties */
   --radius: 0.5rem;
-}
 
-/* Light theme */
-body[data-theme='light'] {
   /* Base theme colors */
-  --bg-color: var(--white);
-  --text-color: var(--black);
+  --bg-color: light-dark(var(--white), var(--black));
+  --text-color: light-dark(var(--black), var(--white));
 
   /* UI colors */
-  --background: var(--white);
-  --foreground: var(--black);
-  --border-color: color-mix(in srgb, var(--white), var(--black) 8%);
+  --background: light-dark(var(--white), var(--black));
+  --foreground: light-dark(var(--black), var(--white));
+  --border-color: light-dark(
+    color-mix(in srgb, var(--white), var(--black) 8%),
+    color-mix(in srgb, var(--black), var(--white) 10%)
+  );
 
   /* Component colors */
-  --primary: var(--black);
-  --primary-foreground: var(--white);
-  --primary-border-color: var(--black);
-
+  --primary: light-dark(var(--black), var(--white));
+  --primary-foreground: light-dark(var(--white), var(--black));
+  --primary-border-color: light-dark(var(--black), var(--white));
   --secondary: transparent;
-  --secondary-foreground: var(--black);
-  --secondary-border-color: color-mix(in srgb, var(--white), var(--black) 8%);
-
-  --input-background: color-mix(in srgb, var(--bg-color), var(--black) 1%);
-  --input-foreground: var(--black);
-
+  --secondary-foreground: light-dark(var(--black), var(--white));
+  --secondary-border-color: light-dark(
+    color-mix(in srgb, var(--white), var(--black) 8%),
+    color-mix(in srgb, var(--black), var(--white) 5%)
+  );
+  --input-background: light-dark(
+    color-mix(in srgb, var(--bg-color), var(--black) 1%),
+    color-mix(in srgb, var(--bg-color), var(--white) 1%)
+  );
+  --input-foreground: light-dark(var(--black), var(--white));
+  
   /* Error colors */
-  --error-foreground: #c40000ab;
-  --error: #fff0f0;
+  --error-foreground: light-dark(#c40000ab, #ff6b6b);
+  --error: light-dark(#fff0f0, #382d2d);
 }
 
-/* Dark theme */
-body[data-theme='dark'] {
-  /* Base theme colors */
-  --bg-color: var(--black);
-  --text-color: var(--white);
+/* Dark theme configuration */
+[data-theme='dark'] {
+  color-scheme: dark;
+}
 
-  /* UI colors */
-  --background: var(--black);
-  --foreground: var(--white);
-  --border-color: color-mix(in srgb, var(--black), var(--white) 10%);
+/* Light theme configuration */
+[data-theme='light'] {
+  color-scheme: light;
+}
+`;
 
-  /* Component colors */
-  --primary: var(--white);
-  --primary-foreground: var(--black);
-  --primary-border-color: var(--white);
-
-  --secondary: transparent;
-  --secondary-foreground: var(--white);
-  --secondary-border-color: color-mix(in srgb, var(--black), var(--white) 5%);
-
-  --input-background: color-mix(in srgb, var(--bg-color), var(--white) 1%);
-  --input-foreground: var(--white);
-
-  /* Error colors */
-  --error-foreground: #ff6b6b;
-  --error: #382d2d;
+  switchThemeMethod = `switchTheme(theme: 'light' | 'dark') {
+  document.documentElement.setAttribute('data-theme', theme);
 }`;
 
   switchTheme(theme: 'light' | 'dark') {

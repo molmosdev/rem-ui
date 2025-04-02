@@ -24,6 +24,16 @@
   <strong>Theming</strong> component provides an interface to dynamically update
   these variables.
 </span>
+<span>
+  The <code>theme.css</code> file now includes support for light and dark color
+  schemes using the <code>color-scheme</code> property. It defines base colors,
+  properties, and a default theme that dynamically adjusts based on the
+  <code>data-theme</code> attribute.
+</span>
+<span>
+  The <code>light-dark</code> function is used to define values for both light
+  and dark themes, ensuring seamless transitions between themes.
+</span>
 
 <h2>Default Variables</h2>
 <div class="table-wrapper">
@@ -110,6 +120,15 @@
     Dark Theme
   </button>
 </div>
+<code-block [code]="themeSwitcherCode" />
+<span>
+  The <code>switchTheme</code> method toggles between light and dark themes by
+  setting the <code>data-theme</code> attribute on the root
+  <code>&lt;html&gt;</code> element. Below is the implementation of the
+  <code>switchTheme</code> method:
+</span>
+<code-block [code]="switchThemeMethod" />
+
 <h2>CSS Code</h2>
 <span>
   The CSS code below is an example of how you could implement a light and dark
