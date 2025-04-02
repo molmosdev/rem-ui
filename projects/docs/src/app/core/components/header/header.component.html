@@ -27,17 +27,36 @@
     (click)="isThemeConfigVisible.set(!this.isThemeConfigVisible())">
     <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
   </button>
-  <button r-button variant="outlined" size="small" [equalPadding]="true">
-    <i
-      r-icon
-      [strokeWidth]="1.5"
-      [size]="22"
-      [icon]="isDarkTheme() ? 'Moon' : 'Sun'"
-      tabindex="0"
-      (click)="toggleTheme()"
-      (keydown)="
-        ($event.key === 'Enter' || $event.key === ' ') && toggleTheme()
-      ">
-    </i>
-  </button>
+  <r-button-group>
+    <button
+      r-button
+      variant="outlined"
+      size="small"
+      [equalPadding]="true"
+      [toggle]="true"
+      [isToggled]="theme() === 'auto'"
+      (click)="applyTheme('auto')">
+      <i r-icon [strokeWidth]="1.5" [size]="22" icon="SunMoon"></i>
+    </button>
+    <button
+      r-button
+      variant="outlined"
+      size="small"
+      [equalPadding]="true"
+      [toggle]="true"
+      [isToggled]="theme() === 'light'"
+      (click)="applyTheme('light')">
+      <i r-icon [strokeWidth]="1.5" [size]="22" icon="Sun"></i>
+    </button>
+    <button
+      r-button
+      variant="outlined"
+      size="small"
+      [equalPadding]="true"
+      [toggle]="true"
+      [isToggled]="theme() === 'dark'"
+      (click)="applyTheme('dark')">
+      <i r-icon [strokeWidth]="1.5" [size]="22" icon="Moon"></i>
+    </button>
+  </r-button-group>
 </div>
