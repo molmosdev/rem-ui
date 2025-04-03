@@ -11,7 +11,11 @@
     height: 2rem;
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: var(--foreground-secondary, #798194);
+    color: color-mix(
+      in srgb,
+      var(--foreground, #798194) 40%,
+      var(--background, #ffffff)
+    );
     font-weight: 600;
     letter-spacing: 0.05em;
 
