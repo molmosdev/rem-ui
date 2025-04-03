@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Button } from '../../../../../../../../lib/src/public-api';
+import { Button, Icon } from '../../../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'app-theme-configurator',
   templateUrl: './theme-configurator.component.html',
   styleUrl: './theme-configurator.component.css',
-  imports: [Button],
+  imports: [Button, Icon],
 })
 export class ThemeConfiguratorComponent {
   baseVariables = [
@@ -29,234 +29,59 @@ export class ThemeConfiguratorComponent {
 
   exampleThemes = [
     {
-      name: 'Light',
-      background: 'var(--white)',
-      foreground: 'var(--black)',
-      variables: {
-        '--bg-color': 'var(--white)',
-        '--text-color': 'var(--black)',
-        '--background': 'var(--white)',
-        '--foreground': 'var(--black)',
-        '--border-color': 'color-mix(in srgb, var(--white), var(--black) 8%)',
-        '--primary': 'var(--black)',
-        '--primary-foreground': 'var(--white)',
-        '--primary-border-color': 'var(--black)',
-        '--secondary': 'transparent',
-        '--secondary-foreground': 'var(--black)',
-        '--secondary-border-color':
-          'color-mix(in srgb, var(--white), var(--black) 8%)',
-        '--input-background':
-          'color-mix(in srgb, var(--bg-color), var(--black) 1%)',
-        '--input-foreground': 'var(--black)',
-        '--error-foreground': '#c40000ab',
-        '--error': '#fff0f0',
-      },
-    },
-    {
-      name: 'Dark',
-      background: 'var(--black)',
-      foreground: 'var(--white)',
-      variables: {
-        '--bg-color': 'var(--black)',
-        '--text-color': 'var(--white)',
-        '--background': 'var(--black)',
-        '--foreground': 'var(--white)',
-        '--border-color': 'color-mix(in srgb, var(--black), var(--white) 10%)',
-        '--primary': 'var(--white)',
-        '--primary-foreground': 'var(--black)',
-        '--primary-border-color': 'var(--white)',
-        '--secondary': 'transparent',
-        '--secondary-foreground': 'var(--white)',
-        '--secondary-border-color':
-          'color-mix(in srgb, var(--black), var(--white) 5%)',
-        '--input-background':
-          'color-mix(in srgb, var(--bg-color), var(--white) 1%)',
-        '--input-foreground': 'var(--white)',
-        '--error-foreground': '#ff6b6b',
-        '--error': '#382d2d',
-      },
-    },
-    {
       name: 'Ocean',
-      background: '#1b6f50',
-      foreground: '#ffffff',
       variables: {
-        '--bg-color': '#1b6f50',
-        '--text-color': '#ffffff',
-        '--background': '#1b6f50',
-        '--foreground': '#ffffff',
-        '--border-color': '#14543c',
-        '--primary': '#14543c',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#14543c',
-        '--secondary': '#28a074',
-        '--secondary-foreground': '#ffffff',
-        '--secondary-border-color': '#1b6f50',
-        '--input-background': '#28a074',
-        '--input-foreground': '#ffffff',
-        '--error-foreground': '#ff4d4d',
-        '--error': '#f9e6e6',
+        '--bg-color': { light: '#1b6f50', dark: '#14543c' },
+        '--text-color': { light: '#ffffff', dark: '#ffffff' },
+        '--background': { light: '#1b6f50', dark: '#14543c' },
+        '--foreground': { light: '#ffffff', dark: '#ffffff' },
+        '--border-color': { light: '#14543c', dark: '#0f3a2a' },
+        '--primary': { light: '#14543c', dark: '#0f3a2a' },
+        '--primary-foreground': { light: '#ffffff', dark: '#ffffff' },
+        '--primary-border-color': { light: '#14543c', dark: '#0f3a2a' },
+        '--secondary': { light: '#28a074', dark: '#1b6f50' },
+        '--secondary-foreground': { light: '#ffffff', dark: '#ffffff' },
+        '--secondary-border-color': { light: '#1b6f50', dark: '#14543c' },
+        '--input-background': { light: '#28a074', dark: '#1b6f50' },
+        '--input-foreground': { light: '#ffffff', dark: '#ffffff' },
+        '--error-foreground': { light: '#ff4d4d', dark: '#ff4d4d' },
+        '--error': { light: '#f9e6e6', dark: '#382d2d' },
       },
     },
     {
       name: 'Pastel Sky',
-      background: '#a8d5e2',
-      foreground: '#4a4a4a',
       variables: {
-        '--bg-color': '#a8d5e2',
-        '--text-color': '#4a4a4a',
-        '--background': '#a8d5e2',
-        '--foreground': '#4a4a4a',
-        '--border-color': '#87b8c9',
-        '--primary': '#87b8c9',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#87b8c9',
-        '--secondary': '#d4eaf1',
-        '--secondary-foreground': '#4a4a4a',
-        '--secondary-border-color': '#a8d5e2',
-        '--input-background': '#d4eaf1',
-        '--input-foreground': '#4a4a4a',
-        '--error-foreground': '#ff6b6b',
-        '--error': '#ffe6e6',
-      },
-    },
-    {
-      name: 'Soft Lavender',
-      background: '#e6e6fa',
-      foreground: '#4a4a4a',
-      variables: {
-        '--bg-color': '#e6e6fa',
-        '--text-color': '#4a4a4a',
-        '--background': '#e6e6fa',
-        '--foreground': '#4a4a4a',
-        '--border-color': '#cfcfe8',
-        '--primary': '#cfcfe8',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#cfcfe8',
-        '--secondary': '#f4f4fc',
-        '--secondary-foreground': '#4a4a4a',
-        '--secondary-border-color': '#e6e6fa',
-        '--input-background': '#f4f4fc',
-        '--input-foreground': '#4a4a4a',
-        '--error-foreground': '#ff6b6b',
-        '--error': '#ffe6e6',
-      },
-    },
-    {
-      name: 'Corporate Blue',
-      background: '#f4f7fc',
-      foreground: '#1a1a1a',
-      variables: {
-        '--bg-color': '#f4f7fc',
-        '--text-color': '#1a1a1a',
-        '--background': '#f4f7fc',
-        '--foreground': '#1a1a1a',
-        '--border-color': '#d1d9e6',
-        '--primary': '#0056b3',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#004494',
-        '--secondary': '#e9eff8',
-        '--secondary-foreground': '#1a1a1a',
-        '--secondary-border-color': '#d1d9e6',
-        '--input-background': '#ffffff',
-        '--input-foreground': '#1a1a1a',
-        '--error-foreground': '#d9534f',
-        '--error': '#fbe9e7',
-      },
-    },
-    {
-      name: 'Modern Gray',
-      background: '#f5f5f5',
-      foreground: '#333333',
-      variables: {
-        '--bg-color': '#f5f5f5',
-        '--text-color': '#333333',
-        '--background': '#f5f5f5',
-        '--foreground': '#333333',
-        '--border-color': '#dcdcdc',
-        '--primary': '#4a4a4a',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#333333',
-        '--secondary': '#e0e0e0',
-        '--secondary-foreground': '#333333',
-        '--secondary-border-color': '#dcdcdc',
-        '--input-background': '#ffffff',
-        '--input-foreground': '#333333',
-        '--error-foreground': '#d9534f',
-        '--error': '#fbe9e7',
-      },
-    },
-    {
-      name: 'Elegant Gold',
-      background: '#faf3e0',
-      foreground: '#4a4a4a',
-      variables: {
-        '--bg-color': '#faf3e0',
-        '--text-color': '#4a4a4a',
-        '--background': '#faf3e0',
-        '--foreground': '#4a4a4a',
-        '--border-color': '#e0c97a',
-        '--primary': '#e0c97a',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#bfa752',
-        '--secondary': '#f5e8c8',
-        '--secondary-foreground': '#4a4a4a',
-        '--secondary-border-color': '#e0c97a',
-        '--input-background': '#ffffff',
-        '--input-foreground': '#4a4a4a',
-        '--error-foreground': '#d9534f',
-        '--error': '#fbe9e7',
-      },
-    },
-    {
-      name: 'Midnight Purple',
-      background: '#2e003e',
-      foreground: '#e0e0e0',
-      variables: {
-        '--bg-color': '#2e003e',
-        '--text-color': '#e0e0e0',
-        '--background': '#2e003e',
-        '--foreground': '#e0e0e0',
-        '--border-color': '#1f002b',
-        '--primary': '#4b0082',
-        '--primary-foreground': '#ffffff',
-        '--primary-border-color': '#3a0066',
-        '--secondary': '#6a0dad',
-        '--secondary-foreground': '#ffffff',
-        '--secondary-border-color': '#4b0082',
-        '--input-background': '#6a0dad',
-        '--input-foreground': '#ffffff',
-        '--error-foreground': '#ff6b6b',
-        '--error': '#382d2d',
-      },
-    },
-    {
-      name: 'Dark Gold',
-      background: '#1a1a1a',
-      foreground: '#d1d371',
-      variables: {
-        '--bg-color': '#1a1a1a',
-        '--text-color': '#d1d371',
-        '--background': '#1a1a1a',
-        '--foreground': '#d1d371',
-        '--border-color': '#333333',
-        '--primary': '#d1d371',
-        '--primary-foreground': '#1a1a1a',
-        '--primary-border-color': '#a0a05a',
-        '--secondary': '#333333',
-        '--secondary-foreground': '#d1d371',
-        '--secondary-border-color': '#4a4a4a',
-        '--input-background': '#333333',
-        '--input-foreground': '#d1d371',
-        '--error-foreground': '#ff6b6b',
-        '--error': '#382d2d',
+        '--bg-color': { light: '#a8d5e2', dark: '#87b8c9' },
+        '--text-color': { light: '#4a4a4a', dark: '#ffffff' },
+        '--background': { light: '#a8d5e2', dark: '#87b8c9' },
+        '--foreground': { light: '#4a4a4a', dark: '#ffffff' },
+        '--border-color': { light: '#87b8c9', dark: '#6a9dad' },
+        '--primary': { light: '#87b8c9', dark: '#6a9dad' },
+        '--primary-foreground': { light: '#ffffff', dark: '#ffffff' },
+        '--primary-border-color': { light: '#87b8c9', dark: '#6a9dad' },
+        '--secondary': { light: '#d4eaf1', dark: '#a8d5e2' },
+        '--secondary-foreground': { light: '#4a4a4a', dark: '#ffffff' },
+        '--secondary-border-color': { light: '#a8d5e2', dark: '#87b8c9' },
+        '--input-background': { light: '#d4eaf1', dark: '#a8d5e2' },
+        '--input-foreground': { light: '#4a4a4a', dark: '#ffffff' },
+        '--error-foreground': { light: '#ff6b6b', dark: '#ff6b6b' },
+        '--error': { light: '#ffe6e6', dark: '#382d2d' },
       },
     },
   ];
 
-  updateThemeVariable(variable: string, event: any): void {
-    const value = event.target.value;
-    document.body.style.setProperty(variable, value);
+  updateThemeVariable(
+    variable: string,
+    event: Event,
+    mode: 'light' | 'dark'
+  ): void {
+    const value = (event.target as HTMLInputElement).value;
+    const currentLightValue =
+      mode === 'light' ? value : this.getVariableValue(variable, 'light');
+    const currentDarkValue =
+      mode === 'dark' ? value : this.getVariableValue(variable, 'dark');
+    const combinedValue = `light-dark(${currentLightValue}, ${currentDarkValue})`;
+    document.body.style.setProperty(variable, combinedValue);
   }
 
   getComputedStyle(variable: string): string {
@@ -284,8 +109,87 @@ export class ThemeConfiguratorComponent {
     return variableNames[variable] || variable;
   }
 
-  getVariableValue(variable: string): string {
-    return getComputedStyle(document.body).getPropertyValue(variable).trim();
+  getTextColor(backgroundColor: string): string {
+    // Convierte el color hexadecimal a RGB
+    const hex = backgroundColor.replace('#', '');
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+
+    // Calcula la luminancia relativa
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+    // Devuelve negro (#000000) si el color es claro, blanco (#FFFFFF) si es oscuro
+    return luminance > 128 ? '#000000' : '#FFFFFF';
+  }
+
+  resolveColor(value: string): string {
+    // Si el valor es `color-mix`, calcula el resultado
+    const colorMixMatch = value.match(
+      /color-mix\(in srgb, (#[0-9a-fA-F]{6}), (#[0-9a-fA-F]{6}) (\d+)%\)/
+    );
+    if (colorMixMatch) {
+      const [, color1, color2, percentage] = colorMixMatch;
+      return this.calculateColorMix(
+        color1,
+        color2,
+        parseInt(percentage, 10) / 100
+      );
+    }
+
+    // Si el valor es `transparent`, devuelve un color por defecto (ejemplo: blanco)
+    if (value === 'transparent') {
+      return '#ffffff'; // Puedes cambiar esto según tus necesidades
+    }
+
+    return value; // Devuelve el valor original si no es `color-mix` o `transparent`
+  }
+
+  calculateColorMix(
+    color1: string,
+    color2: string,
+    percentage: number
+  ): string {
+    // Convierte los colores hexadecimales a RGB
+    const hexToRgb = (hex: string) => {
+      const bigint = parseInt(hex.replace('#', ''), 16);
+      return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255,
+      };
+    };
+
+    const rgbToHex = (r: number, g: number, b: number) =>
+      `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+
+    const rgb1 = hexToRgb(color1);
+    const rgb2 = hexToRgb(color2);
+
+    // Mezcla los colores según el porcentaje
+    const r = Math.round(rgb1.r * (1 - percentage) + rgb2.r * percentage);
+    const g = Math.round(rgb1.g * (1 - percentage) + rgb2.g * percentage);
+    const b = Math.round(rgb1.b * (1 - percentage) + rgb2.b * percentage);
+
+    return rgbToHex(r, g, b);
+  }
+
+  getVariableValue(variable: string, mode: 'light' | 'dark'): string {
+    const value = getComputedStyle(document.body)
+      .getPropertyValue(variable)
+      .trim();
+    const match = value.match(/light-dark\((.*?),\s*(.*?)\)/);
+    const resolvedValue = match
+      ? mode === 'light'
+        ? match[1].trim()
+        : match[2].trim()
+      : value;
+
+    const hexValue = this.resolveColor(resolvedValue);
+
+    // Asegúrate de que el valor sea un color hexadecimal válido
+    const isValidHex = /^#[0-9a-fA-F]{6}$/.test(hexValue);
+    return isValidHex ? hexValue : '#000000'; // Devuelve un color predeterminado si no es válido
   }
 
   resetTheme(): void {
@@ -296,9 +200,26 @@ export class ThemeConfiguratorComponent {
       });
   }
 
-  applyTheme(theme: { name: string; variables: Record<string, string> }): void {
+  applyTheme(theme: {
+    name: string;
+    variables: Record<string, { light: string; dark: string }>;
+  }): void {
     Object.entries(theme.variables).forEach(([key, value]) => {
-      document.body.style.setProperty(key, value);
+      const combinedValue = `light-dark(${value.light}, ${value.dark})`;
+      document.body.style.setProperty(key, combinedValue);
     });
+  }
+
+  getThemePreviewColors(theme: any): {
+    background: string;
+    foreground: string;
+  } {
+    const background = theme.variables['--bg-color'];
+    const foreground = theme.variables['--text-color'];
+
+    return {
+      background: this.resolveColor(background.light),
+      foreground: this.resolveColor(foreground.light),
+    };
   }
 }

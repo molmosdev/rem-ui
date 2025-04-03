@@ -1,53 +1,107 @@
 <h2>Theme Configurator</h2>
 <span>Customize your theme by adjusting the variables below:</span>
+
 <h3>Base Colors</h3>
-@for (variable of baseVariables; track variable) {
-  <div class="property">
-    <span>{{ getVariableDisplayName(variable) }}</span>
-    <label for="{{ variable }}">
+<div class="legend">
+  <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+  <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+</div>
+<div class="properties-grid">
+  @for (variable of baseVariables; track variable) {
+    <label [style.background-color]="getVariableValue(variable, 'light')">
       <span
-        class="color-preview"
-        [style.background-color]="getVariableValue(variable)"></span>
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
       <input
-        id="{{ variable }}"
         type="color"
-        (input)="updateThemeVariable(variable, $event)"
-        placeholder="Enter value" />
+        [value]="getVariableValue(variable, 'light')"
+        (input)="updateThemeVariable(variable, $event, 'light')"
+        placeholder="Enter light value" />
     </label>
-  </div>
-}
+    <label [style.background-color]="getVariableValue(variable, 'dark')">
+      <span
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
+      <input
+        type="color"
+        [value]="getVariableValue(variable, 'dark')"
+        (input)="updateThemeVariable(variable, $event, 'dark')"
+        placeholder="Enter dark value" />
+    </label>
+  }
+</div>
+
 <h3>Component Colors</h3>
-@for (variable of componentVariables; track variable) {
-  <div class="property">
-    <span>{{ getVariableDisplayName(variable) }}</span>
-    <label for="{{ variable }}">
+<div class="legend">
+  <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+  <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+</div>
+<div class="properties-grid">
+  @for (variable of componentVariables; track variable) {
+    <label [style.background-color]="getVariableValue(variable, 'light')">
       <span
-        class="color-preview"
-        [style.background-color]="getVariableValue(variable)"></span>
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
       <input
-        id="{{ variable }}"
         type="color"
-        (input)="updateThemeVariable(variable, $event)"
-        placeholder="Enter value" />
+        [value]="getVariableValue(variable, 'light')"
+        (input)="updateThemeVariable(variable, $event, 'light')"
+        placeholder="Enter light value" />
     </label>
-  </div>
-}
+    <label [style.background-color]="getVariableValue(variable, 'dark')">
+      <span
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
+      <input
+        type="color"
+        [value]="getVariableValue(variable, 'dark')"
+        (input)="updateThemeVariable(variable, $event, 'dark')"
+        placeholder="Enter dark value" />
+    </label>
+  }
+</div>
+
 <h3>Error Colors</h3>
-@for (variable of errorVariables; track variable) {
-  <div class="property">
-    <span>{{ getVariableDisplayName(variable) }}</span>
-    <label for="{{ variable }}">
+<div class="legend">
+  <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+  <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+</div>
+<div class="properties-grid">
+  @for (variable of errorVariables; track variable) {
+    <label [style.background-color]="getVariableValue(variable, 'light')">
       <span
-        class="color-preview"
-        [style.background-color]="getVariableValue(variable)"></span>
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
       <input
-        id="{{ variable }}"
         type="color"
-        (input)="updateThemeVariable(variable, $event)"
-        placeholder="Enter value" />
+        [value]="getVariableValue(variable, 'light')"
+        (input)="updateThemeVariable(variable, $event, 'light')"
+        placeholder="Enter light value" />
     </label>
-  </div>
-}
+    <label [style.background-color]="getVariableValue(variable, 'dark')">
+      <span
+        class="property"
+        [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+        {{ getVariableDisplayName(variable) }}
+      </span>
+      <input
+        type="color"
+        [value]="getVariableValue(variable, 'dark')"
+        (input)="updateThemeVariable(variable, $event, 'dark')"
+        placeholder="Enter dark value" />
+    </label>
+  }
+</div>
 
 <button r-button variant="outlined" (click)="resetTheme()">
   Reset to Default
@@ -61,8 +115,8 @@
       tabindex="0"
       (click)="applyTheme(theme)"
       (keydown.enter)="applyTheme(theme)"
-      [style.background-color]="theme.background"
-      [style.color]="theme.foreground">
+      [style.background-color]="getThemePreviewColors(theme).background"
+      [style.color]="getThemePreviewColors(theme).foreground">
       {{ theme.name }}
     </div>
   }
