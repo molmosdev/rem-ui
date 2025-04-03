@@ -163,6 +163,37 @@ import { ButtonGroup } from '../../../../../../lib/src/core/components/button-gr
         <button r-button variant="outlined" size="small">Outlined</button>
         <button r-button variant="outlined" size="small">Outlined</button>
       </r-button-group>
+    </div>
+
+    <h3>Toggle Buttons</h3>
+    <code-block [code]="toggleButtonsClickHandlingUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="toggleState === 'option1'"
+          (click)="toggleState = 'option1'">
+          Option 1
+        </button>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="toggleState === 'option2'"
+          (click)="toggleState = 'option2'">
+          Option 2
+        </button>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="toggleState === 'option3'"
+          (click)="toggleState = 'option3'">
+          Option 3
+        </button>
+      </r-button-group>
     </div>`,
   imports: [CodeBlockComponent, Button, Icon, ButtonGroup],
 })
@@ -217,5 +248,34 @@ export default class ButtonDocumentationComponent {
   <button r-button variant="outlined" size="small"> Outlined </button>
   <button r-button variant="outlined" size="small"> Outlined </button>
   <button r-button variant="outlined" size="small"> Outlined </button>
+</r-button-group>`;
+
+  toggleState = 'option1';
+
+  toggleButtonsClickHandlingUsage = `<r-button-group>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="toggleState === 'option1'"
+    (click)="toggleState = 'option1'">
+    Option 1
+  </button>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="toggleState === 'option2'"
+    (click)="toggleState = 'option2'">
+    Option 2
+  </button>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="toggleState === 'option3'"
+    (click)="toggleState = 'option3'">
+    Option 3
+  </button>
 </r-button-group>`;
 }
