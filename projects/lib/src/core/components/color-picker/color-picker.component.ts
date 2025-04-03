@@ -1,85 +1,117 @@
 import {
   AfterViewInit,
   Component,
+  contentChild,
   ElementRef,
-  inject,
   input,
-  model,
-  output,
+  OnDestroy,
   signal,
 } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'input[r-color-picker]',
-  template: `hola`,
+  selector: 'label[r-color-picker]',
+  template: `<ng-content />
+    @if (showColor()) {
+      <span class="color-value">
+        {{ value() }}
+      </span>
+    }`,
   styleUrl: './color-picker.component.css',
   host: {
-    '[class.invalid]': 'invalid()',
-    '[class.disabled]': 'disabled()',
+    '[class.focused]': 'focused()',
     '[style.max-width]': 'maxWidth()',
-    '[style.--max-width]': 'maxWidth()',
-    '(input)': 'onColorChange($event)',
-    '(focus)': 'focused.set(true)',
-    '(blur)': 'focused.set(false)',
     '[style.--value]': 'value()',
   },
 })
-export class ColorPicker implements AfterViewInit {
+export class ColorPicker implements AfterViewInit, OnDestroy {
   /**
-   * Whether the input is invalid.
-   */
-  readonly invalid = model<boolean>(false);
-
-  /**
-   * Whether the input is disabled.
-   */
-  readonly disabled = model<boolean>(false);
-
-  /**
-   * The maximum width of the input.
+   * Specifies the maximum width of the input.
    */
   readonly maxWidth = input<string>('');
 
   /**
-   * The value of the input.
+   * Represents the value of the input.
    */
   readonly value = signal<string>('#000000');
 
   /**
-   * Whether the input is focused.
+   * Indicates whether the input is focused.
    */
   readonly focused = signal<boolean>(false);
 
   /**
-   * Reference to the input element.
+   * A reference to the native element.
    */
-  readonly el = inject<ElementRef<HTMLInputElement>>(ElementRef);
+  readonly picker = contentChild<ElementRef>('picker');
 
   /**
-   * Reference to the ngModel directive.
+   * A reference to the `NgModel` directive.
    */
-  private ngModel = inject(NgModel, { optional: true });
+  private readonly ngModel = contentChild<NgModel>(NgModel);
 
   /**
-   * Event emitter for value changes.
+   * Indicates whether to show the color value.
    */
-  readonly colorChange = output<string>();
+  readonly showColor = input<boolean>(true);
 
   /**
-   * After the view has been initialized, set the value of the select.
+   * Event listeners for input, focus, and blur events.
+   */
+  private inputListener?: () => void;
+  private focusListener?: () => void;
+  private blurListener?: () => void;
+
+  /**
+   * Lifecycle hook that is called after the view has been initialized.
+   * Sets the initial value of the picker and attaches event listeners.
    */
   ngAfterViewInit(): void {
-    this.value.set(this.el.nativeElement.value || this.ngModel?.model);
+    this.value.set(
+      this.picker()?.nativeElement.value || this.ngModel()?.value || '#000000'
+    );
+    this.handlePicker();
   }
 
   /**
-   * Handle the input event and update the value.
-   * @param event - The input event.
+   * Attaches event listeners to the picker element for handling input, focus, and blur events.
+   * Updates the value and focused state accordingly.
    */
-  onColorChange(event: Event): void {
-    const newValue = (event.target as HTMLInputElement).value;
-    this.value.set(newValue);
-    this.colorChange.emit(newValue);
+  handlePicker(): void {
+    const picker = this.picker()?.nativeElement;
+    if (picker) {
+      this.inputListener = () => {
+        this.value.set(picker.value);
+      };
+      this.focusListener = () => {
+        this.focused.set(true);
+      };
+      this.blurListener = () => {
+        this.focused.set(false);
+      };
+
+      picker.addEventListener('input', this.inputListener);
+      picker.addEventListener('focus', this.focusListener);
+      picker.addEventListener('blur', this.blurListener);
+    }
+  }
+
+  /**
+   * Lifecycle hook that is called when the component is destroyed.
+   * Cleans up event listeners attached to the picker element.
+   */
+  ngOnDestroy(): void {
+    const picker = this.picker()?.nativeElement;
+    if (picker) {
+      if (this.inputListener) {
+        picker.removeEventListener('input', this.inputListener);
+      }
+      if (this.focusListener) {
+        picker.removeEventListener('focus', this.focusListener);
+      }
+      if (this.blurListener) {
+        picker.removeEventListener('blur', this.blurListener);
+      }
+    }
   }
 }
