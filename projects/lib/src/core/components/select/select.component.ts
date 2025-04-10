@@ -12,8 +12,7 @@ import {
 
 @Component({
   selector: 'select[r-select]',
-  imports: [],
-  template: `<ng-content />`,
+  template: ` <ng-content />`,
   styleUrl: './select.component.css',
   host: {
     '[class.invalid]': 'invalid()',
