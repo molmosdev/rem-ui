@@ -28,13 +28,6 @@ import {
           <th>Description</th>
         </tr>
         <tr>
-          <td><strong>options</strong></td>
-          <td>
-            <code>Option[]</code>
-          </td>
-          <td>The options available for selection.</td>
-        </tr>
-        <tr>
           <td><strong>disabled</strong></td>
           <td><code>boolean</code></td>
           <td>Whether the select is disabled.</td>
@@ -51,9 +44,6 @@ import {
         </tr>
       </table>
     </div>
-
-    <h3>Option Type</h3>
-    <code-block [code]="optionsType" />
 
     <h2>Events</h2>
     <div class="table-wrapper">
@@ -76,52 +66,55 @@ import {
     <div class="documentation-playground">
       <select
         r-select
-        [options]="options"
         [value]="basicValue"
         (valueChange)="onValueChange($event)"
-        maxWidth="240px"></select>
+        maxWidth="240px">
+        <option [value]="null">Select an option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
     </div>
 
     <h2>Angular Binding with ngModel</h2>
     <code-block [code]="ngModelUsage" />
     <div class="documentation-playground">
-      <select
-        r-select
-        [options]="options"
-        [(ngModel)]="ngModelValue"
-        maxWidth="240px"></select>
+      <select r-select [(ngModel)]="ngModelValue" maxWidth="240px">
+        <option [value]="null">Select an option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
     </div>
 
     <h2>Angular Forms with formControlName</h2>
     <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
       <div class="documentation-playground">
-        <select
-          r-select
-          [options]="options"
-          formControlName="selectControl"
-          maxWidth="240px"></select>
+        <select r-select formControlName="selectControl" maxWidth="240px">
+          <option [value]="null">Select an option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </select>
       </div>
     </form>
 
     <h2>Disabled</h2>
     <code-block [code]="disabledUsage" />
     <div class="documentation-playground">
-      <select
-        r-select
-        [disabled]="true"
-        [options]="options"
-        maxWidth="240px"></select>
+      <select r-select [disabled]="true" maxWidth="240px">
+        <option [value]="null">Select an option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
     </div>
 
     <h2>Invalid</h2>
     <code-block [code]="invalidUsage" />
     <div class="documentation-playground">
-      <select
-        r-select
-        [invalid]="true"
-        [options]="options"
-        maxWidth="240px"></select>
+      <select r-select [invalid]="true" maxWidth="240px">
+        <option [value]="null">Select an option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select>
     </div>
 
     <h2>With Label</h2>
@@ -129,7 +122,11 @@ import {
     <div class="documentation-playground">
       <r-label>
         <label>Select Label</label>
-        <select r-select [options]="options" maxWidth="240px"></select>
+        <select r-select maxWidth="240px">
+          <option [value]="null">Select an option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </select>
       </r-label>
     </div>`,
   imports: [
@@ -143,11 +140,31 @@ import {
 export default class SelectDocumentationComponent {
   angularImport = `import { Select } from 'rem-ui/angular'`;
   webComponentsImport = `import { Select } from 'rem-ui/elements'`;
-  basicUsage = `<select r-select [options]="options" [value]="basicValue" (valueChange)="onValueChange($event)" maxWidth="240px"></select>`;
-  ngModelUsage = `<select r-select [options]="options" [(ngModel)]="ngModelValue" maxWidth="240px"></select>`;
-  formControlUsage = `<select r-select [options]="options" formControlName="selectControl" maxWidth="240px"></select>`;
-  disabledUsage = `<select r-select [disabled]="true" [options]="options" maxWidth="240px"></select>`;
-  invalidUsage = `<select r-select [invalid]="true" [options]="options" maxWidth="240px"></select>`;
+  basicUsage = `<select r-select [value]="basicValue" (valueChange)="onValueChange($event)" maxWidth="240px">
+  <option [value]="null">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>`;
+  ngModelUsage = `<select r-select [(ngModel)]="ngModelValue" maxWidth="240px">
+  <option [value]="null">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>`;
+  formControlUsage = `<select r-select formControlName="selectControl" maxWidth="240px">
+  <option [value]="null">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>`;
+  disabledUsage = `<select r-select [disabled]="true" maxWidth="240px">
+  <option [value]="null">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>`;
+  invalidUsage = `<select r-select [invalid]="true" maxWidth="240px">
+  <option [value]="null">Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>`;
 
   options = [
     { value: null, text: 'Select an option' },
@@ -165,14 +182,12 @@ export default class SelectDocumentationComponent {
     console.log('Select value changed:', value);
   }
 
-  optionsType = `type Option = {
-  value: string | null;
-  text: string;
-  disabled?: boolean;
-};`;
-
   withSelectUsage = `<r-label>
   <label>Select Label</label>
-  <select r-select [options]="options" maxWidth="240px"></select>
+  <select r-select maxWidth="240px">
+    <option [value]="null">Select an option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+  </select>
 </r-label>`;
 }

@@ -1,20 +1,19 @@
 import {
   AfterViewInit,
   Component,
-  effect,
   ElementRef,
   inject,
-  input,
   model,
   output,
   Renderer2,
   signal,
+  input,
 } from '@angular/core';
 
 @Component({
   selector: 'select[r-select]',
   imports: [],
-  template: ``,
+  template: `<ng-content />`,
   styleUrl: './select.component.css',
   host: {
     '[class.invalid]': 'invalid()',
@@ -45,17 +44,6 @@ export class Select implements AfterViewInit {
   readonly maxWidth = input<string>('');
 
   /**
-   * The options available for selection.
-   */
-  readonly options = input<
-    {
-      value: string | null;
-      text: string;
-      disabled?: boolean;
-    }[]
-  >([]);
-
-  /**
    * Event emitted when the value changes.
    */
   valueChange = output<string | null>();
@@ -77,40 +65,10 @@ export class Select implements AfterViewInit {
   readonly renderer = inject(Renderer2);
 
   /**
-   * Initializes the select component.
-   */
-  constructor() {
-    effect(() => this.renderOptions());
-  }
-
-  /**
    * After the view has been initialized, set the value of the select.
    */
   ngAfterViewInit(): void {
     this.value.set(this.el.nativeElement.value);
-  }
-
-  /**
-   * Renders the options within the select element.
-   * @private
-   */
-  private renderOptions(): void {
-    const select = this.el.nativeElement;
-
-    if (!select) {
-      return;
-    }
-    // Clear the existing options
-    select.innerHTML = '';
-
-    // Append the options to the select
-    this.options()?.forEach(option => {
-      const optionEl = this.renderer.createElement('option');
-      optionEl.value = option.value;
-      optionEl.text = option.text;
-      optionEl.disabled = option.disabled;
-      this.renderer.appendChild(select, optionEl);
-    });
   }
 
   /**
