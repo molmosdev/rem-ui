@@ -30,4 +30,13 @@
     color: var(--text-color);
     font-size: 90%;
   }
+
+  select,
+  ::picker(select) {
+    appearance: base-select;
+  }
+
+  select {
+    -webkit-appearance: none;
+  }
 }
