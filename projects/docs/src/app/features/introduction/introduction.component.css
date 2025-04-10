@@ -31,8 +31,12 @@
     font-size: 90%;
   }
 
-  select,
-  ::picker(select) {
+  select {
+    -webkit-appearance: none;
     appearance: base-select;
+
+    &::picker(select) {
+      appearance: base-select;
+    }
   }
 }
