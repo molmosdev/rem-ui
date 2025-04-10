@@ -29,7 +29,6 @@
     &.top-center {
       bottom: calc(100% + var(--gap, 0.5rem));
       left: 50%;
-      transform: translateX(-50%);
     }
 
     &.top-right {
@@ -45,7 +44,6 @@
     &.bottom-center {
       top: calc(100% + var(--gap, 0.5rem));
       left: 50%;
-      transform: translateX(-50%);
     }
 
     &.bottom-right {
@@ -61,7 +59,6 @@
     &.left-center {
       right: calc(100% + var(--gap, 0.5rem));
       top: 50%;
-      transform: translateY(-50%);
     }
 
     &.left-bottom {
@@ -77,7 +74,6 @@
     &.right-center {
       left: calc(100% + var(--gap, 0.5rem));
       top: 50%;
-      transform: translateY(-50%);
     }
 
     &.right-bottom {

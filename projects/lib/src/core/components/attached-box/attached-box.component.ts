@@ -82,6 +82,7 @@ export class AttachedBox {
       scaleFrom: 0.99,
       scaleTo: 1,
       translateFrom: '',
+      translateTo: '',
     };
 
     switch (direction) {
@@ -91,6 +92,7 @@ export class AttachedBox {
           translateFrom: isCenter
             ? 'translate(-50%, 10px)'
             : 'translateY(10px)',
+          translateTo: isCenter ? 'translate(-50%, 0)' : 'translateY(0)',
         };
       case 'bottom':
         return {
@@ -98,6 +100,7 @@ export class AttachedBox {
           translateFrom: isCenter
             ? 'translate(-50%, -10px)'
             : 'translateY(-10px)',
+          translateTo: isCenter ? 'translate(-50%, 0)' : 'translateY(0)',
         };
       case 'left':
         return {
@@ -105,6 +108,7 @@ export class AttachedBox {
           translateFrom: isCenter
             ? 'translate(10px, -50%)'
             : 'translateX(10px)',
+          translateTo: isCenter ? 'translate(0, -50%)' : 'translateX(0)',
         };
       case 'right':
         return {
@@ -112,6 +116,7 @@ export class AttachedBox {
           translateFrom: isCenter
             ? 'translate(-10px, -50%)'
             : 'translateX(-10px)',
+          translateTo: isCenter ? 'translate(0, -50%)' : 'translateX(0)',
         };
       default:
         return defaultParams;
