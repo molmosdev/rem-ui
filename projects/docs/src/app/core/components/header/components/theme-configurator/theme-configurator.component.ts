@@ -265,6 +265,7 @@ export class ThemeConfiguratorComponent {
       .forEach(variable => {
         document.body.style.removeProperty(variable);
       });
+    document.body.style.removeProperty('--radius');
   }
 
   applyTheme(theme: {
