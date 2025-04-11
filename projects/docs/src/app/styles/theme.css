@@ -33,7 +33,7 @@
   );
   --input-background: light-dark(
     color-mix(in srgb, var(--bg-color), var(--black) 6%),
-    color-mix(in srgb, var(--bg-color), var(--white) 1%)
+    color-mix(in srgb, var(--bg-color), var(--white) 3%)
   );
   --input-foreground: light-dark(var(--black), var(--white));
 
