@@ -104,14 +104,37 @@
 </div>
 
 <h3>Border Radius</h3>
-<input
-  type="range"
-  r-range
-  value="0.5"
-  min="0"
-  max="2"
-  step="0.1"
-  (change)="updateRootVariable('--radius', $event)" />
+<span>
+  Adjust the value of
+  <code
+    style="
+      font-size: 90%;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.5rem;
+      font-size: 90%;
+      background-color: color-mix(
+        in srgb,
+        var(--bg-color),
+        var(--text-color) 4%
+      );
+    "
+    >var(--radius)</code
+  >
+  in rem units.
+</span>
+<div style="display: flex; gap: 1rem">
+  <span>0rem</span>
+  <input
+    type="range"
+    r-range
+    value="0.5"
+    min="0"
+    max="2"
+    step="0.1"
+    (change)="updateRootVariable('--radius', $event)" />
+  <span>2rem</span>
+</div>
+
 <br />
 
 <button r-button variant="outlined" (click)="resetTheme()">
