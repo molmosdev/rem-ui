@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Button, Icon } from '../../../../../../../../lib/src/public-api';
+import { Range } from '../../../../../../../../lib/src/core/components/range/range.component';
 
 @Component({
   selector: 'app-theme-configurator',
   templateUrl: './theme-configurator.component.html',
   styleUrl: './theme-configurator.component.css',
-  imports: [Button, Icon],
+  imports: [Button, Icon, Range],
 })
 export class ThemeConfiguratorComponent {
   baseVariables = [
@@ -129,6 +130,12 @@ export class ThemeConfiguratorComponent {
       },
     },
   ];
+
+  updateRootVariable(variable: string, event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    const finalValue = variable === '--radius' ? `${value}rem` : value;
+    document.body.style.setProperty(variable, finalValue);
+  }
 
   updateThemeVariable(
     variable: string,
