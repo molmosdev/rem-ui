@@ -75,9 +75,9 @@ export default class RangeDocumentationComponent {
   webComponentsImport = `import { Range } from 'rem-ui/elements'`;
   basicUsage = `<input type="range" r-range [value]="basicValue" (valueChange)="onValueChange($event)" />`;
 
-  basicValue = 50;
+  basicValue = '50';
 
-  onValueChange(value: number) {
+  onValueChange(value: string) {
     console.log('Range value changed:', value);
   }
 }
