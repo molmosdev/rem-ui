@@ -18,7 +18,7 @@
     border-color 0.2s;
   min-height: calc(2.8rem + 2px);
   --vertical-padding: calc(0.9rem - 2px);
-  padding: var(--vertical-padding) 0.8rem;
+  padding: var(--vertical-padding) 1rem var(--vertical-padding) 0.8rem;
   font-size: 1rem;
   background-color: transparent;
   display: flex;
@@ -49,13 +49,17 @@
   }
 
   &::picker-icon {
-    display: none;
+    /* display: none; */
   }
 
   &.invalid {
     color: var(--error-foreground, #c40000ab);
     background-color: var(--error, #fff0f0);
     border-color: var(--error-foreground, #c40000ab);
+
+    &::picker-icon {
+      color: var(--error-foreground, #c40000ab);
+    }
 
     &:focus-visible {
       outline-color: var(--error-foreground, #c40000ab);
