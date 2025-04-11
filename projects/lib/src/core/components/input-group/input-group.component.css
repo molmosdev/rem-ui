@@ -1,0 +1,74 @@
+:host {
+  width: 100%;
+  background-color: color-mix(
+    in srgb,
+    var(--foreground, #798194) 5%,
+    var(--background, #ffffff)
+  );
+  border-radius: var(--radius, 0.5rem);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border-color, transparent);
+  transition:
+    opacity 0.2s,
+    padding-top 0.2s,
+    padding-bottom 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+  font-size: 1rem;
+  color: var(--input-foreground, #798194);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  ::ng-deep > * {
+    border-left: none;
+    padding-inline: 0.8rem;
+  }
+
+  &:not(.bordered) {
+    ::ng-deep > *:not(button) {
+      border: none;
+      padding-right: 0;
+    }
+  }
+
+  ::ng-deep > *:first-child {
+    border-left: none;
+  }
+
+  ::ng-deep > *:last-child {
+    border-right: none;
+  }
+
+  ::ng-deep button {
+    height: 100%;
+    max-height: 100%;
+    border: none !important;
+    border-radius: 0;
+    font-size: 0.88rem;
+  }
+
+  ::ng-deep button:active {
+    transform: scale(1) !important;
+  }
+
+  ::ng-deep input,
+  ::ng-deep select {
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
+  }
+
+  ::ng-deep input:focus-visible,
+  ::ng-deep select:focus-visible {
+    outline-width: 0;
+  }
+
+  &:has(::ng-deep input:focus-visible),
+  &:has(::ng-deep select:focus-visible) {
+    outline: 2px solid var(--primary, #0a0a0a);
+    outline-offset: 2px;
+  }
+}
