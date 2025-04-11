@@ -22,24 +22,55 @@
   align-items: center;
   overflow: hidden;
 
-  ::ng-deep > * {
-    border-left: none;
-    padding-inline: 0.8rem;
+  ::ng-deep input:first-child,
+  ::ng-deep select:first-child {
+    border-left-width: 0;
+  }
+
+  ::ng-deep r-label:first-child input,
+  ::ng-deep r-label:first-child select {
+    border-left-width: 0;
+  }
+
+  ::ng-deep input:last-child,
+  ::ng-deep select:last-child {
+    border-right-width: 0;
+  }
+
+  ::ng-deep r-label:last-child input,
+  ::ng-deep r-label:last-child select {
+    border-right-width: 0;
+  }
+
+  ::ng-deep input + input,
+  ::ng-deep select + input,
+  ::ng-deep input + select,
+  ::ng-deep select + select {
+    border-left-width: 0;
   }
 
   &:not(.bordered) {
-    ::ng-deep > *:not(button) {
-      border: none;
-      padding-right: 0;
+    ::ng-deep input,
+    ::ng-deep select {
+      border-inline-width: 0;
+    }
+
+    ::ng-deep span:first-child,
+    ::ng-deep i:first-child {
+      padding-left: 0.8rem;
+    }
+
+    ::ng-deep span:last-child,
+    ::ng-deep i:last-child {
+      padding-right: 0.8rem;
     }
   }
 
-  ::ng-deep > *:first-child {
-    border-left: none;
-  }
-
-  ::ng-deep > *:last-child {
-    border-right: none;
+  &.bordered {
+    ::ng-deep span,
+    ::ng-deep i {
+      padding-inline: 0.8rem;
+    }
   }
 
   ::ng-deep button {

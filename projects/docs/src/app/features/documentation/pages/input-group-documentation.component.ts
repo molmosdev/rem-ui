@@ -6,6 +6,7 @@ import {
   Icon,
   Select,
   Button,
+  Label,
 } from '../../../../../../lib/src/public-api';
 
 @Component({
@@ -96,15 +97,35 @@ import {
         <input type="text" r-input placeholder="Search here..." />
         <button r-button variant="primary">Go</button>
       </r-input-group>
+    </div>
+
+    <h2>With Label</h2>
+    <code-block [code]="withLabelUsage" />
+    <div class="documentation-playground">
+      <r-input-group [bordered]="true" maxWidth="240px">
+        <r-label>
+          <label for="name">Name:</label>
+          <input
+            id="name"
+            type="text"
+            r-input
+            placeholder="Enter your name..." />
+        </r-label>
+      </r-input-group>
+    </div>
+
+    <h2>With Label and Icon</h2>
+    <code-block [code]="withLabelAndIconUsage" />
+    <div class="documentation-playground">
+      <r-input-group [bordered]="true" maxWidth="240px">
+        <i r-icon icon="User" [size]="17"></i>
+        <r-label>
+          <label for="username">Username</label>
+          <input id="username" type="text" r-input />
+        </r-label>
+      </r-input-group>
     </div>`,
-  imports: [
-    CodeBlockComponent,
-    InputGroup,
-    Input,
-    Icon,
-    Select,
-    Button,
-  ],
+  imports: [CodeBlockComponent, InputGroup, Input, Icon, Select, Button, Label],
 })
 export default class InputGroupDocumentationComponent {
   angularImport = `import { InputGroupComponent } from 'rem-ui/angular'`;
@@ -145,5 +166,20 @@ export default class InputGroupDocumentationComponent {
   <i r-icon icon="Search" [size]="17"></i>
   <input type="text" r-input placeholder="Search here..." />
   <button r-button variant="primary">Go</button>
+</r-input-group>`;
+
+  withLabelUsage = `<r-input-group [bordered]="true" maxWidth="240px">
+  <r-label>
+    <label for="name">Name:</label>
+    <input id="name" type="text" r-input placeholder="Enter your name..." />
+  </r-label>
+</r-input-group>`;
+
+  withLabelAndIconUsage = `<r-input-group [bordered]="true" maxWidth="240px">
+  <i r-icon icon="User" [size]="17"></i>
+  <r-label>
+    <label for="username">Username</label>
+    <input id="username" type="text" r-input />
+  </r-label>
 </r-input-group>`;
 }
