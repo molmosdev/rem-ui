@@ -50,11 +50,11 @@ export default class ThemingComponent {
     color-mix(in srgb, var(--black), var(--white) 5%)
   );
   --input-background: light-dark(
-    color-mix(in srgb, var(--bg-color), var(--black) 1%),
-    color-mix(in srgb, var(--bg-color), var(--white) 1%)
+    color-mix(in srgb, var(--bg-color), var(--black) 6%),
+    color-mix(in srgb, var(--bg-color), var(--white) 3%)
   );
   --input-foreground: light-dark(var(--black), var(--white));
-  
+
   /* Error colors */
   --error-foreground: light-dark(#c40000ab, #ff6b6b);
   --error: light-dark(#fff0f0, #382d2d);
