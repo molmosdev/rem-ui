@@ -105,6 +105,14 @@ export const documentationRoutes: Routes = [
     },
   },
   {
+    path: 'range',
+    loadComponent: () => import('./pages/range-documentation.component'),
+    data: {
+      title: 'Range',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
