@@ -18,7 +18,7 @@
     border-color 0.2s;
   min-height: calc(2.8rem + 2px);
   --vertical-padding: calc(0.9rem - 2px);
-  padding: var(--vertical-padding) 1rem var(--vertical-padding) 0.8rem;
+  padding: var(--vertical-padding) 0.8rem;
   font-size: 1rem;
   background-color: transparent;
   display: flex;
@@ -49,7 +49,7 @@
   }
 
   &::picker-icon {
-    /* display: none; */
+    font-size: 0.8rem;
   }
 
   &.invalid {
