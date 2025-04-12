@@ -43,3 +43,7 @@
     }
   }
 }
+
+::ng-deep body:has(r-bottom-sheet.open) {
+  overflow: hidden;
+}
