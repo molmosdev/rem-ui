@@ -194,6 +194,37 @@ import { ButtonGroup } from '../../../../../../lib/src/core/components/button-gr
           Option 3
         </button>
       </r-button-group>
+    </div>
+
+    <h3>Multi-Select Toggle Buttons</h3>
+    <code-block [code]="multiSelectToggleUsage" />
+    <div class="documentation-playground">
+      <r-button-group>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="isOptionToggled('option1')"
+          (click)="toggleOption('option1')">
+          Option 1
+        </button>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="isOptionToggled('option2')"
+          (click)="toggleOption('option2')">
+          Option 2
+        </button>
+        <button
+          r-button
+          variant="outlined"
+          [toggle]="true"
+          [isToggled]="isOptionToggled('option3')"
+          (click)="toggleOption('option3')">
+          Option 3
+        </button>
+      </r-button-group>
     </div>`,
   imports: [CodeBlockComponent, Button, Icon, ButtonGroup],
 })
@@ -252,6 +283,22 @@ export default class ButtonDocumentationComponent {
 
   toggleState = 'option1';
 
+  multiSelectToggled: string[] = ['option1'];
+
+  isOptionToggled(option: string): boolean {
+    return this.multiSelectToggled.includes(option);
+  }
+
+  toggleOption(option: string): void {
+    if (this.isOptionToggled(option)) {
+      this.multiSelectToggled = this.multiSelectToggled.filter(
+        o => o !== option
+      );
+    } else {
+      this.multiSelectToggled.push(option);
+    }
+  }
+
   toggleButtonsClickHandlingUsage = `<r-button-group>
   <button
     r-button
@@ -275,6 +322,33 @@ export default class ButtonDocumentationComponent {
     [toggle]="true"
     [isToggled]="toggleState === 'option3'"
     (click)="toggleState = 'option3'">
+    Option 3
+  </button>
+</r-button-group>`;
+
+  multiSelectToggleUsage = `<r-button-group>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="isOptionToggled('option1')"
+    (click)="toggleOption('option1')">
+    Option 1
+  </button>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="isOptionToggled('option2')"
+    (click)="toggleOption('option2')">
+    Option 2
+  </button>
+  <button
+    r-button
+    variant="outlined"
+    [toggle]="true"
+    [isToggled]="isOptionToggled('option3')"
+    (click)="toggleOption('option3')">
     Option 3
   </button>
 </r-button-group>`;
