@@ -100,7 +100,7 @@
   }
 
   ::ng-deep button i {
-    padding-inline: 0;
+    padding-inline: 0 !important;
   }
 
   ::ng-deep input,
@@ -108,15 +108,4 @@
     border-top: none;
     border-bottom: none;
   }
-
-  /*   ::ng-deep input:focus-visible,
-  ::ng-deep select:focus-visible {
-    outline-width: 0;
-  } */
-  /* 
-  &:has(::ng-deep input:focus-visible),
-  &:has(::ng-deep select:focus-visible) {
-    outline: 2px solid var(--primary, #0a0a0a);
-    outline-offset: 2px;
-  } */
 }
