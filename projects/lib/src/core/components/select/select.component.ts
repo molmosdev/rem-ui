@@ -15,7 +15,7 @@ import {
   template: ` <ng-content />`,
   styleUrl: './select.component.css',
   host: {
-    '[class.invalid]': 'invalid()',
+    '[class.ng-invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
     '(change)': 'change($event.target.value)',
