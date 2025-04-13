@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 11;
+  z-index: 10;
   background-color: color-mix(in srgb, var(--bg-color), transparent 60%);
   backdrop-filter: blur(10px);
   width: 100vw;
