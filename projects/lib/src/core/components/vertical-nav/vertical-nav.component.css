@@ -3,9 +3,4 @@
   flex-direction: column;
   gap: 0.2rem;
   user-select: none;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
-  height: 100%;
-  padding-right: 0.75rem;
 }
