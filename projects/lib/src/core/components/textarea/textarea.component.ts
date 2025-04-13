@@ -16,7 +16,7 @@ import {
     '[placeholder]': 'placeholder() || ""',
     '[rows]': 'rows()',
     '[cols]': 'cols()',
-    '[class.invalid]': 'invalid()',
+    '[class.ng-invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '(input)': 'onInput($event)',
     '(focus)': 'focused.set(true)',
