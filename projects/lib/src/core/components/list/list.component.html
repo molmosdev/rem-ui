@@ -1,8 +1,0 @@
-<div class="items">
-  <ng-content />
-</div>
-@if (addable()) {
-  <button r-button variant="secondary" (clickEmitter)="addEmitter.emit()">
-    <ng-content select="[list-add-text]" />
-  </button>
-}
