@@ -9,19 +9,8 @@ export * from './core/services/theme.service';
 export * from './core/components/button/button.component';
 export * from './core/components/button-group/button-group.component';
 
-/* Dialog */
-export * from './core/components/dialog/dialog.component';
-export * from './core/components/dialog/components/dialog-title/dialog-title.component';
-
 /* Directives */
 export * from './shared/directives/lazy-content.directive';
-
-/* Dropdown */
-export * from './core/components/dropdown/dropdown.component';
-export * from './core/components/dropdown/components/dropdown-content/dropdown-content.component';
-export * from './core/components/dropdown/components/dropdown-content/components/dropdown-item/dropdown-item.component';
-export * from './core/components/dropdown/components/dropdown-content/components/dropdown-title/dropdown-title.component';
-export * from './core/components/dropdown/components/dropdown-trigger/dropdown-trigger.component';
 
 /* Search */
 export * from './core/components/search/search.component';
@@ -89,3 +78,18 @@ export * from './core/components/checkbox/checkbox.component';
 
 /* Textarea */
 export * from './core/components/textarea/textarea.component';
+
+/* Input Group */
+export * from './core/components/input-group/input-group.component';
+
+/* Range */
+export * from './core/components/range/range.component';
+
+/* Badge */
+export * from './core/components/badge/badge.component';
+
+/* Tooltip */
+export * from './core/components/tooltip/tooltip.component';
+
+/* Color Picker */
+export * from './core/components/color-picker/color-picker.component';
