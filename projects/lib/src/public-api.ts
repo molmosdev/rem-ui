@@ -2,9 +2,6 @@
  * Public API Surface of rem-ui-angular
  */
 
-/* Animations */
-export * from './shared/animations/animations';
-
 /* Theme Service */
 export * from './core/services/theme.service';
 
