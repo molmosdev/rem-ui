@@ -10,7 +10,12 @@ import { ResponsiveService } from '../../../../../../lib/src/core/services/respo
 import { VerticalNav } from '../../../../../../lib/src/core/components/vertical-nav/vertical-nav.component';
 import { VerticalNavSection } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
 import { VerticalNavItem } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-item/vertical-nav-item.component';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+} from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 import { VerticalNavGroup } from '../../../../../../lib/src/core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
@@ -32,6 +37,8 @@ import { ThemeConfiguratorComponent } from '../header/components/theme-configura
     Icon,
     Badge,
     ThemeConfiguratorComponent,
+    RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
