@@ -4,6 +4,7 @@
   appearance: base-select;
   box-sizing: border-box;
   width: 100%;
+  min-height: 2.8rem;
   border-radius: var(--radius, 0.5rem);
   color: var(--input-foreground, #798194);
   border-width: 1px;
@@ -16,7 +17,6 @@
     padding-bottom 0.2s,
     background-color 0.2s,
     border-color 0.2s;
-  min-height: calc(2.8rem + 2px);
   --vertical-padding: calc(0.9rem - 2px);
   padding: var(--vertical-padding) 0.8rem;
   font-size: 1rem;

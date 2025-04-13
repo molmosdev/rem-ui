@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  min-height: 2.8rem;
   background-color: var(--input-background, #e0e0e0);
   border-radius: var(--radius, 0.5rem);
   box-sizing: border-box;
