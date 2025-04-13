@@ -18,7 +18,7 @@ import { NgModel } from '@angular/forms';
   host: {
     '[type]': 'type()',
     '[placeholder]': 'placeholder() || ""',
-    '[class.invalid]': 'invalid()',
+    '[class.ng-invalid]': 'invalid()',
     '[class.disabled]': 'disabled()',
     '[style.max-width]': 'maxWidth()',
     '(input)': 'onInput($event)',
