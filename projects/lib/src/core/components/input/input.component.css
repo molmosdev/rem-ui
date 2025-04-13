@@ -41,7 +41,7 @@
   &.ng-invalid {
     color: var(--error-foreground, #c40000ab);
     background-color: var(--error, #fff0f0);
-    border-color: var(--error-foreground, #c40000ab);
+    border-color: var(--error-border-color, #c40000ab);
 
     &:focus-visible {
       outline-color: var(--error-foreground, #c40000ab);
