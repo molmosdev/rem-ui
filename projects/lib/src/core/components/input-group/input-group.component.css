@@ -99,6 +99,10 @@
     transform: scale(1) !important;
   }
 
+  ::ng-deep button i {
+    padding-inline: 0;
+  }
+
   ::ng-deep input,
   ::ng-deep select {
     border-top: none;
