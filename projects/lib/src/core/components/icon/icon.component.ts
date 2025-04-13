@@ -8,7 +8,6 @@ import { createElement, icons } from 'lucide';
   template: ``,
   host: {
     '[innerHTML]': 'iconSvg()',
-    '[style.margin-inline]': 'marginInline()',
   },
   styles: [
     `
@@ -63,9 +62,4 @@ export class Icon {
     });
     return this.sanitizer.bypassSecurityTrustHtml(iconSvg.outerHTML);
   });
-
-  /**
-   * Whether the icon is leading.
-   */
-  readonly marginInline = input('0px');
 }
