@@ -83,7 +83,8 @@
     @if (!isSection(route) && !isGroup(route)) {
       <r-vertical-nav-item
         (click)="navigate(getRoutePath(route, accumulatedPath))"
-        [active]="activeRoute() === getRoutePath(route, accumulatedPath)">
+        routerLink="{{ getRoutePath(route, accumulatedPath) }}"
+        routerLinkActive="active">
         {{ route.data?.['title'] }}
 
         @if (route.data?.['new']) {
