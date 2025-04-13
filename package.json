@@ -6,6 +6,7 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "fmt": "prettier --write .",
+    "clean": "npm run fmt && npm run lint:fix",
     "watch:lib": "ng build lib --watch --configuration development",
     "build:lib": "ng build lib",
     "build:elements": "ng build elements --output-hashing=none",
