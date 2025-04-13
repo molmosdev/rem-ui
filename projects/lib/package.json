@@ -1,6 +1,6 @@
 {
   "name": "@rem-ui/angular",
-  "version": "0.10.13",
+  "version": "0.10.15",
   "description": "rem-ui components, animations, directives and services for Angular",
   "peerDependencies": {
     "@angular/common": "^19.2.0",
