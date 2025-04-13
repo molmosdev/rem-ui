@@ -7,38 +7,12 @@
     gap: 0.5rem;
     padding: 1rem;
     box-sizing: border-box;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
 
     @media (width > 576px) and (width < 992px) {
       padding-top: 0;
-    }
-
-    .banner {
-      font-size: 0.9rem;
-      background-color: color-mix(
-        in srgb,
-        var(--bg-color),
-        var(--text-color) 5%
-      );
-      color: var(--text-color);
-      padding: 0.7rem 1rem;
-      margin: 0.5rem 0;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      margin-top: 0;
-
-      i {
-        font-size: 1rem;
-        margin-inline: 0.2rem;
-      }
-    }
-
-    r-vertical-nav {
-      width: 100%;
     }
   }
 
