@@ -2,6 +2,10 @@
   position: relative;
   display: flex;
 
+  ::ng-deep label {
+    color: var(--text-color);
+  }
+
   &:not(.is-switch):not(.is-checkbox) {
     width: 100%;
 
@@ -16,7 +20,6 @@
         top 0.2s,
         font-size 0.2s,
         transform 0.2s;
-      color: var(--text-color);
     }
 
     &.up {
