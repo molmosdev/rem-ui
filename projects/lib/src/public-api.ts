@@ -84,3 +84,7 @@ export * from './core/components/tooltip/tooltip.component';
 
 /* Color Picker */
 export * from './core/components/color-picker/color-picker.component';
+
+/* Tree */
+export * from './core/components/tree/tree.component';
+export * from './core/components/tree/shared/components/tree-node/tree-node.component';
