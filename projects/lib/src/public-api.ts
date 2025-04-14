@@ -39,12 +39,6 @@ export * from './core/components/table/components/row/components/row-item/row-it
 export * from './core/components/tabs/tabs.component';
 export * from './core/components/tabs/components/tab/tab.component';
 
-/* Vertical Nav */
-export * from './core/components/vertical-nav/vertical-nav.component';
-export * from './core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
-export * from './core/components/vertical-nav/components/vertical-nav-item/vertical-nav-item.component';
-export * from './core/components/vertical-nav/components/vertical-nav-section/vertical-nav-section.component';
-
 /* InViewport */
 export * from './core/directives/in-viewport.directive';
 export * from './core/services/in-viewport.service';
