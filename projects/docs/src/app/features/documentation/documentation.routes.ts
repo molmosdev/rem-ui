@@ -39,7 +39,6 @@ export const documentationRoutes: Routes = [
     loadComponent: () => import('./pages/badge-documentation.component'),
     data: {
       title: 'Badge',
-      new: true,
     },
   },
   {
@@ -57,19 +56,10 @@ export const documentationRoutes: Routes = [
     },
   },
   {
-    path: 'vertical-nav',
-    loadComponent: () => import('./pages/vertical-nav-documentation.component'),
-    data: {
-      title: 'Vertical Navigation',
-      new: true,
-    },
-  },
-  {
     path: 'tooltip',
     loadComponent: () => import('./pages/tooltip-documentation.component'),
     data: {
       title: 'Tooltip',
-      new: true,
     },
   },
   {
@@ -77,7 +67,6 @@ export const documentationRoutes: Routes = [
     loadComponent: () => import('./pages/bottom-sheet-documentation.component'),
     data: {
       title: 'Bottom Sheet',
-      new: true,
     },
   },
   {
@@ -85,7 +74,6 @@ export const documentationRoutes: Routes = [
     loadComponent: () => import('./pages/side-sheet-documentation.component'),
     data: {
       title: 'Side Sheet',
-      new: true,
     },
   },
   {
@@ -93,7 +81,6 @@ export const documentationRoutes: Routes = [
     loadComponent: () => import('./pages/color-picker-documentation.component'),
     data: {
       title: 'Color Picker',
-      new: true,
     },
   },
   {
@@ -109,6 +96,14 @@ export const documentationRoutes: Routes = [
     loadComponent: () => import('./pages/range-documentation.component'),
     data: {
       title: 'Range',
+      new: true,
+    },
+  },
+  {
+    path: 'tree',
+    loadComponent: () => import('./pages/tree-documentation.component'),
+    data: {
+      title: 'Tree',
       new: true,
     },
   },
