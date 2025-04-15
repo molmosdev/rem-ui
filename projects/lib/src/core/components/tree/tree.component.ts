@@ -20,7 +20,7 @@ import { TreeNode } from './shared/components/tree-node/tree-node.component';
  */
 @Component({
   selector: 'r-tree',
-  template: `<ng-content select="r-tree-node" />`,
+  template: `<ng-content />`,
   styleUrl: './tree.component.css',
   host: {
     '(cdkDropListDropped)': 'dropEmitter.emit($event)',

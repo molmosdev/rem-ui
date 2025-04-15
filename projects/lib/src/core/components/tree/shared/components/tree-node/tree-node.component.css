@@ -3,6 +3,12 @@
   flex-direction: column;
   box-sizing: border-box;
 
+  &.active {
+    section {
+      background-color: var(--input-background);
+    }
+  }
+
   section {
     padding-inline: 1rem;
     border-radius: var(--radius);
