@@ -33,13 +33,13 @@ app-button-group-documentation,
 app-badge-documentation,
 app-checkbox-documentation,
 app-textarea-documentation,
-app-vertical-nav-documentation,
 app-tooltip-documentation,
 app-bottom-sheet-documentation,
 app-side-sheet-documentation,
 app-color-picker-documentation,
 app-input-group-documentation,
-app-range-documentation {
+app-range-documentation,
+app-tree-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;
@@ -194,13 +194,8 @@ app-tooltip-documentation {
   r-select,
   r-number,
   r-password,
-  r-search,
-  r-vertical-nav {
+  r-search {
     min-width: 240px;
-  }
-
-  r-vertical-nav {
-    height: auto;
   }
 }
 
