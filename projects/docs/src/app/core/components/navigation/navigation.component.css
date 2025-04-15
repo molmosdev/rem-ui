@@ -6,10 +6,11 @@
     box-sizing: border-box;
     overflow-x: auto;
     scrollbar-width: thin;
+    height: 100%;
     scrollbar-color: var(--border-color, transparent) var(--bg-color, #ffffff);
 
-    @media (width > 576px) and (width < 992px) {
-      padding-top: 0;
+    @media (width > 576px) and (width <= 992px) {
+      height: calc(100% - 3.1rem);
     }
 
     .section {
@@ -38,7 +39,19 @@
     .components-list {
       width: 290px;
       border-right: 1px solid var(--border-color);
-      height: 100%;
+    }
+  }
+
+  @media (width <= 992px) {
+    .components-list {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      r-tree:last-child {
+        r-tree-node:last-child {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 
@@ -76,15 +89,7 @@
     }
 
     .components-list {
-      padding-top: 0;
-      padding-bottom: 0;
       height: 100%;
-
-      r-tree:last-child {
-        r-tree-node:last-child {
-          margin-bottom: 1rem;
-        }
-      }
     }
   }
 }
