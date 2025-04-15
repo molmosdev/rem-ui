@@ -20,13 +20,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/theming/theming.component'),
     data: {
       title: 'Theming',
+      new: true,
     },
   },
   {
-    path: 'documentation',
+    path: 'components',
     children: documentationRoutes,
     data: {
-      title: 'Documentation',
+      title: 'Components',
       type: 'section',
     },
   },
