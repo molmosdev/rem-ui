@@ -1,4 +1,11 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  model,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
 import {
   NavigationEnd,
@@ -44,8 +51,8 @@ export class NavigationComponent implements OnInit {
   router = inject(Router);
   readonly routes = signal(this.router.config);
 
-  readonly isMenuVisible = signal(false);
-  readonly isThemeConfigVisible = signal(false);
+  readonly isMenuVisible = model(false);
+  readonly isThemeConfigVisible = model(false);
   readonly actualRouteData = signal(undefined);
 
   readonly filteredRoutes = computed(() => {

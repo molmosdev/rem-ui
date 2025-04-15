@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { documentationRoutes } from './features/documentation/documentation.routes';
+import { componentsRoutes } from './features/documentation/components.routes';
 
 export const routes: Routes = [
   {
@@ -25,7 +25,7 @@ export const routes: Routes = [
   },
   {
     path: 'components',
-    children: documentationRoutes,
+    children: componentsRoutes,
     data: {
       title: 'Components',
       type: 'section',

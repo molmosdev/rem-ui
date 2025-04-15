@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const documentationRoutes: Routes = [
+export const componentsRoutes: Routes = [
   {
     path: '',
     redirectTo: '',
