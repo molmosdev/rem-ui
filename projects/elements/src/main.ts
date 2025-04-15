@@ -21,9 +21,6 @@ import {
   Table,
   Tabs,
   Textarea,
-  VerticalNav,
-  VerticalNavGroup,
-  VerticalNavItem,
   SideSheet,
   BottomSheet,
 } from '@rem-ui/angular';
@@ -102,21 +99,6 @@ createApplication(appConfig)
 
     const rTextarea = createCustomElement(Textarea, { injector: app.injector });
     customElements.define('r-textarea', rTextarea);
-
-    const rVerticalNav = createCustomElement(VerticalNav, {
-      injector: app.injector,
-    });
-    customElements.define('r-vertical-nav', rVerticalNav);
-
-    const rVerticalNavGroup = createCustomElement(VerticalNavGroup, {
-      injector: app.injector,
-    });
-    customElements.define('r-vertical-nav-group', rVerticalNavGroup);
-
-    const rVerticalNavItem = createCustomElement(VerticalNavItem, {
-      injector: app.injector,
-    });
-    customElements.define('r-vertical-nav-item', rVerticalNavItem);
 
     const rSideSheet = createCustomElement(SideSheet, {
       injector: app.injector,
