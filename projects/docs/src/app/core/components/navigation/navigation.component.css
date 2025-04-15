@@ -2,9 +2,6 @@
   z-index: 10;
 
   .components-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
     padding: 1rem;
     box-sizing: border-box;
     overflow-x: auto;
@@ -13,6 +10,23 @@
 
     @media (width > 576px) and (width < 992px) {
       padding-top: 0;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      height: 2.5rem;
+      gap: 0.7rem;
+      padding-inline: 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: color-mix(
+        in srgb,
+        var(--foreground, #798194) 40%,
+        var(--background, #ffffff)
+      );
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
   }
 
@@ -66,8 +80,8 @@
       padding-bottom: 0;
       height: 100%;
 
-      r-vertical-nav {
-        r-vertical-nav-item:last-child {
+      r-tree:last-child {
+        r-tree-node:last-child {
           margin-bottom: 1rem;
         }
       }

@@ -30,69 +30,40 @@
 }
 <ng-template #componentsList>
   <div class="components-list">
-    <r-vertical-nav>
-      @for (route of routes(); track route) {
-        @if (route.path !== '**' && route.path !== '') {
-          <ng-container
-            *ngTemplateOutlet="
-              renderRoute;
-              context: { $implicit: route, accumulatedPath: '' }
-            " />
-        }
+    <!-- Top Level Routes -->
+    <r-tree>
+      @for (route of topLevelRoutes(); track route) {
+        <r-tree-node
+          [routerLink]="route.path"
+          [routerLinkActive]="['active']"
+          (click)="isMenuVisible.set(false)">
+          {{ route.data?.['title'] }}
+          @if (route.badge) {
+            <span r-badge variant="outlined" size="small">{{
+              route.badge
+            }}</span>
+          }
+        </r-tree-node>
       }
-    </r-vertical-nav>
+    </r-tree>
+    <!-- Components Routes -->
+    <span class="section">COMPONENTS</span>
+    <r-tree>
+      @for (route of componentsRoutes(); track route) {
+        <r-tree-node
+          [routerLink]="'components/' + route.path"
+          [routerLinkActive]="['active']"
+          (click)="isMenuVisible.set(false)">
+          {{ route.data?.['title'] }}
+          @if (route.badge) {
+            <span r-badge variant="outlined" size="small">{{
+              route.badge
+            }}</span>
+          }
+        </r-tree-node>
+      }
+    </r-tree>
   </div>
-</ng-template>
-
-<ng-template #renderRoute let-route let-accumulatedPath="accumulatedPath">
-  @if (route.path !== '**' && route.path !== '') {
-    @if (isSection(route)) {
-      <r-vertical-nav-section>
-        <span r-section-title>{{ route.data?.['title'] }}</span>
-        @for (child of route.children; track child) {
-          @if (child.path !== '**' && child.path !== '') {
-            <ng-container
-              *ngTemplateOutlet="
-                renderRoute;
-                context: {
-                  $implicit: child,
-                  accumulatedPath: getRoutePath(route, accumulatedPath),
-                }
-              " />
-          }
-        }
-      </r-vertical-nav-section>
-    }
-    @if (isGroup(route)) {
-      <r-vertical-nav-group>
-        <span r-group-title>{{ route.data?.['title'] }}</span>
-        @for (child of route.children; track child) {
-          @if (child.path !== '**' && child.path !== '') {
-            <ng-container
-              *ngTemplateOutlet="
-                renderRoute;
-                context: {
-                  $implicit: child,
-                  accumulatedPath: getRoutePath(route, accumulatedPath),
-                }
-              " />
-          }
-        }
-      </r-vertical-nav-group>
-    }
-    @if (!isSection(route) && !isGroup(route)) {
-      <r-vertical-nav-item
-        (click)="navigate(getRoutePath(route, accumulatedPath))"
-        routerLink="{{ getRoutePath(route, accumulatedPath) }}"
-        routerLinkActive="active">
-        {{ route.data?.['title'] }}
-
-        @if (route.data?.['new']) {
-          <span r-badge variant="outlined" size="small" r-item-suffix>New</span>
-        }
-      </r-vertical-nav-item>
-    }
-  }
 </ng-template>
 
 <ng-template #themeConfigurator>
