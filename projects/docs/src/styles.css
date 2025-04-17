@@ -39,7 +39,8 @@ app-side-sheet-documentation,
 app-color-picker-documentation,
 app-input-group-documentation,
 app-range-documentation,
-app-tree-documentation {
+app-tree-documentation,
+app-menu-documentation {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;

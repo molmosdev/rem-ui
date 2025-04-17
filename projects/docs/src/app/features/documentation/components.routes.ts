@@ -108,6 +108,14 @@ export const componentsRoutes: Routes = [
     },
   },
   {
+    path: 'menu',
+    loadComponent: () => import('./pages/menu-documentation.component'),
+    data: {
+      title: 'Menu',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },
