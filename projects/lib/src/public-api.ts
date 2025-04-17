@@ -88,3 +88,11 @@ export * from './core/components/color-picker/color-picker.component';
 /* Tree */
 export * from './core/components/tree/tree.component';
 export * from './core/components/tree/shared/components/tree-node/tree-node.component';
+
+/* Menu */
+export * from './core/components/menu/menu.component';
+export * from './core/components/menu/shared/components/menu-label/menu-label.component';
+export * from './core/components/menu/shared/components/menu-item/menu-item.component';
+export * from './core/components/menu/shared/components/menu-item-checkbox/menu-item-checkbox.component';
+export * from './core/components/menu/shared/components/menu-item-radio/menu-item-radio.component';
+export * from './core/components/menu/shared/directives/menu-trigger.directive';
