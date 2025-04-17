@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 0.25rem);
+  cursor: pointer;
+  min-width: 100px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--input-background);
+  }
+
+  /* aria disabled true */
+  &[aria-disabled='true'] {
+    cursor: auto;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background-color: var(--background);
+
+  &.floating {
+    border: 1px solid var(--border-color);
+    margin: 0.3rem 0;
+    animation: fadeIn 0.2s ease-in;
+  }
+
+  &:not(:has(r-menu-label)) {
+    &:not(:has(r-menu-group)) {
+      gap: 0.2rem;
+      padding: 0.2rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+::ng-deep body:has(r-menu.floating) {
+  overflow: hidden;
+}
