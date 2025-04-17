@@ -33,6 +33,7 @@ module.exports = tseslint.config(
       ],
       '@angular-eslint/prefer-signals': 'error',
       '@angular-eslint/component-class-suffix': ['off'],
+      '@angular-eslint/directive-class-suffix': ['off'],
       '@typescript-eslint/no-explicit-any': ['off'],
       'prettier/prettier': [
         'error',
