@@ -6,7 +6,7 @@ import { Button, Icon } from '../../../../../../lib/src/public-api';
 import { ButtonGroup } from '../../../../../../lib/src/core/components/button-group/button-group.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'header',
   imports: [RouterLink, Icon, Button, ButtonGroup],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
