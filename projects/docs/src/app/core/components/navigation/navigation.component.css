@@ -47,10 +47,8 @@
       padding-top: 0;
       padding-bottom: 0;
 
-      r-tree:last-child {
-        r-tree-node:last-child {
-          margin-bottom: 1rem;
-        }
+      r-menu-item:last-child {
+        margin-bottom: 1rem;
       }
     }
   }
