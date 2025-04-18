@@ -47,7 +47,7 @@
       padding-top: 0;
       padding-bottom: 0;
 
-      r-menu-item:last-child {
+      r-menu-item-radio:last-child {
         margin-bottom: 1rem;
       }
     }
