@@ -10,7 +10,7 @@ import {
 } from '../../../../../../lib/src/public-api';
 
 @Component({
-  selector: 'app-input-group-documentation',
+  selector: 'article[app-input-group-documentation]',
   template: `<h1>Input Group</h1>
     <span>
       Input Group is a container for grouping inputs, icons, buttons, or selects

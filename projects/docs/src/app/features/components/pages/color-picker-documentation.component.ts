@@ -9,7 +9,7 @@ import {
 import { ColorPicker } from '../../../../../../lib/src/core/components/color-picker/color-picker.component';
 
 @Component({
-  selector: 'app-color-picker-documentation',
+  selector: 'article[app-color-picker-documentation]',
   template: `
     <h1>Color Picker</h1>
     <span>

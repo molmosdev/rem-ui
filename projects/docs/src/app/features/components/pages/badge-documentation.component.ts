@@ -3,7 +3,7 @@ import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Badge } from '../../../../../../lib/src/core/components/badge/badge.component';
 
 @Component({
-  selector: 'app-badge-documentation',
+  selector: 'article[app-badge-documentation]',
   template: `<h1>Badge</h1>
     <span>
       Badge is a small component used to display additional information or

@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-documentation',
+  selector: 'article[app-input-documentation]',
   template: `<h1>Input</h1>
     <span> Input is a custom input component with additional features. </span>
     <h2>Angular</h2>

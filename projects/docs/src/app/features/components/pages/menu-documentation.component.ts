@@ -8,7 +8,7 @@ import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Icon, Button } from '../../../../../../lib/src/public-api';
 
 @Component({
-  selector: 'app-menu-documentation',
+  selector: 'article[app-menu-documentation]',
   template: `<h1>Menu</h1>
     <span>
       The Menu component provides a flexible and accessible way to create

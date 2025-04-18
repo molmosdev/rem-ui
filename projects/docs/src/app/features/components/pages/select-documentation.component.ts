@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-select-documentation',
+  selector: 'article[app-select-documentation]',
   template: `<h1>Select</h1>
     <span>
       Select is a custom dropdown component with additional features.

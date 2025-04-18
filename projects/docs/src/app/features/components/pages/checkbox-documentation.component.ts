@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
-import { Label, Switch } from '../../../../../../lib/src/public-api';
+import { Checkbox, Label } from '../../../../../../lib/src/public-api';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -9,9 +9,9 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-switch-documentation',
-  template: `<h1>Switch</h1>
-    <span> Switch is a custom toggle component with additional features. </span>
+  selector: 'article[app-checkbox-documentation]',
+  template: `<h1>Checkbox</h1>
+    <span>Checkbox is a custom toggle component.</span>
     <h2>Angular</h2>
     <code-block [code]="angularImport" />
     <h2>Web components</h2>
@@ -28,22 +28,7 @@ import {
         <tr>
           <td><strong>value</strong></td>
           <td><code>boolean</code></td>
-          <td>The value of the switch.</td>
-        </tr>
-        <tr>
-          <td><strong>size</strong></td>
-          <td><code>'default' | 'large'</code></td>
-          <td>The size of the switch.</td>
-        </tr>
-        <tr>
-          <td><strong>disabled</strong></td>
-          <td><code>boolean</code></td>
-          <td>Whether the switch is disabled.</td>
-        </tr>
-        <tr>
-          <td><strong>invalid</strong></td>
-          <td><code>boolean</code></td>
-          <td>Whether the switch is invalid.</td>
+          <td>The value of the checkbox.</td>
         </tr>
       </table>
     </div>
@@ -59,7 +44,7 @@ import {
         <tr>
           <td><strong>valueChange</strong></td>
           <td><code>boolean</code></td>
-          <td>Emitted when the value of the switch changes.</td>
+          <td>Emitted when the value of the checkbox changes.</td>
         </tr>
       </table>
     </div>
@@ -69,7 +54,7 @@ import {
     <div class="documentation-playground">
       <input
         type="checkbox"
-        r-switch
+        r-checkbox
         [value]="basicValue"
         (valueChange)="onValueChange($event)" />
     </div>
@@ -77,14 +62,14 @@ import {
     <h2>Angular Binding with ngModel</h2>
     <code-block [code]="ngModelUsage" />
     <div class="documentation-playground">
-      <input type="checkbox" r-switch [(ngModel)]="ngModelValue" />
+      <input type="checkbox" r-checkbox [(ngModel)]="ngModelValue" />
     </div>
 
     <h2>Angular Forms with formControlName</h2>
     <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
       <div class="documentation-playground">
-        <input type="checkbox" r-switch formControlName="switchControl" />
+        <input type="checkbox" r-checkbox formControlName="checkboxControl" />
       </div>
     </form>
 
@@ -92,36 +77,36 @@ import {
     <code-block [code]="withLabelUsage" />
     <div class="documentation-playground">
       <r-label>
-        <input type="checkbox" r-switch id="switch-label" />
-        <label for="switch-label">Switch Label</label>
+        <input type="checkbox" r-checkbox id="checkbox-label" />
+        <label for="checkbox-label">Checkbox Label</label>
       </r-label>
     </div>`,
   imports: [
     CodeBlockComponent,
-    Switch,
+    Checkbox,
     FormsModule,
     ReactiveFormsModule,
     Label,
   ],
 })
-export default class SwitchDocumentationComponent {
-  angularImport = `import { Switch } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Switch } from 'rem-ui/elements'`;
-  basicUsage = `<input type="checkbox" r-switch [value]="basicValue" (valueChange)="onValueChange($event)" />`;
-  ngModelUsage = `<input type="checkbox" r-switch [(ngModel)]="ngModelValue" />`;
-  formControlUsage = `<input type="checkbox" r-switch formControlName="switchControl" />`;
+export default class CheckboxDocumentationComponent {
+  angularImport = `import { Checkbox } from 'rem-ui/angular'`;
+  webComponentsImport = `import { Checkbox } from 'rem-ui/elements'`;
+  basicUsage = `<input type="checkbox" r-checkbox [value]="basicValue" (valueChange)="onValueChange($event)" />`;
+  ngModelUsage = `<input type="checkbox" r-checkbox [(ngModel)]="ngModelValue" />`;
+  formControlUsage = `<input type="checkbox" r-checkbox formControlName="checkboxControl" />`;
   withLabelUsage = `<r-label>
-  <input type="checkbox" r-switch id="switch-label" />
-  <label for="switch-label">Switch Label</label>
+  <input type="checkbox" r-checkbox id="checkbox-label" />
+  <label for="checkbox-label">Checkbox Label</label>
 </r-label>`;
 
   basicValue = false;
   ngModelValue = false;
   form = new FormGroup({
-    switchControl: new FormControl(false),
+    checkboxControl: new FormControl(false),
   });
 
   onValueChange(value: boolean) {
-    console.log('Switch value changed:', value);
+    console.log('Checkbox value changed:', value);
   }
 }

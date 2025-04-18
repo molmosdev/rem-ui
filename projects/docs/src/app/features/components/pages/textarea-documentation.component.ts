@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-textarea-documentation',
+  selector: 'article[app-textarea-documentation]',
   template: `<h1>Textarea</h1>
     <span>
       Textarea is a custom textarea component with additional features.

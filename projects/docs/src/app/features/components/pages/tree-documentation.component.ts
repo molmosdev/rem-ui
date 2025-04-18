@@ -6,7 +6,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Badge, Icon } from '../../../../../../lib/src/public-api';
 
 @Component({
-  selector: 'app-tree-documentation',
+  selector: 'article[app-tree-documentation]',
   template: `<h1>Tree</h1>
     <span>
       The Tree component is a hierarchical structure that supports drag-and-drop

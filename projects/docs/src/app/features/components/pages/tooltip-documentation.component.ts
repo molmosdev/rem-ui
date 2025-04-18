@@ -5,7 +5,7 @@ import { Button } from '../../../../../../lib/src/public-api';
 import { Position } from '../../../../../../lib/src/core/components/attached-box/types/position.type';
 
 @Component({
-  selector: 'app-tooltip-documentation',
+  selector: 'article[app-tooltip-documentation]',
   template: `
     <h1>Tooltip</h1>
     <span>

@@ -4,7 +4,7 @@ import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sh
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
 
 @Component({
-  selector: 'app-bottom-sheet-documentation',
+  selector: 'article[app-bottom-sheet-documentation]',
   template: `<h1>Bottom Sheet</h1>
     <span>
       Bottom Sheet is a sliding panel that appears from the bottom of the

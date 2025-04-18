@@ -3,7 +3,7 @@ import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Range } from '../../../../../../lib/src/core/components/range/range.component';
 
 @Component({
-  selector: 'app-range-documentation',
+  selector: 'article[app-range-documentation]',
   template: `<h1>Range</h1>
     <span>Range is a custom slider component.</span>
     <h2>Angular</h2>

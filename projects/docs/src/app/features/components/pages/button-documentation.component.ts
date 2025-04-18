@@ -4,7 +4,7 @@ import { Button, Icon } from '../../../../../../lib/src/public-api';
 import { ButtonGroup } from '../../../../../../lib/src/core/components/button-group/button-group.component';
 
 @Component({
-  selector: 'app-button-documentation',
+  selector: 'article[app-button-documentation]',
   template: `<h1>Button</h1>
     <span>
       Button is an extension to standard HTML button element with additional

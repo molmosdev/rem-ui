@@ -4,7 +4,7 @@ import { SideSheet } from '../../../../../../lib/src/core/components/side-sheet/
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
 
 @Component({
-  selector: 'app-side-sheet-documentation',
+  selector: 'article[app-side-sheet-documentation]',
   template: `<h1>Side Sheet</h1>
     <span>
       Side Sheet is a sliding panel that appears from the left or right side of
