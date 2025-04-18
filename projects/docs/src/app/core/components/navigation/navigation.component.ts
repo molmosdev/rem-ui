@@ -1,12 +1,15 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
-import { ResponsiveService } from 'lib';
 import { Menu } from '../../../../../../lib/src/core/components/menu/menu.component';
 import { MenuItemRadioComponent } from '../../../../../../lib/src/core/components/menu/shared/components/menu-item-radio/menu-item-radio.component';
 import { MenuLabel } from '../../../../../../lib/src/core/components/menu/shared/components/menu-label/menu-label.component';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { NgTemplateOutlet } from '@angular/common';
-import { Button, Icon } from '../../../../../../lib/src/public-api';
+import {
+  Button,
+  Icon,
+  ResponsiveService,
+} from '../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'aside[app-navigation]',
