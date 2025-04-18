@@ -27,6 +27,6 @@
   }
 }
 
-::ng-deep body:has(r-menu.floating) {
+/* ::ng-deep body:has(r-menu.floating) {
   overflow: hidden;
-}
+} */
