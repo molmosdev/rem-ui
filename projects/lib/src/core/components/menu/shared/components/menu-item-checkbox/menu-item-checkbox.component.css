@@ -1,4 +1,27 @@
 :host {
   display: flex;
   gap: 0.5rem;
+  padding-inline: 0.75rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  min-width: 100px;
+  align-items: center;
+
+  &[aria-checked='true'],
+  &:hover,
+  &:focus {
+    background-color: var(--input-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* aria disabled true */
+  &[aria-disabled='true'] {
+    cursor: auto;
+    opacity: 0.5;
+  }
 }
