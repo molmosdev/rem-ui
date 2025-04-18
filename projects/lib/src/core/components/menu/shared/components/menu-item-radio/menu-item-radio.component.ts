@@ -9,6 +9,16 @@ import { Component } from '@angular/core';
   imports: [],
   template: `<ng-content />`,
   styleUrl: './menu-item-radio.component.css',
-  hostDirectives: [CdkMenuItemRadio],
+  hostDirectives: [
+    {
+      directive: CdkMenuItemRadio,
+      inputs: [
+        'cdkMenuItemDisabled: disabled',
+        'cdkMenuitemTypeaheadLabel: typeaheadLabel',
+        'cdkMenuItemChecked: active',
+      ],
+      outputs: ['cdkMenuItemTriggered: triggered'],
+    },
+  ],
 })
 export class MenuItemRadioComponent {}
