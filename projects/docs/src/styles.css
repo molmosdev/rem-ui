@@ -10,8 +10,7 @@ html {
 }
 
 /* Base styles */
-html,
-body {
+html {
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
@@ -22,25 +21,18 @@ body {
   scrollbar-color: lightgrey transparent;
 }
 
-app-theming,
-app-theme-configurator,
-app-button-documentation,
-app-select-documentation,
-app-input-documentation,
-app-switch-documentation,
-app-label-documentation,
-app-button-group-documentation,
-app-badge-documentation,
-app-checkbox-documentation,
-app-textarea-documentation,
-app-tooltip-documentation,
-app-bottom-sheet-documentation,
-app-side-sheet-documentation,
-app-color-picker-documentation,
-app-input-group-documentation,
-app-range-documentation,
-app-tree-documentation,
-app-menu-documentation {
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (width > 1400px) {
+    border: 1px dashed var(--border-color);
+    box-sizing: border-box;
+  }
+}
+
+app-root > *:not(app-navigation):not(header):not(router-outlet) {
   padding: 2rem;
   box-sizing: border-box;
   display: flex;
@@ -130,73 +122,6 @@ app-tooltip-documentation {
       align-items: center;
       justify-content: center;
     }
-  }
-}
-
-.playground {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-
-  @media (width < 576px) {
-    --mobile-height-posible: calc(100dvh - 4.1rem - 4.8rem - 2px);
-  }
-
-  @media (width >= 576px) {
-    --mobile-height-posible: calc(100dvh - 4.1rem - 1px);
-  }
-
-  height: var(--mobile-height-posible);
-
-  .top {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    height: calc(var(--mobile-height-posible) * 0.4);
-    gap: 1rem;
-
-    .component {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  app-args {
-    height: calc(var(--mobile-height-posible) * 0.6);
-  }
-
-  &.inverted {
-    .top {
-      height: calc(var(--mobile-height-posible) * 0.6);
-    }
-
-    app-args {
-      height: calc(var(--mobile-height-posible) * 0.4);
-    }
-  }
-
-  &.no-args {
-    .top {
-      height: var(--mobile-height-posible);
-    }
-
-    app-args {
-      display: none;
-    }
-  }
-
-  r-text,
-  r-select,
-  r-number,
-  r-password,
-  r-search {
-    min-width: 240px;
   }
 }
 
