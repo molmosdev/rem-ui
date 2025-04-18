@@ -19,6 +19,7 @@ html {
   font-size: 14px;
   scrollbar-width: thin;
   scrollbar-color: lightgrey transparent;
+  overflow-y: scroll;
 }
 
 body {
@@ -32,15 +33,25 @@ body {
   }
 }
 
-app-root > *:not(app-navigation):not(header):not(router-outlet) {
+article {
+  width: 100%;
   padding: 2rem;
   box-sizing: border-box;
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  width: 100%;
-  max-width: 1600px;
-  margin-inline: auto;
+
+  @media (width > 576px) {
+    max-width: calc(100% - 290px);
+  }
+
+  @media (width > 992px) {
+    max-width: calc(100% - 290px - 350px);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
 
   h1,
   h2,
