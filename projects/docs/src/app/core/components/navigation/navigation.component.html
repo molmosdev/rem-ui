@@ -1,7 +1,7 @@
 @switch (currentDevice()) {
   @case ('mobile') {
     <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
-      {{ actualRoute()?.['title'] }}
+      {{ actualRoute()?.data?.['title'] }}
       <div class="chevron-wrapper">
         <i r-icon icon="ChevronUp" [size]="12" class="icon-chevron-up"></i>
         <i r-icon icon="ChevronDown" [size]="12" class="icon-chevron-down"></i>
