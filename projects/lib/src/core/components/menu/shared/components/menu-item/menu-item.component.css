@@ -1,14 +1,22 @@
 :host {
   display: flex;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  padding-inline: 0.75rem;
+  height: 2.5rem;
   border-radius: var(--radius);
   cursor: pointer;
   min-width: 100px;
+  align-items: center;
 
+  &:active,
   &:hover,
   &:focus {
     background-color: var(--input-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 
   /* aria disabled true */
