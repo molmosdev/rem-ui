@@ -1,41 +1,31 @@
-@switch (currentDevice()) {
-  @case ('mobile') {
-    <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
-      {{ actualRoute()?.data?.['title'] }}
+@if (currentDevice() === 'mobile') {
+  <div class="mobile-menu-trigger">
+    <button r-button variant="outlined" (click)="bottomSheetOpen.set(true)">
+      @let data = currentRoute().data;
+      @if (data && data['title']) {
+        {{ data['title'] }}
+      }
       <div class="chevron-wrapper">
         <i r-icon icon="ChevronUp" [size]="12" class="icon-chevron-up"></i>
         <i r-icon icon="ChevronDown" [size]="12" class="icon-chevron-down"></i>
       </div>
     </button>
-    <r-bottom-sheet [(isOpen)]="isMenuVisible" height="65dvh">
-      <ng-container *ngTemplateOutlet="componentsList" />
-    </r-bottom-sheet>
-    <r-bottom-sheet [(isOpen)]="isThemeConfigVisible" height="65dvh">
-      <ng-container *ngTemplateOutlet="themeConfigurator" />
-    </r-bottom-sheet>
-  }
-  @case ('tablet') {
-    <r-side-sheet [(isOpen)]="isMenuVisible" side="left">
-      <ng-container *ngTemplateOutlet="componentsList" />
-    </r-side-sheet>
-  }
-  @case ('desktop') {
-    <ng-container *ngTemplateOutlet="componentsList" />
-  }
+  </div>
+  <r-bottom-sheet [(isOpen)]="bottomSheetOpen" height="65dvh">
+    <ng-container *ngTemplateOutlet="menu" />
+  </r-bottom-sheet>
+} @else {
+  <ng-container *ngTemplateOutlet="menu" />
 }
-@if (currentDevice() !== 'mobile') {
-  <r-side-sheet [(isOpen)]="isThemeConfigVisible" side="right" width="400px">
-    <ng-container *ngTemplateOutlet="themeConfigurator" />
-  </r-side-sheet>
-}
-<ng-template #componentsList>
-  <div class="components-list">
+
+<ng-template #menu>
+  <div class="menu-wrapper">
     <r-menu>
+      <r-menu-label>Getting started</r-menu-label>
       @for (route of topLevelRoutes(); track route) {
         <r-menu-item-radio
-          [active]="route.path === actualRoute()?.path"
-          (triggered)="navigateTo(route.path)"
-          (click)="isMenuVisible.set(false)">
+          [active]="'/' + route.path === path()"
+          (triggered)="navigateTo(route.path)">
           {{ route.data?.['title'] }}
           @if (route.badge) {
             <span r-badge variant="outlined" size="small">{{
@@ -48,7 +38,7 @@
       @for (route of componentsRoutes(); track route) {
         <r-menu-item-radio
           (triggered)="navigateTo('components/' + route.path)"
-          [active]="route.path === actualRoute()?.path">
+          [active]="'/components/' + route.path === path()">
           {{ route.data?.['title'] }}
           @if (route.badge) {
             <span r-badge variant="outlined" size="small">{{
@@ -59,8 +49,4 @@
       }
     </r-menu>
   </div>
-</ng-template>
-
-<ng-template #themeConfigurator>
-  <app-theme-configurator />
 </ng-template>

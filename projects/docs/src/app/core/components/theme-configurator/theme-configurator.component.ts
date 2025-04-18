@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
-import { Button, Icon } from '../../../../../../../../lib/src/public-api';
-import { Range } from '../../../../../../../../lib/src/core/components/range/range.component';
+import { Component, computed, inject, model } from '@angular/core';
+import {
+  Button,
+  Icon,
+  ResponsiveService,
+} from '../../../../../../lib/src/public-api';
+import { Range } from '../../../../../../lib/src/core/components/range/range.component';
+import { NgTemplateOutlet } from '@angular/common';
+import { SideSheet } from '../../../../../../lib/src/core/components/side-sheet/side-sheet.component';
+import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 
 @Component({
-  selector: 'app-theme-configurator',
+  selector: 'aside[app-theme-configurator]',
   templateUrl: './theme-configurator.component.html',
   styleUrl: './theme-configurator.component.css',
-  imports: [Button, Icon, Range],
+  imports: [Button, Icon, Range, NgTemplateOutlet, SideSheet, BottomSheet],
 })
 export class ThemeConfiguratorComponent {
+  responsiveService = inject(ResponsiveService);
+  readonly currentDevice = computed(() =>
+    this.responsiveService.currentDevice()
+  );
+  readonly configuratorOpen = model(false);
+
   baseVariables = [
     '--bg-color',
     '--text-color',
@@ -134,7 +147,7 @@ export class ThemeConfiguratorComponent {
   updateRootVariable(variable: string, event: Event): void {
     const value = (event.target as HTMLInputElement).value;
     const finalValue = variable === '--radius' ? `${value}rem` : value;
-    document.body.style.setProperty(variable, finalValue);
+    document.documentElement.style.setProperty(variable, finalValue);
   }
 
   updateThemeVariable(
@@ -148,11 +161,13 @@ export class ThemeConfiguratorComponent {
     const currentDarkValue =
       mode === 'dark' ? value : this.getVariableValue(variable, 'dark');
     const combinedValue = `light-dark(${currentLightValue}, ${currentDarkValue})`;
-    document.body.style.setProperty(variable, combinedValue);
+    document.documentElement.style.setProperty(variable, combinedValue);
   }
 
   getComputedStyle(variable: string): string {
-    return getComputedStyle(document.body).getPropertyValue(variable).trim();
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue(variable)
+      .trim();
   }
 
   getVariableDisplayName(variable: string): string {
@@ -242,7 +257,7 @@ export class ThemeConfiguratorComponent {
   }
 
   getVariableValue(variable: string, mode: 'light' | 'dark'): string {
-    const value = getComputedStyle(document.body)
+    const value = getComputedStyle(document.documentElement)
       .getPropertyValue(variable)
       .trim();
     const match = value.match(/light-dark\((.*?),\s*(.*?)\)/);
@@ -263,9 +278,9 @@ export class ThemeConfiguratorComponent {
     this.baseVariables
       .concat(this.componentVariables, this.errorVariables)
       .forEach(variable => {
-        document.body.style.removeProperty(variable);
+        document.documentElement.style.removeProperty(variable);
       });
-    document.body.style.removeProperty('--radius');
+    document.documentElement.style.removeProperty('--radius');
   }
 
   applyTheme(theme: {
@@ -274,7 +289,7 @@ export class ThemeConfiguratorComponent {
   }): void {
     Object.entries(theme.variables).forEach(([key, value]) => {
       const combinedValue = `light-dark(${value.light}, ${value.dark})`;
-      document.body.style.setProperty(key, combinedValue);
+      document.documentElement.style.setProperty(key, combinedValue);
     });
   }
 

@@ -1,64 +1,63 @@
 <div class="header-wrapper">
-  <div class="left">
-    @if (isTablet()) {
-      <i
-        r-icon
-        icon="Menu"
-        class="icon-menu"
-        tabindex="0"
-        (click)="isMenuVisible.set(true)"
-        (keydown)="
-          ($event.key === 'Enter' || $event.key === ' ') &&
-            isMenuVisible.set(true)
-        "></i>
-    }
-    <div class="home-nav-link" [routerLink]="['/']">
-      <div class="logo-wrapper">
-        <div class="logo"></div>
-      </div>
-      <span>rem/ui</span>
+  <div class="home-nav-link" [routerLink]="['/']">
+    <div class="logo-wrapper">
+      <div class="logo"></div>
     </div>
+    <span>rem/ui</span>
   </div>
   <div class="right">
+    @if (!this.isDesktop()) {
+      <button
+        r-button
+        variant="ghost"
+        size="small"
+        [equalPadding]="true"
+        (click)="isThemeConfigVisible.set(!this.isThemeConfigVisible())">
+        <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
+      </button>
+    }
     <button
       r-button
       variant="ghost"
       size="small"
       [equalPadding]="true"
-      (click)="isThemeConfigVisible.set(!this.isThemeConfigVisible())">
-      <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
+      [menuTriggerFor]="themeMenu"
+      [menuTriggerPosition]="'bottom-right'">
+      @switch (theme()) {
+        @case ('auto') {
+          <i r-icon [strokeWidth]="1.5" [size]="22" icon="SunMoon"></i>
+        }
+        @case ('light') {
+          <i r-icon [strokeWidth]="1.5" [size]="22" icon="Sun"></i>
+        }
+        @case ('dark') {
+          <i r-icon [strokeWidth]="1.5" [size]="22" icon="Moon"></i>
+        }
+      }
     </button>
-    <r-button-group>
-      <button
-        r-button
-        variant="ghost"
-        size="small"
-        [equalPadding]="true"
-        [toggle]="true"
-        [isToggled]="theme() === 'auto'"
-        (click)="applyTheme('auto')">
-        <i r-icon [strokeWidth]="1.5" [size]="22" icon="SunMoon"></i>
-      </button>
-      <button
-        r-button
-        variant="ghost"
-        size="small"
-        [equalPadding]="true"
-        [toggle]="true"
-        [isToggled]="theme() === 'light'"
-        (click)="applyTheme('light')">
-        <i r-icon [strokeWidth]="1.5" [size]="22" icon="Sun"></i>
-      </button>
-      <button
-        r-button
-        variant="ghost"
-        size="small"
-        [equalPadding]="true"
-        [toggle]="true"
-        [isToggled]="theme() === 'dark'"
-        (click)="applyTheme('dark')">
-        <i r-icon [strokeWidth]="1.5" [size]="22" icon="Moon"></i>
-      </button>
-    </r-button-group>
+    <ng-template #themeMenu>
+      <r-menu [floating]="true">
+        <r-menu-group>
+          <r-menu-item-radio
+            [active]="theme() === 'auto'"
+            (triggered)="applyTheme('auto')">
+            <i r-icon [strokeWidth]="1.5" [size]="22" icon="SunMoon"></i>
+            Auto
+          </r-menu-item-radio>
+          <r-menu-item-radio
+            [active]="theme() === 'light'"
+            (triggered)="applyTheme('light')">
+            <i r-icon [strokeWidth]="1.5" [size]="22" icon="Sun"></i>
+            Light
+          </r-menu-item-radio>
+          <r-menu-item-radio
+            [active]="theme() === 'dark'"
+            (triggered)="applyTheme('dark')">
+            <i r-icon [strokeWidth]="1.5" [size]="20" icon="Moon"></i>
+            Dark
+          </r-menu-item-radio>
+        </r-menu-group>
+      </r-menu>
+    </ng-template>
   </div>
 </div>

@@ -1,0 +1,177 @@
+@switch (currentDevice()) {
+  @case ('desktop') {
+    <ng-container *ngTemplateOutlet="configurator" />
+  }
+  @case ('tablet') {
+    <r-side-sheet [(isOpen)]="configuratorOpen" width="350px">
+      <ng-container *ngTemplateOutlet="configurator" />
+    </r-side-sheet>
+  }
+  @case ('mobile') {
+    <r-bottom-sheet [(isOpen)]="configuratorOpen" height="65dvh">
+      <ng-container *ngTemplateOutlet="configurator" />
+    </r-bottom-sheet>
+  }
+}
+
+<ng-template #configurator>
+  <div class="configurator-wrapper">
+    <h2>Theme Configurator</h2>
+    <span>Customize your theme by adjusting the variables below:</span>
+
+    <h3>Base Colors</h3>
+    <div class="legend">
+      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+    </div>
+    <div class="properties-grid">
+      @for (variable of baseVariables; track variable) {
+        <label [style.background-color]="getVariableValue(variable, 'light')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'light')"
+            (input)="updateThemeVariable(variable, $event, 'light')"
+            placeholder="Enter light value" />
+        </label>
+        <label [style.background-color]="getVariableValue(variable, 'dark')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'dark')"
+            (input)="updateThemeVariable(variable, $event, 'dark')"
+            placeholder="Enter dark value" />
+        </label>
+      }
+    </div>
+
+    <h3>Component Colors</h3>
+    <div class="legend">
+      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+    </div>
+    <div class="properties-grid">
+      @for (variable of componentVariables; track variable) {
+        <label [style.background-color]="getVariableValue(variable, 'light')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'light')"
+            (input)="updateThemeVariable(variable, $event, 'light')"
+            placeholder="Enter light value" />
+        </label>
+        <label [style.background-color]="getVariableValue(variable, 'dark')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'dark')"
+            (input)="updateThemeVariable(variable, $event, 'dark')"
+            placeholder="Enter dark value" />
+        </label>
+      }
+    </div>
+
+    <h3>Error Colors</h3>
+    <div class="legend">
+      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
+      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
+    </div>
+    <div class="properties-grid">
+      @for (variable of errorVariables; track variable) {
+        <label [style.background-color]="getVariableValue(variable, 'light')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'light'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'light')"
+            (input)="updateThemeVariable(variable, $event, 'light')"
+            placeholder="Enter light value" />
+        </label>
+        <label [style.background-color]="getVariableValue(variable, 'dark')">
+          <span
+            class="property"
+            [style.color]="getTextColor(getVariableValue(variable, 'dark'))">
+            {{ getVariableDisplayName(variable) }}
+          </span>
+          <input
+            type="color"
+            [value]="getVariableValue(variable, 'dark')"
+            (input)="updateThemeVariable(variable, $event, 'dark')"
+            placeholder="Enter dark value" />
+        </label>
+      }
+    </div>
+
+    <h3>Border Radius</h3>
+    <span>
+      Adjust the value of
+      <code
+        style="
+          font-size: 90%;
+          padding: 0.2rem 0.4rem;
+          border-radius: 0.5rem;
+          font-size: 90%;
+          background-color: color-mix(
+            in srgb,
+            var(--bg-color),
+            var(--text-color) 4%
+          );
+        "
+        >var(--radius)</code
+      >
+      in rem units.
+    </span>
+    <div style="display: flex; gap: 1rem">
+      <span>0rem</span>
+      <input
+        type="range"
+        r-range
+        value="0.5"
+        min="0"
+        max="2"
+        step="0.1"
+        (change)="updateRootVariable('--radius', $event)" />
+      <span>2rem</span>
+    </div>
+
+    <br />
+
+    <button r-button variant="outlined" (click)="resetTheme()">
+      Reset to Default
+    </button>
+
+    <h3>Example Themes</h3>
+    <div class="example-themes">
+      @for (theme of exampleThemes; track theme) {
+        <div
+          class="theme-preview"
+          tabindex="0"
+          (click)="applyTheme(theme)"
+          (keydown.enter)="applyTheme(theme)"
+          [style.background-color]="getThemePreviewColors(theme).background"
+          [style.color]="getThemePreviewColors(theme).foreground">
+          {{ theme.name }}
+        </div>
+      }
+    </div>
+  </div>
+</ng-template>
