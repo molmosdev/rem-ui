@@ -12,10 +12,8 @@ import {
   selector: 'article[app-input-documentation]',
   template: `<h1>Input</h1>
     <span> Input is a custom input component with additional features. </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -187,7 +185,6 @@ import {
 })
 export default class InputDocumentationComponent {
   angularImport = `import { Input } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Input } from 'rem-ui/elements'`;
   basicUsage = `<input r-input type="text" placeholder="Enter text" [value]="basicValue" (valueChange)="onValueChange($event)" maxWidth="240px" />`;
   ngModelUsage = `<input r-input type="text" placeholder="Enter text" [(ngModel)]="ngModelValue" maxWidth="240px" />`;
   formControlUsage = `<form [formGroup]="form">

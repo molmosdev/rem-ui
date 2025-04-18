@@ -12,7 +12,7 @@ import { Badge, Icon } from '../../../../../../lib/src/public-api';
       The Tree component is a hierarchical structure that supports drag-and-drop
       functionality and nested nodes.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
 
     <h2>Properties</h2>

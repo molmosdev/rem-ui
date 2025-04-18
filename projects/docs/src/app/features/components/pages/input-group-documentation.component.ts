@@ -16,10 +16,8 @@ import {
       Input Group is a container for grouping inputs, icons, buttons, or selects
       together.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web Components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -129,7 +127,6 @@ import {
 })
 export default class InputGroupDocumentationComponent {
   angularImport = `import { InputGroupComponent } from 'rem-ui/angular'`;
-  webComponentsImport = `import { InputGroupComponent } from 'rem-ui/elements'`;
 
   withInput = `<r-input-group [bordered]="true" maxWidth="240px">
   <i r-icon icon="House" [size]="17"></i>

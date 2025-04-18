@@ -10,10 +10,8 @@ import { Button } from '../../../../../../lib/src/core/components/button/button.
       Side Sheet is a sliding panel that appears from the left or right side of
       the screen.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -112,7 +110,6 @@ import { Button } from '../../../../../../lib/src/core/components/button/button.
 })
 export default class SideSheetDocumentationComponent {
   angularImport = `import { SideSheet } from 'rem-ui/angular'`;
-  webComponentsImport = `import { SideSheet } from 'rem-ui/elements'`;
   basicUsage = `<button r-button (click)="openLeftSideSheet()">Open Left Side Sheet</button>
 <button r-button (click)="openRightSideSheet()">Open Right Side Sheet</button>
 

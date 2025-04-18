@@ -14,10 +14,8 @@ import {
     <span>
       Select is a custom dropdown component with additional features.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -139,7 +137,6 @@ import {
 })
 export default class SelectDocumentationComponent {
   angularImport = `import { Select } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Select } from 'rem-ui/elements'`;
   basicUsage = `<select r-select [value]="basicValue" (valueChange)="onValueChange($event)" maxWidth="240px">
   <option [value]="null">Select an option</option>
   <option value="1">Option 1</option>

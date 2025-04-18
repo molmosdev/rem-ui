@@ -17,7 +17,6 @@ import { ColorPicker } from '../../../../../../lib/src/core/components/color-pic
       color.
     </span>
 
-    <h2>Angular</h2>
     <code-block [code]="angularImport" />
 
     <h2>Properties</h2>

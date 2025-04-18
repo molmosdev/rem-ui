@@ -6,10 +6,8 @@ import { Range } from '../../../../../../lib/src/core/components/range/range.com
   selector: 'article[app-range-documentation]',
   template: `<h1>Range</h1>
     <span>Range is a custom slider component.</span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -72,7 +70,6 @@ import { Range } from '../../../../../../lib/src/core/components/range/range.com
 })
 export default class RangeDocumentationComponent {
   angularImport = `import { Range } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Range } from 'rem-ui/elements'`;
   basicUsage = `<input type="range" r-range [value]="basicValue" (valueChange)="onValueChange($event)" />`;
 
   basicValue = '50';

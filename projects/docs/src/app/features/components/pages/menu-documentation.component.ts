@@ -14,7 +14,7 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
       The Menu component provides a flexible and accessible way to create
       dropdown menus with support for nested menus and various configurations.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
 
     <h2>Properties</h2>

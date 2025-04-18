@@ -12,10 +12,8 @@ import { Position } from '../../../../../../lib/src/core/components/attached-box
       Tooltip is a component for displaying additional information when hovering
       over an element.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -212,7 +210,6 @@ import { Position } from '../../../../../../lib/src/core/components/attached-box
 })
 export default class TooltipDocumentationComponent {
   angularImport = `import { TooltipComponent } from 'rem-ui/angular'`;
-  webComponentsImport = `import { TooltipComponent } from 'rem-ui/elements'`;
 
   basicUsage = `<r-tooltip position="top-center">
   <button r-button r-tooltip-trigger>Hover me</button>

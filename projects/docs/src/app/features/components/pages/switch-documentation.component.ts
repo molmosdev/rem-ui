@@ -12,10 +12,8 @@ import {
   selector: 'article[app-switch-documentation]',
   template: `<h1>Switch</h1>
     <span> Switch is a custom toggle component with additional features. </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -106,7 +104,6 @@ import {
 })
 export default class SwitchDocumentationComponent {
   angularImport = `import { Switch } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Switch } from 'rem-ui/elements'`;
   basicUsage = `<input type="checkbox" r-switch [value]="basicValue" (valueChange)="onValueChange($event)" />`;
   ngModelUsage = `<input type="checkbox" r-switch [(ngModel)]="ngModelValue" />`;
   formControlUsage = `<input type="checkbox" r-switch formControlName="switchControl" />`;

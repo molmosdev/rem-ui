@@ -10,10 +10,8 @@ import { ButtonGroup } from '../../../../../../lib/src/core/components/button-gr
       Button is an extension to standard HTML button element with additional
       features.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -230,7 +228,6 @@ import { ButtonGroup } from '../../../../../../lib/src/core/components/button-gr
 })
 export default class ButtonDocumentationComponent {
   angularImport = `import { Button } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Button } from 'rem-ui/elements'`;
   basicUsage = `<button r-button variant="primary" size="default">This is a button</button>`;
   variantsUsage = `<button r-button variant="primary">Primary</button>
 <button r-button variant="secondary">Secondary</button>

@@ -14,10 +14,8 @@ import {
     <span>
       Textarea is a custom textarea component with additional features.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -139,7 +137,6 @@ import {
 })
 export default class TextareaDocumentationComponent {
   angularImport = `import { Textarea } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Textarea } from 'rem-ui/elements'`;
   basicUsage = `<textarea r-textarea placeholder="Enter text" [value]="basicValue" (valueChange)="onValueChange($event)"></textarea>`;
   ngModelUsage = `<textarea r-textarea placeholder="Enter text" [(ngModel)]="ngModelValue"></textarea>`;
   formControlUsage = `<form [formGroup]="form">

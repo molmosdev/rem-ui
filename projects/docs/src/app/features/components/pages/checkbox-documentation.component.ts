@@ -12,10 +12,8 @@ import {
   selector: 'article[app-checkbox-documentation]',
   template: `<h1>Checkbox</h1>
     <span>Checkbox is a custom toggle component.</span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -91,7 +89,6 @@ import {
 })
 export default class CheckboxDocumentationComponent {
   angularImport = `import { Checkbox } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Checkbox } from 'rem-ui/elements'`;
   basicUsage = `<input type="checkbox" r-checkbox [value]="basicValue" (valueChange)="onValueChange($event)" />`;
   ngModelUsage = `<input type="checkbox" r-checkbox [(ngModel)]="ngModelValue" />`;
   formControlUsage = `<input type="checkbox" r-checkbox formControlName="checkboxControl" />`;

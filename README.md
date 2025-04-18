@@ -1,6 +1,6 @@
 # rem-ui (Angular Workspace)
 
-Welcome to the rem-ui Angular Workspace! This workspace is designed to house the `rem-ui` library of Angular components and the `elements` application that exports these components as custom elements (web components). The `rem-ui` library is available on npm under the organization [@rem-ui](https://www.npmjs.com/org/rem-ui).
+Welcome to the rem-ui Angular Workspace! This workspace is designed to house the `rem-ui` library of Angular components and the `docs` application that documents these components. The `rem-ui` library is available on npm under the organization [@rem-ui](https://www.npmjs.com/org/rem-ui).
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
 
@@ -9,7 +9,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 This workspace contains two main projects:
 
 - `lib`: The Angular library of components (`@rem-ui/angular` on npm).
-- `elements`: The application that exports the components as custom elements (`@rem-ui/elements` on npm).
+- `docs`: The application that documents the components.
 
 ## Code scaffolding
 
@@ -33,10 +33,10 @@ To build the `lib` project, run:
 npm run build:lib
 ```
 
-To build the `elements` project, run:
+To build the `docs` project, run:
 
 ```bash
-npm run build:elements
+npm run build:docs
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
@@ -64,17 +64,9 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 To update the version of the `lib` project, run:
 
 ```bash
-npm run patch:lib
-npm run minor:lib
-npm run major:lib
-```
-
-To update the version of the `elements` project, run:
-
-```bash
-npm run patch:elements
-npm run minor:elements
-npm run major:elements
+npm run patch
+npm run minor
+npm run major
 ```
 
 ## Additional Resources

@@ -9,10 +9,8 @@ import { Badge } from '../../../../../../lib/src/core/components/badge/badge.com
       Badge is a small component used to display additional information or
       status.
     </span>
-    <h2>Angular</h2>
+
     <code-block [code]="angularImport" />
-    <h2>Web components</h2>
-    <code-block [code]="webComponentsImport" />
 
     <h2>Properties</h2>
     <div class="table-wrapper">
@@ -62,7 +60,6 @@ import { Badge } from '../../../../../../lib/src/core/components/badge/badge.com
 })
 export default class BadgeDocumentationComponent {
   angularImport = `import { Badge } from 'rem-ui/angular'`;
-  webComponentsImport = `import { Badge } from 'rem-ui/elements'`;
   basicUsage = `<span r-badge variant="primary" size="default">Primary Badge</span>`;
   variantsUsage = `<span r-badge variant="primary">Primary</span>
 <span r-badge variant="secondary">Secondary</span>
