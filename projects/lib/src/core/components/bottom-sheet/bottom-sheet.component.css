@@ -44,6 +44,6 @@
   }
 }
 
-::ng-deep body:has(r-bottom-sheet.open) {
+::ng-deep html:has(r-bottom-sheet.open) {
   overflow: hidden;
 }
