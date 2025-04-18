@@ -1,7 +1,6 @@
-<header
-  [(isMenuVisible)]="isMenuVisible"
-  [(isThemeConfigVisible)]="isThemeConfigVisible"></header>
-<app-navigation
-  [(isMenuVisible)]="isMenuVisible"
-  [(isThemeConfigVisible)]="isThemeConfigVisible" />
+<header [(isThemeConfigVisible)]="isThemeConfigVisible"></header>
+<aside app-navigation></aside>
 <router-outlet />
+<aside
+  app-theme-configurator
+  [(configuratorOpen)]="isThemeConfigVisible"></aside>
