@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { CodeBlockComponent } from '../documentation/shared/components/code-block.component';
+import { CodeBlockComponent } from '../components/shared/components/code-block.component';
 import { Icon, Button } from '../../../../../lib/src/public-api';
 
 @Component({
-  selector: 'app-theming',
+  selector: 'article[app-theming]',
   imports: [CodeBlockComponent, Button, Icon],
   templateUrl: './theming.component.html',
-  styleUrl: './theming.component.css',
 })
 export default class ThemingComponent {
   themeSwitcherCode = `<button r-button variant='outlined' (click)='switchTheme("light")'>
@@ -76,6 +75,6 @@ export default class ThemingComponent {
 }`;
 
   switchTheme(theme: 'light' | 'dark') {
-    document.body.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }
 }
