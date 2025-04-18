@@ -81,11 +81,10 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
     <code-block [code]="basicUsage" />
     <div class="documentation-playground">
       <r-menu>
-        <r-menu-group>
-          <r-menu-item>Item 1</r-menu-item>
-          <r-menu-item>Item 2</r-menu-item>
-          <r-menu-item>Item 3</r-menu-item>
-        </r-menu-group>
+        <r-menu-label>Basic Menu</r-menu-label>
+        <r-menu-item>Item 1</r-menu-item>
+        <r-menu-item>Item 2</r-menu-item>
+        <r-menu-item>Item 3</r-menu-item>
       </r-menu>
     </div>
 
@@ -93,21 +92,25 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
     <code-block [code]="nestedUsage" />
     <div class="documentation-playground">
       <r-menu>
-        <r-menu-group>
-          <r-menu-item>Item 1</r-menu-item>
-          <r-menu-item [menuTriggerFor]="subMenu">
-            <div
-              style="display: flex; justify-content: space-between; width: 100%">
-              Item 2
-              <i r-icon icon="ChevronRight" [size]="16"></i>
-            </div>
-          </r-menu-item>
-        </r-menu-group>
+        <r-menu-label>Main Menu</r-menu-label>
+        <r-menu-item>Item 1</r-menu-item>
+        <r-menu-item [menuTriggerFor]="subMenu" [submenu]="true">
+          <div
+            style="display: flex; justify-content: space-between; width: 100%">
+            Item 2
+            <i r-icon icon="ChevronRight" [size]="16"></i>
+          </div>
+        </r-menu-item>
         <ng-template #subMenu>
           <r-menu [floating]="true">
+            <r-menu-label>Submenu</r-menu-label>
             <r-menu-group>
               <r-menu-item>Subitem 1</r-menu-item>
               <r-menu-item>Subitem 2</r-menu-item>
+            </r-menu-group>
+            <r-menu-group>
+              <r-menu-item>Subitem 3</r-menu-item>
+              <r-menu-item>Subitem 4</r-menu-item>
             </r-menu-group>
           </r-menu>
         </ng-template>
@@ -127,25 +130,24 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
       <ng-template #menu>
         <r-menu [floating]="true">
           <r-menu-label>Menu</r-menu-label>
-          <r-menu-group>
-            <r-menu-item>Item 1</r-menu-item>
-            <r-menu-item>Item 2</r-menu-item>
-            <r-menu-item [menuTriggerFor]="subMenu">
-              <div
-                style="display: flex; justify-content: space-between; width: 100%">
-                Item 3
-                <i r-icon icon="ChevronRight" [size]="16"></i>
-              </div>
-            </r-menu-item>
-            <ng-template #subMenu>
-              <r-menu [floating]="true">
-                <r-menu-group>
-                  <r-menu-item>Subitem 1</r-menu-item>
-                  <r-menu-item>Subitem 2</r-menu-item>
-                </r-menu-group>
-              </r-menu>
-            </ng-template>
-          </r-menu-group>
+          <r-menu-item>Item 1</r-menu-item>
+          <r-menu-item>Item 2</r-menu-item>
+          <r-menu-item [menuTriggerFor]="subMenu" [submenu]="true">
+            <div
+              style="display: flex; justify-content: space-between; width: 100%">
+              Item 3
+              <i r-icon icon="ChevronRight" [size]="16"></i>
+            </div>
+          </r-menu-item>
+          <ng-template #subMenu>
+            <r-menu [floating]="true">
+              <r-menu-label>Submenu</r-menu-label>
+              <r-menu-group>
+                <r-menu-item>Subitem 1</r-menu-item>
+                <r-menu-item>Subitem 2</r-menu-item>
+              </r-menu-group>
+            </r-menu>
+          </ng-template>
         </r-menu>
       </ng-template>
     </div>
@@ -163,10 +165,9 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
         </button>
         <ng-template #menuTopLeft>
           <r-menu [floating]="true">
-            <r-menu-group>
-              <r-menu-item>Item 1</r-menu-item>
-              <r-menu-item>Item 2</r-menu-item>
-            </r-menu-group>
+            <r-menu-label>Top Left Menu</r-menu-label>
+            <r-menu-item>Item 1</r-menu-item>
+            <r-menu-item>Item 2</r-menu-item>
           </r-menu>
         </ng-template>
 
@@ -179,10 +180,9 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
         </button>
         <ng-template #menuBottomCenter>
           <r-menu [floating]="true">
-            <r-menu-group>
-              <r-menu-item>Item 1</r-menu-item>
-              <r-menu-item>Item 2</r-menu-item>
-            </r-menu-group>
+            <r-menu-label>Bottom Center Menu</r-menu-label>
+            <r-menu-item>Item 1</r-menu-item>
+            <r-menu-item>Item 2</r-menu-item>
           </r-menu>
         </ng-template>
 
@@ -195,6 +195,7 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
         </button>
         <ng-template #menuRightTop>
           <r-menu [floating]="true">
+            <r-menu-label>Right Top Menu</r-menu-label>
             <r-menu-group>
               <r-menu-item>Item 1</r-menu-item>
               <r-menu-item>Item 2</r-menu-item>
@@ -211,10 +212,9 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
         </button>
         <ng-template #menuLeftCenter>
           <r-menu [floating]="true">
-            <r-menu-group>
-              <r-menu-item>Item 1</r-menu-item>
-              <r-menu-item>Item 2</r-menu-item>
-            </r-menu-group>
+            <r-menu-label>Left Center Menu</r-menu-label>
+            <r-menu-item>Item 1</r-menu-item>
+            <r-menu-item>Item 2</r-menu-item>
           </r-menu>
         </ng-template>
       </div>
@@ -235,28 +235,31 @@ export default class MenuDocumentationComponent {
   angularImport = `import { Menu, MenuItemComponent, MenuGroupComponent, MenuTrigger } from 'rem-ui/angular';`;
 
   basicUsage = `<r-menu>
-  <r-menu-group>
-    <r-menu-item>Item 1</r-menu-item>
-    <r-menu-item>Item 2</r-menu-item>
-    <r-menu-item>Item 3</r-menu-item>
-  </r-menu-group>
+  <r-menu-label>Basic Menu</r-menu-label>
+  <r-menu-item>Item 1</r-menu-item>
+  <r-menu-item>Item 2</r-menu-item>
+  <r-menu-item>Item 3</r-menu-item>
 </r-menu>`;
 
   nestedUsage = `<r-menu>
-  <r-menu-group>
-    <r-menu-item>Item 1</r-menu-item>
-    <r-menu-item [menuTriggerFor]="subMenu">
-      <div style="display: flex; justify-content: space-between; width: 100%">
-        Item 2
-        <i r-icon icon="ChevronRight" [size]="16"></i>
-      </div>
-    </r-menu-item>
-  </r-menu-group>
+  <r-menu-label>Main Menu</r-menu-label>
+  <r-menu-item>Item 1</r-menu-item>
+  <r-menu-item [menuTriggerFor]="subMenu" [submenu]="true">
+    <div style="display: flex; justify-content: space-between; width: 100%">
+      Item 2
+      <i r-icon icon="ChevronRight" [size]="16"></i>
+    </div>
+  </r-menu-item>
   <ng-template #subMenu>
     <r-menu [floating]="true">
+      <r-menu-label>Submenu</r-menu-label>
       <r-menu-group>
         <r-menu-item>Subitem 1</r-menu-item>
         <r-menu-item>Subitem 2</r-menu-item>
+      </r-menu-group>
+      <r-menu-group>
+        <r-menu-item>Subitem 3</r-menu-item>
+        <r-menu-item>Subitem 4</r-menu-item>
       </r-menu-group>
     </r-menu>
   </ng-template>
@@ -272,24 +275,23 @@ export default class MenuDocumentationComponent {
 <ng-template #menu>
   <r-menu [floating]="true">
     <r-menu-label>Menu</r-menu-label>
-    <r-menu-group>
-      <r-menu-item>Item 1</r-menu-item>
-      <r-menu-item>Item 2</r-menu-item>
-      <r-menu-item [menuTriggerFor]="subMenu">
-        <div style="display: flex; justify-content: space-between; width: 100%">
-          Item 3
-          <i r-icon icon="ChevronRight" [size]="16"></i>
-        </div>
-      </r-menu-item>
-      <ng-template #subMenu>
-        <r-menu [floating]="true">
-          <r-menu-group>
-            <r-menu-item>Subitem 1</r-menu-item>
-            <r-menu-item>Subitem 2</r-menu-item>
-          </r-menu-group>
-        </r-menu>
-      </ng-template>
-    </r-menu-group>
+    <r-menu-item>Item 1</r-menu-item>
+    <r-menu-item>Item 2</r-menu-item>
+    <r-menu-item [menuTriggerFor]="subMenu" [submenu]="true">
+      <div style="display: flex; justify-content: space-between; width: 100%">
+        Item 3
+        <i r-icon icon="ChevronRight" [size]="16"></i>
+      </div>
+    </r-menu-item>
+    <ng-template #subMenu>
+      <r-menu [floating]="true">
+        <r-menu-label>Submenu</r-menu-label>
+        <r-menu-group>
+          <r-menu-item>Subitem 1</r-menu-item>
+          <r-menu-item>Subitem 2</r-menu-item>
+        </r-menu-group>
+      </r-menu>
+    </ng-template>
   </r-menu>
 </ng-template>`;
 
@@ -302,10 +304,9 @@ export default class MenuDocumentationComponent {
 </button>
 <ng-template #menuTopLeft>
   <r-menu [floating]="true">
-    <r-menu-group>
-      <r-menu-item>Item 1</r-menu-item>
-      <r-menu-item>Item 2</r-menu-item>
-    </r-menu-group>
+    <r-menu-label>Top Left Menu</r-menu-label>
+    <r-menu-item>Item 1</r-menu-item>
+    <r-menu-item>Item 2</r-menu-item>
   </r-menu>
 </ng-template>
 
@@ -318,10 +319,9 @@ export default class MenuDocumentationComponent {
 </button>
 <ng-template #menuBottomCenter>
   <r-menu [floating]="true">
-    <r-menu-group>
-      <r-menu-item>Item 1</r-menu-item>
-      <r-menu-item>Item 2</r-menu-item>
-    </r-menu-group>
+    <r-menu-label>Bottom Center Menu</r-menu-label>
+    <r-menu-item>Item 1</r-menu-item>
+    <r-menu-item>Item 2</r-menu-item>
   </r-menu>
 </ng-template>
 
@@ -334,6 +334,7 @@ export default class MenuDocumentationComponent {
 </button>
 <ng-template #menuRightTop>
   <r-menu [floating]="true">
+    <r-menu-label>Right Top Menu</r-menu-label>
     <r-menu-group>
       <r-menu-item>Item 1</r-menu-item>
       <r-menu-item>Item 2</r-menu-item>
@@ -350,10 +351,9 @@ export default class MenuDocumentationComponent {
 </button>
 <ng-template #menuLeftCenter>
   <r-menu [floating]="true">
-    <r-menu-group>
-      <r-menu-item>Item 1</r-menu-item>
-      <r-menu-item>Item 2</r-menu-item>
-    </r-menu-group>
+    <r-menu-label>Left Center Menu</r-menu-label>
+    <r-menu-item>Item 1</r-menu-item>
+    <r-menu-item>Item 2</r-menu-item>
   </r-menu>
 </ng-template>`;
 }

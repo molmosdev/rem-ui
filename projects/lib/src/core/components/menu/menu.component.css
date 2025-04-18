@@ -6,15 +6,16 @@
 
   &.floating {
     border: 1px solid var(--border-color);
-    margin: 0.3rem 0;
     animation: fadeIn 0.2s ease-in;
+
+    ::ng-deep r-menu-item {
+      border-radius: calc(var(--radius) - 0.25rem);
+    }
   }
 
-  &:not(:has(r-menu-label)) {
-    &:not(:has(r-menu-group)) {
-      gap: 0.2rem;
-      padding: 0.2rem;
-    }
+  &:not(:has(r-menu-group)) {
+    gap: 0.2rem;
+    padding: 0.2rem;
   }
 }
 
@@ -26,7 +27,3 @@
     opacity: 1;
   }
 }
-
-/* ::ng-deep body:has(r-menu.floating) {
-  overflow: hidden;
-} */
