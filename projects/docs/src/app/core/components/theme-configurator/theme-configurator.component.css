@@ -101,21 +101,5 @@
       opacity: 0;
       pointer-events: none;
     }
-
-    .legend {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--text-color);
-
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        width: 50%;
-      }
-    }
   }
 }

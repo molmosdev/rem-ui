@@ -1,7 +1,6 @@
 import { Component, computed, inject, model } from '@angular/core';
 import {
   Button,
-  Icon,
   ResponsiveService,
 } from '../../../../../../lib/src/public-api';
 import { Range } from '../../../../../../lib/src/core/components/range/range.component';
@@ -13,7 +12,7 @@ import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sh
   selector: 'aside[app-theme-configurator]',
   templateUrl: './theme-configurator.component.html',
   styleUrl: './theme-configurator.component.css',
-  imports: [Button, Icon, Range, NgTemplateOutlet, SideSheet, BottomSheet],
+  imports: [Button, Range, NgTemplateOutlet, SideSheet, BottomSheet],
 })
 export class ThemeConfiguratorComponent {
   responsiveService = inject(ResponsiveService);

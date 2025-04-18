@@ -17,13 +17,13 @@
 <ng-template #configurator>
   <div class="configurator-wrapper">
     <h2>Theme Configurator</h2>
-    <span>Customize your theme by adjusting the variables below:</span>
+    <span>Customize your theme by adjusting the variables below. </span>
+    <span>
+      The left column represents the light mode, while the right column
+      represents the dark mode.
+    </span>
 
     <h3>Base Colors</h3>
-    <div class="legend">
-      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
-      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
-    </div>
     <div class="properties-grid">
       @for (variable of baseVariables; track variable) {
         <label [style.background-color]="getVariableValue(variable, 'light')">
@@ -54,10 +54,6 @@
     </div>
 
     <h3>Component Colors</h3>
-    <div class="legend">
-      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
-      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
-    </div>
     <div class="properties-grid">
       @for (variable of componentVariables; track variable) {
         <label [style.background-color]="getVariableValue(variable, 'light')">
@@ -88,10 +84,6 @@
     </div>
 
     <h3>Error Colors</h3>
-    <div class="legend">
-      <span> <i r-icon [size]="18" icon="Sun"></i> Light Mode </span>
-      <span> <i r-icon [size]="18" icon="Moon"></i> Dark Mode </span>
-    </div>
     <div class="properties-grid">
       @for (variable of errorVariables; track variable) {
         <label [style.background-color]="getVariableValue(variable, 'light')">
