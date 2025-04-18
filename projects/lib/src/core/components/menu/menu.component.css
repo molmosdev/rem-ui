@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--radius);
-  background-color: var(--background);
 
   &.floating {
     border: 1px solid var(--border-color);
     animation: fadeIn 0.2s ease-in;
+    background-color: var(--background);
 
     ::ng-deep r-menu-item {
       border-radius: calc(var(--radius) - 0.25rem);
