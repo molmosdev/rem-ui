@@ -1,9 +1,15 @@
 :host {
+  --horizontal-padding: clamp(
+    1rem,
+    calc(0.75rem + var(--radius, 0.5rem) / 2),
+    1.1rem
+  );
+
   width: 100%;
   background-color: var(--background, #ffffff);
-  border-radius: var(--radius, 0.5rem);
+  border-radius: clamp(0rem, var(--radius, 0.5rem), 1.4rem);
   box-sizing: border-box;
-  padding: 0.8rem;
+  padding: 0.8rem var(--horizontal-padding);
   border: 1px solid var(--border-color, transparent);
   font-size: 1rem;
   color: var(--input-foreground, #798194);

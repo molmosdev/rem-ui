@@ -1,10 +1,16 @@
 :host {
+  --horizontal-padding: clamp(
+    1rem,
+    calc(0.75rem + var(--radius, 0.5rem) / 2),
+    1.5rem
+  );
+
   width: 100%;
   min-height: 2.8rem;
   background-color: var(--input-background, #e0e0e0);
   border-radius: var(--radius, 0.5rem);
   box-sizing: border-box;
-  padding: calc(0.9rem - 2px) 0.8rem;
+  padding: calc(0.9rem - 2px) var(--horizontal-padding);
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-color, transparent);

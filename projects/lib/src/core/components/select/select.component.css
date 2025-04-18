@@ -1,4 +1,10 @@
 :host {
+  --horizontal-padding: clamp(
+    1rem,
+    calc(0.75rem + var(--radius, 0.5rem) / 2),
+    1.5rem
+  );
+
   position: relative;
   -webkit-appearance: none;
   appearance: base-select;
@@ -18,7 +24,7 @@
     background-color 0.2s,
     border-color 0.2s;
   --vertical-padding: calc(0.9rem - 2px);
-  padding: var(--vertical-padding) 0.8rem;
+  padding: var(--vertical-padding) var(--horizontal-padding);
   font-size: 1rem;
   background-color: transparent;
   display: flex;
@@ -39,7 +45,7 @@
     padding: 0.25rem 0.25rem 0rem 0.25rem;
     background: var(--background, #ffffff);
     box-shadow: 0 0 0.25rem 0.125rem rgba(1, 1, 1, 0.01);
-    border-radius: var(--radius, 0.5rem);
+    border-radius: clamp(0rem, var(--radius, 0.5rem), 0.5rem);
     border: 1px solid
       color-mix(
         in srgb,
@@ -79,7 +85,7 @@
   padding: 0.5rem 0.75rem;
   color: var(--foreground, #798194);
   transition: 0.1s;
-  border-radius: calc(var(--radius, 0.5rem) - 0.2rem);
+  border-radius: clamp(0rem, calc(var(--radius, 0.5rem) - 0.2rem), 0.5rem);
 }
 
 ::ng-deep option::checkmark {

@@ -1,4 +1,16 @@
 :host {
+  --exterior-padding: clamp(
+    1rem,
+    calc(0.75rem + var(--radius, 0.5rem) / 2),
+    1.3rem
+  );
+
+  --interior-padding: clamp(
+    1rem,
+    calc(0.75rem + var(--radius, 0.5rem) / 3),
+    1.1rem
+  );
+
   width: 100%;
   background-color: color-mix(
     in srgb,
@@ -44,12 +56,22 @@
   ::ng-deep > r-label:not(:first-child) input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    padding-left: 0.8rem;
+  }
+
+  ::ng-deep > r-label:not(:first-child) {
+    padding-left: 0;
+  }
+
+  ::ng-deep > r-label:not(:first-child) label {
+    left: 0.8rem !important;
   }
 
   ::ng-deep > *:not(:last-child),
   ::ng-deep > r-label:not(:last-child) input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    padding-right: 0.8rem;
   }
 
   ::ng-deep input:first-child,
@@ -87,12 +109,12 @@
 
     ::ng-deep span:first-child,
     ::ng-deep i:first-child {
-      padding-left: 0.8rem;
+      padding-inline: var(--exterior-padding) 0;
     }
 
     ::ng-deep span:last-child,
     ::ng-deep i:last-child {
-      padding-right: 0.8rem;
+      padding-inline: 0 var(--exterior-padding);
     }
   }
 
@@ -101,6 +123,18 @@
     ::ng-deep i {
       padding-inline: 0.8rem;
     }
+  }
+
+  ::ng-deep button:first-child,
+  ::ng-deep span:first-child,
+  ::ng-deep i:first-child {
+    padding-inline: var(--exterior-padding) var(--interior-padding);
+  }
+
+  ::ng-deep button:last-child,
+  ::ng-deep span:last-child,
+  ::ng-deep i:last-child {
+    padding-inline: var(--interior-padding) var(--exterior-padding);
   }
 
   ::ng-deep button {
