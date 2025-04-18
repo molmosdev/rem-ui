@@ -9,8 +9,7 @@
   align-items: center;
 
   &[aria-checked='true'],
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--input-background);
   }
 

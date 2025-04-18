@@ -9,8 +9,7 @@
   align-items: center;
 
   &:active,
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--input-background);
   }
 

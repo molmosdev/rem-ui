@@ -15,7 +15,9 @@
 
   &:not(:has(r-menu-group)) {
     gap: 0.2rem;
-    padding: 0.2rem;
+    &.floating {
+      padding: 0.2rem;
+    }
   }
 }
 
