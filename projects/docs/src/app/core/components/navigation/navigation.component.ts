@@ -7,23 +7,15 @@ import {
   signal,
 } from '@angular/core';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
-import {
-  NavigationEnd,
-  Router,
-  RouterLink,
-  RouterLinkActive,
-} from '@angular/router';
+import { NavigationEnd, Route, Router, Routes } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
-import {
-  Icon,
-  SideSheet,
-  Badge,
-  Tree,
-  TreeNode,
-} from '../../../../../../lib/src/public-api';
+import { Icon, SideSheet, Badge } from '../../../../../../lib/src/public-api';
 import { ThemeConfiguratorComponent } from '../header/components/theme-configurator/theme-configurator.component';
+import { Menu } from '../../../../../../lib/src/core/components/menu/menu.component';
+import { MenuLabel } from '../../../../../../lib/src/core/components/menu/shared/components/menu-label/menu-label.component';
+import { MenuItemRadioComponent } from '../../../../../../lib/src/core/components/menu/shared/components/menu-item-radio/menu-item-radio.component';
 
 @Component({
   selector: 'app-navigation',
@@ -35,10 +27,10 @@ import { ThemeConfiguratorComponent } from '../header/components/theme-configura
     Icon,
     Badge,
     ThemeConfiguratorComponent,
-    RouterLink,
-    RouterLinkActive,
-    Tree,
-    TreeNode,
+    Menu,
+
+    MenuLabel,
+    MenuItemRadioComponent,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
@@ -53,7 +45,7 @@ export class NavigationComponent implements OnInit {
 
   readonly isMenuVisible = model(false);
   readonly isThemeConfigVisible = model(false);
-  readonly actualRouteData = signal(undefined);
+  readonly actualRoute = signal<Route | undefined>(undefined);
 
   readonly filteredRoutes = computed(() => {
     const filterRoutes = (routes: any[]): any[] => {
@@ -87,18 +79,23 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  findRouteData(routes: any[], url: string, accumulatedPath = ''): void {
+  findRouteData(routes: Routes, url: string, accumulatedPath = ''): void {
     for (const route of routes) {
       const currentPath = route.path
         ? `${accumulatedPath}/${route.path}`
         : accumulatedPath;
       if (currentPath === url) {
-        this.actualRouteData.set(route.data);
+        this.actualRoute.set(route);
         return;
       }
       if (route.children) {
         this.findRouteData(route.children, url, currentPath);
       }
     }
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+    this.isMenuVisible.set(false);
   }
 }

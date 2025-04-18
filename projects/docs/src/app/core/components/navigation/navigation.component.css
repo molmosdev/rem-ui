@@ -2,7 +2,7 @@
   z-index: 10;
 
   .components-list {
-    padding: 1rem;
+    padding: 0.75rem;
     box-sizing: border-box;
     overflow-x: auto;
     scrollbar-width: thin;
@@ -33,12 +33,12 @@
 
   @media (width > 992px) {
     position: sticky;
-    top: calc(3.8rem + 1px);
-    height: calc(100vh - (3.8rem + 1px));
+    top: calc(3.8rem + 2px);
+    height: calc(100vh - (3.8rem + 3px));
 
     .components-list {
       width: 290px;
-      border-right: 1px solid var(--border-color);
+      border-right: 1px dashed var(--border-color);
     }
   }
 
@@ -92,4 +92,10 @@
       height: 100%;
     }
   }
+}
+
+::ng-deep r-menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

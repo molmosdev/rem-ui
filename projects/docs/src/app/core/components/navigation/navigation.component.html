@@ -1,7 +1,7 @@
 @switch (currentDevice()) {
   @case ('mobile') {
     <button r-button variant="outlined" (click)="isMenuVisible.set(true)">
-      {{ actualRouteData()?.['title'] }}
+      {{ actualRoute()?.['title'] }}
       <div class="chevron-wrapper">
         <i r-icon icon="ChevronUp" [size]="12" class="icon-chevron-up"></i>
         <i r-icon icon="ChevronDown" [size]="12" class="icon-chevron-down"></i>
@@ -30,12 +30,11 @@
 }
 <ng-template #componentsList>
   <div class="components-list">
-    <!-- Top Level Routes -->
-    <r-tree>
+    <r-menu>
       @for (route of topLevelRoutes(); track route) {
-        <r-tree-node
-          [routerLink]="route.path"
-          [routerLinkActive]="['active']"
+        <r-menu-item-radio
+          [active]="route.path === actualRoute()?.path"
+          (triggered)="navigateTo(route.path)"
           (click)="isMenuVisible.set(false)">
           {{ route.data?.['title'] }}
           @if (route.badge) {
@@ -43,26 +42,22 @@
               route.badge
             }}</span>
           }
-        </r-tree-node>
+        </r-menu-item-radio>
       }
-    </r-tree>
-    <!-- Components Routes -->
-    <span class="section">COMPONENTS</span>
-    <r-tree>
+      <r-menu-label>Components</r-menu-label>
       @for (route of componentsRoutes(); track route) {
-        <r-tree-node
-          [routerLink]="'components/' + route.path"
-          [routerLinkActive]="['active']"
-          (click)="isMenuVisible.set(false)">
+        <r-menu-item-radio
+          (triggered)="navigateTo('components/' + route.path)"
+          [active]="route.path === actualRoute()?.path">
           {{ route.data?.['title'] }}
           @if (route.badge) {
             <span r-badge variant="outlined" size="small">{{
               route.badge
             }}</span>
           }
-        </r-tree-node>
+        </r-menu-item-radio>
       }
-    </r-tree>
+    </r-menu>
   </div>
 </ng-template>
 
