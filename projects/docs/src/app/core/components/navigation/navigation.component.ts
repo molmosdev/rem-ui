@@ -6,6 +6,7 @@ import { MenuLabel } from '../../../../../../lib/src/core/components/menu/shared
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { NgTemplateOutlet } from '@angular/common';
 import {
+  Badge,
   Button,
   Icon,
   ResponsiveService,
@@ -21,6 +22,7 @@ import {
     NgTemplateOutlet,
     Button,
     Icon,
+    Badge,
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',

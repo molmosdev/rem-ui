@@ -27,10 +27,8 @@
           [active]="'/' + route.path === path()"
           (triggered)="navigateTo(route.path)">
           {{ route.data?.['title'] }}
-          @if (route.badge) {
-            <span r-badge variant="outlined" size="small">{{
-              route.badge
-            }}</span>
+          @if (route.data?.['new']) {
+            <span r-badge variant="outlined" size="small"> New </span>
           }
         </r-menu-item-radio>
       }
@@ -40,10 +38,9 @@
           (triggered)="navigateTo('components/' + route.path)"
           [active]="'/components/' + route.path === path()">
           {{ route.data?.['title'] }}
-          @if (route.badge) {
-            <span r-badge variant="outlined" size="small">{{
-              route.badge
-            }}</span>
+
+          @if (route.data?.['new']) {
+            <span r-badge variant="outlined" size="small"> New </span>
           }
         </r-menu-item-radio>
       }
