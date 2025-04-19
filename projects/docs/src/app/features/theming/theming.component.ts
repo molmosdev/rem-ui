@@ -58,7 +58,10 @@ export default class ThemingComponent {
   --primary: light-dark(var(--black), var(--white));
   --primary-foreground: light-dark(var(--white), var(--black));
   --primary-border-color: light-dark(var(--black), var(--white));
-  --secondary: light-dark(var(--white), var(--black));
+  --secondary: light-dark(
+    color-mix(in srgb, var(--white), var(--black) 8%),
+    color-mix(in srgb, var(--black), var(--white) 5%)
+  );
   --secondary-foreground: light-dark(var(--black), var(--white));
   --secondary-border-color: light-dark(
     color-mix(in srgb, var(--white), var(--black) 8%),
@@ -71,8 +74,19 @@ export default class ThemingComponent {
   --input-foreground: light-dark(var(--black), var(--white));
 
   /* Error colors */
-  --error-foreground: light-dark(#c40000, #ff6b6b);
+  --error-foreground: light-dark(#c40000ab, #ff6b6b);
   --error: light-dark(#fff0f0, #382d2d);
+  --error-border-color: light-dark(#ffcccc, #4a3a3a);
+
+  /* Success colors */
+  --success: light-dark(#d4edda, #2f3a2f);
+  --success-foreground: light-dark(#155724, #66d780);
+  --success-border-color: light-dark(#c3e6cb, #3a4a3a);
+
+  /* Warning colors */
+  --warning: light-dark(#fff3cd, #3a2f2f);
+  --warning-foreground: light-dark(#856404, #ffdd57);
+  --warning-border-color: light-dark(#ffeeba, #4a3a3a);
 }
 
 /* Dark theme configuration */
@@ -107,13 +121,20 @@ export default class ThemingComponent {
       '--primary': new FormControl('#0a0a0a'),
       '--primary-foreground': new FormControl('#ffffff'),
       '--primary-border-color': new FormControl('#0a0a0a'),
-      '--secondary': new FormControl('#ffffff'),
-      '--secondary-foreground': new FormControl('#0a0a0a'),
-      '--secondary-border-color': new FormControl('#e6e6e6'), // Precomputed value
+      '--secondary': new FormControl('#e0e0e0'), // Updated value
+      '--secondary-foreground': new FormControl('#333333'), // Updated value
+      '--secondary-border-color': new FormControl('#cccccc'), // Updated value
       '--input-background': new FormControl('#f2f2f2'), // Precomputed value
       '--input-foreground': new FormControl('#0a0a0a'),
       '--error-foreground': new FormControl('#c40000'),
       '--error': new FormControl('#fff0f0'),
+      '--error-border-color': new FormControl('#ffcccc'),
+      '--success': new FormControl('#d4edda'),
+      '--success-foreground': new FormControl('#155724'),
+      '--success-border-color': new FormControl('#c3e6cb'),
+      '--warning': new FormControl('#fff3cd'),
+      '--warning-foreground': new FormControl('#856404'),
+      '--warning-border-color': new FormControl('#ffeeba'),
     }),
     dark: new FormGroup({
       '--bg-color': new FormControl('#0a0a0a'),
@@ -124,13 +145,20 @@ export default class ThemingComponent {
       '--primary': new FormControl('#ffffff'),
       '--primary-foreground': new FormControl('#0a0a0a'),
       '--primary-border-color': new FormControl('#ffffff'),
-      '--secondary': new FormControl('#000000'),
-      '--secondary-foreground': new FormControl('#ffffff'),
-      '--secondary-border-color': new FormControl('#1f1f1f'), // Precomputed value
+      '--secondary': new FormControl('#1a1a1a'), // Updated value
+      '--secondary-foreground': new FormControl('#f2f2f2'), // Updated value
+      '--secondary-border-color': new FormControl('#2a2a2a'), // Updated value
       '--input-background': new FormControl('#1d1d1d'), // Precomputed value
       '--input-foreground': new FormControl('#ffffff'),
       '--error-foreground': new FormControl('#ff6b6b'),
       '--error': new FormControl('#382d2d'),
+      '--error-border-color': new FormControl('#4a3a3a'),
+      '--success': new FormControl('#2f3a2f'),
+      '--success-foreground': new FormControl('#66d780'),
+      '--success-border-color': new FormControl('#3a4a3a'),
+      '--warning': new FormControl('#3a2f2f'),
+      '--warning-foreground': new FormControl('#ffdd57'),
+      '--warning-border-color': new FormControl('#4a3a3a'),
     }),
   });
 
@@ -146,13 +174,20 @@ export default class ThemingComponent {
         '--primary': { light: '#0a0a0a', dark: '#ffffff' },
         '--primary-foreground': { light: '#ffffff', dark: '#0a0a0a' },
         '--primary-border-color': { light: '#0a0a0a', dark: '#ffffff' },
-        '--secondary': { light: '#ffffff', dark: '#000000' },
-        '--secondary-foreground': { light: '#0a0a0a', dark: '#ffffff' },
-        '--secondary-border-color': { light: '#e6e6e6', dark: '#1f1f1f' }, // Precomputed values
+        '--secondary': { light: '#e0e0e0', dark: '#1a1a1a' }, // Updated value
+        '--secondary-foreground': { light: '#333333', dark: '#f2f2f2' }, // Updated value
+        '--secondary-border-color': { light: '#cccccc', dark: '#2a2a2a' }, // Updated value
         '--input-background': { light: '#f2f2f2', dark: '#1d1d1d' }, // Precomputed values
         '--input-foreground': { light: '#0a0a0a', dark: '#ffffff' },
         '--error-foreground': { light: '#c40000', dark: '#ff6b6b' },
         '--error': { light: '#fff0f0', dark: '#382d2d' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
     {
@@ -173,6 +208,13 @@ export default class ThemingComponent {
         '--input-foreground': { light: '#ffffff', dark: '#d9f2ee' },
         '--error-foreground': { light: '#ff4d4d', dark: '#ff9999' },
         '--error': { light: '#f9e6e6', dark: '#3a1f1f' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
     {
@@ -193,6 +235,13 @@ export default class ThemingComponent {
         '--input-foreground': { light: '#4a4a4a', dark: '#d9f2f7' },
         '--error-foreground': { light: '#ff6b6b', dark: '#ff9999' },
         '--error': { light: '#ffe6e6', dark: '#3a1f1f' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
     {
@@ -213,6 +262,13 @@ export default class ThemingComponent {
         '--input-foreground': { light: '#4a4a4a', dark: '#ffe6e6' },
         '--error-foreground': { light: '#ff3333', dark: '#ff6666' },
         '--error': { light: '#ffe6e6', dark: '#4a1f1f' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
     {
@@ -233,6 +289,13 @@ export default class ThemingComponent {
         '--input-foreground': { light: '#2a2a2a', dark: '#d9f2d9' },
         '--error-foreground': { light: '#ff4d4d', dark: '#ff9999' },
         '--error': { light: '#f9e6e6', dark: '#3a1f1f' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
     {
@@ -253,6 +316,13 @@ export default class ThemingComponent {
         '--input-foreground': { light: '#2a2a2a', dark: '#d9e6f2' },
         '--error-foreground': { light: '#ff6b6b', dark: '#ff9999' },
         '--error': { light: '#ffe6e6', dark: '#3a1f1f' },
+        '--error-border-color': { light: '#ffcccc', dark: '#4a3a3a' },
+        '--success': { light: '#d4edda', dark: '#2f3a2f' },
+        '--success-foreground': { light: '#155724', dark: '#66d780' },
+        '--success-border-color': { light: '#c3e6cb', dark: '#3a4a3a' },
+        '--warning': { light: '#fff3cd', dark: '#3a2f2f' },
+        '--warning-foreground': { light: '#856404', dark: '#ffdd57' },
+        '--warning-border-color': { light: '#ffeeba', dark: '#4a3a3a' },
       },
     },
   ];

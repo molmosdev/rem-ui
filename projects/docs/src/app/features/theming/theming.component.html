@@ -103,6 +103,34 @@
       <td>Background color for error messages.</td>
     </tr>
     <tr>
+      <td style="width: 200px"><code>--error-border-color</code></td>
+      <td>Border color for error messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success</code></td>
+      <td>Background color for success messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success-foreground</code></td>
+      <td>Text color for success messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success-border-color</code></td>
+      <td>Border color for success messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning</code></td>
+      <td>Background color for warning messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning-foreground</code></td>
+      <td>Text color for warning messages.</td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning-border-color</code></td>
+      <td>Border color for warning messages.</td>
+    </tr>
+    <tr>
       <td style="width: 200px"><code>--radius</code></td>
       <td>Border radius used for rounded corners in UI elements.</td>
     </tr>
@@ -410,6 +438,147 @@
           type="color"
           r-color-picker
           formControlName="--error-foreground"
+          style="width: 100px" />
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--error-border-color</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--error-border-color"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--error-border-color"
+          style="width: 100px" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3>Success Colors</h3>
+<div class="table-wrapper">
+  <table [formGroup]="themeVariables" class="theme-configurator-table">
+    <tr>
+      <th>Variable</th>
+      <th>Light</th>
+      <th>Dark</th>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success"
+          style="width: 100px" />
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success-foreground</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success-foreground"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success-foreground"
+          style="width: 100px" />
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--success-border-color</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success-border-color"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--success-border-color"
+          style="width: 100px" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3>Warning Colors</h3>
+<div class="table-wrapper">
+  <table [formGroup]="themeVariables" class="theme-configurator-table">
+    <tr>
+      <th>Variable</th>
+      <th>Light</th>
+      <th>Dark</th>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning"
+          style="width: 100px" />
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning-foreground</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning-foreground"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning-foreground"
+          style="width: 100px" />
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 200px"><code>--warning-border-color</code></td>
+      <td formGroupName="light">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning-border-color"
+          style="width: 100px" />
+      </td>
+      <td formGroupName="dark">
+        <input
+          type="color"
+          r-color-picker
+          formControlName="--warning-border-color"
           style="width: 100px" />
       </td>
     </tr>
