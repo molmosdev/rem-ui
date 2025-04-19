@@ -116,6 +116,14 @@ export const componentsRoutes: Routes = [
     },
   },
   {
+    path: 'alert',
+    loadComponent: () => import('./pages/alert-documentation.component'),
+    data: {
+      title: 'Alert',
+      new: true,
+    },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

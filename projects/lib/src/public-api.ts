@@ -96,3 +96,6 @@ export * from './core/components/menu/shared/components/menu-item/menu-item.comp
 export * from './core/components/menu/shared/components/menu-item-checkbox/menu-item-checkbox.component';
 export * from './core/components/menu/shared/components/menu-item-radio/menu-item-radio.component';
 export * from './core/components/menu/shared/directives/menu-trigger.directive';
+
+/* Alert */
+export * from './core/components/alert/alert.component';
