@@ -2,10 +2,17 @@ import { Component, signal } from '@angular/core';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { SideSheet } from '../../../../../../lib/src/core/components/side-sheet/side-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-side-sheet-documentation]',
-  template: `<h1>Side Sheet</h1>
+  template: ` <r-alert
+      type="info"
+      title="Components are in alpha"
+      icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Side Sheet</h1>
     <span>
       Side Sheet is a sliding panel that appears from the left or right side of
       the screen.
@@ -106,7 +113,7 @@ import { Button } from '../../../../../../lib/src/core/components/button/button.
         This is a custom width side sheet.
       </div>
     </r-side-sheet>`,
-  imports: [CodeBlockComponent, SideSheet, Button],
+  imports: [CodeBlockComponent, SideSheet, Button, Alert],
 })
 export default class SideSheetDocumentationComponent {
   angularImport = `import { SideSheet } from 'rem-ui/angular'`;

@@ -4,7 +4,10 @@ import { Alert } from '../../../../../../lib/src/public-api';
 
 @Component({
   selector: 'article[app-alert-documentation]',
-  template: `<h1>Alert</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Alert</h1>
     <span>
       Alert is a component used to display important messages to the user.
     </span>

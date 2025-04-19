@@ -7,10 +7,14 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-select-documentation]',
-  template: `<h1>Select</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Select</h1>
     <span>
       Select is a custom dropdown component with additional features.
     </span>
@@ -133,6 +137,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     Label,
+    Alert,
   ],
 })
 export default class SelectDocumentationComponent {

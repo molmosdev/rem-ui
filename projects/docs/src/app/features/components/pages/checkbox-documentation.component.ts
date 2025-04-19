@@ -7,10 +7,14 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-checkbox-documentation]',
-  template: `<h1>Checkbox</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Checkbox</h1>
     <span>Checkbox is a custom toggle component.</span>
 
     <code-block [code]="angularImport" />
@@ -85,6 +89,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     Label,
+    Alert,
   ],
 })
 export default class CheckboxDocumentationComponent {

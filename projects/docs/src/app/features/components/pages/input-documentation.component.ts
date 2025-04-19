@@ -7,10 +7,14 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-input-documentation]',
-  template: `<h1>Input</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Input</h1>
     <span> Input is a custom input component with additional features. </span>
 
     <code-block [code]="angularImport" />
@@ -181,7 +185,14 @@ import {
         <input r-input type="text" maxWidth="240px" />
       </r-label>
     </div>`,
-  imports: [CodeBlockComponent, Input, FormsModule, ReactiveFormsModule, Label],
+  imports: [
+    CodeBlockComponent,
+    Input,
+    FormsModule,
+    ReactiveFormsModule,
+    Label,
+    Alert,
+  ],
 })
 export default class InputDocumentationComponent {
   angularImport = `import { Input } from 'rem-ui/angular'`;

@@ -2,10 +2,17 @@ import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Button, Icon } from '../../../../../../lib/src/public-api';
 import { ButtonGroup } from '../../../../../../lib/src/core/components/button-group/button-group.component';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-button-documentation]',
-  template: `<h1>Button</h1>
+  template: ` <r-alert
+      type="info"
+      title="Components are in alpha"
+      icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Button</h1>
     <span>
       Button is an extension to standard HTML button element with additional
       features.
@@ -224,7 +231,7 @@ import { ButtonGroup } from '../../../../../../lib/src/core/components/button-gr
         </button>
       </r-button-group>
     </div>`,
-  imports: [CodeBlockComponent, Button, Icon, ButtonGroup],
+  imports: [CodeBlockComponent, Button, Icon, ButtonGroup, Alert],
 })
 export default class ButtonDocumentationComponent {
   angularImport = `import { Button } from 'rem-ui/angular'`;

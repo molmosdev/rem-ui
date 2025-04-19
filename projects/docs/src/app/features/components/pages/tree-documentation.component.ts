@@ -4,10 +4,14 @@ import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { TreeNode } from '../../../../../../lib/src/core/components/tree/shared/components/tree-node/tree-node.component';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Badge, Icon } from '../../../../../../lib/src/public-api';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-tree-documentation]',
-  template: `<h1>Tree</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Tree</h1>
     <span>
       The Tree component is a hierarchical structure that supports drag-and-drop
       functionality and nested nodes.
@@ -272,7 +276,7 @@ import { Badge, Icon } from '../../../../../../lib/src/public-api';
       </table>
     </div>`,
   standalone: true,
-  imports: [Tree, TreeNode, CodeBlockComponent, Icon, Badge],
+  imports: [Tree, TreeNode, CodeBlockComponent, Icon, Badge, Alert],
 })
 export default class TreeDocumentationComponent {
   angularImport = `import { Tree, TreeNode } from 'rem-ui/angular'`;

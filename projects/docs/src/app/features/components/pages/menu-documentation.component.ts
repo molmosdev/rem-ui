@@ -6,10 +6,14 @@ import { MenuLabel } from '../../../../../../lib/src/core/components/menu/shared
 import { MenuTrigger } from '../../../../../../lib/src/core/components/menu/shared/directives/menu-trigger.directive';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Icon, Button } from '../../../../../../lib/src/public-api';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-menu-documentation]',
-  template: `<h1>Menu</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Menu</h1>
     <span>
       The Menu component provides a flexible and accessible way to create
       dropdown menus with support for nested menus and various configurations.
@@ -229,6 +233,7 @@ import { Icon, Button } from '../../../../../../lib/src/public-api';
     CodeBlockComponent,
     Icon,
     Button,
+    Alert,
   ],
 })
 export default class MenuDocumentationComponent {

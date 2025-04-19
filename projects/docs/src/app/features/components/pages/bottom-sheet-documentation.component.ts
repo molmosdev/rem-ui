@@ -2,10 +2,14 @@ import { Component, signal } from '@angular/core';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { BottomSheet } from '../../../../../../lib/src/core/components/bottom-sheet/bottom-sheet.component';
 import { Button } from '../../../../../../lib/src/core/components/button/button.component';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-bottom-sheet-documentation]',
-  template: `<h1>Bottom Sheet</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Bottom Sheet</h1>
     <span>
       Bottom Sheet is a sliding panel that appears from the bottom of the
       screen.
@@ -102,7 +106,7 @@ import { Button } from '../../../../../../lib/src/core/components/button/button.
         This is the content of the bottom sheet.
       </div>
     </r-bottom-sheet>`,
-  imports: [CodeBlockComponent, BottomSheet, Button],
+  imports: [CodeBlockComponent, BottomSheet, Button, Alert],
 })
 export default class BottomSheetDocumentationComponent {
   angularImport = `import { BottomSheet } from 'rem-ui/angular'`;

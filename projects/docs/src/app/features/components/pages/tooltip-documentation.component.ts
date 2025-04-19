@@ -3,10 +3,15 @@ import { TooltipComponent } from '../../../../../../lib/src/core/components/tool
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Button } from '../../../../../../lib/src/public-api';
 import { Position } from '../../../../../../lib/src/core/components/attached-box/types/position.type';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-tooltip-documentation]',
   template: `
+    <r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+
     <h1>Tooltip</h1>
     <span>
       Tooltip is a component for displaying additional information when hovering
@@ -206,7 +211,7 @@ import { Position } from '../../../../../../lib/src/core/components/attached-box
     </div>
   `,
   standalone: true,
-  imports: [TooltipComponent, CodeBlockComponent, Button],
+  imports: [TooltipComponent, CodeBlockComponent, Button, Alert],
 })
 export default class TooltipDocumentationComponent {
   angularImport = `import { TooltipComponent } from 'rem-ui/angular'`;

@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { CodeBlockComponent } from '../shared/components/code-block.component';
 import { Badge } from '../../../../../../lib/src/core/components/badge/badge.component';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-badge-documentation]',
-  template: `<h1>Badge</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Badge</h1>
     <span>
       Badge is a small component used to display additional information or
       status.
@@ -56,7 +60,7 @@ import { Badge } from '../../../../../../lib/src/core/components/badge/badge.com
       <span r-badge size="small">Small</span>
       <span r-badge size="default">Default</span>
     </div>`,
-  imports: [CodeBlockComponent, Badge],
+  imports: [CodeBlockComponent, Badge, Alert],
 })
 export default class BadgeDocumentationComponent {
   angularImport = `import { Badge } from 'rem-ui/angular'`;

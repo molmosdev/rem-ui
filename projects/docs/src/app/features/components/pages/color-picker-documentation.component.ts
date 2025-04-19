@@ -7,10 +7,14 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { ColorPicker } from '../../../../../../lib/src/core/components/color-picker/color-picker.component';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-color-picker-documentation]',
   template: `
+    <r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
     <h1>Color Picker</h1>
     <span>
       The Color Picker is a custom input component that allows users to select a
@@ -118,7 +122,13 @@ import { ColorPicker } from '../../../../../../lib/src/core/components/color-pic
         (input)="onColorChange($event)" />
     </div>
   `,
-  imports: [CodeBlockComponent, FormsModule, ReactiveFormsModule, ColorPicker],
+  imports: [
+    CodeBlockComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    ColorPicker,
+    Alert,
+  ],
 })
 export default class ColorPickerDocumentationComponent {
   angularImport = `import { ColorPicker2Component } from 'rem-ui/lib';`;

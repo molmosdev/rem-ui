@@ -8,10 +8,14 @@ import {
   Button,
   Label,
 } from '../../../../../../lib/src/public-api';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-input-group-documentation]',
-  template: `<h1>Input Group</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Input Group</h1>
     <span>
       Input Group is a container for grouping inputs, icons, buttons, or selects
       together.
@@ -123,7 +127,16 @@ import {
         </r-label>
       </r-input-group>
     </div>`,
-  imports: [CodeBlockComponent, InputGroup, Input, Icon, Select, Button, Label],
+  imports: [
+    CodeBlockComponent,
+    InputGroup,
+    Input,
+    Icon,
+    Select,
+    Button,
+    Label,
+    Alert,
+  ],
 })
 export default class InputGroupDocumentationComponent {
   angularImport = `import { InputGroupComponent } from 'rem-ui/angular'`;

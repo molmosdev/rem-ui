@@ -7,10 +7,14 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Alert } from '../../../../../../lib/src/core/components/alert/alert.component';
 
 @Component({
   selector: 'article[app-switch-documentation]',
-  template: `<h1>Switch</h1>
+  template: `<r-alert type="info" title="Components are in alpha" icon="Rocket">
+      Try them out! We'd love to hear your feedback! Expect breaking changes!
+    </r-alert>
+    <h1>Switch</h1>
     <span> Switch is a custom toggle component with additional features. </span>
 
     <code-block [code]="angularImport" />
@@ -100,6 +104,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     Label,
+    Alert,
   ],
 })
 export default class SwitchDocumentationComponent {
