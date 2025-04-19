@@ -25,7 +25,10 @@
   --primary: light-dark(var(--black), var(--white));
   --primary-foreground: light-dark(var(--white), var(--black));
   --primary-border-color: light-dark(var(--black), var(--white));
-  --secondary: transparent;
+  --secondary: light-dark(
+    color-mix(in srgb, var(--white), var(--black) 8%),
+    color-mix(in srgb, var(--black), var(--white) 5%)
+  );
   --secondary-foreground: light-dark(var(--black), var(--white));
   --secondary-border-color: light-dark(
     color-mix(in srgb, var(--white), var(--black) 8%),
@@ -40,6 +43,17 @@
   /* Error colors */
   --error-foreground: light-dark(#c40000ab, #ff6b6b);
   --error: light-dark(#fff0f0, #382d2d);
+  --error-border-color: light-dark(#ffcccc, #4a3a3a);
+
+  /* Success colors */
+  --success: light-dark(#d4edda, #2f3a2f);
+  --success-foreground: light-dark(#155724, #66d780);
+  --success-border-color: light-dark(#c3e6cb, #3a4a3a);
+
+  /* Warning colors */
+  --warning: light-dark(#fff3cd, #3a2f2f);
+  --warning-foreground: light-dark(#856404, #ffdd57);
+  --warning-border-color: light-dark(#ffeeba, #4a3a3a);
 }
 
 /* Dark theme configuration */
