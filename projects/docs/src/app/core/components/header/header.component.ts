@@ -1,4 +1,4 @@
-import { Component, computed, inject, model } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../../../lib/src/core/services/theme.service';
 import { ResponsiveService } from '../../../../../../lib/src/core/services/responsive.service';
@@ -33,7 +33,6 @@ export class HeaderComponent {
   );
 
   readonly theme = computed(() => this.themeService.theme());
-  readonly isThemeConfigVisible = model(false);
 
   applyTheme(theme: 'light' | 'dark' | 'auto'): void {
     this.themeService.applyTheme(theme);

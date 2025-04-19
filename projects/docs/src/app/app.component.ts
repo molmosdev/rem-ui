@@ -3,16 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { ThemeService } from '../../../lib/src/core/services/theme.service';
 import { HeaderComponent } from './core/components/header/header.component';
 import { NavigationComponent } from './core/components/navigation/navigation.component';
-import { ThemeConfiguratorComponent } from './core/components/theme-configurator/theme-configurator.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    NavigationComponent,
-    HeaderComponent,
-    ThemeConfiguratorComponent,
-  ],
+  imports: [RouterOutlet, NavigationComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

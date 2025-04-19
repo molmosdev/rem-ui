@@ -45,10 +45,6 @@ article {
     max-width: calc(100% - 290px);
   }
 
-  @media (width > 992px) {
-    max-width: calc(100% - 290px - 350px);
-  }
-
   h1 {
     font-size: 2rem;
   }

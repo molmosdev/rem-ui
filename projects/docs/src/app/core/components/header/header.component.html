@@ -6,16 +6,6 @@
     <span>rem/ui</span>
   </div>
   <div class="right">
-    @if (!this.isDesktop()) {
-      <button
-        r-button
-        variant="ghost"
-        size="small"
-        [equalPadding]="true"
-        (click)="isThemeConfigVisible.set(!this.isThemeConfigVisible())">
-        <i r-icon [strokeWidth]="1.5" [size]="22" icon="Paintbrush"></i>
-      </button>
-    }
     <button
       r-button
       variant="ghost"
