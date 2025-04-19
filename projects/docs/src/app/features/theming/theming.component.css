@@ -1,32 +1,11 @@
-.theme-variable label {
-  flex: 1;
-  font-weight: bold;
-}
+:host {
+  .theme-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-.theme-variable input[type='color'] {
-  margin-left: 1rem;
-}
-
-.theme-switcher {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-}
-
-.theme-switcher button {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out;
-}
-
-.theme-switcher button:hover {
-  background-color: var(--primary-foreground);
-  color: var(--primary);
+  h3 {
+    margin-top: 1rem;
+  }
 }
