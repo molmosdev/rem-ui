@@ -73,88 +73,60 @@ import { ColorPicker } from '../../../../../../lib/src/core/components/color-pic
     <h2>Basic Usage</h2>
     <code-block [code]="basicUsage" />
     <div class="documentation-playground">
-      <label
+      <input
         r-color-picker
-        for="color-picker-1"
+        type="color"
         [maxWidth]="'240px'"
-        [showColor]="true">
-        <input
-          #picker
-          type="color"
-          id="color-picker-1"
-          [value]="selectedColor"
-          (input)="onColorChange($event)" />
-      </label>
+        [showColor]="true"
+        [value]="selectedColor"
+        (input)="onColorChange($event)" />
     </div>
 
     <h2>Angular Binding with ngModel</h2>
     <code-block [code]="ngModelUsage" />
     <div class="documentation-playground">
-      <label
+      <input
         r-color-picker
-        for="color-picker-2"
+        type="color"
         [maxWidth]="'240px'"
-        [showColor]="true">
-        <input
-          #picker
-          type="color"
-          id="color-picker-2"
-          [(ngModel)]="ngModelColor" />
-      </label>
+        [showColor]="true"
+        [(ngModel)]="ngModelColor" />
     </div>
 
     <h2>Angular Forms with formControlName</h2>
     <code-block [code]="formControlUsage" />
     <form [formGroup]="form">
       <div class="documentation-playground">
-        <label
+        <input
           r-color-picker
-          for="color-picker-3"
+          type="color"
           [maxWidth]="'240px'"
-          [showColor]="true">
-          <input
-            #picker
-            type="color"
-            id="color-picker-3"
-            formControlName="colorControl" />
-        </label>
+          [showColor]="true"
+          formControlName="colorControl" />
       </div>
     </form>
 
     <h2>Without Show Color</h2>
     <code-block [code]="withoutShowColorUsage" />
     <div class="documentation-playground">
-      <label
+      <input
         r-color-picker
-        for="color-picker-4"
+        type="color"
         [maxWidth]="'240px'"
-        [showColor]="false">
-        <input
-          #picker
-          type="color"
-          id="color-picker-4"
-          [value]="selectedColor"
-          (input)="onColorChange($event)" />
-      </label>
+        [showColor]="false"
+        [value]="selectedColor"
+        (input)="onColorChange($event)" />
     </div>
   `,
   imports: [CodeBlockComponent, FormsModule, ReactiveFormsModule, ColorPicker],
 })
 export default class ColorPickerDocumentationComponent {
-  angularImport = `import { ColorPicker } from 'rem-ui/lib';`;
-  basicUsage = `<label r-color-picker [maxWidth]="'240px'" [showColor]="true">
-  <input #picker type="color" [value]="selectedColor" (input)="onColorChange($event)" />
-</label>`;
-  withoutShowColorUsage = `<label r-color-picker [maxWidth]="'240px'" [showColor]="false">
-  <input #picker type="color" [value]="selectedColor" (input)="onColorChange($event)" />
-</label>`;
-  ngModelUsage = `<label r-color-picker [maxWidth]="'240px'" [showColor]="true">
-  <input #picker type="color" [(ngModel)]="ngModelColor" />
-</label>`;
+  angularImport = `import { ColorPicker2Component } from 'rem-ui/lib';`;
+  basicUsage = `<input r-color-picker type="color" [maxWidth]="'240px'" [showColor]="true" [value]="selectedColor" (input)="onColorChange($event)" />`;
+  withoutShowColorUsage = `<input r-color-picker type="color" [maxWidth]="'240px'" [showColor]="false" [value]="selectedColor" (input)="onColorChange($event)" />`;
+  ngModelUsage = `<input r-color-picker type="color" [maxWidth]="'240px'" [showColor]="true" [(ngModel)]="ngModelColor" />`;
   formControlUsage = `<form [formGroup]="form">
-  <label r-color-picker [maxWidth]="'240px'" [showColor]="true">
-    <input #picker type="color" formControlName="colorControl" />
-  </label>
+  <input r-color-picker type="color" [maxWidth]="'240px'" [showColor]="true" formControlName="colorControl" />
 </form>`;
 
   selectedColor = '#ff0000';
