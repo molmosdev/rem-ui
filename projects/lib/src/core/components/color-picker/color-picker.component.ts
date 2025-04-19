@@ -1,61 +1,48 @@
 import {
-  AfterViewInit,
   Component,
-  contentChild,
-  ElementRef,
-  input,
-  OnDestroy,
-  signal,
   computed,
+  contentChild,
+  input,
+  signal,
+  AfterViewInit,
+  inject,
+  ElementRef,
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { ControlContainer, NgModel } from '@angular/forms';
 
 @Component({
-  selector: 'label[r-color-picker]',
-  template: `<ng-content />
-    @if (showColor()) {
-      <span class="color-value">
-        {{ value() }}
-      </span>
-    }`,
+  selector: 'input[r-color-picker]',
+  imports: [],
+  template: ``,
   styleUrl: './color-picker.component.css',
   host: {
     '[class.focused]': 'focused()',
     '[style.max-width]': 'maxWidth()',
-    '[style.--value]': 'value()',
-    '[style.color]': 'textColor()', // Use computed signal for text color
+    '[style.--value]': 'valueWithSingleQuotes()',
+    '[style.--text-color]': 'textColor()',
+    '[class.show-color]': 'showColor()',
+    '(focus)': 'focused.set(true)',
+    '(blur)': 'focused.set(false)',
+    '(input)': 'value.set($event.target.value)',
   },
 })
-export class ColorPicker implements AfterViewInit, OnDestroy {
+export class ColorPicker implements AfterViewInit {
   /**
    * Specifies the maximum width of the input.
    */
-  readonly maxWidth = input<string>('');
+  readonly maxWidth = input('');
 
   /**
    * Represents the value of the input.
    */
-  readonly value = signal<string>('#000000');
+  readonly value = signal<string>('#ffffff');
 
   /**
-   * Indicates whether the input is focused.
+   * Computed signal for the text color with single quotes.
    */
-  readonly focused = signal<boolean>(false);
-
-  /**
-   * A reference to the native element.
-   */
-  readonly picker = contentChild<ElementRef>('picker');
-
-  /**
-   * A reference to the `NgModel` directive.
-   */
-  private readonly ngModel = contentChild<NgModel>(NgModel);
-
-  /**
-   * Indicates whether to show the color value.
-   */
-  readonly showColor = input<boolean>(true);
+  readonly valueWithSingleQuotes = computed(() => {
+    return `'${this.value()}'`;
+  });
 
   /**
    * A computed signal that dynamically calculates the text color based on the resolved value.
@@ -70,6 +57,51 @@ export class ColorPicker implements AfterViewInit, OnDestroy {
     const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
     return luminance > 128 ? '#000000' : '#FFFFFF';
   });
+
+  /**
+   * Indicates whether the input is focused.
+   */
+  readonly focused = signal<boolean>(false);
+
+  /**
+   * A reference to the `NgModel` directive.
+   */
+  private readonly ngModel = contentChild<NgModel>(NgModel);
+
+  /**
+   * Indicates whether to show the color value.
+   */
+  readonly showColor = input<boolean>(true);
+
+  /**
+   * A reference to the native element.
+   */
+  el = inject(ElementRef);
+
+  /**
+   * A reference to the control container.
+   */
+  private controlContainer = inject(ControlContainer);
+
+  /**
+   * Lifecycle hook that is called after the view has been initialized.
+   * Sets the initial value of the picker and attaches event listeners.
+   */
+  ngAfterViewInit(): void {
+    const formControl = this.controlContainer?.control?.get(
+      this.el.nativeElement.getAttribute('formControlName')
+    );
+
+    // Inicializa el valor del signal
+    this.value.set(
+      this.el?.nativeElement.value || this.ngModel()?.value || '#000000'
+    );
+
+    // Suscríbete a los cambios del FormControl
+    formControl?.valueChanges.subscribe((newValue: string) => {
+      this.value.set(newValue || '#000000');
+    });
+  }
 
   /**
    * Resolves a color value, handling cases like `transparent` or `color-mix`.
@@ -130,65 +162,5 @@ export class ColorPicker implements AfterViewInit, OnDestroy {
     const b = Math.round(rgb1.b * (1 - percentage) + rgb2.b * percentage);
 
     return rgbToHex(r, g, b);
-  }
-
-  /**
-   * Event listeners for input, focus, and blur events.
-   */
-  private inputListener?: () => void;
-  private focusListener?: () => void;
-  private blurListener?: () => void;
-
-  /**
-   * Lifecycle hook that is called after the view has been initialized.
-   * Sets the initial value of the picker and attaches event listeners.
-   */
-  ngAfterViewInit(): void {
-    this.value.set(
-      this.picker()?.nativeElement.value || this.ngModel()?.value || '#000000'
-    );
-    this.handlePicker();
-  }
-
-  /**
-   * Attaches event listeners to the picker element for handling input, focus, and blur events.
-   * Updates the value and focused state accordingly.
-   */
-  handlePicker(): void {
-    const picker = this.picker()?.nativeElement;
-    if (picker) {
-      this.inputListener = () => {
-        this.value.set(picker.value);
-      };
-      this.focusListener = () => {
-        this.focused.set(true);
-      };
-      this.blurListener = () => {
-        this.focused.set(false);
-      };
-
-      picker.addEventListener('input', this.inputListener);
-      picker.addEventListener('focus', this.focusListener);
-      picker.addEventListener('blur', this.blurListener);
-    }
-  }
-
-  /**
-   * Lifecycle hook that is called when the component is destroyed.
-   * Cleans up event listeners attached to the picker element.
-   */
-  ngOnDestroy(): void {
-    const picker = this.picker()?.nativeElement;
-    if (picker) {
-      if (this.inputListener) {
-        picker.removeEventListener('input', this.inputListener);
-      }
-      if (this.focusListener) {
-        picker.removeEventListener('focus', this.focusListener);
-      }
-      if (this.blurListener) {
-        picker.removeEventListener('blur', this.blurListener);
-      }
-    }
   }
 }
