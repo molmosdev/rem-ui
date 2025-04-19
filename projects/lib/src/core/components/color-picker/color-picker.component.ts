@@ -81,7 +81,7 @@ export class ColorPicker implements AfterViewInit {
   /**
    * A reference to the control container.
    */
-  private controlContainer = inject(ControlContainer);
+  private controlContainer = inject(ControlContainer, { optional: true });
 
   /**
    * Lifecycle hook that is called after the view has been initialized.
