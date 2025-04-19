@@ -21,7 +21,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (width > 999px) {
+    @media (width > 1400px) {
       border-left: 1px dashed var(--border-color);
       border-right: 1px dashed var(--border-color);
     }
